@@ -1,0 +1,19 @@
+# Build artifacts
+obj/
+*.elf
+*.hex
+*.map
+*.lst
+*.o
+*.d
+*.a
+*.bin
+
+# Tool-generated metadata
+.mrs/
+.cache/
+
+# IDE cache
+*.swp
+*.swo
+.DS_Store

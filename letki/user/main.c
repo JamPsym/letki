@@ -1,4 +1,5 @@
 #include "ch32v00x.h"
+#include "core_riscv.h"
 #include "debug.h"
 
 #include <wchar.h>
@@ -99,27 +100,27 @@ static size_t prepare_glyph_indices(const wchar_t* str, size_t str_cap, size_t* 
 
 
 // ones  D2 A1 C3 C4 D4 D3 C0 D7
-struct gpio_line {uint32_t gpio_base; uint32_t bitmask;};
+struct gpio_line {uint32_t gpio_base; uint8_t pin;};
 struct gpio_line row_drive_lines[] = {
-    {GPIOD_BASE, GPIO_OUTDR_ODR2},
-    {GPIOA_BASE, GPIO_OUTDR_ODR1},
-    {GPIOC_BASE, GPIO_OUTDR_ODR3},
-    {GPIOC_BASE, GPIO_OUTDR_ODR4},
-    {GPIOD_BASE, GPIO_OUTDR_ODR4},
-    {GPIOD_BASE, GPIO_OUTDR_ODR3},
-    {GPIOC_BASE, GPIO_OUTDR_ODR0},
-    {GPIOD_BASE, GPIO_OUTDR_ODR7},
+    {GPIOD_BASE, 2},
+    {GPIOA_BASE, 1},
+    {GPIOC_BASE, 3},
+    {GPIOC_BASE, 4},
+    {GPIOD_BASE, 4},
+    {GPIOD_BASE, 3},
+    {GPIOC_BASE, 0},
+    {GPIOD_BASE, 7},
 }; 
 // zeros A2 C1 C2 C5 C6 C7 D0 D1
 struct gpio_line column_sink_lines[] = {
-    {GPIOA_BASE, GPIO_OUTDR_ODR2},
-    {GPIOC_BASE, GPIO_OUTDR_ODR1},
-    {GPIOC_BASE, GPIO_OUTDR_ODR2},
-    {GPIOC_BASE, GPIO_OUTDR_ODR5},
-    {GPIOC_BASE, GPIO_OUTDR_ODR6},
-    {GPIOC_BASE, GPIO_OUTDR_ODR7},
-    {GPIOD_BASE, GPIO_OUTDR_ODR0},
-    {GPIOD_BASE, GPIO_OUTDR_ODR1},
+    {GPIOA_BASE, 2},
+    {GPIOC_BASE, 1},
+    {GPIOC_BASE, 2},
+    {GPIOC_BASE, 5},
+    {GPIOC_BASE, 6},
+    {GPIOC_BASE, 7},
+    {GPIOD_BASE, 0},
+    {GPIOD_BASE, 1},
 }; 
 
 
@@ -152,13 +153,13 @@ static inline struct gpio_drive_masks calculate_drive_masks(uint8_t column_bits)
         switch(row_drive_lines[row].gpio_base)
         {
             case GPIOA_BASE:
-                masks.a |= row_drive_lines[row].bitmask;
+                masks.a |= 1<<row_drive_lines[row].pin;
                 break;
             case GPIOC_BASE:
-                masks.c |= row_drive_lines[row].bitmask;
+                masks.c |= 1<<row_drive_lines[row].pin;
                 break;
             case GPIOD_BASE:
-                masks.d |= row_drive_lines[row].bitmask;
+                masks.d |= 1<<row_drive_lines[row].pin;
                 break;
             default:
                 printf("Fatal Error\r\n");
@@ -174,14 +175,13 @@ static inline void drive_display_column(uint8_t column_bits, size_t column_index
     const struct gpio_drive_masks masks = calculate_drive_masks(column_bits);
     const size_t previous_column = (column_index + 7U) & 0x7U;
 
-    ((GPIO_TypeDef*)(column_sink_lines[previous_column].gpio_base))->OUTDR |= column_sink_lines[previous_column].bitmask;
+    ((GPIO_TypeDef*)(column_sink_lines[previous_column].gpio_base))->OUTDR |= 1<<column_sink_lines[previous_column].pin;
 
     MODIFY_REG(GPIOA->OUTDR, GPIOA_CLEAR_MASK, masks.a);
     MODIFY_REG(GPIOC->OUTDR, GPIOC_CLEAR_MASK, masks.c);
     MODIFY_REG(GPIOD->OUTDR, GPIOD_CLEAR_MASK, masks.d);
 
-    // TODO: ghousting in the last row? understand why
-    ((GPIO_TypeDef*)(column_sink_lines[column_index].gpio_base))->OUTDR &= ~(column_sink_lines[column_index].bitmask);
+    ((GPIO_TypeDef*)(column_sink_lines[column_index].gpio_base))->OUTDR &= ~(1<<column_sink_lines[column_index].pin);
 }
 
 static void build_scroll_frame(uint8_t* frame, const size_t* glyph_indices, size_t glyph_count, size_t glyph_index, size_t column_offset)
@@ -219,85 +219,72 @@ static void build_scroll_frame(uint8_t* frame, const size_t* glyph_indices, size
 
 static void config_gpios();
 
-void render_loop(const wchar_t* str, const size_t str_cap);
+void render_loop(const wchar_t* str, const size_t str_cap, const uint32_t animation_time, const uint32_t count);
 
-void render_scroll_loop(const wchar_t* str, const size_t str_cap);
+void render_scroll_loop(const wchar_t* str, const size_t str_cap, const uint32_t animation_time, const uint32_t count);
+
+volatile uint32_t system_clock;
+__attribute__((interrupt("WCH-Interrupt-fast"))) void SysTick_Handler()
+{
+    system_clock++;
+
+    if(system_clock % 1000 == 0)
+    {
+        printf("sekundka %u \r\n", system_clock/1000);
+    }
+
+    SysTick->SR=0;
+}
 
 int main(void)
 {
     NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
     SystemCoreClockUpdate();
-    Delay_Init();
+
+
     USART_Printf_Init(115200);
     printf("USART debug ready\r\n");
 
+    //SysTick
+    SysTick->CMP = SystemCoreClock/1000;
+    SET_BIT(SysTick->CTLR, 0b1111);
+    NVIC_EnableIRQ(SysTick_IRQn);
+    __enable_irq();
+
     config_gpios();
-
-    // ones  D2 A1 C3 C4 D4 D3 C0 D7
-    GPIOA->OUTDR |= GPIO_OUTDR_ODR1;
-    GPIOC->OUTDR |= GPIO_OUTDR_ODR3 | GPIO_OUTDR_ODR4 | GPIO_OUTDR_ODR0;
-    GPIOD->OUTDR |= GPIO_OUTDR_ODR2 | GPIO_OUTDR_ODR4 | GPIO_OUTDR_ODR3 | GPIO_OUTDR_ODR7;
-    // zeros A2 C1 C2 C5 C6 C7 D0 D1
-    GPIOA->OUTDR &= ~GPIO_OUTDR_ODR2;
-    GPIOC->OUTDR &= ~(GPIO_OUTDR_ODR1 | GPIO_OUTDR_ODR2 | GPIO_OUTDR_ODR5 | GPIO_OUTDR_ODR6 | GPIO_OUTDR_ODR7);
-    GPIOD->OUTDR &= ~(GPIO_OUTDR_ODR0 | GPIO_OUTDR_ODR1);
  
-    // kill swd :< 
-    RCC->APB2PCENR |= RCC_AFIOEN;
-    AFIO->PCFR1 |= AFIO_PCFR1_SWJ_CFG_DISABLE;
-
-    const wchar_t str[] = L" WIDZEW WIDZEW ŁÓDZKI WIDZEW JA TEJ KURWY NIENAWIDZĘ  ";
+    const wchar_t str[] = L" CWEŁ MIŁOŚCI ";
     const size_t str_cap = sizeof(str) / sizeof(str[0]);
-    render_scroll_loop(str, str_cap);
+
+    while(1)
+    {
+        render_loop(str, str_cap, 250, 2);
+        render_scroll_loop(str, str_cap, 125, 2);
+    }
 
 }
 
 void config_gpios()
 {
     RCC->APB2PCENR |= RCC_APB2Periph_GPIOA | RCC_APB2Periph_GPIOC | RCC_APB2Periph_GPIOD;
+    
+    for(size_t i=0; i<8; i++)
+    {
+        GPIO_TypeDef* GPIOPORT = (GPIO_TypeDef*)row_drive_lines[i].gpio_base;
+        uint8_t pin = row_drive_lines[i].pin;
+        MODIFY_REG(GPIOPORT->CFGLR, 0xF<<pin*4, 0b0011<<pin*4);
 
+        GPIOPORT = (GPIO_TypeDef*)column_sink_lines[i].gpio_base;
+        pin = column_sink_lines[i].pin;
+        MODIFY_REG(GPIOPORT->CFGLR, 0xF<<pin*4, 0b0011<<pin*4);
+    }
 
-    // pwms 
-    // D2 T1CH1
-    GPIOD->CFGLR |= GPIO_CFGLR_MODE2;
-    GPIOD->CFGLR &= ~GPIO_CFGLR_CNF2;
-    // A1 T1CH2
-    GPIOA->CFGLR |= GPIO_CFGLR_MODE1;
-    GPIOA->CFGLR &= ~GPIO_CFGLR_CNF1;
-    // C3 T1CH3
-    // C4 T1CH4
-    GPIOC->CFGLR |= GPIO_CFGLR_MODE3 | GPIO_CFGLR_MODE4;
-    GPIOC->CFGLR &= ~(GPIO_CFGLR_CNF3 | GPIO_CFGLR_CNF4);
-
-    // D4 T2CH1ETR ?
-    // D3 T2CH2
-    GPIOD->CFGLR |= GPIO_CFGLR_MODE3 | GPIO_CFGLR_MODE4;
-    GPIOD->CFGLR &= ~(GPIO_CFGLR_CNF3| GPIO_CFGLR_CNF4);
-    // C0 T2CH3
-    GPIOC->CFGLR |= GPIO_CFGLR_MODE0;
-    GPIOC->CFGLR &= ~(GPIO_CFGLR_CNF0);
-    // D7 T2CH4
-    GPIOD->CFGLR |= GPIO_CFGLR_MODE7;
-    GPIOD->CFGLR &= ~(GPIO_CFGLR_CNF7);
-
-    // grounds
-    // A2
-    GPIOA->CFGLR |= GPIO_CFGLR_MODE2;
-    GPIOA->CFGLR &= ~GPIO_CFGLR_CNF2;
-    // C1
-    // C2
-    // C5
-    // C6
-    // C7
-    GPIOC->CFGLR |=   GPIO_CFGLR_MODE1 | GPIO_CFGLR_MODE2 | GPIO_CFGLR_MODE5 |  GPIO_CFGLR_MODE6 | GPIO_CFGLR_MODE7;
-    GPIOC->CFGLR &= ~(GPIO_CFGLR_CNF1  | GPIO_CFGLR_CNF2  | GPIO_CFGLR_CNF5  | GPIO_CFGLR_CNF6   | GPIO_CFGLR_CNF7);
-    // D0
-    // D1
-    GPIOD->CFGLR |= GPIO_CFGLR_MODE0 | GPIO_CFGLR_MODE1;
-    GPIOD->CFGLR &= ~(GPIO_CFGLR_CNF0| GPIO_CFGLR_CNF1);
+    // kill swdio
+    RCC->APB2PCENR |= RCC_AFIOEN;
+    AFIO->PCFR1 |= AFIO_PCFR1_SWJ_CFG_DISABLE;
 }
 
-void render_loop(const wchar_t* str, const size_t str_cap)
+void render_loop(const wchar_t* str, const size_t str_cap, const uint32_t animation_time, const uint32_t total_count)
 {
     size_t glyph_indices[str_cap];
     size_t glyph_count = prepare_glyph_indices(str, str_cap, glyph_indices);
@@ -309,9 +296,11 @@ void render_loop(const wchar_t* str, const size_t str_cap)
 
     size_t glyph_cursor = 0;
 
-    while(1)
+    uint32_t count = 0;
+    while(count < total_count)
     {
-        for(size_t d=0; d < 1000; d++)
+        uint32_t animation_timestamp = system_clock + animation_time;
+        while(system_clock < animation_timestamp)
         {
             for(size_t i = 0; i<8; i++)
             {
@@ -319,12 +308,13 @@ void render_loop(const wchar_t* str, const size_t str_cap)
             }
         }
 
+        if(glyph_cursor+1 == glyph_count) count++;
         glyph_cursor = (glyph_cursor + 1) % glyph_count;
-        printf("Index znaku %zu \r\n", glyph_cursor);
+        
     }
 }
 
-void render_scroll_loop(const wchar_t* str, const size_t str_cap)
+void render_scroll_loop(const wchar_t* str, const size_t str_cap, const uint32_t animation_time, const uint32_t total_count)
 {
     size_t glyph_indices[str_cap];
     size_t glyph_count = prepare_glyph_indices(str, str_cap, glyph_indices);
@@ -340,9 +330,11 @@ void render_scroll_loop(const wchar_t* str, const size_t str_cap)
     size_t scroll_column_index = 0;
     const size_t total_scroll_columns = glyph_count * 8;
 
-    while(1)
+    uint32_t count = 0;
+    while(count < total_count)
     {
-        for(size_t d=0; d < 250; d++)
+        uint32_t animation_timestamp = system_clock + animation_time;
+        while(system_clock < animation_timestamp)
         {
             for(size_t i = 0; i<8; i++)
             {
@@ -350,6 +342,7 @@ void render_scroll_loop(const wchar_t* str, const size_t str_cap)
             }
         }
 
+        if(scroll_column_index+1 == total_scroll_columns) count++;
         scroll_column_index = (scroll_column_index + 1) % total_scroll_columns;
 
         size_t scroll_glyph_index = scroll_column_index / 8;

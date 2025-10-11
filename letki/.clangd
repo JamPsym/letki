@@ -1,0 +1,19 @@
+CompileFlags:
+  Compiler: clang
+  Fallback:
+    Add:
+      -xc
+      -std=gnu99
+      --target=riscv32-unknown-elf
+      --gcc-toolchain=/mnt/c/MounRiver/MounRiver_Studio2/resources/app/resources/win32/components/WCH/Toolchain/RISC-V Embedded GCC
+      --sysroot=/mnt/c/MounRiver/MounRiver_Studio2/resources/app/resources/win32/components/WCH/Toolchain/RISC-V Embedded GCC/riscv-none-embed
+      -march=rv32ec
+      -mabi=ilp32e
+      -I${workspaceFolder}/User
+      -I${workspaceFolder}/Core
+      -I${workspaceFolder}/Peripheral/inc
+      -I${workspaceFolder}/Debug
+InlayHints:
+  Enabled: Yes
+Index:
+  Background: Build
