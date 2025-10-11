@@ -67,12 +67,40 @@ static size_t glyph_index_or_space(wchar_t ch)
     return space_index;
 }
 
+static size_t prepare_glyph_indices(const wchar_t* str, size_t str_cap, size_t* out_indices)
+{
+    size_t str_len = wcslen(str);
+
+    if(str_cap == 0)
+    {
+        return 0;
+    }
+
+    if(str_len >= str_cap)
+    {
+        str_len = str_cap - 1;
+    }
+
+    if(str_len == 0)
+    {
+        out_indices[0] = glyph_index_or_space(L' ');
+        return 1;
+    }
+
+    for(size_t i = 0; i < str_len; ++i)
+    {
+        out_indices[i] = glyph_index_or_space(str[i]);
+    }
+
+    return str_len;
+}
+
 
 
 
 // ones  D2 A1 C3 C4 D4 D3 C0 D7
-struct active_line_struct {uint32_t gpio_base; uint32_t bitmask;};
-struct active_line_struct ones[] = {
+struct gpio_line {uint32_t gpio_base; uint32_t bitmask;};
+struct gpio_line row_drive_lines[] = {
     {GPIOD_BASE, GPIO_OUTDR_ODR2},
     {GPIOA_BASE, GPIO_OUTDR_ODR1},
     {GPIOC_BASE, GPIO_OUTDR_ODR3},
@@ -83,7 +111,7 @@ struct active_line_struct ones[] = {
     {GPIOD_BASE, GPIO_OUTDR_ODR7},
 }; 
 // zeros A2 C1 C2 C5 C6 C7 D0 D1
-struct active_line_struct zeros[] = {
+struct gpio_line column_sink_lines[] = {
     {GPIOA_BASE, GPIO_OUTDR_ODR2},
     {GPIOC_BASE, GPIO_OUTDR_ODR1},
     {GPIOC_BASE, GPIO_OUTDR_ODR2},
@@ -103,11 +131,97 @@ struct active_line_struct zeros[] = {
 #define GPIOC_SET_MASK 0xE6 // C 1 2 5 6 7
 #define GPIOD_SET_MASK 0x3 // D 0 1
 
+struct gpio_drive_masks
+{
+    uint32_t a;
+    uint32_t c;
+    uint32_t d;
+};
+
+static inline struct gpio_drive_masks calculate_drive_masks(uint8_t column_bits)
+{
+    struct gpio_drive_masks masks = {GPIOA_SET_MASK, GPIOC_SET_MASK, GPIOD_SET_MASK};
+
+    for(size_t row = 0; row < 8; ++row)
+    {
+        if((column_bits & (1U << row)) == 0)
+        {
+            continue;
+        }
+
+        switch(row_drive_lines[row].gpio_base)
+        {
+            case GPIOA_BASE:
+                masks.a |= row_drive_lines[row].bitmask;
+                break;
+            case GPIOC_BASE:
+                masks.c |= row_drive_lines[row].bitmask;
+                break;
+            case GPIOD_BASE:
+                masks.d |= row_drive_lines[row].bitmask;
+                break;
+            default:
+                printf("Fatal Error\r\n");
+                while(1);
+        }
+    }
+
+    return masks;
+}
+
+static inline void drive_display_column(uint8_t column_bits, size_t column_index)
+{
+    const struct gpio_drive_masks masks = calculate_drive_masks(column_bits);
+    const size_t previous_column = (column_index + 7U) & 0x7U;
+
+    ((GPIO_TypeDef*)(column_sink_lines[previous_column].gpio_base))->OUTDR |= column_sink_lines[previous_column].bitmask;
+
+    MODIFY_REG(GPIOA->OUTDR, GPIOA_CLEAR_MASK, masks.a);
+    MODIFY_REG(GPIOC->OUTDR, GPIOC_CLEAR_MASK, masks.c);
+    MODIFY_REG(GPIOD->OUTDR, GPIOD_CLEAR_MASK, masks.d);
+
+    // TODO: ghousting in the last row? understand why
+    ((GPIO_TypeDef*)(column_sink_lines[column_index].gpio_base))->OUTDR &= ~(column_sink_lines[column_index].bitmask);
+}
+
+static void build_scroll_frame(uint8_t* frame, const size_t* glyph_indices, size_t glyph_count, size_t glyph_index, size_t column_offset)
+{
+    size_t dest_col = 0;
+    const Glyph8x8* current_glyph = &FONT_8x8[glyph_indices[glyph_index]];
+
+    for(size_t col = column_offset; col < 8 && dest_col < 8; ++col, ++dest_col)
+    {
+        frame[dest_col] = current_glyph->columns[col];
+    }
+
+    if(dest_col >= 8)
+    {
+        return;
+    }
+
+    if(glyph_index + 1 < glyph_count)
+    {
+        const Glyph8x8* next_glyph = &FONT_8x8[glyph_indices[glyph_index + 1]];
+        for(size_t col = 0; dest_col < 8; ++col, ++dest_col)
+        {
+            frame[dest_col] = next_glyph->columns[col];
+        }
+    }
+    else
+    {
+        while(dest_col < 8)
+        {
+            frame[dest_col++] = 0;
+        }
+    }
+}
+
+
 static void config_gpios();
 
 void render_loop(const wchar_t* str, const size_t str_cap);
 
-void render_loop_shifting(const wchar_t* str, const size_t str_cap);
+void render_scroll_loop(const wchar_t* str, const size_t str_cap);
 
 int main(void)
 {
@@ -134,7 +248,7 @@ int main(void)
 
     const wchar_t str[] = L" WIDZEW WIDZEW ŁÓDZKI WIDZEW JA TEJ KURWY NIENAWIDZĘ  ";
     const size_t str_cap = sizeof(str) / sizeof(str[0]);
-    render_loop_shifting(str, str_cap);
+    render_scroll_loop(str, str_cap);
 
 }
 
@@ -185,182 +299,62 @@ void config_gpios()
 
 void render_loop(const wchar_t* str, const size_t str_cap)
 {
-    // find indexes   
-    size_t str_len = wcslen(str);
-    if(str_len >= str_cap)
+    size_t glyph_indices[str_cap];
+    size_t glyph_count = prepare_glyph_indices(str, str_cap, glyph_indices);
+
+    if(glyph_count == 0)
     {
-        str_len = str_cap - 1;
+        return;
     }
 
-    size_t str_indexes[str_cap];
-    if(str_len == 0)
-    {
-        str_indexes[0] = glyph_index_or_space(L' ');
-        str_len = 1;
-    }
+    size_t glyph_cursor = 0;
 
-    for(size_t i = 0; i < str_len; ++i)
-    {
-        str_indexes[i] = glyph_index_or_space(str[i]);
-    }
-    
-    
     while(1)
     {
-        // sign delay
-        static size_t sign_index = 0;
         for(size_t d=0; d < 1000; d++)
         {
             for(size_t i = 0; i<8; i++)
             {
-                // 1. precompute masks for active lines
-                uint32_t amask=GPIOA_SET_MASK, cmask=GPIOC_SET_MASK, dmask=GPIOD_SET_MASK;
-
-                for(size_t j = 0; j<8; j++)
-                {
-                    uint8_t current_bit = !!(FONT_8x8[str_indexes[sign_index]].columns[i] & (1<<j));
-                    switch(ones[j].gpio_base){
-                        case GPIOA_BASE:
-                            amask |= ones[j].bitmask*current_bit;
-                            break;
-                        case GPIOC_BASE:
-                            cmask |= ones[j].bitmask*current_bit;
-                            break;
-                        case GPIOD_BASE:
-                            dmask |= ones[j].bitmask*current_bit;
-                            break;
-                        default:
-                        {
-                            printf("Fatal Error\r\n"); 
-                            while(1);
-                        }
-                    }
-                }
-                // 2. switch off last column
-                ((GPIO_TypeDef*)(zeros[(i-1)&0x7].gpio_base))->OUTDR |= zeros[(i-1)&0x7].bitmask;
-
-                // 3. reset all and then turn on lines with precomputed masks
-                MODIFY_REG(GPIOA->OUTDR, GPIOA_CLEAR_MASK, amask); 
-                MODIFY_REG(GPIOC->OUTDR, GPIOC_CLEAR_MASK, cmask); 
-                MODIFY_REG(GPIOD->OUTDR, GPIOD_CLEAR_MASK, dmask); 
-
-                // TODO: ghousting in the last row? understand why
-                // 4. switch on current column
-                ((GPIO_TypeDef*)(zeros[i].gpio_base))->OUTDR &= ~(zeros[i].bitmask);
+                drive_display_column(FONT_8x8[glyph_indices[glyph_cursor]].columns[i], i);
             }
         }
-        //change character
-        sign_index++;
-        if(sign_index >= str_len)
-        {
-            sign_index = 0;
-        }
-        printf("Index znaku %zu \r\n", sign_index);
+
+        glyph_cursor = (glyph_cursor + 1) % glyph_count;
+        printf("Index znaku %zu \r\n", glyph_cursor);
     }
 }
 
-void render_loop_shifting(const wchar_t* str, const size_t str_cap)
+void render_scroll_loop(const wchar_t* str, const size_t str_cap)
 {
-    size_t str_len = wcslen(str); // bajty?
-    if(str_len >= str_cap) // jeśli więcej bajtów niż znaków ???
+    size_t glyph_indices[str_cap];
+    size_t glyph_count = prepare_glyph_indices(str, str_cap, glyph_indices);
+
+    if(glyph_count == 0)
     {
-        str_len = str_cap - 1;
+        return;
     }
 
-    size_t str_indexes[str_cap];
-    if(str_len == 0)
-    {
-        str_indexes[0] = glyph_index_or_space(L' ');
-        str_len = 1;
-    }
+    uint8_t column_frame[8];
+    build_scroll_frame(column_frame, glyph_indices, glyph_count, 0, 0);
 
-    for(size_t i = 0; i < str_len; ++i)
-    {
-        str_indexes[i] = glyph_index_or_space(str[i]);
-    }
-    
-    uint8_t current_frame[8];
-    for(size_t i=0; i<8; i++)
-    {
-        current_frame[i] = FONT_8x8[str_indexes[0]].columns[i];
-    }
+    size_t scroll_column_index = 0;
+    const size_t total_scroll_columns = glyph_count * 8;
+
     while(1)
     {
-        static uint32_t col_counter = 0;      
-        
         for(size_t d=0; d < 250; d++)
         {
             for(size_t i = 0; i<8; i++)
             {
-                // 1. precompute masks for active lines
-                uint32_t amask=GPIOA_SET_MASK, cmask=GPIOC_SET_MASK, dmask=GPIOD_SET_MASK;
-
-                for(size_t j = 0; j<8; j++)
-                {
-                    uint8_t current_bit = !!(current_frame[i] & (1<<j));
-                    switch(ones[j].gpio_base){
-                        case GPIOA_BASE:
-                            amask |= ones[j].bitmask*current_bit;
-                            break;
-                        case GPIOC_BASE:
-                            cmask |= ones[j].bitmask*current_bit;
-                            break;
-                        case GPIOD_BASE:
-                            dmask |= ones[j].bitmask*current_bit;
-                            break;
-                        default:
-                        {
-                            printf("Fatal Error\r\n"); 
-                            while(1);
-                        }
-                    }
-                }
-                // 2. switch off last column
-                ((GPIO_TypeDef*)(zeros[(i-1)&0x7].gpio_base))->OUTDR |= zeros[(i-1)&0x7].bitmask;
-
-                // 3. reset all and then turn on lines with precomputed masks
-                MODIFY_REG(GPIOD->OUTDR, GPIOD_CLEAR_MASK, dmask);
-                MODIFY_REG(GPIOC->OUTDR, GPIOC_CLEAR_MASK, cmask);
-                MODIFY_REG(GPIOA->OUTDR, GPIOA_CLEAR_MASK, amask); 
-                
-                
-
-                // TODO: ghousting in the last row? understand why
-                // 4. switch on current column
-                ((GPIO_TypeDef*)(zeros[i].gpio_base))->OUTDR &= ~(zeros[i].bitmask);
+                drive_display_column(column_frame[i], i);
             }
         }
 
-        //render new frame
-        col_counter++;
+        scroll_column_index = (scroll_column_index + 1) % total_scroll_columns;
 
-        //  TODO: logika ku zapobieżeniu overflow
-        
-        uint32_t current_char_index = col_counter/8;
-        uint32_t first_column_index_within_char = col_counter % 8;
+        size_t scroll_glyph_index = scroll_column_index / 8;
+        size_t glyph_column_offset = scroll_column_index % 8;
 
-        if(current_char_index == str_len-1)
-            col_counter = 0;
-
-        uint32_t local_column_count = 0;
-        for(size_t i=first_column_index_within_char; i<8; i++, local_column_count++)
-        {
-           current_frame[local_column_count] = FONT_8x8[str_indexes[current_char_index]].columns[i];
-        }  
-
-        if(current_char_index+1 != str_len-1)
-        {
-            for(size_t i=0; i<8-local_column_count; i++)
-            {
-                current_frame[local_column_count+i] = FONT_8x8[str_indexes[current_char_index+1]].columns[i];
-            }
-        }
-        else
-        {
-            for(size_t i=0; i<8-local_column_count; i++)
-            {
-                current_frame[local_column_count+i] = 0;
-            }
-        }
+        build_scroll_frame(column_frame, glyph_indices, glyph_count, scroll_glyph_index, glyph_column_offset);
     }
 }
