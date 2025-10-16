@@ -1,3 +1,6 @@
-# Hardware caches and backups
-hw/**/fp-info-cache
-hw/**/*-backups/
+# Hardware projects: keep only the main KiCad sources
+hw/**
+!hw/**/
+!hw/**/*.kicad_pcb
+!hw/**/*.kicad_pro
+!hw/**/*.kicad_sch

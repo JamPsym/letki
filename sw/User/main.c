@@ -7,6 +7,7 @@
 #include "gamma.h"
 
 #include <stddef.h>
+#include <stdio.h>
 
 #define MODIFY_REG(REG, CLEARMASK, SETMASK) ((REG) = (((REG) & (~(CLEARMASK))) | (SETMASK)))
 #define SET_BIT(REG, BIT) ((REG) |= (BIT))
