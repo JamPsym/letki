@@ -1,6 +1,6 @@
 [
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -20,17 +20,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Core/core_riscv.c"
+      "/mnt/x/letki/sw/Core/core_riscv.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Core/core_riscv.c"
+    "file": "/mnt/x/letki/sw/Core/core_riscv.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -50,17 +50,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Debug/debug.c"
+      "/mnt/x/letki/sw/Debug/debug.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Debug/debug.c"
+    "file": "/mnt/x/letki/sw/Debug/debug.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -80,17 +80,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_adc.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_adc.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_adc.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_adc.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -110,17 +110,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_dbgmcu.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_dbgmcu.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_dbgmcu.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_dbgmcu.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -140,17 +140,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_dma.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_dma.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_dma.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_dma.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -170,17 +170,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_exti.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_exti.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_exti.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_exti.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -200,17 +200,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_flash.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_flash.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_flash.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_flash.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -230,17 +230,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_gpio.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_gpio.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_gpio.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_gpio.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -260,17 +260,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_i2c.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_i2c.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_i2c.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_i2c.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -290,17 +290,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_iwdg.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_iwdg.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_iwdg.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_iwdg.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -320,17 +320,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_misc.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_misc.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_misc.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_misc.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -350,17 +350,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_opa.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_opa.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_opa.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_opa.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -380,17 +380,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_pwr.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_pwr.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_pwr.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_pwr.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -410,17 +410,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_rcc.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_rcc.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_rcc.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_rcc.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -440,17 +440,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_spi.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_spi.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_spi.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_spi.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -470,17 +470,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_tim.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_tim.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_tim.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_tim.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -500,17 +500,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_usart.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_usart.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_usart.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_usart.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -530,17 +530,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_wwdg.c"
+      "/mnt/x/letki/sw/Peripheral/src/ch32v00x_wwdg.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/Peripheral/src/ch32v00x_wwdg.c"
+    "file": "/mnt/x/letki/sw/Peripheral/src/ch32v00x_wwdg.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -560,17 +560,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/User/ch32v00x_it.c"
+      "/mnt/x/letki/sw/User/ch32v00x_it.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/User/ch32v00x_it.c"
+    "file": "/mnt/x/letki/sw/User/ch32v00x_it.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -590,17 +590,17 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/User/main.c"
+      "/mnt/x/letki/sw/User/main.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/User/main.c"
+    "file": "/mnt/x/letki/sw/User/main.c"
   },
   {
-    "directory": "/mnt/x/letki/CH32V003F4U6",
+    "directory": "/mnt/x/letki/sw",
     "arguments": [
       "clang",
       "--target=riscv32-unknown-elf",
@@ -620,13 +620,13 @@
       "-Wuninitialized",
       "-g",
       "-std=gnu99",
-      "-I/mnt/x/letki/CH32V003F4U6/Debug",
-      "-I/mnt/x/letki/CH32V003F4U6/Core",
-      "-I/mnt/x/letki/CH32V003F4U6/User",
-      "-I/mnt/x/letki/CH32V003F4U6/Peripheral/inc",
+      "-I/mnt/x/letki/sw/Debug",
+      "-I/mnt/x/letki/sw/Core",
+      "-I/mnt/x/letki/sw/User",
+      "-I/mnt/x/letki/sw/Peripheral/inc",
       "-c",
-      "/mnt/x/letki/CH32V003F4U6/User/system_ch32v00x.c"
+      "/mnt/x/letki/sw/User/system_ch32v00x.c"
     ],
-    "file": "/mnt/x/letki/CH32V003F4U6/User/system_ch32v00x.c"
+    "file": "/mnt/x/letki/sw/User/system_ch32v00x.c"
   }
 ]

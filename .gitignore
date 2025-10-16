@@ -1,0 +1,3 @@
+# Hardware caches and backups
+hw/**/fp-info-cache
+hw/**/*-backups/
