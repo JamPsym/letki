@@ -1,10 +1,13 @@
 #include "ch32v00x.h"
-#include "ch32v00x_rcc.h"
 #include "core_riscv.h"
 #include "debug.h"
 #include "display_hw.h"
 #include "display_pwm.h"
 #include "gamma.h"
+
+#include "display_direct.h"
+
+#include <wchar.h>
 
 #include <stddef.h>
 #include <stdio.h>
@@ -42,31 +45,39 @@ int main(void)
     NVIC_EnableIRQ(SysTick_IRQn);
     __enable_irq();
 
-    display_pwm_init();
+    // display_pwm_init();
 
+
+    //  while(1)
+    //  {
+    //      for(uint16_t level = 0; level < GAMMA_TABLE_SIZE; ++level)
+    //      {
+    //          set_all_pwm((uint8_t)255);
+    //          SET_BIT(TIM1->SWEVGR, TIM_UG);
+    //          SET_BIT(TIM2->SWEVGR, TIM_UG);
+    //          delay_ms(3);
+    //      }
+
+    //      for(int level = GAMMA_TABLE_SIZE - 1; level >= 0; --level)
+    //      {
+    //          set_all_pwm((uint8_t)255);
+    //          SET_BIT(TIM1->SWEVGR, TIM_UG);
+    //          SET_BIT(TIM2->SWEVGR, TIM_UG);
+    //          delay_ms(3);
+    //      }
+    //  }
+
+
+    display_direct_init();
+    const wchar_t str[] = L" DOBRA DZIAŁA NIE UMIEM LUTOWAĆ ";
+    const size_t str_cap = sizeof(str) / sizeof(str[0]);
 
     while(1)
     {
-        for(uint16_t level = 0; level < GAMMA_TABLE_SIZE; ++level)
-        {
-            set_all_pwm((uint8_t)level);
-            SET_BIT(TIM1->SWEVGR, TIM_UG);
-            SET_BIT(TIM2->SWEVGR, TIM_UG);
-            delay_ms(3);
-        }
-
-        for(int level = GAMMA_TABLE_SIZE - 1; level >= 0; --level)
-        {
-            set_all_pwm((uint8_t)level);
-            SET_BIT(TIM1->SWEVGR, TIM_UG);
-            SET_BIT(TIM2->SWEVGR, TIM_UG);
-            delay_ms(3);
-        }
+       render_loop(str, str_cap, 250, 2);
+       //render_scroll_loop(str, str_cap, 50, 2);
     }
-
-    // legacy render loops kept for reference:
-    // render_loop(...);
-    // render_scroll_loop(...);
+    
 }
 
 static void delay_ms(uint32_t ms)

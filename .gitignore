@@ -4,3 +4,4 @@ hw/**
 !hw/**/*.kicad_pcb
 !hw/**/*.kicad_pro
 !hw/**/*.kicad_sch
+!hw/**/*.FCStd

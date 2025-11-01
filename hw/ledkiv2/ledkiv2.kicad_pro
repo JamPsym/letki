@@ -504,7 +504,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "",
+      "step": "ledkiv2.step",
       "svg": "",
       "vrml": ""
     },
