@@ -1,0 +1,23 @@
+{
+  "status": "PASS_STATIC_UNROUTED",
+  "footprints": 159,
+  "unique_reference_pin_pairs": 380,
+  "physical_numbered_pads": 383,
+  "mcu_pins_checked": 24,
+  "tracks_and_vias": 0,
+  "zones": 0,
+  "copper_layers": 4,
+  "pixel_pitch_mm": 6.2,
+  "tile_mm": [
+    49.6,
+    49.6
+  ],
+  "seam_span_mm": 2.54,
+  "rectangular_lattice_checked": [
+    4,
+    3
+  ],
+  "baseline_files_unchanged": 26,
+  "authored_board_and_erc_rules_preserved": true,
+  "qualifications": "No connectivity/routing, firmware, physical, fabrication or bootloader qualification."
+}

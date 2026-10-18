@@ -1,0 +1,83 @@
+{
+  "name": "My Cyganie \u2014 silk ribbon and ripple garden",
+  "title": "MY CYGANIE",
+  "artist": "DON VASYL",
+  "audio": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.flac",
+  "intro_seconds": 8,
+  "style": "music-ribbon",
+  "gain": 0.7,
+  "cues": [
+    {
+      "at": 0,
+      "duration": 20,
+      "effect": "music-ribbon"
+    },
+    {
+      "at": 20,
+      "duration": 20,
+      "effect": "music-ripple"
+    },
+    {
+      "at": 40,
+      "duration": 20,
+      "effect": "music-ribbon"
+    },
+    {
+      "at": 60,
+      "duration": 20,
+      "effect": "music-ripple"
+    },
+    {
+      "at": 80,
+      "duration": 20,
+      "effect": "music-ribbon"
+    },
+    {
+      "at": 100,
+      "duration": 20,
+      "effect": "music-ripple"
+    },
+    {
+      "at": 120,
+      "duration": 20,
+      "effect": "music-ribbon"
+    },
+    {
+      "at": 140,
+      "duration": 20,
+      "effect": "music-ripple"
+    },
+    {
+      "at": 160,
+      "duration": 20,
+      "effect": "music-ribbon"
+    },
+    {
+      "at": 180,
+      "duration": 20,
+      "effect": "music-ripple"
+    },
+    {
+      "at": 200,
+      "duration": 20,
+      "effect": "music-ribbon"
+    },
+    {
+      "at": 220,
+      "duration": 20,
+      "effect": "music-ripple"
+    },
+    {
+      "at": 240,
+      "duration": 20,
+      "effect": "music-ribbon"
+    },
+    {
+      "at": 260,
+      "duration": 20,
+      "effect": "music-ripple"
+    }
+  ],
+  "video": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.video.mp4",
+  "video_target": "PC only"
+}

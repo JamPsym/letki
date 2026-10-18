@@ -1,0 +1,73 @@
+V3.2 SUPPLIER DFM FOLLOW-UP — 2026-10-17
+
+The first checked GerberZIP(915158c130250e109730ec0905c34a1a0d936819fc20d1acb7cbe0643fb99088)
+was explicitly approved/uploaded to JLCONE and saved under Projects > Quotes.
+Detected4layers/49.6mmsquare, qty5,2USD +1.50USD promotional shipping before
+checkout charges. Four copper/two mask/two silk/outline/drill layers recognized;
+top/bottom thumbnails inspected. The raw bottom image is a top-projected view.
+
+Vendor DFM is NOT all-pass. Raw summary and measured details are retained in
+build/hardware/v3_2-fabrication-20261017/ and package evidence. Its summary/detail
+views cap displayed results; do not treat the shown red/orange/green numbers as
+all native-board ERC/DRC finding counts or as percentages.
+
+One real silk issue was fixed locally
+The two0.11mm silk-to-pad dangers correspond to the J2 pin1 L-marker beside
+its bare1.6mmSWIOpad. Only those two silk lines moved0.1mminX/Y, with equivalent
+local-library edits. Native preservation proves every other authored item,
+copper primitive, via, footprint pose, padstack, field and rule unchanged.
+All J2 silk now passes0.15mm against every J2 pad. Full current native ERC/DRC/
+opens/parity/ignored0 and independent76/76net checks pass after the repair.
+The new r2PCB is bddc92364a1d159535429667e7dee44b1b360e75906d5b59d24bad622b669859.
+Current package: hw/ledkiv3.2/exports/fabrication-20261017-r2/.
+Its GerberZIP is c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df.
+Both iterations were explicitly approved/uploaded. The currentr2top/bottom
+preview is inspected; the detailed vendorDFM evidence describes the first
+iteration. No claim of an all-passr2vendorDFM run is made.
+
+Other measured findings and interpretation
+The DFM reports0.06mm pad gaps involving0.6mmvia apertures and0.05/0.06mm
+mask-opening-to-copper gaps on the rear. Independent native mapping finds every
+nonintersecting rear track/via-to-mask pair below0.15mm is on the SAME net.
+No close foreign-net pair was found; native electrical/physical checks stay0.
+This explains the lack of native shorts, but does not waive supplier ink-plug
+or mask registration requirements. Those remain a real process question.
+
+Native vias have0.15mm nominal annular rings(0.6/0.3); JLCPCB's four-layer1oz
+absolute minimum is0.15mm, with0.2mmrecommended. DFM's annulus warnings are
+retained. Its generic THT-to-SMD, via/silk and stroke/1:1mask warnings are
+not evidence of a native missing connection or a qualified physical assembly.
+The source explicitly keeps ordinary vias outside SMT lands and uses0.15mmsilk
+strokes/1:1mask openings; do not change copper or suppress checks just to make
+an aperture-based summary green. Unreviewed supplier findings stay visible.
+
+The DFM layer table classified BOTH drill files as Plated drill layers,
+including ledkiv3_2-NPTH.drl. The actual Excellon header explicitly says
+TF.FileFunction,NonPlated,1,4,NPTH and contains exactly4x2.2mmM2holes.
+The PTH file separately contains299x0.3mmvias+3x0.6mm+28x0.8mmcomponent/wire
+holes. No source drill error was found. This viewer classification must not
+be accepted as confirmation of the final manufacturing treatment.
+
+Unresolved supplier process
+JLCONE disables Tented because it upgrades to Plugged for free. The conservative
+native audit finds92vias below0.35mm from hole edge to exposed mask openings,
+minimum0.0561mm; published guidance restricts ink plugging near openings.
+The prepared question asks JLCPCB to retain mask/tenting on close vias, plug
+only eligible holes, keep component/wire PTH open and mounting holes non-plated,
+and confirm cost before production. It has NOT been sent. Read the exact draft:
+build/hardware/v3_2-fabrication-20261017/supplier-process-question.txt.
+
+Status
+CAD_CHECKED_FIVE_BOARD_PROTOTYPE_PACKAGE. The user approved the correctedr2
+upload and selected “thats no important lets stick with defaults” instead of
+a supplier message. The new ZIP is uploaded, detected4layers/49.6mmsquare/qty5,
+with2USDboards+1.50USDPoland shipping before checkout charges. Its upload UUID
+is832cf03bd4174b1aa054b5c927f3f8b5. No support message was sent; the draft stays
+local. This supersedes the earlier upload/process holds for the prototype scope.
+Measured findings, unconfirmed production files and physical qualification stay
+explicit; user acceptance is not a claim of supplier engineering or test results.
+No cart/order/payment, firmware, stock/reservation or physical test occurred.
+
+Official process/capability sources checked2026-10-17:
+https://jlcpcb.com/capabilities/pcb-capabilities
+https://jlcpcb.com/help/article/pcb-via-covering

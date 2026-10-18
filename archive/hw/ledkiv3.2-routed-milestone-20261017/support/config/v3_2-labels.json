@@ -1,0 +1,1515 @@
+{
+  "status": "FITTED",
+  "labels": [
+    {
+      "ref": "J3.1",
+      "text": "3V3",
+      "xy": [
+        3.15,
+        6.2
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "b15a55cf-c1bc-4bb6-b27d-f2ea1ca78061"
+    },
+    {
+      "ref": "J3.2",
+      "text": "3V3",
+      "xy": [
+        3.15,
+        12.4
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "00b5c914-a075-41e9-9b39-58f0d3155ff2"
+    },
+    {
+      "ref": "J3.3",
+      "text": "SDA",
+      "xy": [
+        3.15,
+        18.6
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "dddd46fb-1e28-44cd-9f12-8af74e7ba35d"
+    },
+    {
+      "ref": "J3.4",
+      "text": "SCL",
+      "xy": [
+        3.15,
+        24.8
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "6c7e1be1-6993-4520-b6e9-764fcbdca70c"
+    },
+    {
+      "ref": "J3.5",
+      "text": "RX1",
+      "xy": [
+        3.15,
+        31.0
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "8c8aa172-7ec4-466f-8771-2761d5542b61"
+    },
+    {
+      "ref": "J3.6",
+      "text": "GND",
+      "xy": [
+        3.15,
+        37.2
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "af009720-32b9-4802-b51f-4ba466b45836"
+    },
+    {
+      "ref": "J3.7",
+      "text": "GND",
+      "xy": [
+        3.15,
+        43.4
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "e701d7aa-89fa-41e8-87ed-8d138142965b"
+    },
+    {
+      "ref": "J1.1",
+      "text": "3V3",
+      "xy": [
+        46.45,
+        5.8
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.4,
+      "uuid": "8a2c1ff8-7800-4ddf-9d19-b052a417b4fe"
+    },
+    {
+      "ref": "J1.2",
+      "text": "3V3",
+      "xy": [
+        46.45,
+        12.6
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.2,
+      "uuid": "e7231eb1-70f7-4322-ac10-b2cf7bde55b9"
+    },
+    {
+      "ref": "J1.3",
+      "text": "SDA",
+      "xy": [
+        46.45,
+        18.6
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "d66d3e69-1042-4a5f-87ea-4364aa16bf12"
+    },
+    {
+      "ref": "J1.4",
+      "text": "SCL",
+      "xy": [
+        46.45,
+        24.8
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "2d6fdc4f-a4c0-4737-b4f8-dc12d0ce8227"
+    },
+    {
+      "ref": "J1.5",
+      "text": "TX1",
+      "xy": [
+        46.45,
+        31.0
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "4a1c583d-146f-4e27-88a8-6056d0240bbd"
+    },
+    {
+      "ref": "J1.6",
+      "text": "GND",
+      "xy": [
+        46.45,
+        37.2
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "855fa1e3-10ab-4b1d-88cf-e874caacdd15"
+    },
+    {
+      "ref": "J1.7",
+      "text": "GND",
+      "xy": [
+        46.45,
+        43.4
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "215d9007-b054-4823-be9c-d782ce3eac32"
+    },
+    {
+      "ref": "J4.1",
+      "text": "3V3",
+      "xy": [
+        6.6,
+        3.2
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.447,
+      "uuid": "39e0c1c5-89c2-46a7-adf8-970cc8888b3b"
+    },
+    {
+      "ref": "J4.2",
+      "text": "3V3",
+      "xy": [
+        10.0,
+        1.8
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.683,
+      "uuid": "8fb8169e-823c-4a9b-8089-754563850cea"
+    },
+    {
+      "ref": "J4.3",
+      "text": "SDA",
+      "xy": [
+        17.6,
+        3.2
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.02,
+      "uuid": "5f263e8f-1139-4b7f-b37c-aca4e0c215a4"
+    },
+    {
+      "ref": "J4.4",
+      "text": "SCL",
+      "xy": [
+        22.8,
+        2.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.04,
+      "uuid": "06095f68-9f25-4a71-bd9d-3802a65def98"
+    },
+    {
+      "ref": "J4.5",
+      "text": "TX2",
+      "xy": [
+        31.0,
+        3.2
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.2,
+      "uuid": "3ee06db7-bfd7-41a5-8314-580b36b970d2"
+    },
+    {
+      "ref": "J4.6",
+      "text": "GND",
+      "xy": [
+        39.6,
+        1.8
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.683,
+      "uuid": "2af9404c-b009-4d00-a7e3-9778b24805f3"
+    },
+    {
+      "ref": "J4.7",
+      "text": "GND",
+      "xy": [
+        43.0,
+        3.2
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.447,
+      "uuid": "6056a3a3-1e20-4213-aee5-5cd11953ad0a"
+    },
+    {
+      "ref": "J5.1",
+      "text": "3V3",
+      "xy": [
+        6.6,
+        46.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.4,
+      "uuid": "63d63dda-502d-45ab-848f-8986df7be703"
+    },
+    {
+      "ref": "J5.2",
+      "text": "3V3",
+      "xy": [
+        14.4,
+        45.8
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.154,
+      "uuid": "99ccf0d6-7180-4a03-a919-faecf936f80f"
+    },
+    {
+      "ref": "J5.3",
+      "text": "SDA",
+      "xy": [
+        18.6,
+        46.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "360796c0-ad37-4b0e-9a58-9e201b71ef4e"
+    },
+    {
+      "ref": "J5.4",
+      "text": "SCL",
+      "xy": [
+        23.0,
+        46.8
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.811,
+      "uuid": "c42b5896-4503-425e-aa03-c593a614977a"
+    },
+    {
+      "ref": "J5.5",
+      "text": "RX2",
+      "xy": [
+        31.0,
+        46.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "4ac87974-31e6-433a-b1fc-2135fd820837"
+    },
+    {
+      "ref": "J5.6",
+      "text": "GND",
+      "xy": [
+        39.6,
+        47.8
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.683,
+      "uuid": "f601b77d-4698-4776-aa5f-9046ba59bbd4"
+    },
+    {
+      "ref": "J5.7",
+      "text": "GND",
+      "xy": [
+        43.0,
+        46.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.4,
+      "uuid": "989309dd-a9ed-4bfd-b8e1-9948004ed423"
+    },
+    {
+      "ref": "TP1",
+      "text": "RST",
+      "xy": [
+        30.6,
+        41.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.709,
+      "uuid": "bcf1edd8-e574-4f4e-94b6-e522e8c6110a"
+    },
+    {
+      "ref": "TP2",
+      "text": "CLK",
+      "xy": [
+        26.8,
+        41.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.28,
+      "uuid": "3913dbda-e538-4ece-b5f1-7c10ae022d8f"
+    },
+    {
+      "ref": "TP3",
+      "text": "PB1",
+      "xy": [
+        35.0,
+        37.8
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.2,
+      "uuid": "0c399f4f-b415-4181-a0f7-b9254c398354"
+    },
+    {
+      "ref": "J2",
+      "text": "SWIO",
+      "xy": [
+        14.4,
+        43.2
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.606,
+      "uuid": "2d915566-69bd-42f6-8645-fab6e8c299a6"
+    },
+    {
+      "ref": "board",
+      "text": "v3.2 R=#",
+      "xy": [
+        24.8,
+        22
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 0.0,
+      "uuid": "5916bdcf-d87d-4b24-be23-30335cebabe6"
+    },
+    {
+      "ref": "U1",
+      "text": "U1",
+      "xy": [
+        25.0,
+        23.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 5.4,
+      "uuid": "221da3f1-a359-43df-9f58-765117a424d8"
+    },
+    {
+      "ref": "U2",
+      "text": "U2",
+      "xy": [
+        21.2,
+        10.2
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 5.374,
+      "uuid": "27e3eb6d-09a7-4f61-9464-e00d934d1dd4"
+    },
+    {
+      "ref": "Q16",
+      "text": "Q16",
+      "xy": [
+        35.95,
+        6.85
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.821,
+      "uuid": "59303f95-625f-4ac0-91a4-7508aaa820a6"
+    },
+    {
+      "ref": "Q15",
+      "text": "Q15",
+      "xy": [
+        38.75,
+        11.85
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "3094a297-179b-4784-9c7a-5c4472e9d7ff"
+    },
+    {
+      "ref": "Q14",
+      "text": "Q14",
+      "xy": [
+        36.05,
+        12.9
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.123,
+      "uuid": "9e9626a9-005b-434e-950f-443e765cdb02"
+    },
+    {
+      "ref": "Q13",
+      "text": "Q13",
+      "xy": [
+        39.25,
+        19.15
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "8e4f0ad1-3d62-4f7e-b79a-787956905cb0"
+    },
+    {
+      "ref": "Q12",
+      "text": "Q12",
+      "xy": [
+        39.25,
+        25.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "8930e4e8-c119-44c0-a9e1-cb7b8dfb1cb9"
+    },
+    {
+      "ref": "Q11",
+      "text": "Q11",
+      "xy": [
+        39.25,
+        31.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "785e89ed-298d-47df-bed9-ff3c23268ded"
+    },
+    {
+      "ref": "Q10",
+      "text": "Q10",
+      "xy": [
+        38.75,
+        37.65
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "92fb9c3e-354d-43bc-817c-00957a8e1a18"
+    },
+    {
+      "ref": "Q9",
+      "text": "Q9",
+      "xy": [
+        38.75,
+        42.75
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.5,
+      "uuid": "c934cdfc-5e34-4e63-951a-6faa62720338"
+    },
+    {
+      "ref": "Q8",
+      "text": "Q8",
+      "xy": [
+        13.6,
+        6.85
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.677,
+      "uuid": "84c5c039-8ad2-40c3-97e4-d8cf4f1b6ac1"
+    },
+    {
+      "ref": "Q7",
+      "text": "Q7",
+      "xy": [
+        14.95,
+        8.25
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.317,
+      "uuid": "3cb69d77-fcf2-4a64-a890-1ab965bec5dc"
+    },
+    {
+      "ref": "Q6",
+      "text": "Q6",
+      "xy": [
+        10.0,
+        12.9
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "fe168374-0d74-4edd-8b41-a54e909d4a5f"
+    },
+    {
+      "ref": "Q5",
+      "text": "Q5",
+      "xy": [
+        10.0,
+        19.15
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "3a231c56-ea13-4bb9-99aa-76014e480772"
+    },
+    {
+      "ref": "Q4",
+      "text": "Q4",
+      "xy": [
+        10.0,
+        25.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "e7e147dd-ee3b-4ad0-9eea-02c3e8040e5f"
+    },
+    {
+      "ref": "Q3",
+      "text": "Q3",
+      "xy": [
+        10.0,
+        31.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "070e2ce3-4ec1-4065-b996-32e0f4f31ce4"
+    },
+    {
+      "ref": "Q2",
+      "text": "Q2",
+      "xy": [
+        10.75,
+        37.45
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.8,
+      "uuid": "4c70f1f4-b661-40e1-b16d-d0e2255bf453"
+    },
+    {
+      "ref": "Q1",
+      "text": "Q1",
+      "xy": [
+        13.6,
+        40.65
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 5.284,
+      "uuid": "49a90f21-a1bf-4dbc-b47c-6be09f93bf13"
+    },
+    {
+      "ref": "C1",
+      "text": "C1",
+      "xy": [
+        29.0,
+        8.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "4fbfc419-807c-4e84-a8f3-31f738bd9cf6"
+    },
+    {
+      "ref": "C3",
+      "text": "C3",
+      "xy": [
+        23.035,
+        33.8
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.608,
+      "uuid": "f1a27f23-6822-4c91-8a7b-826315da4348"
+    },
+    {
+      "ref": "C4",
+      "text": "C4",
+      "xy": [
+        19.2,
+        32.2
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.97,
+      "uuid": "b5c5bae6-3b9a-460b-9851-4a99bcc1f065"
+    },
+    {
+      "ref": "C6",
+      "text": "C6",
+      "xy": [
+        26.4,
+        36.2
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.72,
+      "uuid": "49c3a020-ebf9-4fcf-a05a-ea4eb373f3ab"
+    },
+    {
+      "ref": "R11",
+      "text": "11",
+      "xy": [
+        17.0,
+        36.35
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.65,
+      "uuid": "37bbe0c8-11fb-4c71-8983-ec92eb5e6846"
+    },
+    {
+      "ref": "R12",
+      "text": "12",
+      "xy": [
+        22.25,
+        36.1
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.441,
+      "uuid": "46837e5d-ecf7-4b95-b2e3-78e3d8146e3f"
+    },
+    {
+      "ref": "R15",
+      "text": "15",
+      "xy": [
+        10.85,
+        48.05
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.472,
+      "uuid": "a0bcfcd1-df3a-4adf-875c-805599eceea4"
+    },
+    {
+      "ref": "R16",
+      "text": "16",
+      "xy": [
+        13.5,
+        33.55
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.2,
+      "uuid": "628bf51d-b2f9-4c18-aea6-bba8ed767113"
+    },
+    {
+      "ref": "R17",
+      "text": "17",
+      "xy": [
+        15.0,
+        32.8
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.417,
+      "uuid": "b9f1ac5a-c06b-47ae-bc82-f70ff047eba1"
+    },
+    {
+      "ref": "R18",
+      "text": "18",
+      "xy": [
+        13.0,
+        26.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "3067d447-9063-4e38-b04b-4eb404277b65"
+    },
+    {
+      "ref": "R19",
+      "text": "19",
+      "xy": [
+        13.0,
+        20.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "906ad3fc-a32b-4679-99c6-e21e6242acfe"
+    },
+    {
+      "ref": "R20",
+      "text": "20",
+      "xy": [
+        13.0,
+        14.35
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "0fae6ab1-de1c-436d-9a4f-09b936091291"
+    },
+    {
+      "ref": "R21",
+      "text": "21",
+      "xy": [
+        15.3,
+        9.7
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.97,
+      "uuid": "145b1d27-cf52-4bf2-b5e5-2e87fd34abf4"
+    },
+    {
+      "ref": "R22",
+      "text": "22",
+      "xy": [
+        14.4,
+        1.85
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.433,
+      "uuid": "689b3aac-3fcb-4bfa-8e36-bab7d1a7ded9"
+    },
+    {
+      "ref": "R23",
+      "text": "23",
+      "xy": [
+        1.7,
+        45.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.408,
+      "uuid": "cd8c025a-f2db-425e-84f2-8e534e5b060e"
+    },
+    {
+      "ref": "R24",
+      "text": "24",
+      "xy": [
+        7.0,
+        38.35
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.65,
+      "uuid": "aac4be9b-1084-4e9c-98dc-2b10b780a64f"
+    },
+    {
+      "ref": "R25",
+      "text": "25",
+      "xy": [
+        7.0,
+        31.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "dbad86f6-01cc-457c-a9cd-7371acd8b2c7"
+    },
+    {
+      "ref": "R26",
+      "text": "26",
+      "xy": [
+        7.0,
+        25.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "8e2bac8f-fbae-4ba4-95bf-43c739a8b73e"
+    },
+    {
+      "ref": "R27",
+      "text": "27",
+      "xy": [
+        7.0,
+        19.35
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "f1968b02-ccfa-4e2e-a367-ef7d6c1878fb"
+    },
+    {
+      "ref": "R28",
+      "text": "28",
+      "xy": [
+        7.0,
+        13.1
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "a3b53c86-c7b2-4d8b-a825-e99ef3fe8cc6"
+    },
+    {
+      "ref": "R29",
+      "text": "29",
+      "xy": [
+        4.6,
+        9.35
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.433,
+      "uuid": "8e7a3da7-d7d4-40b9-846c-df601ffb67e0"
+    },
+    {
+      "ref": "R30",
+      "text": "30",
+      "xy": [
+        3.5,
+        1.1
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.65,
+      "uuid": "d3d6aca1-5ad6-4be8-bebc-4d409f92cdd4"
+    },
+    {
+      "ref": "R31",
+      "text": "31",
+      "xy": [
+        32.25,
+        43.7
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.104,
+      "uuid": "4352f01c-7771-401c-a6f3-ca81133d4759"
+    },
+    {
+      "ref": "R32",
+      "text": "32",
+      "xy": [
+        36.35,
+        37.4
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.87,
+      "uuid": "f26e6156-6d77-4e7e-9c1b-8e72041152a8"
+    },
+    {
+      "ref": "R33",
+      "text": "33",
+      "xy": [
+        36.25,
+        31.85
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "80fbcbff-7f7f-4ea9-bfbb-32514103369f"
+    },
+    {
+      "ref": "R34",
+      "text": "34",
+      "xy": [
+        36.25,
+        25.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "fd940b5f-f6b7-461a-93a3-5e1d5e3bcf71"
+    },
+    {
+      "ref": "R35",
+      "text": "35",
+      "xy": [
+        36.25,
+        19.35
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "7ec51209-8cac-4e88-812a-1af44168872a"
+    },
+    {
+      "ref": "R36",
+      "text": "36",
+      "xy": [
+        33.85,
+        12.7
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.688,
+      "uuid": "854a9d0f-5d00-43de-93fe-5394f383eb46"
+    },
+    {
+      "ref": "R37",
+      "text": "37",
+      "xy": [
+        33.75,
+        6.7
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.441,
+      "uuid": "91ac6603-b7e8-4872-8447-fbf125040ffa"
+    },
+    {
+      "ref": "R38",
+      "text": "38",
+      "xy": [
+        32.05,
+        4.85
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.578,
+      "uuid": "f49a96dd-2bf5-4448-9763-e8b3ba4b88b6"
+    },
+    {
+      "ref": "R39",
+      "text": "39",
+      "xy": [
+        18.2,
+        6.1
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.28,
+      "uuid": "c7e7091a-4b0f-4510-92c7-7d9bdd5c0c98"
+    },
+    {
+      "ref": "R40",
+      "text": "40",
+      "xy": [
+        20.8,
+        2.5
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 5.463,
+      "uuid": "cc2baf51-d92d-4e02-9b7f-a14a41aa623c"
+    },
+    {
+      "ref": "R41",
+      "text": "41",
+      "xy": [
+        30.0,
+        6.3
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.176,
+      "uuid": "4faa67fe-2607-4bec-87c1-50144e7f1fc2"
+    },
+    {
+      "ref": "R42",
+      "text": "42",
+      "xy": [
+        31.7,
+        45.1
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.28,
+      "uuid": "3a6c0e87-42fb-4868-9b23-25a1e8b7ff7a"
+    },
+    {
+      "ref": "R43",
+      "text": "43",
+      "xy": [
+        33.0,
+        36.85
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.4,
+      "uuid": "4c4e0e86-579c-4706-9b04-e31b82ce6665"
+    },
+    {
+      "ref": "R44",
+      "text": "44",
+      "xy": [
+        34.5,
+        31.45
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.8,
+      "uuid": "b3bdf7a3-efaf-4615-a10d-a273f642b3b6"
+    },
+    {
+      "ref": "R45",
+      "text": "45",
+      "xy": [
+        34.5,
+        25.2
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.8,
+      "uuid": "47157d92-68e1-4ad9-9835-a3eb27b99d08"
+    },
+    {
+      "ref": "R46",
+      "text": "46",
+      "xy": [
+        34.5,
+        18.95
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.8,
+      "uuid": "7099a355-beb3-4a3c-a51c-2a4f5a685259"
+    },
+    {
+      "ref": "R47",
+      "text": "47",
+      "xy": [
+        32.9,
+        14.3
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.0,
+      "uuid": "b6211285-29ff-40bf-8062-264ecd418797"
+    },
+    {
+      "ref": "R48",
+      "text": "48",
+      "xy": [
+        32.4,
+        7.1
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.884,
+      "uuid": "8ff5cd96-a463-4cd1-89b0-706f60778a17"
+    },
+    {
+      "ref": "R49",
+      "text": "49",
+      "xy": [
+        29.5,
+        1.25
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.472,
+      "uuid": "2c9c1b0c-ff7c-4e99-a625-57c82cfa54a1"
+    },
+    {
+      "ref": "R50",
+      "text": "50",
+      "xy": [
+        30.55,
+        43.75
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.2,
+      "uuid": "da3ce29c-7dee-47a0-9f54-d2da6d640185"
+    },
+    {
+      "ref": "R51",
+      "text": "51",
+      "xy": [
+        46.95,
+        39.55
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.569,
+      "uuid": "ee6cb46a-3580-4ed0-8113-36c6290ab7c5"
+    },
+    {
+      "ref": "R52",
+      "text": "52",
+      "xy": [
+        46.65,
+        34.75
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.544,
+      "uuid": "86f3423d-2132-4ebf-8f8d-0facf3db1904"
+    },
+    {
+      "ref": "R53",
+      "text": "53",
+      "xy": [
+        43.25,
+        31.1
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.6,
+      "uuid": "becdba3b-b071-440c-a75a-a067b682638b"
+    },
+    {
+      "ref": "R54",
+      "text": "54",
+      "xy": [
+        43.25,
+        25.1
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.6,
+      "uuid": "a5265985-5009-4e48-a100-2a987849ed50"
+    },
+    {
+      "ref": "R55",
+      "text": "55",
+      "xy": [
+        43.25,
+        18.85
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.6,
+      "uuid": "d18c44ab-67a8-4992-85d3-8ecd70cbd1f7"
+    },
+    {
+      "ref": "R56",
+      "text": "56",
+      "xy": [
+        42.2,
+        13.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.612,
+      "uuid": "320326db-f76d-4314-9ffb-a0e835d9de96"
+    },
+    {
+      "ref": "R57",
+      "text": "57",
+      "xy": [
+        48.6,
+        10.2
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.0,
+      "uuid": "3f72dedf-022c-474f-b2d8-0c20460bf31c"
+    },
+    {
+      "ref": "R66",
+      "text": "66",
+      "xy": [
+        23.75,
+        41.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "8f85c6d9-d401-4e41-9b78-6cc771e892bf"
+    },
+    {
+      "ref": "R67",
+      "text": "67",
+      "xy": [
+        26.8,
+        40.0
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.079,
+      "uuid": "910de238-c312-4bb8-948e-d2620bb24fd3"
+    },
+    {
+      "ref": "R68",
+      "text": "68",
+      "xy": [
+        28.45,
+        39.8
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 4.205,
+      "uuid": "bc9aa743-941a-4067-b4b6-c802f49a17be"
+    },
+    {
+      "ref": "R69",
+      "text": "69",
+      "xy": [
+        21.0,
+        1.05
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.2,
+      "uuid": "98730018-27c2-4845-b93d-5b6b66a6a75e"
+    },
+    {
+      "ref": "R70",
+      "text": "70",
+      "xy": [
+        26.4,
+        2.45
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.28,
+      "uuid": "dd6e92ea-bb03-44b6-9c2b-96c81339f27f"
+    },
+    {
+      "ref": "R71",
+      "text": "71",
+      "xy": [
+        28.05,
+        1.3
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 3.206,
+      "uuid": "e1eb24b3-975e-4aa7-8523-c96166303277"
+    },
+    {
+      "ref": "R72",
+      "text": "72",
+      "xy": [
+        29.0,
+        16.4
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.6,
+      "uuid": "ea560c09-42f4-4af8-b405-3fee04a00576"
+    },
+    {
+      "ref": "R73",
+      "text": "73",
+      "xy": [
+        30.7,
+        32.2
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.811,
+      "uuid": "c948c01b-78fc-4d22-82dc-3b5d7b007205"
+    },
+    {
+      "ref": "R1",
+      "text": "1",
+      "xy": [
+        46.5,
+        45.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.65,
+      "uuid": "34d28ffa-07be-4fee-a686-cadc741f93ba"
+    },
+    {
+      "ref": "R2",
+      "text": "2",
+      "xy": [
+        45.0,
+        37.95
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.059,
+      "uuid": "f4cd9b6b-d385-4821-add7-d0f603789837"
+    },
+    {
+      "ref": "R3",
+      "text": "3",
+      "xy": [
+        43.8,
+        32.15
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.612,
+      "uuid": "4153e6f7-031d-426a-8e2e-054945d8f616"
+    },
+    {
+      "ref": "R4",
+      "text": "4",
+      "xy": [
+        44.6,
+        25.7
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.897,
+      "uuid": "eb544f62-e880-4684-b927-61fb51c17a23"
+    },
+    {
+      "ref": "R5",
+      "text": "5",
+      "xy": [
+        44.2,
+        19.9
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.612,
+      "uuid": "f1d07001-80b4-4bcd-b901-49c5ad8c4f9c"
+    },
+    {
+      "ref": "R6",
+      "text": "6",
+      "xy": [
+        44.0,
+        13.6
+      ],
+      "angle": 0,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.65,
+      "uuid": "c6db1ce4-1033-4b9c-b903-855cb36698f6"
+    },
+    {
+      "ref": "R7",
+      "text": "7",
+      "xy": [
+        42.0,
+        8.6
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 2.441,
+      "uuid": "be7e0ec4-e937-4c95-949d-e1b75982ad43"
+    },
+    {
+      "ref": "R8",
+      "text": "8",
+      "xy": [
+        46.5,
+        0.9
+      ],
+      "angle": 90,
+      "font_mm": 1,
+      "stroke_mm": 0.15,
+      "distance_from_part_mm": 1.6,
+      "uuid": "f3156396-b220-46fe-b814-0698eca7faf4"
+    }
+  ],
+  "native_glyph_gap_mm": 0.17,
+  "silkscreen_only": true
+}

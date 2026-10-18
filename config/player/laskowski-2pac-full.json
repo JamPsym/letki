@@ -1,0 +1,248 @@
+{
+  "name": "Laskowski x 2Pac — wielkie pojednanie",
+  "title": "LASKOWSKI x 2PAC",
+  "artist": "NOSPE EPSON MASHUP",
+  "audio": "../../build/media/fusion/LaXazWRppwI.flac",
+  "video": "../../build/media/fusion/LaXazWRppwI.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 0,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 0.18,
+  "style": "fusion-duet",
+  "cues": [
+    {
+      "at": 0,
+      "duration": 8,
+      "effect": "fusion-drama",
+      "label": "Wielka uwertura",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 0,
+      "duration": 8,
+      "text": "LASKOWSKI x 2PAC",
+      "mode": "scroll"
+    },
+    {
+      "at": 8,
+      "duration": 13.274175328083992,
+      "effect": "fusion-duet",
+      "label": "Spotkanie dwoch estrad",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 21.27417532808399,
+      "duration": 20.99737532808399,
+      "effect": "fusion-ride",
+      "label": "Lowrider z tortem",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 22,
+      "duration": 4,
+      "text": "BIAŁYSTOK",
+      "mode": "scroll"
+    },
+    {
+      "at": 42.27155065616798,
+      "duration": 20.99737532808399,
+      "effect": "fusion-radio",
+      "label": "Boombox w muszce",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 44,
+      "duration": 4,
+      "text": "LOS ANGELES",
+      "mode": "scroll"
+    },
+    {
+      "at": 63.26892598425197,
+      "duration": 20.997375328083983,
+      "effect": "fusion-duet",
+      "label": "Zamiana rol",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 84.26630131233595,
+      "duration": 20.99737532808399,
+      "effect": "fusion-toast",
+      "label": "Toast miedzykontynentalny",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 105.26367664041994,
+      "duration": 20.99737532808399,
+      "effect": "fusion-drama",
+      "label": "Swiatowa premiera lzy",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 108,
+      "duration": 5,
+      "text": "ŚWIAT NIE WIERZY ŁZOM",
+      "mode": "scroll"
+    },
+    {
+      "at": 126.26105196850393,
+      "duration": 20.997375328084004,
+      "effect": "fusion-ride",
+      "label": "Konwoj godnosci",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 147.25842729658794,
+      "duration": 20.99737532808399,
+      "effect": "fusion-duet",
+      "label": "Podlaski West Coast",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 168.25580262467193,
+      "duration": 20.99737532808399,
+      "effect": "fusion-drama",
+      "label": "Dramat absolutny",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 169,
+      "duration": 3,
+      "text": "DRAMAT",
+      "mode": "scroll"
+    },
+    {
+      "at": 189.25317795275592,
+      "duration": 20.99737532808399,
+      "effect": "fusion-radio",
+      "label": "Powrot z pelna powaga",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 210.2505532808399,
+      "duration": 20.99737532808399,
+      "effect": "fusion-toast",
+      "label": "Wielkie pojednanie",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 212,
+      "duration": 5,
+      "text": "WIELKIE POJEDNANIE",
+      "mode": "scroll"
+    },
+    {
+      "at": 231.2479286089239,
+      "duration": 20.99737532808399,
+      "effect": "fusion-duet",
+      "label": "Razem na estradzie",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 252.2453039370079,
+      "duration": 20.99737532808396,
+      "effect": "fusion-ride",
+      "label": "Tort jedzie dalej",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 273.24267926509185,
+      "duration": 12.757320734908149,
+      "effect": "fusion-drama",
+      "label": "Final na stojaco",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 280,
+      "duration": 4,
+      "text": "OWACJE",
+      "mode": "scroll"
+    },
+    {
+      "at": 286,
+      "duration": 8,
+      "effect": "fusion-toast",
+      "label": "Ostatni uklon",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 289,
+      "duration": 4,
+      "text": "KURTYNA",
+      "mode": "scroll"
+    },
+    {
+      "at": 294,
+      "duration": 12.392999999999972,
+      "effect": "fusion-drama",
+      "label": "Kurtyna",
+      "level": 0,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    }
+  ],
+  "recording": {
+    "sha256": "71b4d5f3f9be2652ee3f7a315c96e9e498e6e61fdbbc6ae32189f63ae5d559f5",
+    "duration_seconds": 306.393,
+    "source": "https://www.youtube.com/watch?v=LaXazWRppwI"
+  },
+  "authoring": {
+    "version": 1,
+    "basis": "Measured pulse 91.44 BPM; 0.2768s phase. Local 20s strong-flux phase estimates 0.2619..0.2968s. Editorial beat-aligned scenes, not verified bars. Comic wedding/West-Coast contrast performed with theatrical solemnity; video remains on PC.",
+    "video_on_leds": false
+  },
+  "output_gamma": 0.5,
+  "rhythm": {
+    "bpm": 91.44,
+    "offset": 0.2768
+  }
+}

@@ -1,0 +1,200 @@
+V3.2 INDEPENDENT ARCHITECTURE REVIEW — 2026-10-17
+
+Recommendation
+Use CH32V006E8R6/QSOP24 for the main hand-assembled design. It fits eight
+independent main PWM channels, three decoder addresses, two USART TX/RX pairs,
+I2C, SWIO, dedicated reset and an independent LED blanking GPIO. QFN32 is an
+optional soldering trial, not necessary for this pin budget. The user selected
+directed west-to-east and south-to-north UART links with shared I2C
+replies/recovery, with the controller at bottom-left. Row/column
+multidrop is feasible but needs a dual tri-state buffer, arbitration and
+explicit coordinate commissioning. Neither topology has been qualified.
+
+Exact QSOP24 assignment — recommended baseline
+Function                  GPIO          Physical package pin
+TIM1_CH1, remap9          PA0            18
+TIM1_CH2, remap9          PA1            17
+TIM1_CH3, remap9          PA2            19
+TIM1_CH4, remap9          PA3            21
+TIM2_CH1, default         PD4            11
+TIM2_CH2, default         PD3            10
+TIM2_CH3, default         PC0             2
+TIM2_CH4, default         PD7            14
+USART1_TX/RX, default     PD5 / PD6      12 / 13
+USART2_TX/RX, remap1      PA4 / PA5      15 / 16
+I2C SDA/SCL, default      PC1 / PC2       3 / 4
+SWIO                     PD1             1
+Decoder A0/A1/A2          PD0/PD2/PB0    20/9/22
+LED_BLANK                 PC4             8
+Dedicated reset          PC5             7
+Spare / optional SWCLK    PB1 / PB3      23 / 24
+VDD / VSS                                6 / 5
+
+TIM1 remap9 is GPIO_FullRemap_TIM1 in WCH's header. USART2 remap1 is
+GPIO_PartialRemap1_USART2. Keep all TIM1 complementary outputs disabled:
+CHxN is not an independent duty channel, and their remapped pins overlap
+TIM2/I2C. HSI is required because PA1/PA2 are used as signals, not a crystal.
+The two timers allow eight independently programmed duty values; this is
+not a claim of eight independent PWM frequencies.
+
+CORRECTIONS to the earlier electronics V006 study:
+- E8R6 reset is PC5, not PD7. The earlier assignment of PC5 to a decoder
+  address unnecessarily consumed reset, and its PD7 provisioning warning
+  was incorrect for this package. PD7 is a normal PWM GPIO here.
+- QSOP24 PA1 and PA6 are internally bonded to pin17. Use PA1 for PWM and
+  leave PA6 high impedance. Never drive both. PA6 is not a spare pad.
+- Use freePC4 for LED blanking in the selected directional topology.
+  PB3 remains available for optionalSWCLK, so debug clock cannot affect LEDs.
+
+Safe decoder blanking
+Connect PC4 directly to SN74HC138 G2A (active-low enable, pin4), with an
+external 47k pull-up to local3.3V. Keep G2B pin5 atGND and G1 pin6 atVDD.
+High/floating PC4 disables all active-low decoder outputs, keeping PMOS
+columns off through existing gate-source pullups. MCU drives PC4 low only
+after configuring rows, decoder addresses and bounded pulse timing. No
+transistor is needed for same-rail3.3V CMOS. Maintain NMOS gate pulldowns.
+Assert blank before erase/program, reset, remap changes and error recovery.
+The resistor value is a design candidate; check leakage/noise and startup
+waveforms. The selectedPC4 blanking pin is independent of reset and debug.
+Retain per-tile SWIO/GND/VDD and reset test access. These pins avoid the v3
+PD7-reset-to-GPIO option-byte dependency.
+
+Exact QFN32 alternative — preserves original default PWM wiring
+TIM1_CH1..4 default: PD2(24), PA1(6), PC3(16), PC4(18).
+TIM2_CH1..4 default: PD4(26), PD3(25), PC0(13), PD7(31).
+USART1 default: TXPD5(27), RXPD6(28).
+USART2 remap2: TXPA2(7), RXPA3(9).
+I2C default: SDAPC1(14), SCLPC2(15). SWIOPD1(23).
+Decoder A0/A1/A2: PC7(21), PC6(20), PC5(19).
+LED_BLANK PB2(12); optional H_OE#/V_OE# PB0(10)/PB1(11).
+ResetPA7(4), VDD(17), VSS exposed pad0.
+QFN32 body4x4mm/pitch0.4mm versus QSOP24 body3.9x8.7mm/pitch0.635mm.
+The QFN32 exposed pad is its ONLY VSS connection; all32 perimeter pins
+are31GPIO+VDD. Perimeter soldering alone cannot connect ground. It requires
+a reliable under-body solder joint. A standard footprint may number the
+exposed pad33 rather than WCH's0: explicitly reconcile symbol and footprint.
+
+Directed UART topology — recommended lower-BOM option
+All tiles have the same orientation. USART1 RX enters west and TX exits
+east. USART2 RX enters south and TX exits north. Each seam joins exactly
+one TX to one RX, with local series protection/damping as justified by
+waveforms. Never tie multiple TX outputs together. Tie SDA/SCL and common
+power/ground across both axes. Two USART peripherals do NOT provide four
+independent full-duplex neighbor links: replies use shared I2C.
+Use a deterministic forwarding tree: head atSW distributes up the
+first column; each row head distributes east. This covers every complete
+W-by-H rectangle. Identify coordinates by positional hop count and UID;
+avoid processing duplicates if alternate paths are later enabled. Do not
+naively forward every packet on every edge without packet IDs/route rules.
+Stage data locally, then apply it at a future shared clock/frame epoch;
+the arrival time of the UART frame is not the display synchronization event.
+I2C broadcasts can carry common clock/commit state; poll individual status
+addresses for readiness/CRC. An aggregate ACK cannot prove every tile is ready.
+
+Row/column multidrop alternative — comparison only, not selected
+One horizontal shared UART net passes E/W and one separate vertical net
+passes N/S; do not short those nets. Each USART RX listens to its bus; TX
+drives through its own74LVC2G125 channel. OE# has an external pull-up and
+is high during boot/reset/idle. PC4 andPB1 can provide the two enables onQSOP
+only if LED_BLANK is moved toPB3, then restricting debug to single-wireSWIO.
+Use controller-issued grants/token ownership for each row/column. Idle
+sensing alone does not prevent two simultaneous starts. Wait for USART TC
+(last stop bit complete), disable OE, then allow a guard interval. Use CRC,
+bounded grants, timeouts and recovery; receive echo may detect an error but
+does not make push-pull collisions electrically safe. Provide deliberate
+idle-high bias per segment; account for parallel biases if fitted per tile.
+Rows/columns may operate concurrently only under a collision-free schedule.
+This topology cannot infer physical ordering within a shared row or column:
+permuting nodes preserves its electrical connectivity. Assign persistent
+x/y coordinates through host commissioning (e.g. blink to identify) unless
+directional discovery hardware is added.
+
+Update/recovery architecture
+WCH's factory BOOT is serial-only: Evaluation Board Reference V1.1 p9
+specifies USART1PD5/PD6 for these packages. It does not document an I2C
+factory bootloader. The supplied USART_IAP routine also states UART only.
+Install a custom I2C bootloader initially viaSWIO. Preserve the factory
+3328-byte BOOT region and localSWIO recovery access. Default USART1 pins
+remain available for service, but a directed chain is not a transparent
+full-duplex factory-ISP connection to every tile.
+Loader must run even if the application is missing/corrupt, hold LEDs blank,
+and retain a unique service identity independently of the application.
+Persist address/UID records with CRC and redundant commits; provide a
+defined recovery for lost/colliding addresses. Do not let all blank tiles
+answer different read data at one default I2C address. A factory UID alone
+does not implement collision-free discovery.
+Use bounded packet length/offset, image CRC/version, per-page readback,
+explicit inactive-image validation and an atomic final commit. Resume or
+revert after power interruption. Keep the loader out of remotely writable
+ranges. Choose either dual linked application slots or a staged-image/copy
+scheme after verifying RISC-V vector/link placement; two flash slots alone
+do not make arbitrary application images relocatable.
+62KiB user flash ends at0x0800F800. WCH's driver provides256-byte fast page
+erase/program,1KiB standard erase and32KiB block erase. Write-protection
+groups are8pages=2KiB. Align proposed loader/metadata/application boundaries
+accordingly; never erase a broad block spanning retained loader/config.
+Do not copy CH32V00364-byte assumptions. A provisional memory budget could
+reserve8KiB loader,2KiB metadata and two26KiB image slots; this is NOT a
+tested linker layout or a promise of live dual-bank execution. Handle flash
+busy periods with host pacing and measured bounded clock stretching; keep
+display off and do not assume interrupts continue during flash operations.
+Configure any loader write protection only during a separately scoped,
+verified provisioning procedure. Ordinary network updates must not alter
+option bytes, reset/debug behavior or factoryBOOT. Avoid readout protection
+as a casual substitute for loader write protection.
+Update the controller/head last, with an independent external I2C service
+adapter orSWIO fallback so recovery does not depend on that application.
+
+Electrical and mechanical boundaries
+Arbitrary rectangles means topology/geometry flexibility, not unlimited
+tile count. Shared I2C capacitance includes every tile and both-axis copper;
+only one intended pull-up pair is fitted. Size pullups from measured rise
+time and sink current; start at100kHz, qualify400kHz later. NXP's standard/
+fast-mode reference limit is400pF and tr=0.8473*Rp*Cb. A stuck-low target can
+block the whole recovery bus. Implement bus-clear/timeout and retain local
+reset/SWIO access; a physically stuck SCL may require reset or power cycle.
+The buffer's Ioff does not isolate MCU RX or I2C pins. Assume all tiles are
+unpowered while soldering/reconfiguring; hot-plug and partial-power cases
+are not qualified by this architecture.
+Provide power injection sized for full-array current and worst-path drops;
+do not extrapolate the five-tile supply/seam current assessment indefinitely.
+Uniform vertical pixel pitch also needs a new outline/LED-edge-spacing and
+interference review: electrical top/bottom pads alone do not make the prior
+40.64x49.27mm tile a seamless square-pitch matrix.
+
+Sources/evidence
+1. Retained manufacturer WCH V006/005 datasheetV1.8, especially pp12,17-21,
+   p29 Notes3/5, pp30-32 remaps, p53 package table:
+   /home/pies/electronics/build/v006-pin-study/CH32V006DS0.pdf
+   /home/pies/electronics/build/v006-pin-study/datasheet.txt
+   Official landing page:
+   https://www.wch-ic.com/downloads/CH32V006DS0_PDF.html
+   Prior mirror used for retained PDF:
+   https://cdn.promelec.ru/upload/grab/datasheet.lcsc.com/lcsc/2512151727_WCH-CH32V006F8P6_C52753342.pdf
+2. WCH remap constants:
+   https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/SRC/Peripheral/inc/ch32v00X_gpio.h
+3. Official WCH Evaluation Board ReferenceV1.1 p9, downloaded this review:
+   https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/PUB/CH32V00X%20Evaluation%20Board%20Reference.pdf
+   Local: build/v3_2/WCH-CH32V00X-Evaluation-Board-Reference.pdf
+4. WCH factory-IAP jump / UART-IAP examples:
+   https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/IAP/V00X_APP/User/main.c
+   https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/USART_IAP/CH32V00X_IAP/User/main.c
+5. WCH flash granularity/protection:
+   https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/SRC/Peripheral/inc/ch32v00X_flash.h
+   https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/SRC/Peripheral/src/ch32v00X_flash.c
+   Source retained: build/v3_2/wch-flash-driver.c
+6. HC138 truth table / pin numbers:
+   https://www.ti.com/lit/ds/symlink/sn74hc138.pdf
+   Corroborated by Letki docs/v3_1-electrical-pin-audit.txt.
+7. Tri-state buffer behavior, pull-up guidance andIoff:
+   https://www.ti.com/product/SN74LVC2G125
+   https://assets.nexperia.com/documents/data-sheet/74LVC2G125.pdf
+8. I2C timing, pullups and bus-clear:
+   https://www.nxp.com/docs/en/user-guide/UM10204.pdf
+
+Scope: independent static architecture review. No CAD changes, routing,
+firmware build, physical test, flash, option-byte change, purchase, or stock
+change. Only this requested review file and downloaded public evidence were
+written. The prior manual pin enumeration is corroborating evidence, not a
+substitute for this package/reset/bonding check. Current evidence establishes
+feasibility and design requirements; firmware and hardware qualification remain.

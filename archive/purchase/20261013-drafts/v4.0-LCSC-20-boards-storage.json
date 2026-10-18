@@ -1,0 +1,66 @@
+{
+  "status": "Purchase proposal; no cart changed or order submitted",
+  "PCB_revision": "v4.0",
+  "boards": 20,
+  "USB_heads": 1,
+  "SWIO_headers_fitted": 20,
+  "supplier_refresh_directory": "build/purchase-v4_1/lcsc-20-storage-refresh",
+  "parts_subtotal_USD": "89.0140",
+  "minimum_cash_20_boards_USD": "40.5809",
+  "extra_stock_spend_USD": "48.4331",
+  "five_board_storage_parts_USD": "41.1139",
+  "increase_vs_five_board_storage_USD": "47.9001",
+  "TI_stock": {
+    "SN74HCT244PWR": 50,
+    "SN74LVC2G125DCUT": 30,
+    "TPS2553DBVR": 10
+  },
+  "other_IC_stock": {
+    "74HCT238PW,118": 50,
+    "ME6206A33M3G": 100
+  },
+  "MCU_and_LED_shelf": [
+    {
+      "LCSC": "C5187096",
+      "MPN": "CH32V003F4P6",
+      "Assembly_required": 20,
+      "Shelf_available_after_reservation": 43,
+      "New_purchase": 0,
+      "Remaining_after_20_boards": 23
+    },
+    {
+      "LCSC": "C965813",
+      "MPN": "XL-2012UOC",
+      "Assembly_required": 1280,
+      "Shelf_available_after_reservation": 680,
+      "New_purchase": 1000,
+      "Remaining_after_20_boards": 400
+    }
+  ],
+  "storage_note": "IC stock is for reuse, not magazines;1000each resistor value,1000bypasscaps,50LDOcaps,300MOSFETs. Only500LEDs/magazine confirmed.",
+  "sourcing_changes": {
+    "C14663": "C1591",
+    "C21404": "C2675813"
+  },
+  "UART_packaging_verification": "https://www.ti.com/lit/ds/symlink/sn74lvc2g125.pdf (DCUR/DCUT both DCU VSSOP8; standard reel3000/250)",
+  "manufacturing_files": "Unchanged. Native v4.0 BOM still names original C14663/C21404; same-footprint purchase substitutions documented in review.",
+  "physical_qualification_note": "20boards is purchasing quantity, not approval for one20-board chain or onecharger. Verify per-chain power separately.",
+  "excludes": [
+    "PCB",
+    "shipping",
+    "VAT",
+    "probe cable",
+    "fasteners",
+    "inter-board wire",
+    "printed parts"
+  ],
+  "source_sha256": "2026a57a82c287f684046bb565fb9dc089a4a7383d5f25536fa8075c6a5f4aa2",
+  "files": {
+    "v4.0-LCSC-20-boards-storage.csv": "127e86f112319a7edd781e844ff678664f0fbd6e5852c624ce6ba7f8ef1cdfca",
+    "v4.0-LCSC-20-boards-storage.txt": "77d278bce7cbb35ec44d72f984d457fb0185950176b7837223d4028cd6fc2230",
+    "v4.0-LCSC-20-boards-storage-review.csv": "23fa3e5c20f2bba9f8ec688adfa833e5fd797ec4b3ed96dd4632335c95c7de3e",
+    "v4.0-LCSC-20-boards-storage-quantity-options.csv": "c75910124533141590b4fc994d2d3933d45efa5c1586ba317e74e3365dd274d6",
+    "v4.0-LCSC-20-boards-storage-shelf.csv": "0aa1a6c660917f784d127861e68450c36c334c84f1933be6aa6eda9379e79014",
+    "v4.0-LCSC-20-boards-minimum.csv": "d7920df1b92c75df7fac04de27323e81ae50c547182b76711b3954c0b84bacc0"
+  }
+}

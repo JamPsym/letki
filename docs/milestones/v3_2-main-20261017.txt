@@ -1,0 +1,28 @@
+LETKI V3.2 — ACCEPTED MAIN CAD VERSION
+Milestone: v3_2-main-20261017
+Accepted: 2026-10-17
+User: "Thats nice. I accept that as a main version."
+
+Current saved PCB SHA256:
+1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22
+
+Continue editing hw/ledkiv3.2/ledkiv3_2.kicad_pro.
+The complete accepted CAD context is frozen in
+archive/hw/ledkiv3.2-main-milestone-20261017/.
+The first robot milestone and original unrouted checkpoint remain unchanged.
+
+The main version has 1,490 segments, 299 vias, 159 footprints and seven zones.
+All 76 nets remain independently connected. Native checks retain the one
+existing /ADDR0 dangling-track warning; errors, opens, parity and ignored
+counts are zero. ERC and earlier circuit/manufacturing results are inherited
+only for unchanged source and keep their original scope. Exact check output,
+application/aggregate audits and SVG provenance are retained with the snapshot.
+
+Existing fabrication exports still describe the original robot milestone.
+They were not regenerated or relabelled as current exports. Physical testing
+and new V006 firmware/loader remain pending. No CAD bytes were changed when
+recording acceptance; no device, order, stock, commit or push operation.
+
+The snapshot contains local libraries/models and a file-hash manifest. Standard
+KiCad libraries remain external dependencies. Inspect or copy the whole frozen
+folder; keep later work in the live main project and preserve user changes.

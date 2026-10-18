@@ -1,0 +1,186 @@
+{
+  "name": "L'Amour Toujours \u2014 together in light",
+  "title": "L'AMOUR TOUJOURS",
+  "artist": "GIGI D'AGOSTINO",
+  "audio": "../../build/media/lamour-toujours/w15oWDh02K4.flac",
+  "video": "../../build/media/lamour-toujours/w15oWDh02K4.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 0,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 0.18,
+  "style": "lamour-theme",
+  "cues": [
+    {
+      "at": 0,
+      "duration": 8,
+      "effect": "lamour-wings",
+      "label": "First light",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 0,
+      "duration": 8,
+      "text": "L'AMOUR TOUJOURS  GIGI D'AGOSTINO",
+      "mode": "scroll"
+    },
+    {
+      "at": 8,
+      "duration": 26.820974471451173,
+      "effect": "lamour-theme",
+      "label": "The melody takes shape",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 34.82097447145117,
+      "duration": 27.613979577160933,
+      "effect": "lamour-theme",
+      "label": "Theme and kick",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 62.434954048612106,
+      "duration": 13.806989788580474,
+      "effect": "lamour-floor",
+      "label": "Step into the beat",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 76.24194383719258,
+      "duration": 13.806989788580466,
+      "effect": "lamour-wings",
+      "label": "Together",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 90.04893362577305,
+      "duration": 27.613979577160933,
+      "effect": "lamour-theme",
+      "label": "The returning theme",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 117.66291320293398,
+      "duration": 13.80698978858048,
+      "effect": "lamour-floor",
+      "label": "Alternating steps",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 131.46990299151446,
+      "duration": 12.081116065007905,
+      "effect": "lamour-theme",
+      "label": "One more phrase",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 143.55101905652236,
+      "duration": 15.532863512153028,
+      "effect": "lamour-wings",
+      "label": "Held open",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 159.0838825686754,
+      "duration": 27.61397957716096,
+      "effect": "lamour-theme",
+      "label": "The beat returns",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 186.69786214583635,
+      "duration": 13.806989788580466,
+      "effect": "lamour-floor",
+      "label": "Lift the floor",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 200.50485193441682,
+      "duration": 13.806989788580466,
+      "effect": "lamour-wings",
+      "label": "Open wings",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 214.3118417229973,
+      "duration": 18.688158277002714,
+      "effect": "lamour-theme",
+      "label": "Final theme",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 233,
+      "duration": 6,
+      "effect": "lamour-wings",
+      "label": "Afterglow",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 239,
+      "duration": 3.492999999999995,
+      "effect": "lamour-wings",
+      "label": "Blackout",
+      "level": 0,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    }
+  ],
+  "recording": {
+    "sha256": "42e22c91b382a525ec5129b98cbf98c22cbcb052d9cec872598648b460a5e44b",
+    "duration_seconds": 242.493,
+    "source": "https://www.youtube.com/watch?v=w15oWDh02K4"
+  },
+  "authoring": {
+    "version": 1,
+    "basis": "Measured bass pulse fit 139.06 BPM, strong-beat phase 0.3035s. Eight half-beat upper-mid register samples form an approximate melodic contour, not isolated note transcription. Editorial beat-aligned scenes; soft intro and break keep measured bass strength.",
+    "video_on_leds": false
+  },
+  "output_gamma": 0.5,
+  "rhythm": {
+    "bpm": 139.06,
+    "offset": 0.3035
+  }
+}

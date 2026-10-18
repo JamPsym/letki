@@ -1,0 +1,35 @@
+CURRENT RESUME POINT (2026-10-15): read RESUME-HERE.txt first.
+The integrated tile is fully routed and checked. Use its README and the
+exports/prototype/manifest.json for the exact handoff status. ESP/head and
+physical qualification are deferred. Historical planning instructions below
+do not reopen accepted features, parts or procurement questions.
+
+This is the independent Letki v3.1 upgrade design session.
+
+Goal: develop a separate candidate that brings selected v4 features to the
+v3 design while using v3 parts as the baseline and minimizing total cost.
+Do not begin modifying CAD before establishing the feature list and checking
+exact stocked parts, packages, electrical limits and reservation constraints.
+
+Read AGENTS.md, README.md, docs/current-state.md, docs/v4-design.md,
+docs/v4_1-design.md and the relevant global PCB/inventory skills. Inspect the
+existing v3.1 schematic as the baseline. Ask the user which v4 features are
+priorities and what 'using v3 parts' allows for additional purchases.
+
+Another Codex session handles v3 assembly and testing in /home/pies/letki.
+It owns connected hardware and the shared inventory ledger. This session owns
+only the design snapshot. Its instructions are recorded in AGENTS.md.
+
+First deliverable: a concrete comparison of existing v3.1, desired features,
+reusable exact parts, required additions and unresolved electrical questions.
+Then implement the agreed candidate in hw/ledkiv3.1/ and run appropriate
+ERC/DRC and design checks. Keep references intact.
+
+The copy intentionally omits build outputs, downloaded tools and machine-local
+config. Do not reinstall large toolchains unnecessarily; locate installed tools
+and use a local ignored configuration if a build is needed. Read the original
+project's ignored evidence directories only when needed for a particular result.
+
+The user explicitly reassigned v3.1 to this rework. Its former ground-repair-only
+revision is archived in archive/hw/ledkiv3.1-ground-repair-20261014/ and will not
+be produced. Candidate CAD in hw/ledkiv3.1/ is currently an unchanged seed.

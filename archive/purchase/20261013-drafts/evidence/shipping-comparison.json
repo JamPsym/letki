@@ -1,0 +1,19 @@
+{
+  "checked_date": "2026-10-12",
+  "parts_cart_user_adjusted": true,
+  "parts_merchandise_usd": 37.78,
+  "parts_discount_usd": 0.17,
+  "parts_shipping_usd": 14.1,
+  "parts_cart_total_usd": 51.71,
+  "parts_estimated_weight_g": 1500,
+  "pcb_count": 5,
+  "pcb_price_usd": 2,
+  "pcb_direct_poland_shipping_usd": 1.5,
+  "pcb_hong_kong_shipping_usd": 2.79,
+  "separate_shipping_sum_usd": 15.6,
+  "separate_combined_total_usd": 55.21,
+  "consolidated_final_delivery_quote": "Unavailable before JLC order link; not verified",
+  "joint_delivery_break_even_usd": 12.81,
+  "official_procedure": "https://www.lcsc.com/help-center/notice/combine-lcsc-jlcpcb-orders",
+  "agent_placed_orders": false
+}

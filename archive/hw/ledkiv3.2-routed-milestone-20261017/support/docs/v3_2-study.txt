@@ -1,0 +1,143 @@
+LETKI V3.2 — INITIAL DESIGN / UNROUTED PLACEMENT
+2026-10-17
+
+User decisions
+Use CH32V006E8R6/QSOP24, conditional on feasible custom network downloading.
+Retain the existing directed west-to-east chain; add a separate directed
+south-to-north chain. Replies/recovery use shared I2C. Study rectangular
+arrays, allowing revised geometry. Do all feasible pre-routing design work;
+do not route. QFN32 is not selected. No hardware, order or flashing action.
+
+Result and source
+hw/ledkiv3.2/ledkiv3_2.kicad_pro is the new separate revision study.
+Accepted v3.1 CAD and all active firmware are unchanged. The authoring context
+and research evidence are retained in /home/pies/electronics/build/v3_2/.
+The general workflow report is in that repository at
+notes/workflows/v32-prerouting-20261017/README.txt.
+
+CH32V006E8R6 physical pin assignment (manufacturer V1.8 package/remaps)
+pin  GPIO        board role               peripheral
+18   PA0         ROW1_CTRL                TIM1_CH1, remap9
+17   PA1         ROW2_CTRL                TIM1_CH2, remap9
+19   PA2         ROW3_CTRL                TIM1_CH3, remap9
+21   PA3         ROW4_CTRL                TIM1_CH4, remap9
+11   PD4         ROW5_CTRL                TIM2_CH1, default
+10   PD3         ROW6_CTRL                TIM2_CH2, default
+ 2   PC0         ROW7_CTRL                TIM2_CH3, default
+14   PD7         ROW8_CTRL                TIM2_CH4, default
+12   PD5         UTX / east               USART1_TX, default
+13   PD6         URX / west               USART1_RX, default
+15   PA4         VTX / north              USART2_TX, remap1
+16   PA5         VRX / south              USART2_RX, remap1
+ 3   PC1         SDA                      I2C default
+ 4   PC2         SCL                      I2C default
+ 1   PD1         SWDIO                    SWIO preserved
+20   PD0         ADDR0                    HC138 A0
+ 9   PD2         ADDR1                    HC138 A1
+22   PB0         ADDR2                    HC138 A2
+ 8   PC4         LED_BLANK                HC138 active-low G2A
+ 7   PC5         RESET_N                  dedicated reset / TP1
+23   PB1         GPIO_SPARE               TP3
+24   PB3         SWCLK                    TP2
+ 6   VDD         VCC                      regulated3.3V +/-5%
+ 5   VSS         GND
+
+PA1/PA6 are internally bonded on pin17: leave PA6 high impedance. Use HSI,
+not an external crystal on PA1/PA2. GPIO_FullRemap_TIM1 selects remap9;
+GPIO_PartialRemap1_USART2 selects remap1. Keep all complementary outputs off;
+they are not additional independent PWM lanes and collide with other functions.
+Eight independent duty settings share two timer timebases, not eight frequencies.
+Dedicated reset is PC5 on this package; do not carry over V003 PD7 option-byte
+provisioning. The two unused button pins alone did not solve TSSOP20's pin budget.
+
+Electrical changes from v3.1
+The inherited 3.3V LED/HC138/PMOS/NMOS/33R architecture and pulse/current
+limits remain. No new peak-current qualification is claimed. R49 is fitted;
+PD7 is an ordinary row pin on the selected package. PC4 drives HC138 pin4;
+R72=47k pulls it high, disabling all columns at reset. HC138 pin5 remains
+GND; pin6 remains VCC. Configure row outputs low, remaps/timers and decoder
+addresses before driving LED_BLANK low. Hold it high through updates and errors.
+Existing gate-source biases remain. Confirm startup/blank timing physically.
+
+Vertical interface mirrors the existing horizontal one: R69/R70=1k series
+on local TX/RX respectively, R71=10k receive idle pull-up. A seam therefore
+has two1k resistors; this is an unqualified damping/protection candidate.
+R73=10k and C6=100n form local reset bias/filter; verify WCH reset timing and
+recovery access physically. TP1/2/3 expose reset/clock/spare, alongside J2 SWIO.
+R11/R12 are fitted on exactly one tile in the entire connected I2C array.
+All supplies/grounds share one rail. Hot-plug and mixed power are unqualified.
+
+Geometry and contacts
+49.6mm square, 6.2mm pixel pitch, first/last centres3.1/46.5mm on each axis.
+Uniform pitch holds within a tile and across an abutted seam. Four2.2mm M2
+NPTH holes at (6.2,6.2), (43.4,6.2), (6.2,43.4), (43.4,43.4). Native front
+courtyards pass with a small nominal LED/mount margin; real screw, washer,
+diffuser and housing tolerances require review. Existing diffuser/carrier
+files are not compatible with this changed geometry and were not rewritten.
+
+J1 east x48.33, J3 west x1.27; pads increase north-to-south.
+J4 north y1.27, J5 south y48.33; pads increase west-to-east.
+Each has seven positions at6.2mm pitch, coordinates6.2..43.4mm.
+Pads1/2 VCC,3 SDA,4 SCL,5 directed data,6/7 GND. Pad5 is eastTX/westRX,
+northTX/southRX. Matching pad numbers align across each seam. The inherited
+native layer-specific0.8mm PTH padstacks remain; nominal wire bridge span2.54mm.
+Every tile stays upright; rotating a tile breaks the pin convention. These
+are soldered wire contacts, not an approved castellated fabrication process.
+
+Topology and firmware port contract
+Host/head at southwest (x0,y0); coordinates increase east and north. Forward
+north only along the first column, then east along each row. This deterministic
+spanning tree reaches every tile in a complete W-by-H rectangle without duplicate
+broadcasts. Other vertical links are available for explicitly routed traffic;
+do not forward blindly in both directions. Missing tiles/holes need a separate
+routing policy and are outside this first rectangular-array study.
+
+Packets need version, type, source/destination or rectangle, sequence/epoch,
+bounded length and CRC. Derive coordinates by hop counts and verify stable
+identity/coordinates with I2C status. Stage frame data in inactive RAM buffers,
+poll per-tile readiness, then commit at a future shared frame epoch. Arrival
+order is not synchronization. I2C aggregate ACK is not proof that every tile
+is ready. UART2 is the second axis, not a reverse link on the first axis.
+
+Port with the V006 SDK/startup/linker, 62KiB flash/8KiB RAM and the table above.
+Review interrupt vector/ABI, flash offsets, USART2 interrupts, timer remaps,
+refresh/pulse bounds and loader handoff; do not merely rename the V003 target.
+Preserve the existing v3 application and separately implement the new target.
+A new application binary and network loader have NOT been built or flashed.
+
+Scaling limits
+A rectangular topology does not imply unlimited tile count. Shared I2C7-bit
+address space, capacitance, rail/seam current and timing bound each array.
+Begin I2C at100kHz with exactly one intended pull-up pair. At4.7k and400pF,
+tr=0.8473*Rp*Cb is about1.59us, exceeding standard-mode1us;4.7k supports
+about251pF for that rise-time bound. A2.2k pair gives about0.75us at400pF,
+but choose from measured capacitance/rise time and target sink ratings.
+Do not silently fit extra parallel pull-ups. Bus clear/timeouts are required;
+a physically stuck SCL can require local reset/power-cycle. Provide deliberate
+power injection and measure drops/current at the maximum planned rectangle.
+
+Verification and remaining gates
+KiCad10.0.7: ERC0, physicalDRC0, parity0, ignored0,307opens.
+159footprints,4layers,0tracks/vias,0zones. Native reports retained in the
+general workflow record; independent check covers all24MCU pads,380unique
+pin/net pairs (383physical numbered pads),2.54mm seams and a4-by-3 translated
+pixel lattice. All26v3.1 authored source files match pre-study hashes.
+Project board design_settings and ERC settings match the original exactly.
+SVG schematic and both PCB faces were rendered/reviewed; new schematic
+functions occupy a separate clear region. These are static checks only.
+
+Routing, connected-copper/power-return checks and fabrication handoff remain
+outside this no-routing scope. Firmware/loader implementation, interruption
+recovery, commissioning, electrical/optical/mechanical qualification remain.
+No purchase, reservation, programmer/power/option-byte change, commit or push.
+
+Sources
+WCH V006/005 datasheetV1.8, pin/package and remap tables:
+https://www.wch-ic.com/downloads/CH32V006DS0_PDF.html
+Retained PDF: /home/pies/electronics/build/v006-pin-study/CH32V006DS0.pdf
+Official remap constants:
+https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/SRC/Peripheral/inc/ch32v00X_gpio.h
+HC138 enables: https://www.ti.com/lit/ds/symlink/sn74hc138.pdf
+I2C timing: https://www.nxp.com/docs/en/user-guide/UM10204.pdf
+Detailed independent Astra architecture review:
+/home/pies/electronics/build/v3_2/astra-review.txt

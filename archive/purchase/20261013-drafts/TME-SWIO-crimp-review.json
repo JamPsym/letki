@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-13",
+  "status": "ConditionalDIYcable proposal; usercrimpermodel notyet known; nocart/order changed",
+  "add_on": [
+    {
+      "symbol": "MX-51021-0300",
+      "quantity": 1,
+      "gross_PLN_snapshot": 0.48,
+      "url": "https://www.tme.eu/pl/details/mx-51021-0300/zlacza-sygnalowe-raster-1-25mm/molex/51021-0300/"
+    },
+    {
+      "symbol": "MX-50079-8000",
+      "quantity": 10,
+      "unit_gross_PLN_snapshot": 0.12,
+      "url": "https://www.tme.eu/pl/details/mx-50079-8000/zlacza-sygnalowe-raster-1-25mm/molex/50079-8000/",
+      "stock_snapshot": 364259,
+      "snapshot_age": "lastweek",
+      "note": "Cutfromreel, MOQ/multiple1;10 gives8practice/spare contacts for2-wireSWIOcable."
+    }
+  ],
+  "additional_gross_PLN_approx": 1.68,
+  "requires": [
+    "Suitablemicroopenbarrelcrimper forPicoBlade50079contact andselectedwire",
+    "28AWG flexiblewire (approximately0.08mm2) with insulation diameter perMolex specification",
+    "Existingfemale2.54mm probejumper ends or suitableconnector/splice materials"
+  ],
+  "assembly": "CrimpPicoBlade contacts ontwo suitablythin existingprobejumper wires; mountposition2SWIOand3GND,position1empty. BoardUSBpowered, probe3V3/5V disconnected. Verifypullretention andcontinuity.",
+  "alternatives": {
+    "ENGINEER_PA09": {
+      "TME_symbol": "FUT.PA-09",
+      "gross_PLN_snapshot": 260.41,
+      "manufacturer_exact_terminal_compatibility": "https://www.engineertools-jp.com/_files/ugd/104650_6e17d0e74c9f4c8fa815527c997276de.pdf",
+      "note": "Manufacturer table lists50079-8000 withPA-09. Notincludedinimport.",
+      "TME_snapshot_age": "yesterday",
+      "TME_url": "https://www.tme.eu/pl/details/fut.pa-09/zaciskarki-koncowek-kablowych/engineer/pa-09/"
+    },
+    "IWISS_IWS2820M": {
+      "manufacturer_source": "https://www.iwiss.com/collections/hand-crimping-pliers/products/iws-2820m-mini-micro-open-barrel-crimping-tools-works-on-awg28-20-jam-molex-tyco-jst-terminals-and-connectors",
+      "retail_USD_snapshot": 10.99,
+      "note": "ManufacturerclaimsPicoBladefamily suitability,28-20AWG; exact50079qualification remains testcrimp. Polishlistedprice109.90PLN beforedelivery. Notincludedinimport.",
+      "Polish_retail_PLN_snapshot": 109.9,
+      "Polish_source": "https://allegro.pl/oferta/zaciskarka-do-mini-konektorow-iwiss-iws-2820m-dupont-jst-molex-17698803811",
+      "Polish_snapshot_age": "lastweek"
+    }
+  },
+  "precrimp_alternative": "TME-SWIO-cable-add.csv usesMX-79758-1059; chooseDIYorprecrimpadd-on, notboth.",
+  "CAD": "Unchanged"
+}

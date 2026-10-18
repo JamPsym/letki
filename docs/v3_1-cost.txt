@@ -1,0 +1,57 @@
+HISTORICAL34R PRICE/STOCK SNAPSHOT — NOT THE CURRENT33R BUYING LIST.
+Current33R BOM adds40rowresistors for five tiles (selected catalogue MOQ100).
+Refresh complete TME/LCSC lists and prices before purchase. See v3_1-five-tile-plan.txt.
+
+V3.1 — FIVE-TILE PURCHASE FORECAST, 2026-10-14
+
+The selected circuit uses both original v3 ICs, stocked LEDs/caps/switches
+and inexpensive discrete stages. No extra tile IC or purchased edge connector.
+The read-only shelf forecast preserves the remaining v3 assembly holds and
+the separate v4.1 planning allocations. It does not create a new reservation.
+
+New exact parts, minimum-cash quantities from the public TME snapshot:
+ 40 AO3415A                 approx14.00PLN net
+ 40 DMN2056U-7              approx25.60PLN net (25+ tier)
+100 0805S8F1001T5E,1k1%    approx 6.00PLN net (90needed)
+  5 Molex530470310           approx 3.45PLN net
+Total approx49.05PLN net /60.33PLN gross. InPost19.56PLN gives
+about80PLN for this isolated parts order. If the one uncommitted incoming
+header is received and assigned, buy4headers: about79PLN delivered.
+These are rounded page-price estimates, not a checkout quotation. PCBs,
+printing, wire/fasteners and assembly are outside this parts subtotal.
+
+The rest of the electronic population fits the conservative available shelf
+counts, including320LEDs,5MCUs,5decoders,80x68ohm,145x10k,17x4.7k,
+20x100nF,5x10uF and10switches. Only40unallocated LEDs remain after this
+forecast; recheck the shared ledger with the hardware session before assembly.
+No unidentified resistors or pending deliveries are credited as on-hand.
+
+Useful options for a combined future basket:
+-50NMOS instead of40 adds about2.40PLN net and provides10spares.
+-1000x1k instead of100 adds about4PLN net at the rounded snapshot tier.
+  Confirm actual extended prices first. Identified user1k0805stock could
+  remove that purchase; it is not assumed.
+-The placed TME cable order already includes matching housings/contacts for
+  a shared SWIO cable. Receipt and crimp-tool suitability remain to be checked.
+  Do not silently move the five v4.1 headers into this batch.
+
+The four-layer board remains the baseline. Ordinary through holes/tented
+vias avoid special edge/filled-via processes. A2layer redesign has no checked
+layout or quote; no saving is claimed. Hand assembly uses owned parts;
+paid assembly must price setup/stencil,777SMTplacements and5THTheaders.
+Obtain an actual quote for the final package to compare total costs. No final
+PCB or assembly price is inferred from a previous revision's cart.
+
+Reproduce population and stock files:
+ python3 scripts/v3_1_bom.py --inventory-snapshot build/hardware/v3_1-integration/inventory-current.json
+The input snapshot is dated evidence, not a live reservation ledger. BOM maps
+are explicit in config/v3_1-bom.json; quote links/tier assumptions are in
+config/v3_1-procurement-20261014.json. Generic Polish supplier and InPost
+research remains in the shared electronics notes; this candidate uses TME.
+
+Primary sources:
+https://www.tme.eu/pl/details/ao3415a/tranzystory-z-kanalem-p-smd/alpha-omega-semiconductor/
+https://www.tme.eu/pl/katalog/tranzystory-z-kanalem-typu-n_100309/p%2Cdiodes-incorporated_584/
+https://www.tme.eu/pl/details/smd0805-1k-1%25/rezystory-smd/royalohm/0805s8f1001t5e/
+https://www.tme.eu/pl/details/mx-53047-0310/zlacza-sygnalowe-raster-1-25mm/molex/53047-0310/
+https://www.tme.eu/pl/how-to-buy/7428/Sposob-i-koszty-transportu/

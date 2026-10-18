@@ -1,0 +1,27 @@
+{
+  "revision": "v3.2",
+  "date": "2026-10-17",
+  "status": "CAD_CHECKED_ROUTED_PROTOTYPE",
+  "board_sha256": "95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2",
+  "native": {
+    "ERC": 0,
+    "DRC": 0,
+    "opens": 0,
+    "parity": 0,
+    "ignored": 0
+  },
+  "footprints": 159,
+  "tracks": 2015,
+  "ordinary_tented_vias": 299,
+  "zones": 7,
+  "physical_nets_connected": 76,
+  "checkpoint": "archive/hw/ledkiv3.2-unrouted-20261017",
+  "scope": "CAD only; firmware/custom loader and physical qualification pending",
+  "source_rules_preserved": true,
+  "predecessor_files_verified_unchanged": 26,
+  "independent_contracts": [
+    "v3_2-labels.json",
+    "v3_2-power.json",
+    "hw/ledkiv3.2/in1-exceptions.json"
+  ]
+}

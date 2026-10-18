@@ -1,0 +1,109 @@
+V3.2 NETWORK DOWNLOADER — FEASIBILITY / IMPLEMENTATION CONTRACT
+2026-10-17; custom I2C loader proposed, not implemented or hardware-tested.
+
+User scope clarification,2026-10-17
+The user will manually handle initial SWIO connection/programming. Subsequent
+firmware updates are intended over Wi-Fi -> owned ESP-12F -> planned SPI -> X035
+-> I2C -> tile loaders. X035 is a generic protocol host from the tiles
+perspective; tile firmware is developed independently of its identity. This maintenance capability belongs in the attachment plan alongside
+power, USB/PD and normal communication; it is not the main project objective.
+It does not require agent SWIO programming, an updater-first work sequence,
+a wired X035 update adapter or mandatory remote power/reset hardware.
+
+The technical loader/memory study below remains a proposal for V006/v3.2,
+not working firmware or a committed implementation. Local SWIO/reset recovery
+stays available. Bus ownership, loader entry, image integrity, interruption
+handling and the general-firmware asset/staging boundaries must be resolved
+when the feature is implemented. V003-based boards need a separate flash
+budget. See docs/attachments-study-20261017.txt for the attachment scope.
+
+QSOP24 is sufficient. WCH documents factory BOOT on USART1 PD5/PD6, not I2C.
+The factory serial mechanism cannot transparently reach every directed tile
+with replies. Initially provision a resident custom loader through each tile's
+SWIO. Thereafter one external I2C host can update commissioned tiles directly,
+independently of the UART relay/application. Preserve J2 SWIO and local reset
+for recovery. Keep the factory3328-byte BOOT region intact.
+
+Suggested flash budget, end-exclusive addresses, all boundaries2KiB aligned:
+0x08000000..0x08002000   8KiB resident loader / reset entry
+0x08002000..0x08008800  26KiB active app, linked for0x08002000
+0x08008800..0x0800F000  26KiB staging bytes of that SAME linked app
+0x0800F000..0x0800F800   2KiB configuration / redundant journal
+Total62KiB; the factoryBOOT is separate. The layout is a proposal pending
+compiled loader/application size and vector/handoff tests. Stage-and-copy
+avoids pretending that one absolute application image runs in either slot.
+The existing roughly14KiB V003 application suggests room for a V006 port;
+its actual V006 size, ABI and vector configuration still need measurement.
+
+WCH drivers support256-byte fast pages,1KiB standard erase,32KiB block erase;
+write-protect groups are8fast pages=2KiB. Do not use32KiB erase across the
+loader, identity or staging boundaries. Gate all remote writes to the staging
+range and loader-owned journal operations; reject loader/option-byte/BOOT
+addresses, overflowing offsets, unaligned pages and excess image lengths.
+Loader protection can be configured only during a separately scoped verified
+SWIO provisioning procedure. No option-byte change is authorized by this study.
+
+Update transaction
+1. Host inventories individually addressed tiles and verifies UID, board/MCU,
+   loader protocol and current image before selecting one target. Assert
+   LED_BLANK and stop display, UART relaying and application interrupts.
+2. BEGIN declares intended version, exact byte length, target/link address and
+   image CRC. Loader accepts only bounded legal values. An update session/nonce
+   and sequence prevent delayed packets from another transaction being reused.
+3. Host sends bounded staging chunks; loader checks offset/length/packet CRC,
+   programs pages, verifies readback and reports status. Duplicate chunk retry
+   must be idempotent. Host polls ready; no assumption that flash programming
+   can coexist with arbitrary I2C interrupts or unbounded clock stretching.
+4. VALIDATE checks all staged bytes, length, target and entry/vector constraints.
+   Only then append a committed COPY_PENDING record. Keep the last valid
+   journal and identity record until the new CRC-marked record is complete.
+5. On reset, resident loader keeps LEDs blank. If COPY_PENDING is valid,
+   verify staging and copy it to the fixed active range page by page. Recopying
+   any page is safe after reset; staging is retained until active CRC verifies.
+   Mark ACTIVE only after the whole active image verifies. Do not execute an
+   incomplete active image. A bad/missing image leaves the loader listening.
+6. Clean up clocks/peripherals, pending interrupts, stack and vector state;
+   jump through a reviewed V006 startup handoff to the fixed app entry. A reset
+   after commit must produce the same decision. Update the head/controller last.
+
+Journal/identity
+Two1KiB erase units can form alternating generation/CRC commit journals within
+the2KiB metadata budget. Each valid generation must retain commissioned address,
+stable identity and update state; erasing one must never destroy the only valid
+copy. A torn write is invalid, not a new state. Generation wrap, interrupted
+compaction and CRC/image mismatch need fault tests. Keep enough history to
+resume a committed copy. Exact record sizes and flash write ordering remain
+design work; the memory budget alone does not prove interruption safety.
+
+Provision each tile with a unique I2C address and verified identity during initial
+SWIO installation. Do not let blank tiles all return different UID bytes at one
+common address. For the simplest first implementation, uncommissioned or doubly
+corrupt identity records require local SWIO recovery. A future UID-prefix-select
+write plus presence-only ACK enumeration can be studied separately; collision-
+free discovery is not provided merely by reading a UID or a common default ACK.
+Treat standard reserved I2C addresses and host/service addresses explicitly;
+large arrays may need bus segmentation and cannot exceed the chosen address map.
+
+Qualification before claiming this works
+Build the V006 resident loader and relocated app; inspect link map/vector entry
+and measured8KiB/26KiB budgets. Test missing app, invalid image, wrong target,
+truncated/duplicate/out-of-order packets, overflow/alignment, every256-byte
+page interruption, torn journal records, both journal erase boundaries, address
+loss/collision, stuck SDA/SCL, reset and brownout during every state. Confirm
+loader immutability and that no ordinary update writes option bytes/BOOT.
+Measure flash busy/host pacing and actual I2C rise/fall/clock-stretch behavior.
+Then qualify one tile, a two-axis2x2 assembly, and increasing rectangles with
+an independent service adapter. Keep original images and verify readbacks in
+any separately authorized hardware programming session. This study did none.
+
+Evidence
+WCH Evaluation Board ReferenceV1.1 p9, factory serial pin support:
+https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/PUB/CH32V00X%20Evaluation%20Board%20Reference.pdf
+WCH factory-IAP jump reference:
+https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/IAP/V00X_APP/User/main.c
+WCH UART IAP implementation and flash granularity/protection:
+https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/USART_IAP/CH32V00X_IAP/User/main.c
+https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/SRC/Peripheral/inc/ch32v00X_flash.h
+https://github.com/openwch/ch32v002_004_005_006_007/blob/main/EVT/EXAM/SRC/Peripheral/src/ch32v00X_flash.c
+Retained manufacturer files and independent review are under
+/home/pies/electronics/build/v3_2/. No runtime result is implied by these sources.

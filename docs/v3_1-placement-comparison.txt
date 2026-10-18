@@ -1,0 +1,48 @@
+V3.1 PLACEMENT: INITIAL AGENT -> ASTRA -> HUMAN — 2026-10-15
+
+Edit only hw/ledkiv3.1/ledkiv3_1.kicad_pro. Astra's placement is saved there;
+the user closed the editors during final handoff. Reopen that project for
+the human iteration. No routing.
+The69locked LEDs/connectors/holes remain fixed;77other parts remain rear.
+
+SAME PAD-BASED GEOMETRIC MEASUREMENTS, MILLIMETRES
+                                   Initial       Astra        Change
+Local gate-net MST                  95.801       67.601       -29.44%
+NMOS drain -> current resistor      38.300       23.300       -39.16%
+Current resistor -> nearest LED     40.578       35.656       -12.13%
+All non-power net MST             1187.822     1135.000        -4.45%
+MCU supply+nearest-ground proxy      6.645        4.542
+Decoder supply+ground proxy         12.239       12.190
+
+These are unobstructed Euclidean pad distances and net minimum spanning
+trees. They omit layer changes, clearance detours, ground-plane topology,
+trace/via impedance and physical results. Actual routing remains untested.
+The decoder's VCC leg is shorter but its combined return proxy barely changes.
+The earlier2.10mm baseline decoupling note was wrong: both VCC legs were4.175mm.
+
+CHECKED ASTRA SNAPSHOT
+ERC0, placementDRC0, parity0, ignored0,280expected unconnected items.
+Circuit/pad, placement and source-definition audits pass. Zero tracks/vias/zones.
+Populated1/4tile nominal mechanical checks pass; physical qualification pending.
+PCB SHA256 d5d8190d3ca937c66148aff6e172bfbd99c6e8e8c5442bb155ea86489d495588
+Raw evidence: build/hardware/v3_1-astra-placement-20261015/
+Initial input: baseline/ledkiv3_1.kicad_pcb (includes live-saved human label edit).
+Saved Astra result: astra-as-applied.kicad_pcb. These are evidence checkpoints,
+not separate active projects. Native first candidate53silk findings and API/
+script failures are retained; rules were never relaxed. Input had one silk
+finding; final current source has zero.
+
+HUMAN TURN
+Open the shared PCB, move unlocked parts and save. The live application used
+one "Astra placement iteration — no routing" transaction, but closing the
+editor can discard undo history. The saved comparison checkpoints remain.
+The dated config/v3_1-placement.json and v3_1-labels.json are snapshots only;
+do not regenerate the PCB from them or replay old placement/creation helpers.
+
+After saving, these read-only commands reproduce the comparison measurements:
+ python3 build/hardware/v3_1-astra-placement-20261015/metrics.py hw/ledkiv3.1/ledkiv3_1.kicad_pcb --output build/hardware/v3_1-astra-placement-20261015/human-metrics.json
+ python3 scripts/check_v3_1_placement.py --output build/hardware/v3_1-astra-placement-20261015/human-placement-audit.json
+ python3 scripts/check_v3_1_integrated.py --output build/hardware/v3_1-astra-placement-20261015/human-circuit.json
+Native DRC/parity and populated mechanical checks must also be repeated on a
+changed final placement. A lower proxy score alone does not certify improvement.
+Reusable workflow lessons and timings belong in ~/electronics/notes/routing/.

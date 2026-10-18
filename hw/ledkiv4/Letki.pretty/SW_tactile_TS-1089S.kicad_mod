@@ -1,0 +1,125 @@
+(footprint "SW_tactile_TS-1089S"
+	(version 20241229)
+	(generator pcbnew)
+	(layer "B.Cu")
+	(descr "XUNPU TS-1089S-AR02516; manufacturer 5.60x3.10 mm land pattern; row pairs internally common")
+	(property "Reference" "REF**"
+		(at 0 2.54 90)
+		(unlocked yes)
+		(layer "B.SilkS")
+		(uuid "9645b7f7-9fb1-436c-b159-6d5c35222ae1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.1)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Value" "SW_Push"
+		(at 0 -2.54 90)
+		(unlocked yes)
+		(layer "B.Fab")
+		(uuid "0527978f-9da5-4cc1-9dc5-643948116673")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Datasheet" "~"
+		(at 0 0 90)
+		(unlocked yes)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "e0e8ad75-c4c9-4eae-857b-2133466938c0")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(property "Description" "Push button switch, generic, two pins"
+		(at 0 0 90)
+		(unlocked yes)
+		(layer "B.Fab")
+		(hide yes)
+		(uuid "4f6a0345-ba2f-4784-84d0-5882eaa11357")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -2.1 1.675)
+		(end 2.1 -1.675)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(fill no)
+		(layer "B.Fab")
+		(uuid "c77298e3-c4a8-42a9-b8b2-63eb64f3c262")
+	)
+	(fp_text user "${REFERENCE}"
+		(at 0 -4.04 90)
+		(unlocked yes)
+		(layer "B.Fab")
+		(uuid "c18c9319-72af-45a4-8858-00f3fc6af849")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify mirror)
+		)
+	)
+	(pad "1" smd roundrect
+		(at -2.175 0.95 180)
+		(size 1.25 1.20)
+		(layers "B.Cu" "B.Mask" "B.Paste")
+		(roundrect_rratio 0.15)
+		(thermal_bridge_angle 45)
+	)
+	(pad "1" smd roundrect
+		(at 2.175 0.95 180)
+		(size 1.25 1.20)
+		(layers "B.Cu" "B.Mask" "B.Paste")
+		(roundrect_rratio 0.15)
+		(thermal_bridge_angle 45)
+	)
+	(pad "2" smd roundrect
+		(at -2.175 -0.95 180)
+		(size 1.25 1.20)
+		(layers "B.Cu" "B.Mask" "B.Paste")
+		(roundrect_rratio 0.15)
+		(thermal_bridge_angle 45)
+	)
+	(pad "2" smd roundrect
+		(at 2.175 -0.95 180)
+		(size 1.25 1.20)
+		(layers "B.Cu" "B.Mask" "B.Paste")
+		(roundrect_rratio 0.15)
+		(thermal_bridge_angle 45)
+	)
+	(embedded_fonts no)
+	(fp_rect
+		(start -3.05 -1.925)
+		(end 3.05 1.925)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "B.CrtYd")
+	)
+)

@@ -1,0 +1,414 @@
+{
+  "checked_on": "2026-10-15",
+  "supplier": "TME",
+  "currency": "PLN",
+  "batch_tiles": 5,
+  "scope": "Procurement shortlist before PCB rework. No CAD/BOM, inventory, cart or order changes.",
+  "series": "E12 nominal values; not a requirement for +/-10% part tolerance",
+  "price_basis": "ROUNDED_PUBLIC_GROSS_ESTIMATE",
+  "limitations": [
+    "Public retrieved snapshots, not live reserved supplier stock or an unrounded basket quote.",
+    "Different cached ages; categories/locales can conflict. Selected Polish product snapshots take precedence.",
+    "Only compared recorded offers; lowest found suitable shortlist, not proof of an exhaustive catalogue minimum.",
+    "33R page is eight months old; recheck before purchasing.",
+    "Royalohm 33R/5% and Yageo 33R/0805 Polish offers could not be retrieved; no verified saving asserted."
+  ],
+  "selected": [
+    {
+      "MPN": "0603SAJ0102T5E",
+      "supplier_code": "SMD0603-1K",
+      "refs": "R15-R22 R42-R49",
+      "purpose": "MOSFET gate series",
+      "package": "0603",
+      "value": "1k",
+      "tolerance_percent": 5,
+      "required_qty": 80,
+      "buy_qty": 100,
+      "unit_net_PLN": 0.03,
+      "unit_gross_PLN": 0.04,
+      "estimated_line_gross_PLN": 4.0,
+      "MOQ": 100,
+      "multiple": 100,
+      "url": "https://www.tme.eu/pl/details/smd0603-1k/rezystory-smd/royalohm/0603saj0102t5e/",
+      "current_schematic_MPN": "0603SAF1001T5E"
+    },
+    {
+      "MPN": "RC0603FR-0710KL",
+      "supplier_code": "RC0603FR-0710K",
+      "refs": "R23-R38 R50-R57",
+      "purpose": "MOSFET gate and cathode bias",
+      "package": "0603",
+      "value": "10k",
+      "tolerance_percent": 1,
+      "required_qty": 120,
+      "buy_qty": 120,
+      "unit_net_PLN": 0.04,
+      "unit_gross_PLN": 0.05,
+      "estimated_line_gross_PLN": 6.0,
+      "MOQ": 1,
+      "multiple": 1,
+      "url": "https://www.tme.eu/pl/details/rc0603fr-0710k/rezystory-smd/yageo/rc0603fr-0710kl/",
+      "current_schematic_MPN": "0603SAF1002T5E"
+    },
+    {
+      "MPN": "0805S8F330JT5E",
+      "supplier_code": "SMD0805-33R-1%",
+      "refs": "R1-R8",
+      "purpose": "LED current limiting",
+      "package": "0805",
+      "value": "33R",
+      "tolerance_percent": 1,
+      "required_qty": 40,
+      "buy_qty": 100,
+      "unit_net_PLN": 0.06,
+      "unit_gross_PLN": 0.07,
+      "estimated_line_gross_PLN": 7.0,
+      "MOQ": 100,
+      "multiple": 100,
+      "url": "https://www.tme.eu/pl/details/smd0805-33r-1%25/rezystory-smd/royalohm/0805s8f330jt5e/",
+      "current_schematic_MPN": "0805S8F330JT5E"
+    },
+    {
+      "MPN": "RC0805FR-071KL",
+      "supplier_code": "RC0805FR-071K",
+      "refs": "R66-R67",
+      "purpose": "UART series",
+      "package": "0805",
+      "value": "1k",
+      "tolerance_percent": 1,
+      "required_qty": 10,
+      "buy_qty": 10,
+      "unit_net_PLN": 0.08,
+      "unit_gross_PLN": 0.1,
+      "estimated_line_gross_PLN": 1.0,
+      "MOQ": 1,
+      "multiple": 1,
+      "url": "https://www.tme.eu/pl/details/rc0805fr-071k/rezystory-smd/yageo/rc0805fr-071kl/",
+      "current_schematic_MPN": "RC0805FR-071KL"
+    }
+  ],
+  "estimated_resistor_subtotal_gross_PLN": 18.0,
+  "shipping": "Not included; combine once with other needed TME parts. No refreshed delivery quote in this study.",
+  "candidates": [
+    {
+      "MPN": "0603SAJ0102T5E",
+      "supplier_code": "SMD0603-1K",
+      "package": "0603",
+      "value": "1k",
+      "tolerance_percent": 5,
+      "rated_power_mW": 100,
+      "MOQ": 100,
+      "multiple": 100,
+      "stock_snapshot": 933600,
+      "source_crawl_age": "last month",
+      "tiers": [
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.03,
+          "unit_gross_PLN": 0.04
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.01,
+          "unit_gross_PLN": 0.01
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/smd0603-1k/rezystory-smd/royalohm/0603saj0102t5e/"
+    },
+    {
+      "MPN": "RC0603FR-0710KL",
+      "supplier_code": "RC0603FR-0710K",
+      "package": "0603",
+      "value": "10k",
+      "tolerance_percent": 1,
+      "rated_power_mW": 100,
+      "MOQ": 1,
+      "multiple": 1,
+      "stock_snapshot": 574907,
+      "source_crawl_age": "today",
+      "tiers": [
+        {
+          "from_qty": 1,
+          "unit_net_PLN": 0.22,
+          "unit_gross_PLN": 0.28
+        },
+        {
+          "from_qty": 10,
+          "unit_net_PLN": 0.08,
+          "unit_gross_PLN": 0.1
+        },
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.04,
+          "unit_gross_PLN": 0.05
+        },
+        {
+          "from_qty": 500,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.03
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.02
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/rc0603fr-0710k/rezystory-smd/yageo/rc0603fr-0710kl/"
+    },
+    {
+      "MPN": "0805S8F330JT5E",
+      "supplier_code": "SMD0805-33R-1%",
+      "package": "0805",
+      "value": "33R",
+      "tolerance_percent": 1,
+      "rated_power_mW": 125,
+      "MOQ": 100,
+      "multiple": 100,
+      "stock_snapshot": 289700,
+      "source_crawl_age": "8 months ago",
+      "tiers": [
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.06,
+          "unit_gross_PLN": 0.07
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.02
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/smd0805-33r-1%25/rezystory-smd/royalohm/0805s8f330jt5e/"
+    },
+    {
+      "MPN": "RC0805FR-071KL",
+      "supplier_code": "RC0805FR-071K",
+      "package": "0805",
+      "value": "1k",
+      "tolerance_percent": 1,
+      "rated_power_mW": 125,
+      "MOQ": 1,
+      "multiple": 1,
+      "stock_snapshot": 448007,
+      "source_crawl_age": "2 days ago",
+      "tiers": [
+        {
+          "from_qty": 1,
+          "unit_net_PLN": 0.22,
+          "unit_gross_PLN": 0.28
+        },
+        {
+          "from_qty": 10,
+          "unit_net_PLN": 0.08,
+          "unit_gross_PLN": 0.1
+        },
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.03,
+          "unit_gross_PLN": 0.04
+        },
+        {
+          "from_qty": 500,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.02
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.02
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/rc0805fr-071k/rezystory-smd/yageo/rc0805fr-071kl/"
+    },
+    {
+      "MPN": "0603SAF1001T5E",
+      "supplier_code": "SMD0603-1K-1%",
+      "package": "0603",
+      "value": "1k",
+      "tolerance_percent": 1,
+      "rated_power_mW": 100,
+      "MOQ": 100,
+      "multiple": 100,
+      "stock_snapshot": 0,
+      "source_crawl_age": "2 days ago",
+      "tiers": [
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.03,
+          "unit_gross_PLN": 0.04
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.01,
+          "unit_gross_PLN": 0.01
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/smd0603-1k-1%25/rezystory-smd/royalohm/0603saf1001t5e/"
+    },
+    {
+      "MPN": "0603SAF1002T5E",
+      "supplier_code": "SMD0603-10K-1%",
+      "package": "0603",
+      "value": "10k",
+      "tolerance_percent": 1,
+      "rated_power_mW": 100,
+      "MOQ": 100,
+      "multiple": 100,
+      "stock_snapshot": 0,
+      "source_crawl_age": "2 days ago",
+      "tiers": [
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.03,
+          "unit_gross_PLN": 0.04
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.01,
+          "unit_gross_PLN": 0.01
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/smd0603-10k-1%25/rezystory-smd/royalohm/0603saf1002t5e/"
+    },
+    {
+      "MPN": "0603SAJ0103T5E",
+      "supplier_code": "SMD0603-10K",
+      "package": "0603",
+      "value": "10k",
+      "tolerance_percent": 5,
+      "rated_power_mW": 100,
+      "MOQ": 100,
+      "multiple": 100,
+      "stock_snapshot": 0,
+      "source_crawl_age": "last month",
+      "tiers": [
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.03,
+          "unit_gross_PLN": 0.04
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.01,
+          "unit_gross_PLN": 0.01
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/smd0603-10k/rezystory-smd/royalohm/0603saj0103t5e/"
+    },
+    {
+      "MPN": "RC0603JR-0710KL",
+      "supplier_code": "RC0603JR-0710K",
+      "package": "0603",
+      "value": "10k",
+      "tolerance_percent": 5,
+      "rated_power_mW": 100,
+      "MOQ": 1,
+      "multiple": 1,
+      "stock_snapshot": 0,
+      "source_crawl_age": "last month",
+      "tiers": [
+        {
+          "from_qty": 1,
+          "unit_net_PLN": 0.13,
+          "unit_gross_PLN": 0.16
+        },
+        {
+          "from_qty": 10,
+          "unit_net_PLN": 0.05,
+          "unit_gross_PLN": 0.06
+        },
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.03,
+          "unit_gross_PLN": 0.03
+        },
+        {
+          "from_qty": 500,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.02
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.01,
+          "unit_gross_PLN": 0.02
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/rc0603jr-0710k/rezystory-smd/yageo/rc0603jr-0710kl/"
+    },
+    {
+      "MPN": "RC0603FR-071KL",
+      "supplier_code": "RC0603FR-071K",
+      "package": "0603",
+      "value": "1k",
+      "tolerance_percent": 1,
+      "rated_power_mW": 100,
+      "MOQ": 1,
+      "multiple": 1,
+      "stock_snapshot": 819615,
+      "source_crawl_age": "4 months ago",
+      "tiers": [
+        {
+          "from_qty": 1,
+          "unit_net_PLN": 0.22,
+          "unit_gross_PLN": 0.28
+        },
+        {
+          "from_qty": 10,
+          "unit_net_PLN": 0.06,
+          "unit_gross_PLN": 0.07
+        },
+        {
+          "from_qty": 100,
+          "unit_net_PLN": 0.03,
+          "unit_gross_PLN": 0.04
+        },
+        {
+          "from_qty": 250,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.03
+        },
+        {
+          "from_qty": 500,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.02
+        },
+        {
+          "from_qty": 1000,
+          "unit_net_PLN": 0.02,
+          "unit_gross_PLN": 0.02
+        }
+      ],
+      "url": "https://www.tme.eu/pl/details/rc0603fr-071k/rezystory-smd/yageo/rc0603fr-071kl/"
+    }
+  ],
+  "shelf_use": [
+    {
+      "MPN": "RC0805FR-0710KL",
+      "package": "0805",
+      "refs": "R68",
+      "required_qty": 5,
+      "buy_qty": 0,
+      "available_snapshot": 980
+    },
+    {
+      "MPN": "0805W8J0472T5E",
+      "package": "0805",
+      "refs": "R39-R41 R11-R12",
+      "required_qty": 17,
+      "buy_qty": 0,
+      "available_snapshot": 990,
+      "note": "R11/R12 fitted on one tile only"
+    }
+  ],
+  "next_iteration": [
+    "Apply 5% 1k gate value/MPN and Yageo 10k bias MPN to shared schematic/BOM with human edit preservation.",
+    "Maintain 0603 gate/bias footprints, 0805 LED-current/UART/address footprints.",
+    "PCB synchronization, routing, ERC/DRC/parity and physical checks remain pending."
+  ],
+  "source_hashes": {
+    "hw/ledkiv3.1/ledkiv3_1.kicad_sch": "201e4107d153ad61b892436432de38c157f33aec7807ba179e1a3bd84f6f6601",
+    "hw/ledkiv3.1/ledkiv3_1.kicad_pcb": "2e0aa96e6b3b754171c1a4115dbc76b9def16733e0b6f9b5916d04f7503ff691",
+    "config/v3_1-bom.json": "169907c94b5159d52654a421e33c38e6c5761ef6c50af0959306a43ec17872ba"
+  },
+  "shared_wishlist": "/home/pies/electronics/purchases/wishlist.csv"
+}

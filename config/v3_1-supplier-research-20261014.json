@@ -1,0 +1,277 @@
+{
+  "recorded_on": "2026-10-14",
+  "scope": "Supplier and delivery research for the separate v3.1 16-transistor candidate. No order quantity selected, no checkout, cart, seller message, inventory mutation or CAD/firmware change.",
+  "user_preferences": [
+    "Retain CH32V003F4P6 and SN74HC138PWR; no extra ICs.",
+    "Eight additional row transistors accepted.",
+    "Prefer InPost parcel lockers; consider pickup near Wroclaw.",
+    "Combine eventual purchase with other needed items when possible.",
+    "Keep Firma Piekarz in the comparison."
+  ],
+  "confidence": "Public supplier/manufacturer page snapshots, not reservations or final checkout quotes. Stock/prices vary across cached locales; latest exact Polish offer takes precedence when available. Absence from an online catalogue does not prove absence from a physical shop.",
+  "preferred_design_candidates": [
+    {
+      "role": "PMOS column source",
+      "MPN": "AO3415A",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "package": "SOT-23",
+      "quantity_per_tile": 8,
+      "datasheet": "https://www.aosmd.com/sites/default/files/res/datasheets/AO3415A.pdf",
+      "revision": "3.1, August 2023",
+      "Rds_max_ohm_at_Vgs_minus1p8V_25C": 0.065,
+      "Qg_max_nC_at_datasheet_conditions": 11,
+      "supplier": "TME",
+      "supplier_url": "https://www.tme.eu/pl/details/ao3415a/tranzystory-z-kanalem-p-smd/alpha-omega-semiconductor/",
+      "stock_snapshot": 7572,
+      "MOQ": 5,
+      "multiple": 1,
+      "unit_PLN_net_at_5": 0.61,
+      "unit_PLN_gross_displayed_at_5": 0.75,
+      "unit_PLN_net_at_25": 0.35,
+      "status": "Preferred procurement/design candidate; not substituted into Study A"
+    },
+    {
+      "role": "NMOS row sink",
+      "MPN": "DMN2056U-7",
+      "manufacturer": "Diodes Incorporated",
+      "package": "SOT-23",
+      "quantity_per_tile": 8,
+      "datasheet": "https://www.diodes.com/datasheet/download/DMN2056U.pdf",
+      "revision": "DS38480 Rev 2-2, July 2021",
+      "Rds_max_ohm_at_Vgs_1p5V_25C": 0.085,
+      "Qg_typ_nC_at_datasheet_conditions": 4.3,
+      "supplier": "TME",
+      "supplier_url": "https://www.tme.eu/en/details/dmn2056u-7/smd-n-channel-transistors/diodes-incorporated/",
+      "PLN_price_source": "https://www.tme.eu/pl/katalog/tranzystory-z-kanalem-typu-n_100309/p%2Cdiodes-incorporated_584/",
+      "stock_snapshot_English_product": 11082,
+      "stock_snapshot_Polish_category": 11652,
+      "MOQ": 1,
+      "multiple": 1,
+      "unit_PLN_net_at_1": 1.27,
+      "unit_PLN_gross_displayed_at_1": 1.57,
+      "unit_PLN_net_at_10": 0.79,
+      "unit_PLN_gross_displayed_at_10": 0.97,
+      "status": "Preferred procurement/design candidate; Polish individual page unavailable to the fetch tool, PLN prices verified on the primary Polish category and stock on primary English product page"
+    }
+  ],
+  "selection_reason": "These devices have specified on-resistance at lower gate drive than AO3401A/AO3400A, resolving the original 2.5 V specification gap in the provisional static gate-voltage budgets. This is component screening, not a completed circuit/PCB qualification. Recalculate resistors, check exact pins/lands, reset states, decoder levels, switching, PWM and current limits before implementation/release.",
+  "suppliers": [
+    {
+      "name": "Firma Piekarz",
+      "shipping_source": "https://www.piekarz.pl/dostawa/",
+      "InPost_locker_gross_PLN": 16,
+      "other_options": [
+        {
+          "method": "DHL POP point",
+          "gross_PLN": 12
+        },
+        {
+          "method": "DHL or InPost courier",
+          "gross_PLN": 16
+        }
+      ],
+      "discounts": "InPost locker 10 PLN above 400 PLN gross; 0 PLN above 800 PLN gross.",
+      "parts": "AO3401A P and AO3400A N listed in stock. Both MOQ 10, multiple 5. Net unit at 10+: 0.74 and 0.55 PLN respectively.",
+      "part_sources": [
+        "https://www.piekarz.pl/33394-tranzystor-alpha-omega-semiconductor-ao3401a/",
+        "https://www.piekarz.pl/39715-tranzystor-alpha-omega-semiconductor-ao3400a/"
+      ],
+      "assessment": "Keep as requested: low parts price and confirmed InPost. These exact AO340x candidates retain the 2.5 V gate-drive caveat. Stock of the preferred AO3415A/DMN2056U pair was not confirmed here."
+    },
+    {
+      "name": "TME",
+      "shipping_source": "https://www.tme.eu/pl/how-to-buy/7428/Sposob-i-koszty-transportu/",
+      "InPost_locker_gross_PLN": 19.56,
+      "other_options": [
+        {
+          "method": "Standard courier",
+          "gross_PLN": 17.1
+        }
+      ],
+      "parts": "AO3415A and DMN2056U-7 are the preferred available design candidates above.",
+      "assessment": "Best presently verified complete pair for the low-voltage gate-drive requirement, with domestic InPost. No assumption that this future purchase can be appended to the already placed TME order."
+    },
+    {
+      "name": "AVT",
+      "shipping_source": "https://sklep.avt.pl/pl/delivery.html",
+      "InPost_locker_gross_PLN": 12.9,
+      "other_options": [
+        {
+          "method": "ORLEN Paczka",
+          "gross_PLN": 9.5
+        },
+        {
+          "method": "Pocztex point/locker promotion through 2026-11-30",
+          "gross_PLN": 7.49
+        }
+      ],
+      "free_delivery": "Above 350 PLN; excludes oversize.",
+      "parts_source": "https://sklep.avt.pl/pl/menu/tranzystory-unipolarne-159.html",
+      "parts": "No preferred low-voltage SOT-23 P/N pair confirmed in the checked catalogue. Available BSS84/2N7002/other generic power MOSFETs are not qualified substitutes.",
+      "assessment": "Useful for other combined purchases and cheap delivery; no complete preferred pair established."
+    },
+    {
+      "name": "Kamami",
+      "shipping_source": "https://kamami.pl/content/6-dostawa-i-platnosc",
+      "InPost_locker_gross_PLN": 13.9,
+      "other_options": [
+        {
+          "method": "GLS locker",
+          "gross_PLN": 8.9
+        },
+        {
+          "method": "InPost or GLS courier",
+          "gross_PLN": 14.9
+        }
+      ],
+      "free_delivery": "Above 500 PLN gross.",
+      "parts_source": "https://kamami.pl/z-kanalem-typu-p/231026-ao3401-5906623433513.html",
+      "parts": "AO3401 (without A suffix) listed in stock, 1.89 PLN gross each. Preferred pair not confirmed.",
+      "assessment": "Do not automatically equate AO3401 with AO3401A. A possible source when buying other useful items, rather than an exact preferred-pair offer."
+    },
+    {
+      "name": "Botland",
+      "shipping_source": "https://botland.com.pl/content/1-dostawa",
+      "InPost_locker_gross_PLN_from": 13.99,
+      "other_options": [
+        {
+          "method": "GLS locker",
+          "gross_PLN_from": 8.99
+        }
+      ],
+      "free_delivery": "From 500 PLN.",
+      "parts": "Preferred exact low-voltage SOT-23 pair not confirmed in targeted catalogue searches.",
+      "assessment": "Delivery comparison/reference for a combined basket; not a confirmed complete transistor source."
+    },
+    {
+      "name": "Mouser",
+      "shipping_source": "https://www.mouser.pl/en/cs/localsites/",
+      "InPost_locker": "Not confirmed",
+      "shipping_below_threshold_PLN": null,
+      "free_delivery": "Most qualifying orders over 300 PLN. Confirm threshold/tax basis and chosen method in checkout.",
+      "import_terms": "Polish site states DDP for selected shipping methods, including duty/customs fees. Confirm the selected method; do not infer a Polish dispatch warehouse from the local office address.",
+      "parts": [
+        {
+          "MPN": "DMN2056U-7",
+          "unit_PLN_displayed_at_10": 0.886,
+          "price_tax_basis": "Not explicitly stated in retrieved product excerpt; do not compare as gross without confirmation",
+          "stock_snapshot": 33610,
+          "url": "https://www.mouser.pl/ProductDetail/Diodes-Incorporated/DMN2056U-7?qs=G1ssh2j%252Bqz44ih%252Bi%252B7LcyQ%3D%3D"
+        },
+        {
+          "MPN": "DMG2305UX-7",
+          "unit_PLN_displayed_at_10": 0.88,
+          "price_tax_basis": "Not explicitly stated in retrieved product excerpt",
+          "stock": "Polish page snapshot omitted quantity; latest Japanese/shared-catalogue view listed 27, older locales much higher. Recheck exact checkout availability.",
+          "url": "https://www.mouser.pl/pl/ProductDetail/Diodes-Incorporated/DMG2305UX-7?qs=L1DZKBg7t5F%2FNBHrjfxC%252Bg%3D%3D",
+          "datasheet": "https://www.diodes.com/part/view/DMG2305UX",
+          "Rds_max_ohm_at_Vgs_minus1p8V_25C": 0.2
+        }
+      ],
+      "assessment": "Worth considering with an already useful basket over the free-shipping threshold. Published below-threshold fee could not be verified from a primary source; do not repeat the 80 PLN forum claim as a current Mouser tariff. P substitution would require circuit review."
+    },
+    {
+      "name": "DigiKey",
+      "shipping_source": "https://www.digikey.pl/en/help-support/delivery-information/delivery-time-and-cost",
+      "InPost_locker": "Not listed in checked standard delivery summary",
+      "shipping_below_300_PLN": 80,
+      "free_delivery": "From 300 PLN, excluding marketplace shipments.",
+      "import_terms": "Prepaid UPS/FedEx DDP; DHL CPT has duty/customs/VAT due on delivery. Marketplace separate terms/fees.",
+      "parts": "Low-voltage exact candidates are catalogue leads; no final PLN part basket prepared.",
+      "assessment": "Combine with other needed parts to reach the threshold; isolated small order has high delivery cost."
+    },
+    {
+      "name": "Micros",
+      "shipping_source": "https://www.micros.com.pl/dostawa/",
+      "InPost_locker": "Not listed; FedEx/UPS",
+      "shipping_FedEx_gross_PLN": 20.79,
+      "shipping_UPS_gross_PLN": 34.99,
+      "small_order_surcharges": [
+        {
+          "condition": "Order not exceeding 40 PLN net / 49.20 PLN gross",
+          "extra_gross_PLN": 14.76
+        },
+        {
+          "condition": "Order from 40 to 100 PLN net",
+          "extra_gross_PLN": 8.61
+        }
+      ],
+      "surcharge_note": "The source overlaps at exactly 40 PLN net; confirm boundary in checkout. Above 100 PLN net only delivery is added.",
+      "assessment": "For a tiny order, minimum delivery plus handling is 35.55 PLN before parts. Less attractive for the present request unless combined with a sufficiently large useful purchase."
+    },
+    {
+      "name": "Allegro",
+      "shipping_source": "Exact offer checkout determines locker service and price. Existing offers show Smart; unconditional free delivery is not established.",
+      "parts_sources": [
+        "https://allegro.pl/oferta/ao3400a-tranzystor-n-mosfet-30v-4-7a-1-4w-sot23-8545971906",
+        "https://allegro.pl/oferta/ao3401a-tranzystor-p-mosfet-30v-4a-1-4w-sot23-11928559755"
+      ],
+      "assessment": "Keep as a combined-basket option. Earlier Conteo_pro P offer had only 3 pieces; AO3400A/AO3401A still have gate-drive caveats. Product-group redirects, alternative manufacturer names and selected sellers must be checked per exact offer."
+    },
+    {
+      "name": "Rafig, Wroclaw",
+      "shipping_source": "https://rafig.pl/",
+      "contact_source": "https://rafig.pl/webpage/kontakt-rafig-wroclaw.html",
+      "personal_collection_PLN": 0,
+      "address": "Olbinska 4, Wroclaw",
+      "phone": "+48 71 372 29 04",
+      "parts": "Preferred small MOSFET availability not confirmed online.",
+      "assessment": "Local lead only, not counted as in-stock. No seller contact made."
+    },
+    {
+      "name": "Gotronik",
+      "shipping_source": "https://www.gotronik.pl/dostawa-pm-3.html",
+      "courier_GLS_gross_PLN_under_5kg": 15,
+      "InPost_locker": "Not listed on the checked delivery page",
+      "parts": "Preferred exact small MOSFET pair not confirmed.",
+      "assessment": "Supplementary shop check; no matching part offer established."
+    },
+    {
+      "name": "Semicon",
+      "shipping_source": "https://sklep.semicon.com.pl/index/?id=c410003ef13d451727aeff9082c29a5c",
+      "shipping": "TNT/FedEx/UPS; cost individually quoted",
+      "InPost_locker": "Not confirmed",
+      "parts": "Preferred exact pair not confirmed.",
+      "assessment": "Not ranked as a priced small-order offer."
+    },
+    {
+      "name": "Maritex",
+      "shipping": "InPost logo present, but a current tariff and primary exact-part stock were not confirmed.",
+      "parts": "Aggregators list DMN2056U-7, DMN2300U-7 and P devices. Primary exact product pages could not be verified, so those counts/prices are not credited.",
+      "assessment": "Unverified lead only; do not use aggregator figures as an order-ready quote."
+    }
+  ],
+  "illustrative_comparison": {
+    "assumption": "10 P + 10 N for comparison only, not a selected board batch or complete BOM. Gross parts estimated at 23% from net line prices; checkout rounding can differ by a few grosz. Resistive support parts, PCB, mechanical parts and assembly excluded.",
+    "Piekarz_AO3401A_AO3400A": {
+      "parts_net_PLN": 12.9,
+      "parts_gross_estimate_PLN": 15.87,
+      "InPost_gross_PLN": 16,
+      "total_estimate_PLN": 31.87,
+      "electrical_status": "Gate-drive selection unresolved"
+    },
+    "TME_AO3415A_DMN2056U": {
+      "parts_net_PLN": 14,
+      "parts_gross_estimate_PLN": 17.22,
+      "InPost_gross_PLN": 19.56,
+      "total_estimate_PLN": 36.78,
+      "electrical_status": "Preferred component pair with low-voltage Rds specifications; complete 16-transistor design still pending"
+    }
+  },
+  "shared_stock_check": {
+    "source": "Canonical inventory read-only, 2026-10-14",
+    "MPN": "DMG2302UK-7",
+    "ordered": 50,
+    "confirmed_on_hand": 0,
+    "reserved_v4_1": 40,
+    "uncommitted_pending": 10,
+    "available_now": 0,
+    "note": "This is NOT DMN2056U-7 and only has 2.5 V on-resistance characterization in the checked datasheet. Do not substitute or count it as available stock."
+  },
+  "not_promoted": [
+    "No 16-transistor schematic/PCB/driver created during supplier research.",
+    "Study A remains the checked 8-PMOS reference.",
+    "No current cart/order/reservation modified; no messages to suppliers."
+  ],
+  "design_follow_up": "config/v3_1-tme-study.json; user selected TME pair after this research snapshot"
+}

@@ -1,0 +1,300 @@
+General firmware — Astra review and qualification record, 2026-10-17
+
+CURRENT STATUS: reviewed R3 is flashed/readback-verified on all five boards.
+Functional physical qualification passed; see the final hardware record.
+Original preparation notes below are historical.
+
+ORIGINAL USER GATE (SUPERSEDED BY AUTOMATIC ASTRA REVIEW BELOW)
+
+User: "Implement and test the system. Before the flashing tell me to switch to
+astra for final review." This candidate must NOT be flashed before that review.
+No board, probe, serial adapter, option-byte or programmer-power operation was
+performed while implementing/testing this candidate. Serial tests used PTYs;
+audio tests used the C simulator and PC audio. The last verified hardware state
+remains the previous PWM/audio firmware. All its readbacks/backups are preserved.
+Do not treat successful host mocks or the transport timing model as physical proof.
+
+READ FIRST
+
+  firmware/general/README.txt — build/use, behavior and limitations
+  docs/general-firmware-protocol.txt — exact wire/content/storage contract
+  docs/general-firmware-design.txt — original design and long-show follow-up
+  build/general/review-candidate/manifest.json — frozen images, source hashes,
+    actual native memory capacities and compiler stack assessment
+
+NEW IMPLEMENTATION
+
+  firmware/general/User/general.h, wire.c, router.c: bounded COBS/CRC16 frames,
+    byte-error/overflow/timeout handling, per-address session/request retry caches
+  node.c: capabilities/UUID/status; RAM uploads and continuous segment replacement;
+    persistent A/B/capacity manifests; bounded timestamped frame queues; baud lease
+  render.c: validated absolute-time LGS1 interpreter, fill/bitmap/text assets,
+    clipped linear/triangle/wrapped motion, intensity tracks and frame decoding
+  counter.c: monotonic time from free-running 32-bit HCLK, independent of refresh
+  clock.c/h: 100 kHz I2C general-call clock beacon, CRC, stale/regressed detection
+  main.c: native glue, IRQ-only scan/unblank, row-major conversion, scoped flash
+    maintenance and dynamic linker-bounded content operations
+  firmware/general/Link.ld: application uses <=16 KiB; remaining aligned pages
+    become content space after linked load image, never arbitrary address writes
+  scripts/general_link.py: real serial transport, exclusive port/tty cleanup,
+    per-node request sequence/retry/credits, clock estimation, storage selection,
+    per-node program blobs, bounded frames, identical-object reuse and baud negotiation/recovery
+  scripts/general_program.py: JSON text/bitmap timeline compiler, asset deduplication
+  scripts/pwm_board_audio.py: optional --general adapter preserves the original
+    six-scene shader/music/narration on the new arbitrary-frame path
+  scripts/general_audio.py: native-rate loaded-show synchronization to DAC epoch
+  scripts/letki_general.py: inspect/text/load/play/pause/seek/stream/audio/preview
+  scripts/general_resources.py: freeze actual builds, validate bounds, emit hashes
+  host/general/: shared-core C simulator with byte router, flash fault injection,
+    independent instances; host-owned streaming assets are not constrained by MCU
+    storage; direct UART serialization model in the Python driver
+  config/general/demo.json, narrated.json: working text/motion/intensity examples
+
+SHARED CHANGES TO REVIEW
+
+Makefile: separate v3-general variant, roles and host targets; included in
+all-variants and host test. Default v3 and old variants preserved. Builds never flash.
+firmware/v3/User/uart.c/h: binary atomic enqueue and baud reconfiguration helpers.
+Existing text UART/ISR behavior remains in its original functions.
+firmware/v3/User/display.c/h: DISPLAY_GENERAL-only generation latch at actual scan
+boundary; maintenance clears buffers, stops timers and blanks GPIO-low. Existing
+non-general paths remain conditional/unmodified in behavior.
+host/renderer/model.c, main.c: externally supplied row-major grayscale levels,
+validation and general-preview title; native renderer integration test added.
+No CAD, mechanics, orders, inventory, archive firmware or IDE metadata changed.
+Generated compile_commands.json selects the general head (ignored index artifact).
+
+VALIDATION EVIDENCE
+
+  build/general/full-host-tests.log — make test, including prior firmware tests
+  build/general/general-tests.log — 38 general Python tests plus clock/display C++
+  build/general/all-variants.log — all active/demo/archive WCH builds
+  build/general/general-images.log — dedicated role build
+  build/general/clangd.log — main.c, --tweaks=, zero errors
+  build/general/sanitizer.log — ASan/UBSan deterministic mutation corpus, clean
+    Leak checking disabled because LSan cannot run under this sandbox's tracing;
+    the firmware core has no dynamic allocation. ASan/UBSan checks remain enabled.
+  build/general/renderer-tests.log — nine native headless renderer tests
+  build/general/preview.gif, preview.png, preview.json — inspected visual preview
+  build/general/audio.json, audio-simulation.log — complete 38.4-second narrated
+    C-simulator run, no audio warnings; eight DAC-epoch/clock checks
+  build/general/stream.json, stream-simulation.log — real-time paced offline stream
+    with automatic rate selection and no late/skipped uploads in zero-latency sim
+  build/general/transport-model.json — store/forward serialization estimates only
+
+Tests cover:
+- all pixel formats, original six-scene PWM streaming adapter, canonical orientation, clipping, text/Polish marks, modes;
+- bytewise NUL-safe routing, split serial reads, RX error/gap markers, overflow,
+  partial-frame timeout, CRC corruption, missing node and reconnect/tty cleanup; random session collision recovery;
+- packet/request and generation wrap; bounded retries and conflicting duplicates;
+- capacity/exact-fit and reclamation; per-tile program objects; invalid programs;
+- play/pause/seek, queued frame limits/order/late presentation and cancellation;
+- old RAM segment plays while next loads, then changes at scheduled deadline;
+- one virtual hour of streamed updates without queue/memory growth; multi-hour
+  loaded show; free-running hardware-counter arithmetic through wrap and flash pause; continuous timeline phase across
+  200 virtual days, including millisecond wrap;
+- 899 interrupted-write scenarios: every modeled erase page and every programmed
+  byte through data and validity metadata for short and cross-page replacements;
+  safe mode recovers old/new valid object, capacity mode can also recover idle;
+- actual I2C polling code against register mocks, including read-to-clear DATAR,
+  magic/CRC/short/long writes, last byte+STOP, error recovery and clock regression;
+- actual display driver's scan-boundary generation latching and maintenance blank;
+- baud TX-idle gating, confirmation, unconfirmed timeout and confirmed idle lease.
+
+NATIVE RESOURCES AND LIMITS
+
+Current head binary 13,236 bytes; receiver 13,248 bytes (check frozen manifest
+for exact hashes/sizes). All roles RAM 2,036/2,048 including 256 stack: 12 bytes
+unallocated outside stack. This tight margin is a first-priority review item.
+RAM arena 752 bytes, default program capacity 592 (two 80-byte raw frame slots).
+MONO1/GRAY4/LEVEL8 slots 24/48/80 bytes; 0..16 slots subject to actual capacity.
+Native current data pool 3136 bytes; safe program1472 or capacity program3072.
+Simulator backing store4096 advertises larger capacities intentionally; driver
+uses discovery, never those simulator constants as hardware limits.
+
+Compiler .su path: main24 -> lg_receive20 -> lg_dispatch68 -> manifest24 ->
+lg_program_valid52 =188 foreground. Conservative combined ISR allowance48 gives
+236/256. SysTick software stack8 + display_tick12, UART/TIM2 fast ISRs report0;
+48 is retained conservative allowance, not a runtime measurement. Review SDK/
+libc/indirect callback paths and prologues too. Runtime high-water remains pending.
+Dynamic allocation is host-only; firmware uses fixed arrays/offsets.
+
+TIMING MODEL AND HARDWARE WORK STILL REQUIRED
+
+GRAY4 five-tile upload model at 115200 averages ~54 ms, at230400 ~27 ms,
+460800 ~14 ms, 921600 ~7 ms. Values include frame staging/commit and modeled
+0.05 ms processing per node; they do NOT include measured MCU execution/USB effects.
+The driver measures acknowledged upload duration and chooses FPS with margin.
+115200 prior small-phase/audio physical pass is not proof of this raw-frame path.
+Do not claim 25 fps raw at115200, higher baud qualification, zero optical skew,
+400 kHz I2C, or tested persistence/stack/scan on hardware for this new candidate.
+
+REVIEW PRIORITIES BEFORE ANY FLASH
+
+1. RAM and full foreground/ISR/SDK/helper stack bounds; no arena/queue/staging
+   overlap, especially preserve-current vs capacity replacement and frame formats.
+2. Fast flash register sequence, address aliases, linker load end/bounds, buffer
+   alignment, timed controller waits, readback verification, manifest interruption
+   semantics and recovery. No option/protection/mass-erase exposure. Inspect
+   stopped blanking and interrupt management; execution/write behavior still
+   requires physical qualification against stored WCH vendor references.
+3. UART cutover/forwarding and RX service margin; duplicate/stale IDs, per-node
+   sequence wrap, packet errors, queue ownership, partial commit and reconnect.
+4. I2C general-call beacon and error/reset behavior. RM v1.9 documents ENGC and
+   GENCALL; broadcast is used only for time. A +1 ms nominal wire compensation is
+   an estimate. Clock regressions latch until a new UART session. Verify actual
+   loaded-playback drift/skew, bus errors, head/receiver restarts and recovery.
+5. Free-running SysTick STRE=0/STCLK=HCLK/STIE scheduling; compare rollover,
+   missed interrupts and wall-time continuity through flash maintenance. Scan is
+   nominal2 kHz/250 Hz with unchanged PWM/blanking driver, physically unmeasured.
+6. PC deadline/clock mapping under chain asymmetry and OS/audio jitter. COMMIT
+   is staging readiness; STATUS PRESENTED is a local scan latch, not optical readback.
+   A broken link during commit can leave a partial frame; no global rollback claim.
+7. Bauds: one-second prepare/drain, two-second confirm timeout, ten-second idle
+   lease, reset115200, and return-to115200 on normal Driver.close. Profile CPU and
+   UART queue margin before recommending faster rates. No hardware rates changed.
+8. Migration requires all five matching images. Existing text/PWM receivers cannot
+   forward this binary protocol correctly. Preserve all working full readbacks,
+   identify UUIDs and roles immediately before each write, verify programmed images,
+   preserve option bytes/programmer power and close serial readers/probe terminals.
+
+Known board mapping from left: head d7-50-ab-cd-41-1c-bd-ff;
+ tile1 d7-56-ab-cd-41-22-bd-ff; tile2 d7-69-ab-cd-41-35-bd-ff;
+ tile3 d7-73-ab-cd-41-3f-bd-ff; tile4 d7-6e-ab-cd-41-3a-bd-ff.
+This map is recorded placement evidence, not intrinsic UUID ordering. Re-identify.
+Standing v3 update/test authorization still requires the specified safeguards;
+the user's explicit Astra-before-flashing requirement takes precedence now.
+
+Optional scope not implemented: RLE/delta formats, arbitrary many-object filesystem,
+automatic role enumeration, live hardware stack telemetry, 400 kHz I2C and DMA.
+New arbitrary effects/text/fonts remain possible via host-generated assets/frames
+and finite segments without adding effect-specific firmware. Human commands are
+provided by the PC CLI; the MCU UART is binary-only. SWIO PD1 is preserved but this
+candidate does not include the old application's SWIO terminal/log transport.
+
+
+FINAL ASTRA REVIEW — AUTOMATIC DELEGATION AUTHORIZED
+
+The user's active completion goal supersedes the manual model-switch gate:
+"Complete until verified and tested. Spawn the astra revew by yourself. Only
+ask for swio switching." Root spawned gpt-6-astra high, scoped read-only review.
+The reviewer gave GO for identified-board flashing/physical validation after
+fixing two findings, passing regressions and rebuilding/freezing all roles.
+
+P1: Expire an in-flight I2C transaction before consuming delayed RXNE/STOP, so
+flash maintenance cannot accept a stale timestamp and falsely latch regression.
+P2: Parse all complete serial response frames before bounding the unfinished
+tail. An overlong tail is discarded through its next delimiter.
+Both final fixes were checked by Astra; 38 general tests plus actual clock and
+display register checks passed. Fresh native roles, all variants and make test
+passed. Runtime stack high-water and electrical/optical timing remain unmeasured.
+
+Recovery limitation: after independent receiver restart during an old head
+clock epoch (24.9–49.7 days), reconnect and explicitly PLAY to re-anchor loaded
+content. Continuous playback is tested virtually through 200 days, but that
+does not establish seamless autonomous independent reboot/rejoin.
+
+Hardware records for subsequent migration/verification are separate under
+build/board-readback/general-20261017/. Earlier unflashed statements above
+describe the pre-review preparation state, not subsequent physical work.
+
+
+PHYSICAL FOLLOW-UP AND REVISION 2 REVIEW
+
+The first five-board migration/readbacks succeeded and live RAM/text/brightness/
+scheduled-switch/MONO1-GRAY4-LEVEL8 scan-tag tests passed. The first native flash
+COMMIT failed LG_IO. Physical data-page readback was correct; manifest was the
+bitwise AND of previous data and the intended manifest (LGS1 AND LGF1 = LGB1).
+Root and Astra traced this to a combined FTPG-enable/BUFRST register write: the
+reset trigger requires FTPG to have already been enabled in a prior write.
+
+Revision 2 splits those MMIO writes. Actual callbacks are in content_flash.h
+and are shared by main.c and a register controller model. The test checks the
+previous-value enable requirement, buffer AND behavior, 16 aligned word loads,
+readback, protection failure, maintenance/locks, and out-of-bounds rejection.
+It rejects the old defective combined write and passes the corrected order.
+
+The rightmost board has been qualified physically: two A/B commits, exact UART
+readback, both LGF1 headers/content CRCs checked from full physical flash, and
+the newest program readback matched after restart. Its executable prefix and
+option bytes were preserved. Evidence: rightmost-flash-fix.json and associated
+logs in build/board-readback/general-20261017/. Astra gave GO for revision 2
+migration after that qualification. Full-chain revision 2 validation follows.
+
+New native sizes: head13244, receiver13256, RAM2036 including stack256; stack
+assessment236 remains unchanged. Head content3072 bytes in capacity mode;
+receivers3008. Safe capacity1472 for all roles. Discover limits at runtime.
+
+Host follow-up: .25s per frame-stage retry and .1s periodic TIME sampling avoid
+the old2s animation stall after a lost acknowledgement. Retain three clock
+observations/minimum RTT: a retried TIME response is cached and contains its
+original timestamp. A single-sample change was rejected during review/testing
+because it biased offsets. Loss injection now covers TIME and all three frame
+stages, offset stability and a finite1000ms lookahead. Median3 upload samples
+select nominal automatic FPS, not a retry-proof throughput guarantee. Multiple
+losses or forced excessive FPS can exhaust lookahead; report late/skipped frames.
+Frame/audio telemetry is bounded (4096/1024 samples;128 warnings) while lifetime
+totals are retained. Final host/register suite has40 Python tests plus native
+clock/display/flash register checks. Existing full tests/all variants pass.
+
+Physical230400 operation added no UART errors during the measured run, but an
+occasional whole acknowledgement was lost and retried without UART error flags.
+At460800 the PC-to-head link accumulated errors; other receivers stayed clean.
+Do not recommend460800/921600 on this setup. Negotiation success alone is not
+qualification. Firmware default/recovery115200 and its high-baud idle lease are
+preserved. Final streaming/audio qualification is recorded separately.
+
+
+REVISION 3 FOLLOW-UP — REVIEWED AND FLASHED
+
+Astra reviewed bounded I2C idle-BUSY recovery and UART-clock raw streaming and
+approved physical qualification. Head13272 and receivers13284 bytes; all roles
+have3072 content bytes,1472 safe-program bytes and3008 capacity-program bytes.
+RAM2036 includes the retained256-byte stack; conservative combined path236.
+All five frozen R3 role images have matching physical programmed readbacks and
+preserved original option bytes. General suite now has43 Python tests plus the
+actual clock/display/flash controller checks. Runtime stack high-water remains
+unmeasured. Further host-only flash-retention review is recorded separately.
+
+The final R3 chain passed RAM controls, text modes, brightness, scheduled segment
+switch, all three raw formats with actual scan-latch acknowledgements, full-capacity
+3008-byte uploads/readbacks on each node, and safe A/B replacement. Head retained
+the previous valid safe object after restart during an incomplete92-byte upload.
+A full38.4-second loaded audio run passed with8 timing checks and no warnings or
+new UART errors. Remaining per-receiver persistent restart qualification is in
+progress; see the physical record rather than inferring completion here.
+
+
+Final host-only flash-retention change: Astra found no blocker. When all tiles
+have active flash programs, raw streaming retains those objects and consumes
+only frame-queue RAM. Regression checks unchanged content, zero flash operations
+and successful PLAY afterwards;43 tests pass. Retention is all-or-nothing: a
+RAM/empty tile causes the existing idle-RAM replacement on all tiles. Default
+PLAY starts the saved show at position0; restoring the previous paused position
+requires explicitly passing that position. No further native change is needed.
+
+
+LIVE COLUMN5 DIAGNOSTIC REVIEW
+
+Astra independently checked the targeted live capture: nextscan5 corresponds to
+current index4/S5, decoder-address pads read binary100, all8 row inputs read
+high, both timers PWMmode/CCER/CEN/CCR1200>ARR1199 and TIM1MOE are correct.
+Both framebuffer columns contain1200 ticks and canonical levels are100. This
+strongly rules out a dark renderer column or wrong MCU address/row command at
+that captured instant. It narrows toward decoder-input connectivity, Y4/S5
+sink/output, common-cathode trace/solder, or electrical drive/current; it does
+not prove a defective decoder. Electrical/optical diagnosis remains incomplete.
+Do not mark whole-system physical qualification complete while that report
+remains unresolved. No additional application write was made for diagnosis.
+
+
+FINAL HARDWARE FOLLOW-UP
+
+User resoldered the suspected head connection and reported it appears okay.
+Final R3 saved-program restart checks passed on all five; safe A/B layout and
+final228-byte demo restored. Full38.4-second narrated PC PWM stream at230400/
+18fps passed with0skipped/late frames,0new UART errors/drops,0audio warnings;
+15ACK timeouts were recovered by retries. Flash programs remained unchanged and
+PLAY returned all tiles to their saved standalone show. Current make test passed,
+including43 general Python tests. No further native/source change occurred after
+Astra's last code review. Physical evidence/limits are in the hardware record.

@@ -1,0 +1,1591 @@
+{
+  "phase": "PLACED_UNROUTED",
+  "date": "2026-10-15",
+  "canonical_project": "hw/ledkiv3.1/ledkiv3_1.kicad_pro",
+  "authority": "PCB is the human/agent edit source; this is a dated placement snapshot, not a generator to replay",
+  "fixed_locked_references": [
+    "D1",
+    "D10",
+    "D11",
+    "D12",
+    "D13",
+    "D14",
+    "D15",
+    "D16",
+    "D17",
+    "D18",
+    "D19",
+    "D2",
+    "D20",
+    "D21",
+    "D22",
+    "D23",
+    "D24",
+    "D25",
+    "D26",
+    "D27",
+    "D28",
+    "D29",
+    "D3",
+    "D30",
+    "D31",
+    "D32",
+    "D33",
+    "D34",
+    "D35",
+    "D36",
+    "D37",
+    "D38",
+    "D39",
+    "D4",
+    "D40",
+    "D41",
+    "D42",
+    "D43",
+    "D44",
+    "D45",
+    "D46",
+    "D47",
+    "D48",
+    "D49",
+    "D5",
+    "D50",
+    "D51",
+    "D52",
+    "D53",
+    "D54",
+    "D55",
+    "D56",
+    "D57",
+    "D58",
+    "D59",
+    "D6",
+    "D60",
+    "D61",
+    "D62",
+    "D63",
+    "D64",
+    "D7",
+    "D8",
+    "D9",
+    "H1",
+    "H2",
+    "J1",
+    "J2",
+    "J3"
+  ],
+  "poses": {
+    "C1": {
+      "xy_mm": [
+        20.5,
+        20.275
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "C3": {
+      "xy_mm": [
+        9.4,
+        26.375
+      ],
+      "angle_degrees": 90.0,
+      "side": "rear",
+      "locked": false
+    },
+    "C4": {
+      "xy_mm": [
+        4.6,
+        15.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "D1": {
+      "xy_mm": [
+        2.54,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D10": {
+      "xy_mm": [
+        7.62,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D11": {
+      "xy_mm": [
+        12.7,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D12": {
+      "xy_mm": [
+        17.78,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D13": {
+      "xy_mm": [
+        22.86,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D14": {
+      "xy_mm": [
+        27.939999,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D15": {
+      "xy_mm": [
+        33.02,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D16": {
+      "xy_mm": [
+        38.1,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D17": {
+      "xy_mm": [
+        2.54,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D18": {
+      "xy_mm": [
+        7.62,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D19": {
+      "xy_mm": [
+        12.7,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D2": {
+      "xy_mm": [
+        7.62,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D20": {
+      "xy_mm": [
+        17.78,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D21": {
+      "xy_mm": [
+        22.86,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D22": {
+      "xy_mm": [
+        27.939999,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D23": {
+      "xy_mm": [
+        33.02,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D24": {
+      "xy_mm": [
+        38.1,
+        30.48
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D25": {
+      "xy_mm": [
+        2.54,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D26": {
+      "xy_mm": [
+        7.62,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D27": {
+      "xy_mm": [
+        12.7,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D28": {
+      "xy_mm": [
+        17.78,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D29": {
+      "xy_mm": [
+        22.86,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D3": {
+      "xy_mm": [
+        12.7,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D30": {
+      "xy_mm": [
+        27.939999,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D31": {
+      "xy_mm": [
+        33.02,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D32": {
+      "xy_mm": [
+        38.1,
+        25.4
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D33": {
+      "xy_mm": [
+        2.54,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D34": {
+      "xy_mm": [
+        7.62,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D35": {
+      "xy_mm": [
+        12.7,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D36": {
+      "xy_mm": [
+        17.78,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D37": {
+      "xy_mm": [
+        22.86,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D38": {
+      "xy_mm": [
+        27.939999,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D39": {
+      "xy_mm": [
+        33.02,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D4": {
+      "xy_mm": [
+        17.78,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D40": {
+      "xy_mm": [
+        38.1,
+        20.32
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D41": {
+      "xy_mm": [
+        2.54,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D42": {
+      "xy_mm": [
+        7.62,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D43": {
+      "xy_mm": [
+        12.7,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D44": {
+      "xy_mm": [
+        17.78,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D45": {
+      "xy_mm": [
+        22.86,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D46": {
+      "xy_mm": [
+        27.939999,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D47": {
+      "xy_mm": [
+        33.02,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D48": {
+      "xy_mm": [
+        38.1,
+        15.24
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D49": {
+      "xy_mm": [
+        2.54,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D5": {
+      "xy_mm": [
+        22.86,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D50": {
+      "xy_mm": [
+        7.62,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D51": {
+      "xy_mm": [
+        12.7,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D52": {
+      "xy_mm": [
+        17.78,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D53": {
+      "xy_mm": [
+        22.86,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D54": {
+      "xy_mm": [
+        27.939999,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D55": {
+      "xy_mm": [
+        33.02,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D56": {
+      "xy_mm": [
+        38.1,
+        10.16
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D57": {
+      "xy_mm": [
+        2.54,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D58": {
+      "xy_mm": [
+        7.62,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D59": {
+      "xy_mm": [
+        12.7,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D6": {
+      "xy_mm": [
+        27.939999,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D60": {
+      "xy_mm": [
+        17.78,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D61": {
+      "xy_mm": [
+        22.86,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D62": {
+      "xy_mm": [
+        27.939999,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D63": {
+      "xy_mm": [
+        33.02,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D64": {
+      "xy_mm": [
+        38.1,
+        5.079999
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D7": {
+      "xy_mm": [
+        33.02,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D8": {
+      "xy_mm": [
+        38.1,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "D9": {
+      "xy_mm": [
+        2.54,
+        35.56
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "H1": {
+      "xy_mm": [
+        2.54,
+        46.75
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "H2": {
+      "xy_mm": [
+        38.1,
+        46.75
+      ],
+      "angle_degrees": 180.0,
+      "side": "front",
+      "locked": true
+    },
+    "J1": {
+      "xy_mm": [
+        39.37,
+        7.62
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": true
+    },
+    "J2": {
+      "xy_mm": [
+        7.62,
+        46.75
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": true
+    },
+    "J3": {
+      "xy_mm": [
+        1.27,
+        7.62
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": true
+    },
+    "Q1": {
+      "xy_mm": [
+        4.6,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q10": {
+      "xy_mm": [
+        31.3,
+        36.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q11": {
+      "xy_mm": [
+        31.3,
+        32.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q12": {
+      "xy_mm": [
+        31.3,
+        28.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q13": {
+      "xy_mm": [
+        31.3,
+        24.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q14": {
+      "xy_mm": [
+        31.3,
+        20.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q15": {
+      "xy_mm": [
+        31.3,
+        16.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q16": {
+      "xy_mm": [
+        31.3,
+        12.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q2": {
+      "xy_mm": [
+        9.1,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q3": {
+      "xy_mm": [
+        13.6,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q4": {
+      "xy_mm": [
+        18.1,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q5": {
+      "xy_mm": [
+        22.6,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q6": {
+      "xy_mm": [
+        27.1,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q7": {
+      "xy_mm": [
+        31.6,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q8": {
+      "xy_mm": [
+        36.1,
+        4.8
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "Q9": {
+      "xy_mm": [
+        31.3,
+        40.64
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R1": {
+      "xy_mm": [
+        36.15,
+        40.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R11": {
+      "xy_mm": [
+        20.5,
+        25.1
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R12": {
+      "xy_mm": [
+        20.5,
+        27.6
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R15": {
+      "xy_mm": [
+        4.6,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R16": {
+      "xy_mm": [
+        9.1,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R17": {
+      "xy_mm": [
+        13.6,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R18": {
+      "xy_mm": [
+        18.1,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R19": {
+      "xy_mm": [
+        22.6,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R2": {
+      "xy_mm": [
+        36.15,
+        36.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R20": {
+      "xy_mm": [
+        27.1,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R21": {
+      "xy_mm": [
+        31.6,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R22": {
+      "xy_mm": [
+        36.1,
+        9.55
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R23": {
+      "xy_mm": [
+        4.6,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R24": {
+      "xy_mm": [
+        9.1,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R25": {
+      "xy_mm": [
+        13.6,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R26": {
+      "xy_mm": [
+        18.1,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R27": {
+      "xy_mm": [
+        22.6,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R28": {
+      "xy_mm": [
+        27.1,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R29": {
+      "xy_mm": [
+        31.6,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R3": {
+      "xy_mm": [
+        36.15,
+        32.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R30": {
+      "xy_mm": [
+        36.1,
+        7.65
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R31": {
+      "xy_mm": [
+        26.7,
+        39.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R32": {
+      "xy_mm": [
+        26.7,
+        35.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R33": {
+      "xy_mm": [
+        26.7,
+        31.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R34": {
+      "xy_mm": [
+        26.7,
+        27.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R35": {
+      "xy_mm": [
+        26.7,
+        23.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R36": {
+      "xy_mm": [
+        26.7,
+        19.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R37": {
+      "xy_mm": [
+        26.7,
+        15.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R38": {
+      "xy_mm": [
+        26.7,
+        11.69
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R39": {
+      "xy_mm": [
+        4.6,
+        22.7
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R4": {
+      "xy_mm": [
+        36.15,
+        28.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R40": {
+      "xy_mm": [
+        8.9,
+        22.7
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R41": {
+      "xy_mm": [
+        13.2,
+        22.7
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R42": {
+      "xy_mm": [
+        26.7,
+        41.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R43": {
+      "xy_mm": [
+        26.7,
+        37.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R44": {
+      "xy_mm": [
+        26.7,
+        33.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R45": {
+      "xy_mm": [
+        26.7,
+        29.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R46": {
+      "xy_mm": [
+        26.7,
+        25.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R47": {
+      "xy_mm": [
+        26.7,
+        21.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R48": {
+      "xy_mm": [
+        26.7,
+        17.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R49": {
+      "xy_mm": [
+        26.7,
+        13.59
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R5": {
+      "xy_mm": [
+        36.15,
+        24.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R50": {
+      "xy_mm": [
+        36.15,
+        42.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R51": {
+      "xy_mm": [
+        36.15,
+        38.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R52": {
+      "xy_mm": [
+        36.15,
+        34.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R53": {
+      "xy_mm": [
+        36.15,
+        30.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R54": {
+      "xy_mm": [
+        36.15,
+        26.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R55": {
+      "xy_mm": [
+        36.15,
+        22.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R56": {
+      "xy_mm": [
+        36.15,
+        18.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R57": {
+      "xy_mm": [
+        36.15,
+        14.54
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R6": {
+      "xy_mm": [
+        36.15,
+        20.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R66": {
+      "xy_mm": [
+        8.5,
+        32.0
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R67": {
+      "xy_mm": [
+        4.6,
+        28.0
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R68": {
+      "xy_mm": [
+        4.6,
+        30.5
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R7": {
+      "xy_mm": [
+        36.15,
+        16.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "R8": {
+      "xy_mm": [
+        36.15,
+        12.64
+      ],
+      "angle_degrees": 180.0,
+      "side": "rear",
+      "locked": false
+    },
+    "U1": {
+      "xy_mm": [
+        14.5,
+        28.0
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    },
+    "U2": {
+      "xy_mm": [
+        14.5,
+        18.0
+      ],
+      "angle_degrees": 0.0,
+      "side": "rear",
+      "locked": false
+    }
+  },
+  "stages": [
+    {
+      "stage": "Column1",
+      "refs": [
+        "Q1",
+        "R15",
+        "R23"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row1",
+      "refs": [
+        "Q9",
+        "R1",
+        "R42",
+        "R31",
+        "R50"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    },
+    {
+      "stage": "Column2",
+      "refs": [
+        "Q2",
+        "R16",
+        "R24"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row2",
+      "refs": [
+        "Q10",
+        "R2",
+        "R43",
+        "R32",
+        "R51"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    },
+    {
+      "stage": "Column3",
+      "refs": [
+        "Q3",
+        "R17",
+        "R25"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row3",
+      "refs": [
+        "Q11",
+        "R3",
+        "R44",
+        "R33",
+        "R52"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    },
+    {
+      "stage": "Column4",
+      "refs": [
+        "Q4",
+        "R18",
+        "R26"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row4",
+      "refs": [
+        "Q12",
+        "R4",
+        "R45",
+        "R34",
+        "R53"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    },
+    {
+      "stage": "Column5",
+      "refs": [
+        "Q5",
+        "R19",
+        "R27"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row5",
+      "refs": [
+        "Q13",
+        "R5",
+        "R46",
+        "R35",
+        "R54"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    },
+    {
+      "stage": "Column6",
+      "refs": [
+        "Q6",
+        "R20",
+        "R28"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row6",
+      "refs": [
+        "Q14",
+        "R6",
+        "R47",
+        "R36",
+        "R55"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    },
+    {
+      "stage": "Column7",
+      "refs": [
+        "Q7",
+        "R21",
+        "R29"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row7",
+      "refs": [
+        "Q15",
+        "R7",
+        "R48",
+        "R37",
+        "R56"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    },
+    {
+      "stage": "Column8",
+      "refs": [
+        "Q8",
+        "R22",
+        "R30"
+      ],
+      "notes": "PMOS gate series/pull-up grouped beside its column source"
+    },
+    {
+      "stage": "Row8",
+      "refs": [
+        "Q16",
+        "R8",
+        "R49",
+        "R38",
+        "R57"
+      ],
+      "notes": "NMOS gate series/pulldown,cathode bias and33R current resistor kept together"
+    }
+  ],
+  "future_routing_constraints": {
+    "no_routing_authorized_this_stage": true,
+    "front_VCC_bus_mm": 2.0,
+    "rear_entry_rails_mm": 1.2,
+    "GND_plane": "Preserve In1 for a continuous GND plane; no plane copper created in this placement stage",
+    "ordinary_via_mm": [
+      0.6,
+      0.3
+    ],
+    "edge_PTH_copper_geometry": "Preserve native layer-specific round/oval padstacks; no castellations or edge plating"
+  },
+  "evidence": "build/hardware/v3_1-astra-placement-20261015",
+  "checks": {
+    "status": "PLACEMENT_PASS; UNROUTED",
+    "board_sha256": "d5d8190d3ca937c66148aff6e172bfbd99c6e8e8c5442bb155ea86489d495588",
+    "baseline_sha256": "2e0aa96e6b3b754171c1a4115dbc76b9def16733e0b6f9b5916d04f7503ff691",
+    "footprints": 146,
+    "fixed_locked_footprints": 69,
+    "rear_movable_parts": 77,
+    "agreed_padstacks_and_positions_preserved": true,
+    "tracks": 0,
+    "vias": 0,
+    "copper_zones": 0,
+    "hole_counts": {
+      "PTH": 17,
+      "NPTH": 2
+    },
+    "same_side_courtyard_pairs_checked": 5305,
+    "minimum_courtyard_gap_mm": 0.11,
+    "courtyard_method": "Conservative per-loop native bounding boxes; no aggregation across edge-contact loops",
+    "M2_all_layer_pad_keepout_radius_mm": 2.45,
+    "silkscreen": "77 rear assembly labels,1mm/0.15mm; R numbers use R=# legend",
+    "scope": "Placement/nominal geometry only; native findings, routing, power integrity and physical qualification remain separate"
+  },
+  "iteration": "Astra placement, awaiting human iteration",
+  "board_sha256": "d5d8190d3ca937c66148aff6e172bfbd99c6e8e8c5442bb155ea86489d495588"
+}

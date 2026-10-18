@@ -1,0 +1,16 @@
+(sym_lib_table
+	(lib
+		(name "LetkiStudy")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/LetkiStudy.kicad_sym")
+		(options "")
+		(descr "v3.1 project-local symbols")
+	)
+	(lib
+		(name "Letki31")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/Letki31.kicad_sym")
+		(options "")
+		(descr "v3.1 project-local symbols")
+	)
+)

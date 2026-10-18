@@ -1,0 +1,584 @@
+{
+  "status": "PASS_AFTER_NATIVE_RELOAD",
+  "board_sha256": "4d6ad6892409f35da72a2558710c0f0ec61a087d89a20f96401f0012680a9673",
+  "new_VCC_vias": [
+    {
+      "uuid": "6f2d3389-f9f8-4c72-a004-ac934025ea74",
+      "net": "VCC",
+      "position_mm": [
+        2.1,
+        11.6
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "bffbb1a7-bb8c-4e8b-8e82-a2c367a47f04",
+      "net": "VCC",
+      "position_mm": [
+        2.1,
+        13.2
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "aa65f0d1-1f65-4721-b2ba-85a4bed2155b",
+      "net": "VCC",
+      "position_mm": [
+        5.3,
+        11.8
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "29b03074-f22e-4e4c-97a2-de1586133014",
+      "net": "VCC",
+      "position_mm": [
+        6.6,
+        11.1
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "d3409211-caa0-44ee-be9f-30264c5eae41",
+      "net": "VCC",
+      "position_mm": [
+        12.0,
+        13.4
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "f3fe8d4f-0058-42d6-b048-a2e3d988ecb1",
+      "net": "VCC",
+      "position_mm": [
+        12.9,
+        13.4
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "d73ff551-c800-4f97-a223-4aad7f42a443",
+      "net": "VCC",
+      "position_mm": [
+        17.2,
+        13.4
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "7bbe8582-bdec-4814-8ce7-db1fe22c1032",
+      "net": "VCC",
+      "position_mm": [
+        32.4,
+        13.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "c6a61a3f-0a29-4fbe-9bf3-22200ab5760e",
+      "net": "VCC",
+      "position_mm": [
+        37.1,
+        13.4
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "6bc01c27-e9c4-4976-ac5d-eaf9a8ced1bc",
+      "net": "VCC",
+      "position_mm": [
+        37.6,
+        11.1
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "f849e0cb-7ced-44d2-8ca7-3ad2dafa5391",
+      "net": "VCC",
+      "position_mm": [
+        44.8,
+        12.8
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "34943d0e-ae76-4bcc-b68b-5d2ad21a9cf4",
+      "net": "VCC",
+      "position_mm": [
+        45.1,
+        12.0
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "4ad6b38d-b666-48b7-9fd7-9f6b0c1047c9",
+      "net": "VCC",
+      "position_mm": [
+        47.5,
+        11.6
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "f75a88d8-657a-4fd2-8a16-58c62e38d8f7",
+      "net": "VCC",
+      "position_mm": [
+        47.5,
+        13.2
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "b2c37425-7380-405c-9f57-88503dc9274f",
+      "net": "VCC",
+      "position_mm": [
+        0.9,
+        23.5
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "0c68e8b6-42aa-4f50-a905-f6d838bb6f90",
+      "net": "VCC",
+      "position_mm": [
+        1.7,
+        26.2
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "59c16eb7-e4e9-44d6-8ac7-a6bf673c8389",
+      "net": "VCC",
+      "position_mm": [
+        6.5,
+        24.8
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "d9605440-da85-4049-9db2-03cad9acc773",
+      "net": "VCC",
+      "position_mm": [
+        7.3,
+        24.6
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "61aedbb2-5bde-453b-8d17-b567c3f949ff",
+      "net": "VCC",
+      "position_mm": [
+        12.8,
+        25.0
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "ec7231ec-77ab-4a8d-aa34-1b99401cdce6",
+      "net": "VCC",
+      "position_mm": [
+        18.2,
+        24.8
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "96b95c89-beaa-40a4-b3a1-4536846bfac9",
+      "net": "VCC",
+      "position_mm": [
+        19.1,
+        24.8
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "523eceb7-c4c0-488c-922e-5ceabf30282c",
+      "net": "VCC",
+      "position_mm": [
+        30.7,
+        25.6
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "c2c4ddaa-6b74-4eac-9d35-55e6e3478d76",
+      "net": "VCC",
+      "position_mm": [
+        32.0,
+        24.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "c22a9a03-1a10-4710-8683-9a262783d367",
+      "net": "VCC",
+      "position_mm": [
+        36.8,
+        24.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "0f99ea17-fe37-4593-84af-e8eb9a4dc86c",
+      "net": "VCC",
+      "position_mm": [
+        37.7,
+        24.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "b7f5b448-62a6-4138-bc98-6553845a0c72",
+      "net": "VCC",
+      "position_mm": [
+        43.7,
+        24.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "97f01d4d-543f-48e7-839f-0d07bd4d5cb8",
+      "net": "VCC",
+      "position_mm": [
+        44.8,
+        25.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "cef9bf4c-1fe2-4970-995d-3e6acceb4f06",
+      "net": "VCC",
+      "position_mm": [
+        48.7,
+        26.1
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "67b69516-0797-4f7f-9304-b162a1ffa462",
+      "net": "VCC",
+      "position_mm": [
+        47.3,
+        26.6
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "5071d6b5-c62a-4e74-ae59-51250cf96f64",
+      "net": "VCC",
+      "position_mm": [
+        0.9,
+        38.5
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "343e8d22-f39a-4db4-9cc0-edca6201e8ea",
+      "net": "VCC",
+      "position_mm": [
+        2.2,
+        36.1
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "df348f60-3143-46ba-a3bb-215123f2c9bb",
+      "net": "VCC",
+      "position_mm": [
+        5.8,
+        37.2
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "d2161a59-b21c-42c1-a636-5671a24cb6d6",
+      "net": "VCC",
+      "position_mm": [
+        6.6,
+        37.4
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "4acbe5c5-9166-458b-94f8-cfa5311afad5",
+      "net": "VCC",
+      "position_mm": [
+        19.1,
+        37.2
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "81c527b8-b37b-454b-90f1-ebffda473524",
+      "net": "VCC",
+      "position_mm": [
+        23.5,
+        38.0
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "d7870863-0b13-489a-b59b-6d4c47888a9e",
+      "net": "VCC",
+      "position_mm": [
+        23.5,
+        38.9
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "e264190e-10c3-44db-88b1-a7a4b86887e9",
+      "net": "VCC",
+      "position_mm": [
+        32.9,
+        37.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "e0f3c5b6-dad2-4855-9a0e-8b4239fb91a3",
+      "net": "VCC",
+      "position_mm": [
+        36.8,
+        37.6
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "1e0bb38c-c5df-46d4-90d9-492b81e956c6",
+      "net": "VCC",
+      "position_mm": [
+        37.6,
+        35.9
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "eee7639e-7505-4c12-b624-e06bef8f9218",
+      "net": "VCC",
+      "position_mm": [
+        44.3,
+        37.0
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "6a5ecbc3-5b24-4fd2-9744-56e986f24e01",
+      "net": "VCC",
+      "position_mm": [
+        45.1,
+        37.2
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "c2e8ca4d-dbcf-4057-b9cb-b97c7c9741be",
+      "net": "VCC",
+      "position_mm": [
+        47.4,
+        38.3
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    },
+    {
+      "uuid": "67eea8d9-e043-4b3b-ba1d-5badef274f6b",
+      "net": "VCC",
+      "position_mm": [
+        48.7,
+        38.5
+      ],
+      "diameter_mm": 0.6,
+      "drill_mm": 0.3,
+      "front_tented": true,
+      "back_tented": true
+    }
+  ],
+  "new_F_VCC_zone": {
+    "uuid": "200f1ece-f11d-4c53-8298-4bef23263e46",
+    "net": "VCC",
+    "layer": "F.Cu",
+    "name": "VCC east-west reinforcement",
+    "minimum_fill_thickness_mm": 0.4,
+    "thermal_spoke_mm": 0.5,
+    "copper_clearance_mm": 0.2
+  },
+  "bias_bridge": {
+    "uuid": "ce1db7ae-2384-4b74-a1c4-e4b320edf8b6",
+    "net": "VCC",
+    "layer": "B.Cu",
+    "start_mm": [
+      23.0,
+      8.5
+    ],
+    "end_mm": [
+      26.0,
+      8.5
+    ],
+    "width_mm": 0.5
+  },
+  "rejected_stitch_sites": [
+    {
+      "uuid": "b18416f7-be75-40d4-9bf5-760371dbb3e0",
+      "position": [
+        19.700000000000003,
+        12.8
+      ],
+      "stripe": 3,
+      "band": 12.4
+    },
+    {
+      "uuid": "1593b657-39ba-47a6-8612-e96079d15016",
+      "position": [
+        12.0,
+        24.8
+      ],
+      "stripe": 2,
+      "band": 24.8
+    },
+    {
+      "uuid": "0a0b03a9-fa3c-4f2e-b90e-a5780f153985",
+      "position": [
+        12.4,
+        37.5
+      ],
+      "stripe": 2,
+      "band": 37.2
+    },
+    {
+      "uuid": "86b69d91-dace-4389-a4fe-1a76cf1214f7",
+      "position": [
+        12.600000000000001,
+        36.2
+      ],
+      "stripe": 2,
+      "band": 37.2
+    }
+  ],
+  "native_reloaded_net_intent_checked": true
+}

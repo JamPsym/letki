@@ -1,0 +1,31 @@
+V3.1 STUDY B2 — CONTINUOUS-CURRENT REFERENCE, 2026-10-14
+
+For the current five-tile pulsed-current direction, read:
+docs/v3_1-five-tile-plan.txt and config/v3_1-system.json.
+
+This reference retains both v3 ICs plus eight AO3415A column sources and
+eight DMN2056U-7 row sinks, reversed LEDs and 100R 1% row resistors.
+Native CAD: archive/hw/ledkiv3.1-studies-20261015/tme-study/ledkiv3_1_tme.kicad_sch
+Firmware: make VARIANT=v3_1-mosfet (repetitive PWM, 100us blank, 250Hz frames).
+It is incompatible with original v3 and must not drive the 34R pulse circuit.
+Both ICs drive control networks; LED current passes through the MOSFETs.
+Common regulated 3.3V +/-5%; no direct USB 5V on a tile.
+
+100R illustrates 12mA pulse / 1.2mA average at Vf=2.1V and 10% pixel duty.
+The original 220R state is preserved in
+build/hardware/v3_1-five-tiles/before-220R/.
+100R no longer gives a zero-LED-drop bound below 20mA: its conditional load
+line uses Vf(20mA)>=1.6V, a provisional floor requiring physical checks.
+The LED has a separate 80mA/<=100us/<=10% pulse rating; this repetitive
+profile's ~400us full-brightness on interval cannot use that pulse rating.
+
+The user-confirmed GPIO-LOW/100us/selective-PWM ghosting repair is retained.
+New MOSFET behavior and LED current/temperature still need physical checks.
+Gate networks remain 1k/10k, cathode biases 10k, address pulls 4.7k 5%.
+The HC138 has no guaranteed loaded 3.3V VOL table row; the drive model is
+conditional. Exact fields/pin/net checks are in scripts/check_v3_1_tme.py.
+ERC is clean and independent checks pass; firmware is unchanged from the
+previous checked Study B driver. No PCB or physical transistor test exists.
+Current B2 check/PDF evidence: build/hardware/v3_1-five-tiles/.
+Older build/hardware/v3_1-tme-study reports describe the earlier 220R state;
+its summary points to the new work rather than certifying the changed CAD.

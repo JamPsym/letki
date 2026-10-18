@@ -1,0 +1,15 @@
+{
+  "voice": "M1",
+  "native_speed": 0.95,
+  "act_seconds": 6.4,
+  "voice_delay_seconds": 0.35,
+  "master_gain": 0.75,
+  "scenes": [
+    {"name": "Silk ribbon", "speech": "Silk ribbon. A current of light."},
+    {"name": "Ripple garden", "speech": "Ripple garden. Two waves meet."},
+    {"name": "Ember trails", "speech": "Ember trails. Follow the falling sparks."},
+    {"name": "Five lanterns", "speech": "Five lanterns. Each one takes a breath."},
+    {"name": "Light ladder", "speech": "The light ladder. From a whisper to a glow."},
+    {"name": "Daisy chain", "speech": "Daisy chain. One pulse. Five voices."}
+  ]
+}

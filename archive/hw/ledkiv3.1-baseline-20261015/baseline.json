@@ -1,0 +1,48 @@
+{
+  "revision": "v3.1",
+  "status": "ACCEPTED_CAD_BASELINE",
+  "accepted_on": "2026-10-15",
+  "accepted_by": "User: save it as actual v3.1",
+  "canonical_project": "hw/ledkiv3.1/ledkiv3_1.kicad_pro",
+  "frozen_snapshot": "archive/hw/ledkiv3.1-baseline-20261015",
+  "cad_sha256": {
+    "ledkiv3_1.kicad_pcb": "803db5887b970f85937dc4378c422b3fa6cc18b6e7a23571c9567cdb836355e2",
+    "ledkiv3_1.kicad_sch": "042f22ebb5dab0d5e7f16b24260525cb057902e70ac4f9adfbff369b13d59c7d",
+    "ledkiv3_1.kicad_pro": "e8a956639445fd26ac53cf6d7311863862863d4800a8dc622dc344294f41b22f",
+    "ledkiv3_1.kicad_dru": "a994d71f10027d2363993b680580f9a3dc65743c5ed8c6ef670f943506935179",
+    "in1-exceptions.json": "1948d7214feb2f492e245e765cb815df381558f4136123f16282c3e337733a50"
+  },
+  "validation": {
+    "ERC": 0,
+    "DRC": 0,
+    "open_connections": 0,
+    "schematic_parity": 0,
+    "ignored_checks": 0,
+    "independent_circuit_power_manufacturing": "PASS",
+    "nominal_populated_mechanics": "1and4tile PASS",
+    "firmware_builds_host_tests": "PASS"
+  },
+  "physical_qualification": "PENDING",
+  "artifacts": {
+    "manifest.json": {
+      "path": "archive/hw/ledkiv3.1-baseline-20261015/exports/prototype/manifest.json",
+      "sha256": "e33586473da78213db60c1bbc6097ed4ba9c71e17cfae5bc5e2081f4a33362f4"
+    },
+    "ledkiv3_1-gerbers.zip": {
+      "path": "archive/hw/ledkiv3.1-baseline-20261015/exports/prototype/ledkiv3_1-gerbers.zip",
+      "sha256": "1f1c133e1a40860b497abe350180ccc719554b6b5e34a9b47158393fbfe837d9"
+    },
+    "ledkiv3_1-sources.zip": {
+      "path": "archive/hw/ledkiv3.1-baseline-20261015/exports/prototype/ledkiv3_1-sources.zip",
+      "sha256": "148862e2d83a67cae90c1a1e8a6a914f9199792dba3ecb38f1e3cca6fdf0e8fc"
+    },
+    "ledkiv3_1-handoff.zip": {
+      "path": "archive/hw/ledkiv3.1-baseline-20261015/exports/prototype/ledkiv3_1-handoff.zip",
+      "sha256": "99265f1889976db6402b057947f37dad41523ced00725b378b3c96bdd953171d"
+    }
+  },
+  "provenance": "Validation package preserved byte-for-byte from 2026-10-15T20:28. CAD is unchanged. Acceptance metadata was added afterward; the older package retains its original Study C label and contemporaneous source hashes.",
+  "orders_placed": false,
+  "hardware_accessed": false,
+  "git_commit_created": false
+}

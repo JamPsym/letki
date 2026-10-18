@@ -1,0 +1,209 @@
+{
+  "revision": "v3.1 TME Study B2 / continuous-current reference",
+  "recorded_on": "2026-10-14",
+  "status": "100R continuous-current reference; new preferred brightness direction is separate Study C pulse profile. No PCB or physical qualification.",
+  "constraints": {
+    "retained_ICs": [
+      "CH32V003F4P6",
+      "SN74HC138PWR"
+    ],
+    "additional_ICs": 0,
+    "additional_transistors": 16
+  },
+  "sources": {
+    "schematic": "archive/hw/ledkiv3.1-studies-20261015/tme-study/ledkiv3_1_tme.kicad_sch",
+    "firmware_variant": "v3_1-mosfet",
+    "notes": "docs/v3_1-tme-study.txt",
+    "supplier_quote_snapshot": "config/v3_1-supplier-research-20261014.json",
+    "generic_supplier_research": "/home/pies/electronics/notes/sourcing/2026-10-14-pl-suppliers.json",
+    "system_follow_up": "config/v3_1-system.json"
+  },
+  "supply_V": {
+    "nominal": 3.3,
+    "minimum": 3.135,
+    "maximum": 3.465,
+    "regulation": "External common rail; no onboard regulator or direct 5V"
+  },
+  "new_parts": [
+    {
+      "references": [
+        "Q1",
+        "Q2",
+        "Q3",
+        "Q4",
+        "Q5",
+        "Q6",
+        "Q7",
+        "Q8"
+      ],
+      "quantity_per_tile": 8,
+      "MPN": "AO3415A",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "package": "SOT-23 G1/S2/D3",
+      "supplier": "TME",
+      "supplier_code": "AO3415A",
+      "confirmed_on_hand": 0,
+      "Rds_max_ohm_at_minus1p8V_25C": 0.065,
+      "datasheet_url": "https://www.aosmd.com/sites/default/files/res/datasheets/AO3415A.pdf",
+      "datasheet_revision": "3.1, August 2023"
+    },
+    {
+      "references": [
+        "Q9",
+        "Q10",
+        "Q11",
+        "Q12",
+        "Q13",
+        "Q14",
+        "Q15",
+        "Q16"
+      ],
+      "quantity_per_tile": 8,
+      "MPN": "DMN2056U-7",
+      "manufacturer": "Diodes Incorporated",
+      "package": "SOT-23 G1/S2/D3",
+      "supplier": "TME",
+      "supplier_code": "DMN2056U-7",
+      "confirmed_on_hand": 0,
+      "Rds_max_ohm_at_plus1p5V_25C": 0.085,
+      "datasheet_url": "https://www.diodes.com/datasheet/download/DMN2056U.pdf",
+      "datasheet_revision": "DS38480 Rev 2-2, July 2021",
+      "substitution_limit": "Not incoming DMG2302UK-7"
+    },
+    {
+      "references": [
+        "R1",
+        "R2",
+        "R3",
+        "R4",
+        "R5",
+        "R6",
+        "R7",
+        "R8"
+      ],
+      "quantity_per_tile": 8,
+      "reference_MPN": "0805S8F1000T5E",
+      "value": "100 ohm 1%",
+      "package": "0805",
+      "reference_power_rating_W_at_70C": 0.125,
+      "confirmed_on_hand": 0,
+      "sourcing": "User unregistered resistors or necessary purchase; no automatic credit",
+      "supplier": "TME",
+      "supplier_code": "SMD0805-100R-1%"
+    },
+    {
+      "references": [
+        "R15",
+        "R16",
+        "R17",
+        "R18",
+        "R19",
+        "R20",
+        "R21",
+        "R22",
+        "R42",
+        "R43",
+        "R44",
+        "R45",
+        "R46",
+        "R47",
+        "R48",
+        "R49"
+      ],
+      "quantity_per_tile": 16,
+      "reference_MPN": "RC0805FR-071KL",
+      "value": "1k 1%",
+      "package": "0805",
+      "confirmed_on_hand": 0,
+      "sourcing": "User unregistered resistors or necessary purchase; no automatic credit"
+    }
+  ],
+  "additional_reused_passives": [
+    {
+      "references": [
+        "R23",
+        "R24",
+        "R25",
+        "R26",
+        "R27",
+        "R28",
+        "R29",
+        "R30",
+        "R31",
+        "R32",
+        "R33",
+        "R34",
+        "R35",
+        "R36",
+        "R37",
+        "R38",
+        "R50",
+        "R51",
+        "R52",
+        "R53",
+        "R54",
+        "R55",
+        "R56",
+        "R57"
+      ],
+      "quantity_per_tile": 24,
+      "MPN": "RC0805FR-0710KL",
+      "value": "10k 1%",
+      "package": "0805",
+      "source": "Exact canonical stock; no reservation/consumption update"
+    },
+    {
+      "references": [
+        "R39",
+        "R40",
+        "R41"
+      ],
+      "quantity_per_tile": 3,
+      "MPN": "0805W8J0472T5E",
+      "value": "4.7k 5%",
+      "package": "0805",
+      "source": "Exact canonical stock; no reservation/consumption update"
+    }
+  ],
+  "decisions": [
+    "Reverse all 64 LED orientations relative to v3: column anodes, row cathodes.",
+    "Both IC outputs drive gate/address networks only; LED current follows external P/N stages.",
+    "1k series on all sixteen gates; 10k gate-source pulls; eight 10k cathode bias resistors.",
+    "PC5/6/7 address outputs open-drain with 4.7k pullups to common 3.3V.",
+    "LOW row-gate blanking and active-HIGH main PWM; complementary outputs disabled.",
+    "100us blank, 250Hz frames, 10kHz PWM and gamma retained; low-end optical PWM pending.",
+    "Stock ICs/LEDs/other seed passives retained; I2C head-only/contact/mechanical integration pending.",
+    "No board access, order, inventory mutation or main-project CAD promotion."
+  ],
+  "engineering_budget": "build/hardware/v3_1-five-tiles/circuit-check.json",
+  "physical_validation": "New MOSFET candidate not physically tested. HC138 3.3V loaded drive, MOSFET/address settling, current, temperature, low-end PWM, reset and chain behavior remain to check. Previously reported v3 PWM ghosting is resolved and user-confirmed.",
+  "cost_scope": "Dated part/delivery examples in sourcing snapshot only. No selected batch, full revised PCB quote, assembly cost or final BOM purchase list.",
+  "anti_ghosting_baseline": {
+    "v3_status": "Resolved in firmware; user visually confirmed.",
+    "sequence": "GPIO LOW before decoder address changes; TIM2 update after nominal 100us returns only lit rows to PWM.",
+    "study_B_status": "Same sequence inherited. Only functional display-driver change is open-drain decoder address mode.",
+    "new_hardware_check": "Verify new MOSFET gate/drain settling within existing blank and optical response to short PWM pulses.",
+    "cathode_bias_role": "Bias new MOSFET-side nodes; not the software repair for prior v3 ghosting."
+  },
+  "deployment_discussion": {
+    "PCB_power_routing": "Planned; no Study B PCB yet",
+    "USB_C_power": "Separate head with owned ESP8266 and properly designed buck accepted; five tiles. Current pulse profile targets 3.3V/3A plus transients.",
+    "IC_constraint": "Two original ICs per LED tile; separate controller/power head.",
+    "controller_candidate": "ESP8266 via 3.3V UART, common GND",
+    "controller_power_reference": "https://documentation.espressif.com/esp8266_hardware_design_guidelines_en.html",
+    "UART_wiring": "ESP TX -> first RX -> per-tile forward TX/RX -> last TX -> ESP RX",
+    "v3_transport_baseline": {
+      "result": "PASS",
+      "boards": 2,
+      "packets": 20,
+      "diagnostics": 0,
+      "evidence": "/home/pies/letki/build/board-readback/uart-chain-20261014/live-result.json"
+    },
+    "software_scope": "Diagnostic chain exists. Multi-tile text/brightness/frame integration and ESP firmware pending; no CH32 UART/OTA updater implemented.",
+    "required_decisions": [
+      "Exact ESP module footprint",
+      "Final head buck/magnetics/caps/USB-C and transient behavior",
+      "Qualify new pulse profile and actual LED current/temperature"
+    ]
+  }
+}

@@ -1,0 +1,2230 @@
+{
+  "review_status": "REVIEWED_CAD_POWER_PATHS",
+  "board_sha256": "95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2",
+  "native_geometry": {
+    "tracks_and_vias": [
+      {
+        "uuid": "00562a43-ae08-451d-a543-a03644f5a6a5",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          21.0375,
+          34.0
+        ],
+        "end_mm": [
+          20.7375,
+          32.2
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "01cc9853-bb14-4b05-bec4-a65e2e7a241e",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          38.3125,
+          13.8
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "043dec30-2ef8-46e6-904a-dd834e057232",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          22.725,
+          18.0625
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "045b9bda-c638-42d0-b4ce-e60c568f5b2c",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          36.25,
+          13.6875
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "057893e5-50b7-4da9-9ff0-906e4f870790",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          9.8,
+          41.1875
+        ],
+        "end_mm": [
+          10.55,
+          41.6375
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "07c51a72-89f8-4c68-8b7f-c729092bfef3",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          42.9125,
+          12.0
+        ],
+        "end_mm": [
+          43.8125,
+          12.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "0c68e8b6-42aa-4f50-a905-f6d838bb6f90",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          1.7,
+          26.2
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "0f198bdc-570a-434b-a8cd-10553735c797",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          2.5875,
+          47.0
+        ],
+        "end_mm": [
+          2.5875,
+          47.9
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "0f99ea17-fe37-4593-84af-e8eb9a4dc86c",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          37.7,
+          24.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "10a7ac42-6722-4ec3-a762-273228485b91",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          9.0625,
+          27.05
+        ],
+        "end_mm": [
+          10.1125,
+          26.6
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "12be0658-4689-4da6-a2f6-5e4cc15424dd",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          36.25,
+          27.0875
+        ],
+        "end_mm": [
+          36.25,
+          26.1875
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "1352b783-7529-429a-8d23-f0700d48dcb7",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          36.25,
+          14.5875
+        ],
+        "end_mm": [
+          36.25,
+          13.6875
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "1771474f-d842-441e-bc6d-02113a9026f7",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          24.675,
+          15.6625
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "1812a10b-a9f1-42f9-b4cb-cf03900e22b7",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          10.55,
+          10.6375
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "18ed138c-6d13-4441-b6cb-62f3e6509afb",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          35.25,
+          2.3375
+        ],
+        "end_mm": [
+          36.15,
+          2.3375
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "1a0eef3a-3f78-47fc-a876-0de4bca67221",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          28.25,
+          5.5
+        ],
+        "end_mm": [
+          28.7,
+          6.55
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "1a7bb380-2d30-419e-84d6-60263b9c5913",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          10.1125,
+          26.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "1a97a60b-52e8-4e26-b866-57bad279da9f",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          6.0875,
+          9.75
+        ],
+        "end_mm": [
+          5.4875,
+          9.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "1b372d39-b8a7-425b-94a1-a2bf2b148934",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          37.8125,
+          44.3
+        ],
+        "end_mm": [
+          37.8125,
+          43.55
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "1b392cfd-cdc0-40ae-9819-8568304999ee",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          5.4875,
+          9.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "1e0bb38c-c5df-46d4-90d9-492b81e956c6",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          37.6,
+          35.9
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "224d4cfa-3a52-45f7-abaa-7ed020c61992",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          22.725,
+          16.8625
+        ],
+        "end_mm": [
+          22.725,
+          18.0625
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "229ce1df-b8a5-4e60-b280-37362073bbaa",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          7.0,
+          19.9375
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "25996d82-9806-49c4-9c54-871c43f5cde2",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          2.5875,
+          47.9
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "25fe65a8-5fa0-4ce5-bdb0-55a8c57103d9",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          17.9125,
+          34.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "26cad5c9-8140-47d7-989e-937e2c956aa9",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          44.1625,
+          29.5
+        ],
+        "end_mm": [
+          45.0625,
+          29.5
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "29b03074-f22e-4e4c-97a2-de1586133014",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          6.6,
+          11.1
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "2bdafd53-f68a-47ad-8a2e-ea6d51f2c7f4",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          37.8125,
+          43.55
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "2c5e4887-7fe5-4ea5-ab22-52f912e9fcff",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          7.0,
+          27.0875
+        ],
+        "end_mm": [
+          7.0,
+          26.1875
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "3025e1c8-482d-4a66-a8dc-da6a618bc391",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          29.0,
+          12.0375
+        ],
+        "end_mm": [
+          29.0,
+          13.0875
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "3037d4ff-1105-4404-b2d2-9d128d2fc2aa",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          45.0625,
+          29.5
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "343e8d22-f39a-4db4-9cc0-edca6201e8ea",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          2.2,
+          36.1
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "34684f8a-1040-4c09-8d1d-eae2b0e18419",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          24.025,
+          16.8625
+        ],
+        "end_mm": [
+          24.025,
+          18.0625
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "34943d0e-ae76-4bcc-b68b-5d2ad21a9cf4",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          45.1,
+          12.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "35267cd0-eefc-419d-b2da-a3c7a6d1f353",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          29.75,
+          19.1
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "3657b463-4d16-44a5-95c2-3f92f755005c",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          26.9125,
+          37.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "37de27c3-67dd-46ff-95a4-51ad96a69c56",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          29.0,
+          20.0
+        ],
+        "end_mm": [
+          29.75,
+          19.1
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "37f2fbae-6ea7-41f0-a69f-bdee0ed35df2",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          9.0625,
+          33.05
+        ],
+        "end_mm": [
+          8.4625,
+          32.3
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "3975960e-7663-4afd-ab21-812b4a98b0e4",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          38.3125,
+          20.05
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "3aec90db-f8b5-4e38-9d75-45c16c1c0dee",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          30.2,
+          9.6625
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "3bea003e-56c7-4325-a3cb-c4770434bade",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          26.0,
+          8.5
+        ],
+        "end_mm": [
+          25.25,
+          7.6
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "3c105359-824c-42bd-a0e9-e8c6a9683f49",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          29.0,
+          9.9625
+        ],
+        "end_mm": [
+          30.2,
+          9.6625
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "3f284d72-4650-4e26-8bef-ee99e9affc98",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          35.25,
+          45.5875
+        ],
+        "end_mm": [
+          36.3,
+          45.7
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "40994347-4d5e-4bb7-b201-fc5a9896983b",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          7.0,
+          13.6875
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "436e9773-0690-468d-9975-b7bd0e27746b",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          36.5625,
+          42.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "46e4b4ff-6467-4e81-997a-688d6b817e46",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          25.9525,
+          31.6375
+        ],
+        "end_mm": [
+          25.9525,
+          34.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "48bdaeee-bbaf-441c-86ea-e4e66df0d3e9",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          29.0,
+          13.0875
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "496a9a62-349c-4ab1-8b7a-59c0bf3f3037",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          18.9625,
+          34.0
+        ],
+        "end_mm": [
+          17.9125,
+          34.3
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "4acbe5c5-9166-458b-94f8-cfa5311afad5",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          19.1,
+          37.2
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "4ad6b38d-b666-48b7-9fd7-9f6b0c1047c9",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          47.5,
+          11.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "4c7913a5-27e4-466d-8b07-3c71416da3ca",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          36.25,
+          19.9375
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "5071d6b5-c62a-4e74-ae59-51250cf96f64",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          0.9,
+          38.5
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "520b9de2-bf7d-4646-9d70-5ceea5f73758",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          11.2625,
+          2.7
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "523eceb7-c4c0-488c-922e-5ceabf30282c",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          30.7,
+          25.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "56fd2235-ac11-4dae-86ee-c04e73330040",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          35.6625,
+          43.75
+        ],
+        "end_mm": [
+          36.5625,
+          43.75
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "58cd2664-4e60-473b-a0a8-6adf0238dfb4",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          45.0625,
+          17.25
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "594b0826-fbb6-44fe-80dc-928b7317b7eb",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          24.5975,
+          34.0
+        ],
+        "end_mm": [
+          23.6975,
+          34.75
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "59c16eb7-e4e9-44d6-8ac7-a6bf673c8389",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          6.5,
+          24.8
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "5dacd0ff-11c4-4d5d-9b83-7433e4818b97",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          29.0,
+          44.1
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "61aedbb2-5bde-453b-8d17-b567c3f949ff",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          12.8,
+          25.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "67b69516-0797-4f7f-9304-b162a1ffa462",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          47.3,
+          26.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "67eea8d9-e043-4b3b-ba1d-5badef274f6b",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          48.7,
+          38.5
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "67f40cb0-a0d4-40cb-9684-b71a6ef6fd16",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          9.0625,
+          20.8
+        ],
+        "end_mm": [
+          8.4625,
+          19.9
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "6919c514-8609-46fb-a60a-399415edd0e4",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          44.1625,
+          35.75
+        ],
+        "end_mm": [
+          45.0625,
+          35.75
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "6975551a-89aa-41f9-81de-ce71f72f4696",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          30.4,
+          34.75
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "699c86a9-6817-445d-a9ac-e5fbe60aaa61",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          23.75,
+          7.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "69a624b3-4f12-4cb7-9d9f-35979b117521",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          9.0625,
+          14.55
+        ],
+        "end_mm": [
+          8.4625,
+          13.65
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "69a6fd0f-6e3b-48c6-89dc-cb5a0646fc7b",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          38.3125,
+          14.55
+        ],
+        "end_mm": [
+          38.3125,
+          13.8
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "6a5ecbc3-5b24-4fd2-9744-56e986f24e01",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          45.1,
+          37.2
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "6a622c82-97fc-4cc7-a94a-1b993f9f30ac",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          23.0,
+          8.5
+        ],
+        "end_mm": [
+          23.75,
+          7.6
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "6bc01c27-e9c4-4976-ac5d-eaf9a8ced1bc",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          37.6,
+          11.1
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "6e9f7af9-f10e-4454-9941-1079ab5f0de8",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          38.3125,
+          32.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "6f2d3389-f9f8-4c72-a004-ac934025ea74",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          2.1,
+          11.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "6f9aa017-3bb6-4a99-996a-211449223ec8",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          16.0,
+          38.0
+        ],
+        "end_mm": [
+          16.9,
+          37.25
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "71c7fd51-eba9-4df6-abdb-c744e72d9ce6",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          36.5625,
+          43.75
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "72613c30-066b-4899-9c5c-1b38876bc6f6",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          25.3175,
+          31.6375
+        ],
+        "end_mm": [
+          25.3175,
+          34.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "75416242-e5ea-4224-9f60-c5b042dbb257",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          25.3175,
+          34.0
+        ],
+        "end_mm": [
+          24.5975,
+          34.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "787bc1f9-5bac-4a16-a0c2-8a46e3ec4f0d",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          20.54,
+          40.7
+        ],
+        "end_mm": [
+          20.5,
+          43.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "78eb220e-5754-449f-98fc-2d33787b1eb3",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          37.8125,
+          7.55
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "7960d46a-c000-4641-a1eb-3e678499ef6c",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          7.0,
+          33.0875
+        ],
+        "end_mm": [
+          7.0,
+          32.1875
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "7bbe8582-bdec-4814-8ce7-db1fe22c1032",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          32.4,
+          13.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "81c527b8-b37b-454b-90f1-ebffda473524",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          23.5,
+          38.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "8222d7a7-3643-4155-8f72-dfd9fffda415",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          28.25,
+          45.0
+        ],
+        "end_mm": [
+          29.0,
+          44.1
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "89423bb4-84c8-49c6-b4ef-2436afd35555",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          36.3,
+          45.7
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "8db03b17-5d47-4ef5-8a4b-464b2a7d803b",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          45.0625,
+          23.5
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "9194213c-5862-4c4e-9510-87678d5202aa",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          37.8125,
+          8.3
+        ],
+        "end_mm": [
+          37.8125,
+          7.55
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "91baabe7-89e2-4b7f-ad7f-559049bf015f",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          15.46,
+          40.7
+        ],
+        "end_mm": [
+          18.0,
+          43.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "93174e57-735f-4d01-9d2e-99bb6e516991",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          37.6625,
+          2.55
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "93534db4-c14b-4146-9ef1-dd40ee035f51",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          7.0,
+          26.1875
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "94f70ea7-cd9a-4aa4-8549-7bb264ca967a",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          27.275,
+          11.1375
+        ],
+        "end_mm": [
+          29.0,
+          9.9625
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "954f86bf-b610-4893-bb05-b81ad7aad1af",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          5.3375,
+          40.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "962cec18-8541-4f48-b9fe-91ac333a40d6",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          16.9,
+          37.25
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "96b95c89-beaa-40a4-b3a1-4536846bfac9",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          19.1,
+          24.8
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "97f01d4d-543f-48e7-839f-0d07bd4d5cb8",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          44.8,
+          25.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "987afea1-a9ec-493b-90dd-eb723c410cc9",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          44.5625,
+          37.75
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "993499aa-3299-444b-9136-9901d667190e",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          25.25,
+          7.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "99bd27f4-2447-47c1-97e1-846bc438f4a0",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          24.025,
+          18.0625
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "9af9be29-f0d6-474b-bccd-7acd03b307a7",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          23.6975,
+          34.75
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "9f1ae183-4a51-4014-9159-e497373fcb33",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          19.25,
+          7.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "a1151b74-bf28-4124-949e-e53f941145d3",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          43.6625,
+          37.75
+        ],
+        "end_mm": [
+          44.5625,
+          37.75
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "a2efcdf0-87a6-48e6-968a-037981502b41",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          37.8125,
+          39.3
+        ],
+        "end_mm": [
+          37.8125,
+          38.55
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "aa65f0d1-1f65-4721-b2ba-85a4bed2155b",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          5.3,
+          11.8
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "aa96f2f6-84df-4cc5-8fbe-cc78a95a752b",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          7.0,
+          20.8375
+        ],
+        "end_mm": [
+          7.0,
+          19.9375
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "aa9c8fca-41c8-4107-bdca-555cb09337e1",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          29.5,
+          34.0
+        ],
+        "end_mm": [
+          30.4,
+          34.75
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "aea01765-17d4-49a8-9be1-c16e8da1d4c3",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          2.5875,
+          2.75
+        ],
+        "end_mm": [
+          2.5875,
+          1.85
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "b000ff91-c81a-4408-be80-3d8fffbb8546",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          27.9625,
+          37.0
+        ],
+        "end_mm": [
+          26.9125,
+          37.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "b109ffad-e950-425e-85e1-63eb3979101b",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          38.3125,
+          20.8
+        ],
+        "end_mm": [
+          38.3125,
+          20.05
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "b2586f08-e5ed-4b13-8fa2-8ee2539700cc",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          36.15,
+          2.3375
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "b2c37425-7380-405c-9f57-88503dc9274f",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          0.9,
+          23.5
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "b326e92f-e002-4140-8783-7b3ab9020f61",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          19.5,
+          37.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "b4b796fb-ce02-45ce-8cb0-9ee5181a8427",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          7.0,
+          32.1875
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "b51a35e9-d5f6-4fdb-9aec-a00b8eea370a",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          9.8,
+          10.1875
+        ],
+        "end_mm": [
+          10.55,
+          10.6375
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "b6442659-b676-4d2e-bd07-e8d5520a547f",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          47.0,
+          9.9125
+        ],
+        "end_mm": [
+          47.3,
+          10.8125
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "b7f5b448-62a6-4138-bc98-6553845a0c72",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          43.7,
+          24.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "b8c26414-c488-4376-ba8a-d16e22a7aaee",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          35.75,
+          8.5875
+        ],
+        "end_mm": [
+          35.75,
+          7.6875
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "baebf991-39fd-4373-95a9-ea0325acec51",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          43.8125,
+          12.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "bd4b8a15-e3c7-4c84-94fa-00e46a00c5be",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          44.1625,
+          23.5
+        ],
+        "end_mm": [
+          45.0625,
+          23.5
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "bd611a34-01d5-4af3-bf21-a69a8292788b",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          47.3,
+          10.8125
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "bd7ed67e-5f11-4e61-9cd9-968ca9e9f70a",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          44.1625,
+          17.25
+        ],
+        "end_mm": [
+          45.0625,
+          17.25
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "bdbaba56-3b23-42f3-8b29-9548c4977423",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          20.7375,
+          32.2
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "bf6c230c-a6ed-4c3c-af60-148af957b32f",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          36.25,
+          33.3375
+        ],
+        "end_mm": [
+          36.25,
+          32.4375
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "bffbb1a7-bb8c-4e8b-8e82-a2c367a47f04",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          2.1,
+          13.2
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c01d9950-cdb7-43cd-8548-4bdaeded9327",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          6.0875,
+          40.0
+        ],
+        "end_mm": [
+          5.3375,
+          40.6
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "c05b51a6-0b8b-4f84-ab4e-5fa9cf29c8f1",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          38.3125,
+          27.05
+        ],
+        "end_mm": [
+          38.1625,
+          26.3
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "c0c7e22a-d375-47e4-a204-8cfc49f04a33",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          10.0625,
+          43.55
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c22a9a03-1a10-4710-8683-9a262783d367",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          36.8,
+          24.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c2c4ddaa-6b74-4eac-9d35-55e6e3478d76",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          32.0,
+          24.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c2d941ec-92de-41e5-8381-c129e6d4f54a",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          25.7725,
+          34.75
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c2e8ca4d-dbcf-4057-b9cb-b97c7c9741be",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          47.4,
+          38.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c448221d-f1e9-436d-887f-65ec21c3a111",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          36.25,
+          20.8375
+        ],
+        "end_mm": [
+          36.25,
+          19.9375
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "c5809cad-ac34-4cfe-b4d8-c924f197fbed",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          8.4625,
+          13.65
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c5bd82e4-54c7-4632-97f1-27e8ec8d2e67",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          8.4625,
+          32.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "c6a61a3f-0a29-4fbe-9bf3-22200ab5760e",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          37.1,
+          13.4
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "cde1c428-b391-459f-a470-6b6ab3fbb015",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          10.0625,
+          44.3
+        ],
+        "end_mm": [
+          10.0625,
+          43.55
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "ce1db7ae-2384-4b74-a1c4-e4b320edf8b6",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          23.0,
+          8.5
+        ],
+        "end_mm": [
+          26.0,
+          8.5
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "ce8694f0-e549-40e7-945a-e8043f1fa4a3",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          24.675,
+          16.8625
+        ],
+        "end_mm": [
+          24.675,
+          15.6625
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "cef9bf4c-1fe2-4970-995d-3e6acceb4f06",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          48.7,
+          26.1
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "d2161a59-b21c-42c1-a636-5671a24cb6d6",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          6.6,
+          37.4
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "d3409211-caa0-44ee-be9f-30264c5eae41",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          12.0,
+          13.4
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "d50ed39d-204a-43dd-b35b-2f5718ca61ba",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          2.5875,
+          1.85
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "d70c05b7-4c8f-42a6-a070-b82804fdc537",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          26.6725,
+          34.0
+        ],
+        "end_mm": [
+          25.7725,
+          34.75
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "d73ff551-c800-4f97-a223-4aad7f42a443",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          17.2,
+          13.4
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "d7870863-0b13-489a-b59b-6d4c47888a9e",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          23.5,
+          38.9
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "d8644ba8-c97b-409e-9ced-98c2adb05e96",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          25.9525,
+          34.0
+        ],
+        "end_mm": [
+          26.6725,
+          34.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "d9605440-da85-4049-9db2-03cad9acc773",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          7.3,
+          24.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "df348f60-3143-46ba-a3bb-215123f2c9bb",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          5.8,
+          37.2
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "dfd9ae82-117b-4373-a93e-4997095028a7",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          38.1625,
+          26.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e0ca5e75-3fd6-491a-a8dd-906e564acb69",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          36.25,
+          26.1875
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e0f3c5b6-dad2-4855-9a0e-8b4239fb91a3",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          36.8,
+          37.6
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e14633cc-253c-435a-a80d-83f7c9030ed7",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          28.7,
+          6.55
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e264190e-10c3-44db-88b1-a7a4b86887e9",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          32.9,
+          37.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e36562cc-2471-402e-9e50-91b217ecdcb6",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          20.0,
+          8.5
+        ],
+        "end_mm": [
+          19.25,
+          7.6
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "e726c084-c065-456e-9303-e164149b9c31",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          37.8125,
+          38.55
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e7300c3c-6e2c-4c69-a37c-9562c4a43a74",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          20.25,
+          38.5
+        ],
+        "end_mm": [
+          19.5,
+          37.6
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "e78713f0-865a-4590-932d-61e6cb2b47e8",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          8.4625,
+          19.9
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e9678473-4138-46f7-be79-a13303a27d57",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          36.25,
+          32.4375
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "e9cfb936-a644-411a-8467-2f09676594e3",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          35.6625,
+          42.0
+        ],
+        "end_mm": [
+          36.5625,
+          42.0
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "ec7231ec-77ab-4a8d-aa34-1b99401cdce6",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          18.2,
+          24.8
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "ee6a532d-20b1-4976-97a5-a6812c91468b",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          7.0,
+          14.5875
+        ],
+        "end_mm": [
+          7.0,
+          13.6875
+        ],
+        "width_mm": 0.3
+      },
+      {
+        "uuid": "eee7639e-7505-4c12-b624-e06bef8f9218",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          44.3,
+          37.0
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "f328e5bf-5420-4bb0-8f45-8ec06810ca5d",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          10.55,
+          41.6375
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "f3fe8d4f-0058-42d6-b048-a2e3d988ecb1",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          12.9,
+          13.4
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "f4514a43-07be-4e7a-85c1-017d594d5b44",
+        "net": "GND",
+        "type": "via",
+        "xy_mm": [
+          35.75,
+          7.6875
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "f663ddd6-8923-42d1-86e8-e0e9cd351b36",
+        "net": "VCC",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          10.0625,
+          3.3
+        ],
+        "end_mm": [
+          11.2625,
+          2.7
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "f75a88d8-657a-4fd2-8a16-58c62e38d8f7",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          47.5,
+          13.2
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "f849e0cb-7ced-44d2-8ca7-3ad2dafa5391",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          44.8,
+          12.8
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "f9ef3844-3ce7-44c0-8f24-c125461ca431",
+        "net": "VCC",
+        "type": "via",
+        "xy_mm": [
+          45.0625,
+          35.75
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3
+      },
+      {
+        "uuid": "fb28ee69-8312-442c-8ac1-1f60e5a0206f",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          38.3125,
+          33.05
+        ],
+        "end_mm": [
+          38.3125,
+          32.3
+        ],
+        "width_mm": 0.5
+      },
+      {
+        "uuid": "fbc48139-b052-4562-8fd3-ebaa5d4f15c7",
+        "net": "GND",
+        "type": "track",
+        "layer": "B.Cu",
+        "start_mm": [
+          37.8125,
+          3.3
+        ],
+        "end_mm": [
+          37.6625,
+          2.55
+        ],
+        "width_mm": 0.5
+      }
+    ],
+    "zones": [
+      {
+        "uuid": "200f1ece-f11d-4c53-8298-4bef23263e46",
+        "net": "VCC",
+        "layers": [
+          "F.Cu"
+        ],
+        "outline_mm": [
+          [
+            [
+              0.25,
+              0.25
+            ],
+            [
+              49.35,
+              0.25
+            ],
+            [
+              49.35,
+              49.35
+            ],
+            [
+              0.25,
+              49.35
+            ]
+          ]
+        ]
+      },
+      {
+        "uuid": "92765455-9b97-42df-988c-3d859d599c69",
+        "net": "VCC",
+        "layers": [
+          "In2.Cu"
+        ],
+        "outline_mm": [
+          [
+            [
+              0.25,
+              0.25
+            ],
+            [
+              49.35,
+              0.25
+            ],
+            [
+              49.35,
+              49.35
+            ],
+            [
+              0.25,
+              49.35
+            ]
+          ]
+        ]
+      },
+      {
+        "uuid": "ae7366fa-7a26-4695-bb9a-eabe7c1067bc",
+        "net": "GND",
+        "layers": [
+          "In1.Cu"
+        ],
+        "outline_mm": [
+          [
+            [
+              0.25,
+              0.25
+            ],
+            [
+              49.35,
+              0.25
+            ],
+            [
+              49.35,
+              49.35
+            ],
+            [
+              0.25,
+              49.35
+            ]
+          ]
+        ]
+      }
+    ]
+  },
+  "review": {
+    "date": "2026-10-17",
+    "reviewer": "Astra plus independent root checks",
+    "VCC": "In2 plane plus front reinforcement zone,43new legal ordinary tented stitches;0.5mm R40 rear bias bridge",
+    "GND": "In1 return plane with7exact reviewed segments29.392mm onSEL1/ADDR2; one physical copper component",
+    "mesh_F_In2_grid_mm": 0.1,
+    "VCC_milliohm": {
+      "west_east": 16.177,
+      "north_south": 4.762
+    },
+    "mesh_limits": "DC estimate,35/17.5um copper,assumed25um barrel plating;excludes B copper,contacts,solder,external wiring,array distribution,temperature,AC/EMI. Not a measured bound or thermal qualification."
+  }
+}

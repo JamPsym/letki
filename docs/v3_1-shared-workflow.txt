@@ -1,0 +1,118 @@
+V3.1 — SHARED HUMAN/AGENT WORKFLOW
+
+ONE ACTIVE PROJECT
+/home/pies/letki/hw/ledkiv3.1/ledkiv3_1.kicad_pro
+Open both schematic and PCB from this project manager. Human and agent edit
+these same sources. There is no separately maintained candidate to copy back.
+Current schematic: single33R E12 row resistors (1% part tolerance), no buttons/RC
+orJP1/JP2,16native schematic transistor groups,40gate/bias0603.
+PCB routing is complete around the human placement:146footprints,974tracks,
+131ordinaryvias.69agreed mechanical/LED/interface footprints retain geometry;
+all77movable parts are on the rear. ERC/DRC/open/parity/ignored findings are0.
+Independent350pad/pin, reviewed84In1segments, actualmultilayerpower and
+manufacturing/assembly gates pass. Use the routing-env Python for the routed
+checkers; the old placement-only checker is historical. Current evidence and
+limits: docs/v3_1-completion-20261015.txt. Physical qualification remains pending.
+
+HANDOFF BETWEEN EDITORS AND AGENT
+1. Save human edits before an agent edit handoff; agent first checks the open
+   file identity, unsaved state/capabilities and latest disk content.
+2. For an open PCB, prefer native IPC edits in one labelled undo transaction,
+   then save. Use live schematic IPC only if the installed version supports
+   the required operations. Never assume an API advertised by bindings exists.
+3. If an edit requires an external source-file rewrite, first save and close
+   that editor, edit the canonical files with before/after checks, then reopen.
+   Refresh redraws the canvas; it does not reliably reload externally edited files.
+4. Human schematic edits reach PCB via Tools > Update PCB from Schematic (F8)
+   in this same project. Review the proposed update; synchronization is followed
+   by copper/zone/DRC/parity and project-specific checks.
+5. Record unfinished work explicitly. One edit location does not mean every
+   intermediate state is checked, physically qualified or ready for fabrication.
+
+HISTORICAL PLACEMENT HANDOFF — 2026-10-15
+One bounded Astra placement is applied in the same live PCB, in one undo
+operation. The paired schematic was saved/temporarily closed/reopened because
+installed kicad-python0.8.0 BeginCommit lacks document selection when both
+editors are open. No source-file replacement or second active project was used.
+The helper also preserves3Dmodel items omitted by the binding's rotation setter
+and uses exact integer right-angle rotations; installed bindings are untouched.
+All69fixed definitions, component identities, pad nets/shapes and models remain
+unchanged. NativeERC0/placementDRC0/parity0/ignored0,280expected opens; no routing.
+Human edits now belong in that same PCB. Save before another agent handoff.
+Baseline/Astra checkpoints and repeatable measurements are described in
+docs/v3_1-placement-comparison.txt. A result is a checked snapshot, not a lock
+on the human's subsequent edits or a fabrication release.
+
+ARCHIVES / EXPERIMENTS / EXPORTS
+Previous checked34R matched CAD+exports:
+archive/hw/ledkiv3.1-checked-34R-20261015/.
+Electrical studies: archive/hw/ledkiv3.1-studies-20261015/.
+The earlier build/hardware/v3_1-schematic-review/ is historical review evidence.
+Disposable read-only check contexts are allowed in build/hardware/, but they
+are not parallel authored projects; never continue editing a stale source copy.
+New fabrication exports require all current gates and actual process review.
+No automatic ordering/flashing follows Save, synchronization or checks.
+
+HUMAN ROUTING / NMOS REPEAT-LAYOUT GROUPS — 2026-10-15
+The human has begun routing/moving components after the checked Astra snapshot;
+the earlier zero-copper status above describes that snapshot, not the live board.
+LivePCB now has named groups nmos1..nmos8, each containing its NMOS and four
+resistors. Existing human nmos1 was retained; the other seven were created by
+one IPC CreateItems call. Saving preserved59tracks/1via and all non-group source
+data exactly. No placement areas or repeated routing were created automatically.
+Next manual step: Tools > Multi-Channel > Generate Placement Rule Areas, Groups.
+Metadata-only validation is not a fresh DRC qualification of human routing.
+Evidence: build/hardware/v3_1-nmos-groups-20261015T142810Z/result.json.
+
+PMOS GROUPS — HUMAN ROUTING CONTINUES, 2026-10-15
+Added pmos1..pmos8, each Q1..Q8 with its corresponding gate-series R15..R22
+and pull-up R23..R30. The existing human nmos1 group was preserved. All136
+tracks/1via and all non-group PCB data were preserved exactly; no repeat
+layout or routing was applied by the agent. Evidence:
+build/hardware/v3_1-pmos-groups-20261015T144123Z/result.json.
+
+CORRECTION: user meant restoring NMOS targets for another Repeat Layout pass.
+Removed the eight accidental PMOS group containers after detaching children;
+restored nmos2..nmos8 and preserved the routed16-item nmos1 group exactly.
+All136tracks/1via and all non-group PCB source remain unchanged. Evidence:
+build/hardware/v3_1-nmos-repeat-correction-20261015T144434Z/result.json.
+
+LATEST HUMAN HANDOFF — 2026-10-15
+Restored14accidentally moved edge-label poses from the saved Astra checkpoint;
+all other source items were preserved. Then, on the user's explicit request,
+created pmos1..pmos8 alongside the eight existing NMOS groups. All160tracks,
+7vias and all non-group PCB data remain unchanged. No placement areas or
+repeat-layout operation were applied by the agent. Current evidence:
+build/hardware/v3_1-edge-text-20261015T145328Z/result.json and
+build/hardware/v3_1-pmos-groups-20261015T145351Z/result.json.
+
+User later requested all sixteen auto-placement areas be B.Cu only. Updated
+their layer lists through liveIPC; exact saved-source comparison excluding
+only those lists passed. All434tracks/24vias, outlines, group references and
+other PCB data were preserved. Repeat Layout now uses those B.Cu-only areas.
+Evidence: build/hardware/v3_1-back-placement-areas-20261015T172554Z/result.json.
+
+Later live inspection found pmos2..pmos8 as empty group containers, although
+their routed components remained present. Restored each to its three components,
+six uniquely matched existing tracks and own placement area. All other saved
+PCB data, including other groups and B.Cu-only area lists, was preserved exactly.
+The before/after layer-only checkpoints had identical group definitions; the
+intervening GUI sequence that produced the empty groups was not recorded.
+Evidence: build/hardware/v3_1-pmos-group-repair-20261015T173006Z/result.json.
+
+LATEST AREA LAYERS: user requested front/back layers for via replication.
+All17currently existing auto-placement areas now use F.Cu+B.Cu. There are
+two separate areas named auto-placement-area-pmos1; both were retained.
+Exact saved-source comparison excluding only their layer lists passed;
+all450tracks/24vias and other PCB data were preserved. Evidence:
+build/hardware/v3_1-front-back-placement-areas-20261015T174143Z/result.json.
+
+COMPLETED ROUTING HANDOFF — 2026-10-15
+The human board was saved via IPC and the editor closed for this external
+handoff. One isolated Astra candidate was independently checked, then promoted
+to this same canonical PCB. Human-before source and every intermediate failure
+remain in build/hardware/v3_1-astra-completion-20261015T200432Z/. All component
+placements/models/pad nets and authored schematic/project/rules were preserved.
+Two new GND bridges join three In1 regions into one physical net; all power
+connectivity is independently checked, not inferred from polygon count.
+The old histories above describe their dated snapshots, not current copper.

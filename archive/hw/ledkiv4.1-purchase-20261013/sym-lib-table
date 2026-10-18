@@ -1,0 +1,9 @@
+(sym_lib_table
+	(lib
+		(name "Letki")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/Letki.kicad_sym")
+		(options "")
+		(descr "Project-local CH32V003 symbol")
+	)
+)

@@ -1,0 +1,130 @@
+{
+  "name": "Tubular Bells \u2014 instrument theatre",
+  "title": "TUBULAR BELLS",
+  "artist": "MIKE OLDFIELD",
+  "audio": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.flac",
+  "intro_seconds": 10,
+  "style": "piano",
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "cues": [
+    {
+      "at": 1188.9,
+      "duration": 24.1,
+      "effect": "piano"
+    },
+    {
+      "at": 1188.9,
+      "duration": 2.4,
+      "text": "GRAND PIANO",
+      "mode": "center"
+    },
+    {
+      "at": 1213.0,
+      "duration": 24.8,
+      "effect": "organ"
+    },
+    {
+      "at": 1213.0,
+      "duration": 2.4,
+      "text": "PIPE ORGAN",
+      "mode": "center"
+    },
+    {
+      "at": 1237.8,
+      "duration": 24.58,
+      "effect": "mallets"
+    },
+    {
+      "at": 1237.8,
+      "duration": 2.4,
+      "text": "GLOCKENSPIEL",
+      "mode": "center"
+    },
+    {
+      "at": 1262.38,
+      "duration": 25.4,
+      "effect": "bass-guitar"
+    },
+    {
+      "at": 1262.38,
+      "duration": 2.4,
+      "text": "BASS GUITAR",
+      "mode": "center"
+    },
+    {
+      "at": 1287.78,
+      "duration": 24.1,
+      "effect": "guitar-fast"
+    },
+    {
+      "at": 1287.78,
+      "duration": 2.4,
+      "text": "DOUBLE SPEED GUITAR",
+      "mode": "scroll"
+    },
+    {
+      "at": 1311.88,
+      "duration": 33.08,
+      "effect": "guitar-duo"
+    },
+    {
+      "at": 1311.88,
+      "duration": 2.4,
+      "text": "TWO GUITARS",
+      "mode": "center"
+    },
+    {
+      "at": 1344.96,
+      "duration": 17.56,
+      "effect": "mandolin"
+    },
+    {
+      "at": 1344.96,
+      "duration": 2.4,
+      "text": "MANDOLIN",
+      "mode": "center"
+    },
+    {
+      "at": 1362.52,
+      "duration": 2.22,
+      "effect": "guitar"
+    },
+    {
+      "at": 1362.52,
+      "duration": 2.2200000000000273,
+      "text": "SPANISH GUITAR",
+      "mode": "scroll"
+    },
+    {
+      "at": 1364.74,
+      "duration": 24.06,
+      "effect": "guitar"
+    },
+    {
+      "at": 1364.74,
+      "duration": 2.4,
+      "text": "ACOUSTIC GUITAR",
+      "mode": "scroll"
+    },
+    {
+      "at": 1388.8,
+      "duration": 159.507,
+      "effect": "tubular-bells"
+    },
+    {
+      "at": 1388.8,
+      "duration": 2.4,
+      "text": "TUBULAR BELLS",
+      "mode": "center"
+    }
+  ],
+  "prototype_notes": {
+    "timing_source": "Local CPU Whisper on this exact BBC 1973 recording; approximate announcement times",
+    "labels": "Instrument labels normalized for this visual prototype; recognizer made errors and the cue sheet remains a draft",
+    "transcript": "build/player/words/tubular-last-section.json",
+    "reviewed": false
+  },
+  "video": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.video.mp4",
+  "video_target": "PC only"
+}

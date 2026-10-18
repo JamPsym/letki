@@ -1,0 +1,402 @@
+{
+  "name": "Tubular Bells \u2014 instrument theatre",
+  "title": "TUBULAR BELLS",
+  "artist": "MIKE OLDFIELD",
+  "audio": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.flac",
+  "video": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.video.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 0,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 0.7,
+  "style": "bells-hammers",
+  "cues": [
+    {
+      "at": 0,
+      "effect": "bells-hammers",
+      "label": "Opening mechanism",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 95
+    },
+    {
+      "at": 0,
+      "duration": 8,
+      "text": "TUBULAR BELLS  MIKE OLDFIELD",
+      "mode": "scroll"
+    },
+    {
+      "at": 95,
+      "effect": "bells-weft",
+      "label": "Threads emerge",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 85
+    },
+    {
+      "at": 180,
+      "effect": "bells-monoliths",
+      "label": "Widening",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 65
+    },
+    {
+      "at": 245,
+      "effect": "bells-guitar",
+      "label": "Interlock",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 51
+    },
+    {
+      "at": 296,
+      "effect": "bells-monoliths",
+      "label": "Still water",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 28
+    },
+    {
+      "at": 324,
+      "effect": "bells-gears",
+      "label": "The mechanism returns",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 64
+    },
+    {
+      "at": 388,
+      "effect": "bells-weft",
+      "label": "Gathering momentum",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 78
+    },
+    {
+      "at": 466,
+      "effect": "bells-duet",
+      "label": "Two lines",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 70
+    },
+    {
+      "at": 536,
+      "effect": "bells-gears",
+      "label": "Undertow",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 65
+    },
+    {
+      "at": 601,
+      "effect": "bells-monoliths",
+      "label": "Breathing space",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 40
+    },
+    {
+      "at": 641,
+      "effect": "bells-monoliths",
+      "label": "A new thread",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 68
+    },
+    {
+      "at": 709,
+      "effect": "bells-hammers",
+      "label": "Small mechanism",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 56
+    },
+    {
+      "at": 765,
+      "effect": "bells-weft",
+      "label": "Weaving",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 67
+    },
+    {
+      "at": 832,
+      "effect": "bells-hammers",
+      "label": "Hand to hand",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 59
+    },
+    {
+      "at": 891,
+      "effect": "bells-duet",
+      "label": "The gathering",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 66
+    },
+    {
+      "at": 957,
+      "effect": "bells-gears",
+      "label": "Crest",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 58
+    },
+    {
+      "at": 1015,
+      "effect": "bells-monoliths",
+      "label": "Reset",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 61
+    },
+    {
+      "at": 1076,
+      "effect": "bells-weft",
+      "label": "Procession",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 62
+    },
+    {
+      "at": 1138,
+      "effect": "piano",
+      "label": "The stage is ready",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 50.9
+    },
+    {
+      "at": 1188.9,
+      "effect": "piano",
+      "label": "Grand piano",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 24.1
+    },
+    {
+      "at": 1188.9,
+      "duration": 2.8,
+      "text": "GRAND PIANO",
+      "mode": "center"
+    },
+    {
+      "at": 1213,
+      "effect": "organ",
+      "label": "Reed and pipe organ",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 24.8
+    },
+    {
+      "at": 1213,
+      "duration": 2.8,
+      "text": "PIPE ORGAN",
+      "mode": "center"
+    },
+    {
+      "at": 1237.8,
+      "effect": "mallets",
+      "label": "Glockenspiel",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 24.58
+    },
+    {
+      "at": 1237.8,
+      "duration": 2.8,
+      "text": "GLOCKENSPIEL",
+      "mode": "center"
+    },
+    {
+      "at": 1262.38,
+      "effect": "bells-bass",
+      "label": "Bass guitar",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 25.4
+    },
+    {
+      "at": 1262.38,
+      "duration": 2.8,
+      "text": "BASS GUITAR",
+      "mode": "center"
+    },
+    {
+      "at": 1287.78,
+      "effect": "bells-guitar",
+      "label": "Double-speed guitar",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 24.1
+    },
+    {
+      "at": 1287.78,
+      "duration": 2.8,
+      "text": "DOUBLE SPEED",
+      "mode": "center"
+    },
+    {
+      "at": 1311.88,
+      "effect": "bells-duet",
+      "label": "Two slightly distorted guitars",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 33.08
+    },
+    {
+      "at": 1311.88,
+      "duration": 2.8,
+      "text": "TWO GUITARS",
+      "mode": "center"
+    },
+    {
+      "at": 1344.96,
+      "effect": "bells-mandolin",
+      "label": "Mandolin",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 17.56
+    },
+    {
+      "at": 1344.96,
+      "duration": 2.8,
+      "text": "MANDOLIN",
+      "mode": "center"
+    },
+    {
+      "at": 1362.52,
+      "effect": "bells-guitar",
+      "label": "Spanish guitar",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 2.22
+    },
+    {
+      "at": 1362.52,
+      "duration": 1.8,
+      "text": "SPANISH",
+      "mode": "center"
+    },
+    {
+      "at": 1364.74,
+      "effect": "bells-guitar",
+      "label": "Acoustic guitar",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 24.06
+    },
+    {
+      "at": 1364.74,
+      "duration": 2.8,
+      "text": "ACOUSTIC",
+      "mode": "center"
+    },
+    {
+      "at": 1388.8,
+      "effect": "tubular-bells",
+      "label": "Tubular bells",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 54.2
+    },
+    {
+      "at": 1388.8,
+      "duration": 2.8,
+      "text": "TUBULAR BELLS",
+      "mode": "center"
+    },
+    {
+      "at": 1443,
+      "effect": "tubular-bells",
+      "label": "Resonance",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 47
+    },
+    {
+      "at": 1490,
+      "effect": "bells-weft",
+      "label": "Unravelling",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 30
+    },
+    {
+      "at": 1520,
+      "effect": "bells-monoliths",
+      "label": "Curtain",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 19
+    },
+    {
+      "at": 1525,
+      "duration": 6,
+      "text": "MIKE OLDFIELD",
+      "mode": "scroll"
+    },
+    {
+      "at": 1535,
+      "duration": 4,
+      "text": "LETKI",
+      "mode": "center"
+    },
+    {
+      "at": 1539,
+      "effect": "bells-weft",
+      "label": "Blackout",
+      "level": 0,
+      "speed": 1,
+      "variant": 0,
+      "duration": 9.306575963718842
+    }
+  ],
+  "recording": {
+    "sha256": "ecc36ad164431b0a1dda667420661288b14bb48c27f353d4e93c3ecfd48f88c8",
+    "duration_seconds": 1548.3065759637188
+  },
+  "authoring": {
+    "version": 2,
+    "scope": "Complete live performance: musical mechanisms, interlocking tracks and suspended tablets leading into the spoken instrument theatre",
+    "basis": "Source-time spectral notes and low/high attack events; editorial section boundaries; existing approximate local announcement alignment retained.",
+    "video_on_leds": false,
+    "output": "Host output_gamma0.5 for the current low-current configuration. Audio, video and title begin together."
+  },
+  "output_gamma": 0.5
+}

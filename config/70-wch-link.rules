@@ -1,0 +1,2 @@
+# WCH-LinkE in RISC-V mode. Apply before systemd's seat access rules.
+SUBSYSTEM=="usb", ATTR{idVendor}=="1a86", ATTR{idProduct}=="8010", TAG+="uaccess"

@@ -1,0 +1,67 @@
+{
+  "productCode": "C23186",
+  "productModel": "0603WAF5101T5E",
+  "encapStandard": "0603",
+  "minBuyNumber": 100,
+  "split": 100,
+  "stockNumber": 19469500,
+  "productPriceList": [
+    {
+      "ladder": 100,
+      "productPrice": "0.0015",
+      "usdPrice": 0.0015,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0015,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0015",
+      "extPrice": "0.15",
+      "isRealOff": false
+    },
+    {
+      "ladder": 1000,
+      "productPrice": "0.0012",
+      "usdPrice": 0.0012,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0012,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0012",
+      "extPrice": "1.20",
+      "isRealOff": false
+    },
+    {
+      "ladder": 5000,
+      "productPrice": "0.0010",
+      "usdPrice": 0.001,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.001,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0010",
+      "extPrice": "5.00",
+      "isRealOff": false
+    },
+    {
+      "ladder": 10000,
+      "productPrice": "0.0008",
+      "usdPrice": 0.0008,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0008,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0008",
+      "extPrice": "8.00",
+      "isRealOff": false
+    }
+  ],
+  "checked_utc": "2026-10-12T21:59:12.782814+00:00"
+}

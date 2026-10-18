@@ -1,0 +1,433 @@
+Letki general firmware — system design and Sol implementation brief
+2026-10-16 — original design brief, preserved as history
+Implemented R3 behavior and qualification: firmware/general/README.txt and
+docs/general-firmware-hardware-20261017.txt.
+
+DECISION AND GOAL
+
+Replace show-specific firmware with a stable display appliance. The PC compiles
+content, chooses storage, schedules playback and provides audio. Boards retain
+refresh/PWM, a bounded scene interpreter, storage, timestamps and transport.
+New content, fonts rasterized by the PC, and arbitrary animations must be possible
+without another firmware update. No promise that firmware will never need fixes.
+
+User requested design first, implementation after switching to Sol. The driver
+must choose RAM loading, persistent flash, real-time streaming or a combination,
+using as much available memory as practical. Do not implement or flash as part
+of this design turn. Existing working audio/PWM images and backups remain valid.
+
+SYSTEM ROLES
+
+Keep the verified wiring: PC TX -> head RX; head TX -> receiver UART relays ->
+PC RX, plus the shared I2C bus. Head coordinates addressed I2C transfers and the
+show clock. Every tile runs the same bounded rendering/storage engine, with a
+head or receiver role and a tile origin. Head and receiver builds may differ to
+save code space. Fixed commissioned identities/roles are sufficient initially;
+do not require automatic enumeration or change electrical wiring for v1.
+
+Discover the actual nodes, firmware/protocol versions, tile origins, capabilities,
+free memory and missing nodes before compiling a show. A configured topology is
+not proof that every tile is responding. Start with the existing five tiles;
+report supported limits instead of encoding five in the public PC API. UUIDs
+identify hardware; logical positions are separately configured mappings.
+
+Each node stores its own assets and timeline. The driver partitions large images
+by tile, replicates small shared text/program data when useful, and exploits the
+sum of available memory without pretending it is one uniform address space.
+The head forwards bounded chunks; it need not hold an entire five-tile image.
+PC-disconnected playback still requires the powered head and its I2C clock cues.
+
+THREE EXECUTION MODES, ONE CONTENT MODEL
+
+1. Loaded playback: upload a complete validated program and assets, commit it,
+   then PLAY/PAUSE/SEEK/STOP/LOOP. It runs after the PC disconnects. RAM is volatile;
+   a valid persistent flash show can be selected as the startup program.
+2. Real-time: upload tile frames or parameter changes, then schedule presentation
+   using the same show clock. PC audio drives the timeline. Bound the queue and
+   discard obsolete host frames before transmission; do not accumulate delay.
+3. Hybrid: keep fonts, sprites, text and reusable segments loaded; stream time,
+   parameters or occasional new frames. This is the preferred music/text mode.
+
+The driver exposes storage=auto|ram|flash and execution=auto|loaded|stream|hybrid.
+Persistence and replacement policy are separate options. Auto prefers RAM for
+transient content and hybrid/streaming when it will not fit. A requirement to
+survive power loss selects flash if capacity allows; otherwise return a clear
+capacity error, never silently discard that requirement. Do not write flash on
+each replay or streaming frame. Preview the allocation and expected throughput.
+
+CONTENT ENGINE
+
+Use a small versioned declarative timeline, not arbitrary MCU machine code or a
+general programming language. The PC compiler handles wrapping, complex paths,
+Unicode normalization, asset deduplication/compression and finite loop expansion
+where beneficial. Firmware rejects unknown mandatory instructions at load time.
+
+Required primitives:
+- clear/fill a tile or clipped rectangle;
+- draw a 1-bit or grayscale bitmap, with position and clipping;
+- draw text with a compact built-in Latin/Polish font, or supplied glyph bitmaps;
+- timed translation of a text/bitmap viewport, wrapping or clamping;
+- brightness/intensity tracks with constant, linear and triangular interpolation;
+- waits/holds, bounded repeat regions, selection of assets, start/end of show;
+- explicit presentation of a host frame.
+
+Scroll, bounce and downward text become compiled combinations of viewport motion,
+hold times and text assets. Pulse and daisy-chain phases become intensity tracks
+with tile-specific offsets. New complex effects can always be rendered on the PC
+and sent as frames, even if the interpreter cannot express them compactly.
+An optional small sine/easing table can improve effects if code budget permits.
+The six current show-specific effects are not a mandatory firmware ABI.
+
+Every frame has a bounded instruction/asset-read budget. No recursive calls,
+unbounded zero-time loops, heap allocation, unchecked jumps or arbitrary address
+writes. Validate instruction boundaries, asset references, duration arithmetic,
+loop bounds, maximum execution cost and total size before marking a program ready.
+Prefer timeline expressions evaluated from absolute time so SEEK is deterministic;
+if a construct needs replay, bound it explicitly and advertise the seek cost.
+
+PIXEL FORMAT AND IMAGE OWNERSHIP
+
+Canonical API coordinates: x left-to-right, y top-to-bottom, row-major pixels.
+Explicitly convert to the current display driver's column-major duty layout.
+Document and test this conversion; the existing pattern/header naming differs.
+
+Support packed MONO1 (8 bytes/tile), indexed GRAY4 (32 bytes/tile + shared 16-entry
+perceptual palette), and LEVEL8 (64 bytes/tile, valid values 0..100). Retain gamma
+2.2 and existing global brightness semantics. GRAY4 is the default arbitrary
+stream format; LEVEL8 is available at measured lower rates if necessary.
+Specify bit/nibble order and format IDs in the wire spec before implementation.
+Use whole tile keyframes first. Optional RLE/delta encodings require capability
+bits, a base-generation identifier and strict expansion bounds; they are not
+required for correct v1 playback. The driver may choose MONO1 for text.
+
+TIMING AND PRESENTATION
+
+Head owns a monotonic millisecond clock and a separate show position/epoch.
+PLAY, PAUSE and SEEK affect show time, never the scan interrupt. Use wrap-safe
+32-bit arithmetic and restrict scheduled horizons to less than 2^31 ms.
+PC estimates clock offset/round-trip time through a timestamp exchange and
+schedules with a measured lead. During audio, derive show time from DAC sample
+presentation, not the time samples were submitted. Correct phase, not audio speed.
+
+A frame transaction stages each participating tile under a generation ID. All
+required tiles must validate and acknowledge readiness before the head schedules
+commit. Apply at a future head-time deadline, translated into local time by
+periodic synchronization, at a full scan boundary. Repeat commit messages safely.
+One pending generation initially; advertise actual buffering/credits.
+
+Distinguish RECEIVED, READY, ARMED and PRESENTED. READY must not be reported as
+visible output. PRESENTED needs feedback from the scan-boundary swap, not just
+an I2C packet ACK. Report readiness/missing-node bitmaps and late-frame counts.
+A broken bus during commit can still produce a partial presentation; this is not
+physical global atomicity or a rollback guarantee. Report the fault and apply a
+documented hold/stop policy. Measure inter-tile skew instead of promising zero.
+Do not require undocumented I2C broadcast/general-call behavior for v1.
+
+STORAGE AND MEMORY CONTRACT
+
+Each node reports: total RAM, fixed reservations, program/asset arena capacity,
+free bytes, largest contiguous allocation, staging capacity, queue credits,
+flash asset bytes, erase/write granularity and supported replacement policies.
+Use one fixed arena with offsets and a small object directory, shared between
+programs/assets/staging as the selected mode allows. Validate all offsets.
+Reclaim upload-only buffers after validation; reclaim stream-only buffers when
+loading a large standalone show. Compact only while stopped, with handles stable.
+Never allocate into stack, display/ISR buffers, transport recovery space or
+required staging reservations. 'Use all memory' means all reported safe capacity.
+Do not shrink the retained 256-byte stack without a separate measured assessment.
+
+Driver plans allocations per node and selects these replacement policies:
+- preserve-current: requires space for old + staged replacement; reject if short;
+- stop-and-replace: stop playback, release the old RAM show and use the full arena;
+- persistent-safe: stage a new flash generation separately, verify, then switch;
+- persistent-capacity: one large flash slot, explicit permission to replace it;
+  interrupted loading may lose the old show, but must never boot a partial show.
+All persistent modes must preserve executable firmware. A missing/invalid show
+boots to a documented blank/idle or built-in fallback, not corrupt data.
+
+Flash asset space is what remains after the linked application and required
+metadata, aligned to verified erase units. Export bounds from the build and
+report them at runtime; UART cannot name arbitrary flash addresses. Check that
+firmware, data-load images, metadata and asset slots never overlap. Keep checksums,
+length, schema and generation in the object manifest; publish validity last.
+Safe replacement needs enough metadata redundancy and a separate image slot;
+single-slot replacement trades old-show retention for capacity, never firmware
+integrity. Read back and verify writes. Skip writes of identical objects.
+
+Flash programming timing/erase granularity and execution stalls require a scoped
+vendor-source audit and physical test during implementation. Do not assume scan
+interrupts remain safe while programming flash. Start with an explicit stopped,
+blanked maintenance mode, UART credits zero during blocking operations, and
+acknowledgement afterward. Background flash updates are not a v1 requirement.
+
+CURRENT EVIDENCE AND CAPACITY REALITY
+
+CH32V003 per tile: 16,384 bytes flash, 2,048 bytes RAM, reserved 256-byte stack.
+Current audio head: 11,372 flash and 1,620 RAM including stack, leaving 428 RAM.
+Current PWM receivers: 7,712 flash and 1,164 RAM including stack, leaving 884 RAM.
+These are measurements of existing firmware, NOT promises for the general build.
+Two 64-element uint16 display buffers consume 256 bytes total. Current UART RX
+uses 128 bytes (64 uint16 entries), UART TX 128, SWIO TX 128. The current 259-byte
+line buffer and other duplicate edit buffers should not be blindly combined with
+new binary staging and text storage. Stream decoding and mutually exclusive mode
+workspaces can recover capacity, but preserve damaged-input rejection.
+
+A 512-byte usable arena holds at most 8 LEVEL8 tile frames, 16 GRAY4 tile frames
+or 64 MONO1 tile frames before timing/metadata. At 25 fps, these are only 0.32,
+0.64 and 2.56 seconds. Procedural text/tracks can last minutes with few bytes;
+raw arbitrary animation generally needs streaming or available flash storage.
+Do not quote the sum of five memories as head-local capacity. Head may have the
+smallest arena; the driver must plan around its separate allocation.
+
+Target implementation with code headroom; <=12 KiB executable would leave useful
+flash storage, but this is a design target, not a guaranteed fit. Measure after
+minimum protocol/rendering builds. If constrained, move convenience effects and
+rich text processing to the PC before weakening integrity checks or stack space.
+
+LINK BUDGET AND REAL-TIME VIABILITY
+
+Existing phase/audio run: 960 acknowledged updates at 25 ticks/s, mean phase ACK
+16.06 ms, max 24.22 ms; no new UART errors/drops or audio warnings. This proves
+small phase commands, NOT arbitrary grayscale frame throughput.
+
+115200 baud, 8N1 gives a theoretical 11,520 payload bytes/s before protocol.
+For a five-tile 40x8 image at 25 fps, raw data alone is:
+  MONO1: 40 bytes/frame, 1,000 bytes/s
+  GRAY4: 160 bytes/frame, 4,000 bytes/s
+  LEVEL8: 320 bytes/frame, 8,000 bytes/s
+Current I2C is 100 kHz. Four remote LEVEL8 tile payloads alone need at least
+23.04 ms (256*9 bits), before addresses, headers, replies and commit. GRAY4 needs
+at least 11.52 ms. UART and I2C need bounded pipelining to approach high rates;
+serialized end-to-end transfers plus acknowledgements may exceed a 40 ms frame.
+
+Target 25 fps for GRAY4; benchmark MONO1 and LEVEL8 and advertise the demonstrated
+rates. No assumption of 400 kHz I2C or higher UART baud on the soldered chain.
+Use binary framing; hexadecimal text doubles pixel traffic. Limit each chunk to
+a small fixed size, service RX frequently, and use credits to prevent FIFO loss.
+Head UART replies traverse all receivers; preserve binary-safe transparent relays
+(including NUL and other nonprinting bytes). Current character/string relays drop
+NUL and must be replaced for this protocol. Avoid unsolicited downstream logs
+that can corrupt the response stream; put diagnostics in framed replies.
+
+PROTOCOL CONTRACT TO FREEZE BEFORE SOL IMPLEMENTATION
+
+Versioned framing shared in a small host/firmware library, with COBS and a zero
+separator, CRC-16, bounded decoded length, session/request IDs, payload length,
+message type and flags. Initial target <=64 decoded bytes, <=48 payload bytes;
+final header packing, CRC parameters, endianness and limits require golden vectors
+before calling the wire format stable. Unknown versions/opcodes return errors;
+invalid lengths/CRC never execute. Timeout/reset discards a partial frame and
+resynchronizes at a delimiter. No unbounded text buffering.
+
+A small human-readable UART shell can expose help/status/play/stop/text at idle.
+An explicit command enters the binary session; a framed command exits it.
+Never interpret payload bytes as immediate SWIO/UART control keys. Human commands
+and binary messages map to the same validated operations and exclusive ownership.
+
+Required operation families:
+  HELLO/CAPS, NODE_INFO, MEMORY_INFO, STATUS, PING/TIME_SYNC
+  BEGIN_OBJECT, WRITE_CHUNK, VERIFY_OBJECT, COMMIT_OBJECT, ABORT, FREE
+  LIST_OBJECTS, GET_MANIFEST (and chunk readback if capacity permits)
+  LOAD_PROGRAM, VALIDATE, PLAY, PAUSE, SEEK, STOP, LOOP
+  FRAME_BEGIN, TILE_DATA, FRAME_READY/COMMIT, presentation status
+  brightness/parameter changes, startup-show selection, fault reset/report
+
+Commands are idempotent by session + request ID; cache the last accepted result
+within advertised one-command credits. Retransmitted chunks must match their
+object/generation/offset; conflicting retransmissions reject. No repeated flash
+erase, repeat-triggered playback restart or double advancement. Bound retries,
+return a useful error rather than hanging indefinitely on a missing node.
+Use whole-object CRC as well as packet CRC. Separate object download validity
+from program semantic validity and from actual presentation success.
+
+I2C needs a versioned general packet envelope too: bounded chunk/object/frame
+operations and explicit status, replacing show-specific 0xa6/0xb6 packets. Do not
+reinterpret those old packets silently. One initial full-chain firmware migration
+is expected; the stable raw-frame/object paths are what avoid later show updates.
+Keep current working images and rollback records until this migration is tested.
+
+DRIVER AND USER WORKFLOW
+
+A Python library owns port arbitration, capability negotiation, retries, object
+placement, program compilation, clock mapping, frame pacing and reconnect.
+User-facing source is readable JSON plus text/image assets; the PC emits compact
+validated binary objects. PC audio and display use the same timeline object.
+Examples to implement (proposed CLI, not currently available):
+  letki inspect
+  letki preview show.json
+  letki load show.json --storage auto
+  letki play --loop
+  letki stream show.json --fps auto
+  letki play show.json --audio narration.wav
+  letki load show.json --persistent --replacement safe
+
+Keep familiar text/brightness commands as driver conveniences. Preserve or adapt
+existing audio launcher to the new driver instead of requiring show-specific MCU
+functions. Preview must use the same interpreter/content semantics and canonical
+pixel coordinates as hardware; annotate unsupported capabilities and memory use.
+
+FAILURE POLICY
+
+CRC damage, unsupported commands, malformed text, overflow, missing chunks and
+invalid programs preserve the last committed valid state, except when the user
+explicitly selected stop-and-replace/single-slot replacement. On disconnect:
+loaded show continues; stream default holds last complete frame. Optional timeout
+blank/fallback is an explicit program/driver policy. On reconnect establish a new
+session, query identities/state and recover; never assume a reset or silently
+restart the show. Clear status distinction between link, load and playback errors.
+
+IMPLEMENTATION ORDER AND ACCEPTANCE FOR SOL
+
+1. Freeze wire vectors, canonical pixels, capability schema and memory budgeting.
+   Build a separate general-firmware candidate; preserve current default/archives.
+2. Implement packet/parser and binary relay tests, then raw MONO1/GRAY4/LEVEL8
+   stage/commit through head + simulated receivers. Verify corruption, duplicates,
+   reordered/missing chunks, stalled bus, time wrap, late frames and disconnects.
+3. Implement RAM objects, capacity reports and loaded timeline/text playback.
+   Verify exact-fit/over-capacity loads, replacement semantics, bounded runtime,
+   deterministic seek and unsupported-instruction rejection.
+4. Implement driver compiler, preview and audio scheduling. Run a complete show
+   in simulation and compare pixel/frame/time hashes across PC and MCU cores.
+5. Audit flash controller behavior and implement explicit stopped flash loading,
+   manifests and startup recovery. Fault-inject interruption of every write/commit
+   step; distinguish safe dual-slot and capacity single-slot guarantees.
+6. WCH builds per role; report flash/RAM/arena sizes and foreground+ISR stack paths.
+   Keep 256-byte reservation, use stack high-water measurements during hardware
+   tests. Run make test, all variants for shared Makefile changes, compdb/clangd.
+7. Only then perform identified/backed-up physical migration with readback;
+   benchmark full five-tile raw frame formats, timing skew, long uploads, UART
+   errors, failures/reconnect and persistent boot recovery. Report actual limits.
+
+Design acceptance: the user can change a message, text animation, brightness
+sequence, bitmap animation and narrated show without reflashing; preload-and-run
+works with the PC disconnected; the driver selects storage within reported safe
+capacity; real-time rates are measured; persistence does not overwrite firmware.
+No hardware/CAD change is required by this design.
+
+ADDENDUM: LONG SHOWS, LOOKAHEAD, FASTER LINKS AND TRANSPORT OPTIONS
+
+User follow-up: support long real-time narrated/music shows (Tubular Bells style),
+consider double buffering in flash, faster UART and additional playback modes.
+
+Show duration is not bounded by board storage in streamed/hybrid execution. The
+PC retains the complete score and audio, and replenishes a bounded future window.
+An hour and a minute require the same board queue capacity for the same content
+rate and lookahead. PC sample positions use wide integers; MCU millisecond time
+uses wrap-safe epochs and horizons. Do not reset the show on each segment boundary.
+
+Distinguish three queues/stores explicitly:
+- existing scan double buffers: prevent local tearing, not a future-show queue;
+- RAM lookahead: future cues/frames with deadlines and refill credits;
+- persistent flash slots: reusable assets/startup shows and safe replacement.
+Their capacity is separately reported. A one-pending-frame initial implementation
+is valid but does not provide the same jitter resilience as a multi-frame queue.
+Driver selects an advertised queue depth, with a useful target of 150..250 ms
+for raw streaming when available RAM allows it. No guarantee of this depth on
+every general-firmware build. At 25 fps, five GRAY4 frames use 160 bytes per tile
+before descriptors (5 * 32 bytes), versus 320 bytes for LEVEL8. This is per tile;
+the head should route, not duplicate all five queues. Sparse cue programs can
+buffer seconds or minutes in much less space than equivalent raw video.
+
+Recommended long-show workflow:
+1. Compile the score into reusable text/sprite assets and parametric segments.
+2. Upload reusable assets to RAM, or optionally flash once; select persistence.
+3. Queue the first future segment and synchronize board clock to PC audio time.
+4. Start playback at a future deadline with enough measured lead for all tiles.
+5. Refill by byte/descriptor credits; report both ready-through time and free
+   capacity. Keep transfers out of audio callbacks. The driver sends sparse
+   commands whenever possible and raw frames only where needed.
+6. On seek, invalidate the old generation/epoch, prefill the new position, then
+   resume coherently. On loop, preserve absolute scheduling and switch segment
+   generation without overflowing the queue or replaying stale requests.
+
+Queue policy must distinguish content:
+- future cues/events: preserve ordering and dependencies; never silently drop a
+  text change/start/stop. Seek/rebuild state if necessary to catch up;
+- raw independent frames: a late frame may be discarded for the newest useful
+  frame; deltas cannot skip their base unless replaced by a keyframe;
+- underflow: hold the last valid frame by default, report it, continue using audio
+  time when data returns. Optional strict-sync policy pauses audio and show at a
+  declared anchor. This must not alter waveform speed or synthesize word fragments.
+
+Additional execution profiles supported by the same object/timeline model:
+A. Cue streaming: tiny timestamped effect/text/parameter changes; low bandwidth,
+   ideal for a long narrated show and musically aligned changes.
+B. Segment streaming: RAM A plays while RAM B receives the next validated program
+   segment. Segments can last seconds/minutes because they contain instructions.
+   Requires both allocations; driver falls back to a smaller lookahead if needed.
+C. Raw frame streaming: MONO1/GRAY4/LEVEL8, variable rates according to benchmark.
+D. Sparse/delta updates: optional capability, with generation/base validation and
+   periodic keyframes. Compression must never be assumed to improve every image.
+E. Persistent standalone show: flash program/assets, PC unnecessary after boot.
+F. Hybrid persistent assets + RAM cues/frames: use flash as a read-mostly cache,
+   RAM for rolling state. Content hashes avoid rewriting unchanged objects.
+
+Flash A/B slots remain valuable for replacing a persistent show, and for shows
+with explicit maintenance/loading breaks. They are not the default rolling cache
+for continuous raw streaming. The available vendor datasheet v1.3, section 3.3.8,
+tables 3-14/3-15 reports 64-byte programming and erase on the millisecond scale
+(2.4..3.1 ms as tabulated), finite endurance figures of 10K/80K at 25 C, and an
+explicit note that measured endurance is not guaranteed. The reference manual
+v1.9 section 16.2.1 distinguishes standard 2-byte writes/1 KiB erase from fast
+64-byte page programming/erase. SDK has distinct APIs for both; don't confuse
+these geometries or assume two object slots are independent hardware flash banks.
+Read-while-write, instruction fetch/ISR behavior and safe write routines still
+need qualification. As an illustration, rotating a 2 KiB flash data ring at
+800 bytes/s (one GRAY4 tile at 25 fps) revisits each page roughly every 2.56 seconds,
+about 33,750 cycles/day before overhead. Buffer size does not remove erase wear.
+
+Sources already stored locally (not asserted to be latest vendor revisions):
+  docs/reference/wch/CH32V003DS0.PDF, v1.3, memory characteristics p20-21
+  docs/reference/wch/CH32V003RM.PDF, v1.9, chapters 13, 14 and 16
+  firmware/v3/Peripheral/src/ch32v00x_flash.c
+
+Faster serial is an optional negotiated capability, not a fixed assumption:
+  baud        theoretical 8N1 bytes/s (before framing/ACKs)
+  115200      11,520 — existing measured baseline
+  230400      23,040 — proposed qualification step
+  460800      46,080 — proposed qualification step
+  921600      92,160 — optional if adapter/chain/CPU permit
+Reference manual chapter 13 lists USART support up to 3 Mbps; this is not a claim
+that the WCH-Link adapter, this clock configuration or the assembled chain can
+sustain any particular higher rate. Verify baud error, PC adapter behavior, RX
+service margin, interrupts, CRC errors and sustained transfers on every tile.
+At 921600, a 64-entry FIFO represents less than 0.7 ms of wire time. Higher baud
+is not free if foreground parsing/relay cannot keep up. DMA is a possible later
+optimization only if its added complexity and buffers are justified by profiling.
+
+Keep 115200 bootstrap/recovery. All UART relays must participate in a negotiated
+rate switch: prepare every node, drain old-rate traffic, switch at an agreed time,
+confirm at the new rate, automatically revert on unconfirmed timeout. Account for
+partially switched nodes; do not strand recovery behind a node at the wrong baud.
+A power-cycle/reset returns to the documented bootstrap rate. Higher rate must
+not silently become a persistent startup requirement.
+
+I2C reference manual chapter 14 supports 100 and 400 kHz, but the current physical
+bus is qualified only at 100 kHz for its recorded operations. 400 kHz requires
+rise-time/pull-up/current and waveform checks on the complete chain, plus data
+integrity testing. UART speedup alone does not remove the I2C distribution limit.
+Retain and benchmark the 100 kHz path first.
+
+Consider a second physical transport mapping before freezing implementation:
+addressed binary packets can be forwarded directly along the existing UART chain,
+with each tile consuming its own payload. This avoids copying every raw pixel
+through UART -> head -> I2C. It needs no new wiring but does need new relay logic.
+Use bounded streaming or pipelined packet forwarding; a naive store-the-entire-
+show approach defeats the memory design. Preserve packet boundaries and use a
+coordinated reply/token scheme so local responses cannot interleave downstream
+traffic. Synchronization/commit may still use I2C. Compare this route with the
+head/I2C route in simulation and on hardware; one stable logical protocol should
+cover either route, and advertise the chosen transport capability. Do not ship
+multiple complex transport implementations merely for completeness if code does
+not fit. Make this selection before the initial all-board migration.
+
+Implementation priorities from this follow-up:
+- make cue/segment streaming and variable RAM lookahead part of the design, with
+  ordered events distinct from replaceable raw frames;
+- include baud capability/recovery and transport routing in the protocol schema;
+- benchmark direct UART routing versus I2C distribution before locking the v1
+  firmware architecture; preserve driver API independent of that selection;
+- retain flash A/B for persistent updates; do not rely on flash streaming for long
+  duration or promise read/write concurrency without evidence;
+- test a long audio-linked run with wrap/seek/loop, induced PC scheduling jitter,
+  refill delay and disconnect, in addition to the existing short happy-path demo.

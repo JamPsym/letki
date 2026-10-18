@@ -1,0 +1,12 @@
+LCSC,MPN,package,purchased,used_min,used_max,reserved,notes
+C5187096,CH32V003F4P6,TSSOP-20-175mil,50,1,3,4,One installed on v3; allow up to two additional debugging losses; exact count unconfirmed; reserve four MCUs for four remaining v3 boards (user 2026-10-12)
+C157527,SN74HC138PWR,TSSOP-16,50,1,3,4,One installed on v3; allow up to two additional debugging losses; v4 requires active-high HCT238 instead; reserve for four remaining v3 boards
+C455282,TS-1089S-02526,SMD-4P 4.2x3.3mm,50,2,2,8,Assume both v3 switches fitted from this order; v4 switch substitution needs pad and pin-map review; reserve for four remaining v3 boards
+C692460,TS-1187A-B-C-B,SMD-4P 5.1x5.1mm,20,0,0,0,Alternative switch; no known use; different body and footprint
+C84376,RC0805FR-0710KL,0805,1000,4,4,16,V3 R9 R10 R13 R14; v4 specifies other resistance values; reserve for four remaining v3 boards
+C26022,0805W8J0472T5E,0805,1000,2,2,8,V3 R11 R12; v4 head uses 2.2k instead; reserve for four remaining v3 boards
+C15850,CL21A106KAYNNNE,0805,200,1,1,4,V3 C4; potential regulator capacitor substitute needs electrical and lifecycle review; reserve for four remaining v3 boards
+C476766,C0805B104K500NT,0805,250,4,4,16,V3 C1 C2 C3 C5; v4 bypass footprints are 0603; reserve for four remaining v3 boards
+C965813,XL-2012UOC,0805,1000,64,64,256,Assume64 installed on one v3; reserve256 for four remaining v3 boards (user2026-10-12); sameexactMPN onv4.1; stockcountestimated
+C17738,0805W8F510JT5E,0805,1000,0,8,32,V3 row values unspecified; up to eight may be used; combined 51/68 ohm use assumed eight total; reserve for four remaining v3 boards
+C17802,0805W8F680JT5E,0805,1000,0,8,32,V3 row values unspecified; up to eight may be used; combined 51/68 ohm use assumed eight total; reserve for four remaining v3 boards

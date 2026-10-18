@@ -1,0 +1,37 @@
+PCB_revision,Supplier,Symbol,Quantity,MPN,References,Note
+v4.0,LCSC,C122442,5,530470310,J2,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C14663,50,CC0603KRX7R9BB104,C10 C1 C3 C6 C7,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C149504,100,0805W8F1003T5E,R9 R14,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C16194942,10,CL21B475KAB6PNE,C8 C9,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C165948,5,TYPE-C-31-M-12,J4,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C17379,100,0805W8F1201T5E,R1 R2 R3 R4 R5 R6 R7 R8,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C17520,100,0805W8F2201T5E,R11 R12,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C21404,5,SN74LVC2G125DCUR,U4,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C23186,1000,0603WAF5101T5E,R30 R31,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C25803,100,0603WAF1003T5E,R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R28 R29,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C35259,10,ME6206A33M3G,U6,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C4190,1000,0603WAF2201T5E,R26 R27,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C4216,1000,0603WAF3302T5E,R32,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C5224267,40,BSS138BK,Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C547472,5,"74HCT238PW,118",U2,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C55266,1,TPS2553DBVR,U5,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C6778,5,SN74HCT244PWR,U3,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.0,LCSC,C720479,10,TS-1089S-AR02516,SW1 SW2,Preserved prototype buying quantities; supplier MOQ/price tiers and selected bulk resistor stock
+v4.1,TME,CC0603KRX7R9BB104,26,CC0603KRX7R9BB104,C1 C10 C3 C6 C7,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,CL21B475KAFNNNE,12,CL21B475KAFNNNE,C8 C9,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,MX-53047-0310,6,530470310,J2,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,USB4105-GF-A,2,USB4105-GF-A,J4,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,DMG2302UK-7,50,DMG2302UK-7,Q1 Q2 Q3 Q4 Q5 Q6 Q7 Q8,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,SMD0805-1K2-1%,100,0805S8F1201T5E,R1 R2 R3 R4 R5 R6 R7 R8,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,SMD0805-100K-1%,100,0805S8F1003T5E,R14 R9,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,SMD0805-2K2-1%,100,0805S8F2201T5E,R11 R12,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,SMD0603-100K-1%,100,0603SAF1003T5E,R15 R16 R17 R18 R19 R20 R21 R22 R23 R24 R25 R28 R29,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,SMD0603-220R-1%,100,0603SAF2200T5E,R26 R27,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,RC0603FR-075K1L,100,RC0603FR-075K1L,R30 R31,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked; direct 5.1k1%0603 substitute for R30/R31"
+v4.1,TME,SMD0603-33K-1%,100,0603SAF3302T5E,R32,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,SKRPABE010,12,SKRPABE010,SW1 SW2,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,74HCT238D.653,6,"74HCT238D,653",U2,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,SN74HCT244PWR,6,SN74HCT244PWR,U3,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,74LVC2G34GW.125,6,"74LVC2G34GW,125",U4,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"
+v4.1,TME,AP22653W6-7,2,AP22653W6-7,U5,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked; proposed U5 substitute; keep R32 33k1%; native CAD still names TPS2553DBVR; qualify startup/short-circuit behavior"
+v4.1,TME,MIC5504-3.3YM5-TR,6,MIC5504-3.3YM5-TR,U6,"Approx20%spares(minimum-one), supplier MOQs; checkout stock/price must be checked"

@@ -1,0 +1,14 @@
+[Unit]
+Description=Letki display broker
+
+[Service]
+Type=simple
+ExecStart="@EXEC@"
+WorkingDirectory=@ROOT@
+Restart=on-failure
+RestartSec=3
+UMask=0077
+NoNewPrivileges=true
+
+[Install]
+WantedBy=default.target

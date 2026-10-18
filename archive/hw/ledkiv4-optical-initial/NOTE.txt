@@ -1,0 +1,1 @@
+Initial v4 optical-only prototype, preserved for comparison. Its 1.2 mm open under-grid gap and adhesive standoffs are obsolete. Active removable optics and carrier models are in hw/ledkiv4/mechanics/. This snapshot is unqualified and must not be used as a production mounting design.

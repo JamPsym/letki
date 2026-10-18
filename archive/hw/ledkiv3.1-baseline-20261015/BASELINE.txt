@@ -1,0 +1,22 @@
+LETKI V3.1 — ACCEPTED DESIGN BASELINE, 2026-10-15
+
+Accepted by the user as actual v3.1. Preserve this snapshot; continue shared
+editing only in /home/pies/letki/hw/ledkiv3.1/ledkiv3_1.kicad_pro.
+This directory is a frozen reference, not another active human/agent project.
+
+Native CAD and local libraries/models are at this directory's root. baseline.json
+records accepted identity, validation scope and original package hashes.
+config/ and docs/ retain board-specific review/assembly context. Full reproducible
+source/firmware/checks are also in exports/prototype/ledkiv3_1-handoff.zip.
+
+ERC/DRC/opens/parity/ignored:0. Independent circuit, multilayer power,
+manufacturing, builds/host tests and nominal1/4tile mechanical checks passed.
+Physical current/pulse/rail/thermal/interface/optical/fit qualification is pending.
+No new order, hardware operation or Git commit accompanies this acceptance.
+
+The validation/fabrication package is preserved byte-for-byte from its checked
+2026-10-15T20:28 export. Its embedded Study C label and older documentation
+hashes are historical provenance; accepted revision identity is v3.1 here.
+Acceptance changes only external records/documentation, not checked CAD.
+Generated exports remain ignored; authored source and baseline records are
+eligible for normal repository version control when the user requests it.

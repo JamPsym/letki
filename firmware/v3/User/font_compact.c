@@ -1,0 +1,36 @@
+#include "font.h"
+
+/* Three-by-five base glyphs sit on rows 1..5; rows 0 and 6 carry Polish marks. */
+static const uint8_t letters[26][3] = {
+    {0x1e,0x05,0x1e}, {0x1f,0x15,0x0a}, {0x0e,0x11,0x11},
+    {0x1f,0x11,0x0e}, {0x1f,0x15,0x11}, {0x1f,0x05,0x01},
+    {0x0e,0x11,0x1d}, {0x1f,0x04,0x1f}, {0x11,0x1f,0x11},
+    {0x08,0x10,0x0f}, {0x1f,0x04,0x1b}, {0x1f,0x10,0x10},
+    {0x1f,0x01,0x1f}, {0x1f,0x02,0x1f}, {0x0e,0x11,0x0e},
+    {0x1f,0x05,0x02}, {0x0e,0x19,0x1e}, {0x1f,0x05,0x1a},
+    {0x12,0x15,0x09}, {0x01,0x1f,0x01}, {0x0f,0x10,0x0f},
+    {0x07,0x18,0x07}, {0x1f,0x08,0x1f}, {0x1b,0x04,0x1b},
+    {0x03,0x1c,0x03}, {0x19,0x15,0x13},
+};
+
+uint8_t font_compact_column(wchar_t ch, uint8_t column)
+{
+    if (column >= 3) return 0;
+    wchar_t base = ch;
+    uint8_t mark = 0;
+    switch (ch)
+    {
+        case L'Ą': base = L'A'; if (column == 2) mark = 0x40; break;
+        case L'Ć': base = L'C'; if (column == 2) mark = 1; break;
+        case L'Ę': base = L'E'; if (column == 2) mark = 0x40; break;
+        case L'Ł': base = L'L'; if (column == 1) mark = 8; if (column == 2) mark = 4; break;
+        case L'Ń': base = L'N'; if (column == 2) mark = 1; break;
+        case L'Ó': base = L'O'; if (column == 2) mark = 1; break;
+        case L'Ś': base = L'S'; if (column == 2) mark = 1; break;
+        case L'Ź': base = L'Z'; if (column == 2) mark = 1; break;
+        case L'Ż': base = L'Z'; if (column == 1) mark = 1; break;
+        default: break;
+    }
+    if (base < L'A' || base > L'Z') return 0;
+    return (uint8_t)((letters[base - L'A'][column] << 1) | mark);
+}

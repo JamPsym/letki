@@ -1,0 +1,57 @@
+{
+  "status": "PASS",
+  "initial_sha256": "70af623a6e69eb830eca177dc6771266e6e5e16c430598d21abbd5e2ea685435",
+  "final_sha256": "1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22",
+  "reviewed_tool_commit": "9399bfb29e072bfe60b10d9cdae20c274fc2a17a",
+  "via_count": 299,
+  "footprints": 159,
+  "segments_before": 1594,
+  "segments_after": 1490,
+  "accepted_chains": 50,
+  "removed_primitives": 324,
+  "added_primitives": 220,
+  "preserved_power_geometry": true,
+  "new_duplicate_copper": 0,
+  "independently_connected_nets": 76,
+  "candidate_summary": {
+    "REJECTED": 33,
+    "CHECKED_CANDIDATE": 50
+  },
+  "length_before_mm": 347.1993093482224,
+  "length_after_mm": 352.89255031502205,
+  "bends_before": 267,
+  "bends_after": 170,
+  "layers": {
+    "F.Cu": {
+      "chains": 48,
+      "segments_before": 311,
+      "segments_after": 212,
+      "bends_before": 257,
+      "bends_after": 164,
+      "length_before_mm": 338.6292125793745,
+      "length_after_mm": 344.1769911559199
+    },
+    "B.Cu": {
+      "chains": 2,
+      "segments_before": 13,
+      "segments_after": 8,
+      "bends_before": 10,
+      "bends_after": 6,
+      "length_before_mm": 8.570096768847927,
+      "length_after_mm": 8.715559159102158
+    }
+  },
+  "rejections": {
+    "('External contact outside terminal lands', '3736a026-5b54-43c5-bde0-e46892488d5b')": 1,
+    "A* did not find a path in 500000 states at 0.0125 mm": 2,
+    "No actual bend reduction": 22,
+    "A* did not find a path in 179873 states at 0.0125 mm": 1,
+    "Length increase": 2,
+    "Terminals require a finer lattice than this bounded pass": 2,
+    "('External contact outside terminal lands', '646f0955-a9f2-45e4-9dfa-11991b164968')": 1,
+    "('External contact outside terminal lands', 'ee2f0918-4823-4ac8-9991-431bfca7592a')": 1,
+    "Fixed terminal blocked at conservative raster clearance": 1
+  },
+  "milestone_unchanged": true,
+  "rust_engine_sha256": "b09e49796b0372454e00bce7dcb884631dc3d50521b873f6c9c10dc8362ad666"
+}

@@ -1,0 +1,594 @@
+{
+  "status": "Preliminary sourcing and architecture study; no CAD change or order",
+  "date": "2026-10-12",
+  "scope": "New purchases only from TME; stocked CH32V003F4P6 and XL-2012UOC retained",
+  "variants": [
+    "MOSFET",
+    "ULN2803 price comparison"
+  ],
+  "boards": [
+    5,
+    20
+  ],
+  "heads": 1,
+  "prices": "Rounded public snapshots in their original currencies; no conversion and no checkout quote",
+  "parts": [
+    {
+      "tme_symbol": "74HCT238D.653",
+      "mpn": "74HCT238D,653",
+      "role": "column decoder",
+      "population": "TILE",
+      "quantity_per_population": 1,
+      "package": "SO16 1.27mm",
+      "currency": "USD",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "0.57"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "0.4"
+        },
+        {
+          "quantity": 25,
+          "unit_net": "0.37"
+        },
+        {
+          "quantity": 100,
+          "unit_net": "0.32"
+        },
+        {
+          "quantity": 250,
+          "unit_net": "0.28"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 2169,
+      "source_age": "4 months; catalogue, not live cart",
+      "supplier_url": "https://www.tme.eu/pl/katalog/dekodery-multipleksery-przelaczniki_113424/?params=2611%3A1494630_technologia%3Attl",
+      "review_note": "Active-high HCT; needs new SO16 footprint. Confirm stock/lead time. TI CD74HCT238M96 is alternative, not priced.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SN74HCT244PWR",
+      "mpn": "SN74HCT244PWR",
+      "role": "row source buffer",
+      "population": "TILE",
+      "quantity_per_population": 1,
+      "package": "TSSOP20 0.65mm",
+      "currency": "USD",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "0.52"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "0.37"
+        },
+        {
+          "quantity": 25,
+          "unit_net": "0.33"
+        },
+        {
+          "quantity": 50,
+          "unit_net": "0.31"
+        },
+        {
+          "quantity": 100,
+          "unit_net": "0.29"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 2919,
+      "source_age": "3 months",
+      "supplier_url": "https://www.tme.eu/en/details/sn74hct244pwr/buffers-transceivers-drivers/texas-instruments/",
+      "review_note": "Retain v4 driver and 1.2k current budget; 70mA absolute supply rating is not operating target.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "74LVC2G34GW.125",
+      "mpn": "74LVC2G34GW,125",
+      "role": "UART dual buffer",
+      "population": "TILE",
+      "quantity_per_population": 1,
+      "package": "SOT363-2 6 pins 0.65mm",
+      "currency": "USD",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "0.13"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "0.13"
+        },
+        {
+          "quantity": 100,
+          "unit_net": "0.11"
+        },
+        {
+          "quantity": 250,
+          "unit_net": "0.09"
+        },
+        {
+          "quantity": 500,
+          "unit_net": "0.08"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 931,
+      "source_age": "2 months; Norway locale USD",
+      "supplier_url": "https://www.tme.eu/no/en/details/74lvc2g34gw.125/buffers-transceivers-drivers/nexperia/74lvc2g34gw-125/",
+      "review_note": "New footprint; two always-enabled noninverting buffers; 5.5V tolerant inputs, Ioff; verify UART edge rise/fall conditions with series R.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "DMG2302UK-7",
+      "mpn": "DMG2302UK-7",
+      "role": "column sink MOSFET",
+      "population": "TILE",
+      "quantity_per_population": 8,
+      "package": "SOT23 G1 S2 D3",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "1.36"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "0.67"
+        },
+        {
+          "quantity": 25,
+          "unit_net": "0.61"
+        },
+        {
+          "quantity": 50,
+          "unit_net": "0.57"
+        },
+        {
+          "quantity": 100,
+          "unit_net": "0.53"
+        },
+        {
+          "quantity": 500,
+          "unit_net": "0.43"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 7155,
+      "source_age": "1 day",
+      "supplier_url": "https://www.tme.eu/pl/details/dmg2302uk-7/tranzystory-z-kanalem-n-smd/diodes-incorporated/",
+      "review_note": "120mOhm maximum at Vgs2.5V/25C. Typical gate charge1.4nC; switching/temperature still need prototype measurements.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "MIC5504-3.3YM5-TR",
+      "mpn": "MIC5504-3.3YM5-TR",
+      "role": "3.3V regulator",
+      "population": "TILE",
+      "quantity_per_population": 1,
+      "package": "SOT23-5",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "0.56"
+        },
+        {
+          "quantity": 25,
+          "unit_net": "0.45"
+        },
+        {
+          "quantity": 3000,
+          "unit_net": "0.42"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 8300,
+      "source_age": "1 month",
+      "supplier_url": "https://www.tme.eu/pl/details/mic5504-3.3ym5-tr/stabilizatory-napiecia-nieregulowane-ldo/microchip-technology/",
+      "review_note": "New footprint:1IN2GND3EN4NC5OUT; tie EN to IN; input2.5-5.5V; effective output capacitance>=1uF; no probe powering of rail.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "CC0603KRX7R9BB104",
+      "mpn": "CC0603KRX7R9BB104",
+      "role": "100nF bypass",
+      "population": "TILE",
+      "quantity_per_population": 4,
+      "package": "0603 50V X7R 10%",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "0.35"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "0.16"
+        },
+        {
+          "quantity": 100,
+          "unit_net": "0.08"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.06"
+        },
+        {
+          "quantity": 4000,
+          "unit_net": "0.04"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 239302,
+      "source_age": "today",
+      "supplier_url": "https://www.tme.eu/pl/details/cc0603krx7r9bb104/kondensatory-mlcc-smd/yageo/",
+      "review_note": "Same part as v4; add one more for USB head through head_extra quantity.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER",
+      "head_extra": 1
+    },
+    {
+      "tme_symbol": "CL21B475KAFNNNE",
+      "mpn": "CL21B475KAFNNNE",
+      "role": "LDO input/output capacitor",
+      "population": "TILE",
+      "quantity_per_population": 2,
+      "package": "0805 4.7uF 25V X7R 10%",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 10,
+          "unit_net": "1.2"
+        },
+        {
+          "quantity": 100,
+          "unit_net": "0.56"
+        },
+        {
+          "quantity": 500,
+          "unit_net": "0.43"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.37"
+        },
+        {
+          "quantity": 2000,
+          "unit_net": "0.34"
+        }
+      ],
+      "minimum": 10,
+      "multiple": 1,
+      "stock_snapshot": 64111,
+      "source_age": "1 day",
+      "supplier_url": "https://www.tme.eu/pl/details/cl21b475kafnnne/kondensatory-mlcc-smd/samsung/",
+      "review_note": "Manufacturer mass-production status verified; part-specific DC bias/effective capacitance remains a gate. Alternative2.2uF Murata is not included here.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "TACT-64K-F",
+      "mpn": "TACT-64K-F",
+      "role": "buttons",
+      "population": "TILE",
+      "quantity_per_population": 2,
+      "package": "THT 6x6mm",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 10,
+          "unit_net": "0.33"
+        },
+        {
+          "quantity": 100,
+          "unit_net": "0.3"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.21"
+        }
+      ],
+      "minimum": 10,
+      "multiple": 10,
+      "stock_snapshot": 4740,
+      "source_age": "5 months",
+      "supplier_url": "https://www.tme.eu/pl/details/tact-64k-f/mikroprzelaczniki-tact/ninigi/",
+      "review_note": "New footprint; keep THT legs outside LED field; confirm actuation access and carrier clearance. SMT B3U-1000P is smaller and more expensive.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SMD0805-1K2-1%",
+      "mpn": "0805S8F1201T5E",
+      "role": "row resistors",
+      "population": "TILE",
+      "quantity_per_population": 8,
+      "package": "0805 1.2k 1% 125mW 100ppm/C",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 100,
+          "unit_net": "0.07"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.02"
+        }
+      ],
+      "minimum": 100,
+      "multiple": 100,
+      "stock_snapshot": 73080,
+      "source_age": "1 week",
+      "supplier_url": "https://www.tme.eu/pl/details/smd0805-1k2-1%25/rezystory-smd/royalohm/0805s8f1201t5e/",
+      "review_note": "Cut-tape catalogue symbol; rendered price rounded to0.01PLN. Confirm exact tier totals. Original W-series full-reel listings may have5000-piece minimum.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SMD0805-100K-1%",
+      "mpn": "0805S8F1003T5E",
+      "role": "idle pulls",
+      "population": "TILE",
+      "quantity_per_population": 2,
+      "package": "0805 100k 1%",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 100,
+          "unit_net": "0.06"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.02"
+        }
+      ],
+      "minimum": 100,
+      "multiple": 100,
+      "stock_snapshot": 1228463,
+      "source_age": "1 week",
+      "supplier_url": "https://www.tme.eu/pl/details/smd0805-100k-1%25/rezystory-smd/royalohm/0805s8f1003t5e/",
+      "review_note": "Cut-tape catalogue symbol; rendered price rounded to0.01PLN. Confirm exact tier totals. Original W-series full-reel listings may have5000-piece minimum.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SMD0805-2K2-1%",
+      "mpn": "0805S8F2201T5E",
+      "role": "selectable I2C pulls",
+      "population": "TILE",
+      "quantity_per_population": 2,
+      "package": "0805 2.2k 1%",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 100,
+          "unit_net": "0.06"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.02"
+        }
+      ],
+      "minimum": 100,
+      "multiple": 100,
+      "stock_snapshot": 884087,
+      "source_age": "1 week",
+      "supplier_url": "https://www.tme.eu/pl/details/smd0805-2k2-1%25/rezystory-smd/royalohm/0805s8f2201t5e/",
+      "review_note": "Cut-tape catalogue symbol; rendered price rounded to0.01PLN. Confirm exact tier totals. Original W-series full-reel listings may have5000-piece minimum.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SMD0603-100K-1%",
+      "mpn": "0603SAF1003T5E",
+      "role": "startup pulls",
+      "population": "TILE",
+      "quantity_per_population": 13,
+      "package": "0603 100k 1%",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 100,
+          "unit_net": "0.04"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.01"
+        }
+      ],
+      "minimum": 100,
+      "multiple": 100,
+      "stock_snapshot": 376386,
+      "source_age": "1 month",
+      "supplier_url": "https://www.tme.eu/pl/details/smd0603-100k-1%25/rezystory-smd/royalohm/0603saf1003t5e/",
+      "review_note": "Cut-tape catalogue symbol; rendered price rounded to0.01PLN. Confirm exact tier totals. Original W-series full-reel listings may have5000-piece minimum.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SMD0603-2K2-1%",
+      "mpn": "0603SAF2201T5E",
+      "role": "UART series resistors",
+      "population": "TILE",
+      "quantity_per_population": 2,
+      "package": "0603 2.2k 1%",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 100,
+          "unit_net": "0.03"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.01"
+        }
+      ],
+      "minimum": 100,
+      "multiple": 100,
+      "stock_snapshot": 586191,
+      "source_age": "1 month",
+      "supplier_url": "https://www.tme.eu/pl/details/smd0603-2k2-1%25/rezystory-smd/royalohm/0603saf2201t5e/",
+      "review_note": "Cut-tape catalogue symbol; rendered price rounded to0.01PLN. Confirm exact tier totals. Original W-series full-reel listings may have5000-piece minimum.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SMD0603-5K1-1%",
+      "mpn": "0603SAF5101T5E",
+      "role": "USB CC pulls",
+      "population": "HEAD_ONLY",
+      "quantity_per_population": 2,
+      "package": "0603 5.1k 1%",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 100,
+          "unit_net": "0.04"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.01"
+        }
+      ],
+      "minimum": 100,
+      "multiple": 100,
+      "stock_snapshot": null,
+      "source_age": "8 months; stock unconfirmed",
+      "supplier_url": "https://www.tme.eu/pl/details/smd0603-5k1-1%25/rezystory-smd/royalohm/0603saf5101t5e/",
+      "review_note": "Cut-tape catalogue symbol; rendered price rounded to0.01PLN. Confirm exact tier totals. Original W-series full-reel listings may have5000-piece minimum.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "SMD0603-33K-1%",
+      "mpn": "0603SAF3302T5E",
+      "role": "USB current limit resistor",
+      "population": "HEAD_ONLY",
+      "quantity_per_population": 1,
+      "package": "0603 33k 1% 100ppm/C",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 100,
+          "unit_net": "0.05"
+        },
+        {
+          "quantity": 1000,
+          "unit_net": "0.01"
+        }
+      ],
+      "minimum": 100,
+      "multiple": 100,
+      "stock_snapshot": 103499,
+      "source_age": "2 months",
+      "supplier_url": "https://www.tme.eu/pl/details/smd0603-33k-1%25/rezystory-smd/royalohm/0603saf3302t5e/",
+      "review_note": "Cut-tape catalogue symbol; rendered price rounded to0.01PLN. Confirm exact tier totals. Original W-series full-reel listings may have5000-piece minimum.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "USB4216-03-A",
+      "mpn": "USB4216-03-A",
+      "role": "USB-C head connector",
+      "population": "HEAD_ONLY",
+      "quantity_per_population": 1,
+      "package": "16pin SMT; new manufacturer footprint",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "2.25"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "1.89"
+        },
+        {
+          "quantity": 25,
+          "unit_net": "1.76"
+        },
+        {
+          "quantity": 50,
+          "unit_net": "1.67"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 1374,
+      "source_age": "1 month",
+      "supplier_url": "https://www.tme.eu/pl/details/usb4216-03-a/zlacza-usb-i-ieee1394/gct/",
+      "review_note": "New lands/anchors/edge clearance; independent5.1k on each CC; no USB data or PD. One powered USB head per chain.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "TPS2553DBVR",
+      "mpn": "TPS2553DBVR",
+      "role": "USB input current limiter",
+      "population": "HEAD_ONLY",
+      "quantity_per_population": 1,
+      "package": "SOT23-6",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "3.97"
+        },
+        {
+          "quantity": 4,
+          "unit_net": "3.33"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "2.84"
+        },
+        {
+          "quantity": 25,
+          "unit_net": "2.43"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 5,
+      "source_age": "1 week",
+      "supplier_url": "https://www.tme.eu/pl/details/tps2553dbvr/power-switches-uklady-scalone/texas-instruments/",
+      "review_note": "Retain v4 head scheme and33k current setting; -1 is not automatic substitute. One head per estimate, not a20-board power qualification.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    },
+    {
+      "tme_symbol": "MX-53047-0310",
+      "mpn": "530470310",
+      "role": "optional SWIO header",
+      "population": "OPTIONAL_PER_TILE",
+      "quantity_per_population": 1,
+      "package": "PicoBlade3pin vertical THT",
+      "currency": "PLN",
+      "price_breaks": [
+        {
+          "quantity": 1,
+          "unit_net": "0.69"
+        },
+        {
+          "quantity": 10,
+          "unit_net": "0.6"
+        },
+        {
+          "quantity": 30,
+          "unit_net": "0.56"
+        },
+        {
+          "quantity": 50,
+          "unit_net": "0.55"
+        }
+      ],
+      "minimum": 1,
+      "multiple": 1,
+      "stock_snapshot": 2345,
+      "source_age": "1 month",
+      "supplier_url": "https://www.tme.eu/pl/details/mx-53047-0310/zlacza-sygnalowe-raster-1-25mm/molex/53047-0310/",
+      "review_note": "Optional one/tile; retain bare pads. REF3.3V is not programmer power input. Cable priced separately.",
+      "status": "PRELIMINARY_NEW_REVISION_NOT_V4_ORDER"
+    }
+  ]
+}

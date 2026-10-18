@@ -1,0 +1,13 @@
+{
+  "version": 1,
+  "duration_ms": 12000,
+  "loop": true,
+  "tracks": [
+    {"type":"text", "text":"LETKI DZIAŁA", "duration_ms":4000,
+     "motion":"linear", "period_ms":4000, "from":[40,0], "to":[-46,0]},
+    {"type":"text", "text":"PIĘĆ PŁYTEK", "start_ms":4000, "duration_ms":4000,
+     "motion":"triangle", "period_ms":4000, "from":[0,0], "to":[-8,0], "levels":[10,100]},
+    {"type":"text", "text":"ŚWIATŁO", "start_ms":8000, "duration_ms":4000,
+     "motion":"linear", "period_ms":4000, "from":[6,-8], "to":[6,8], "levels":[100,20]}
+  ]
+}

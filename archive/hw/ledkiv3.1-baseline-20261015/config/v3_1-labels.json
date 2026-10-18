@@ -1,0 +1,1380 @@
+{
+  "scope": "77 current rear assembly labels, numerical R designators; full identifiers retained in CAD/Fab/BOM. Right edge legends shifted0.28mm outward to clear current rear row-resistor pads.",
+  "labels": [
+    {
+      "reference": "C1",
+      "field_uuid": "4fbfc419-807c-4e84-a8f3-31f738bd9cf6",
+      "silk": "C1",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        16.8485,
+        18.541
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "C3",
+      "field_uuid": "f1a27f23-6822-4c91-8a7b-826315da4348",
+      "silk": "C3",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        23.5985,
+        30.866
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "C4",
+      "field_uuid": "b5c5bae6-3b9a-460b-9851-4a99bcc1f065",
+      "silk": "C4",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        18.5985,
+        27.416
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q1",
+      "field_uuid": "49a90f21-a1bf-4dbc-b47c-6be09f93bf13",
+      "silk": "Q1",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        37.566
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q10",
+      "field_uuid": "92fb9c3e-354d-43bc-817c-00957a8e1a18",
+      "silk": "Q10",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        33.284535,
+        33.484
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q11",
+      "field_uuid": "785e89ed-298d-47df-bed9-ff3c23268ded",
+      "silk": "Q11",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        33.284535,
+        28.404
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q12",
+      "field_uuid": "8930e4e8-c119-44c0-a9e1-cb7b8dfb1cb9",
+      "silk": "Q12",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        33.284535,
+        23.323999
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q13",
+      "field_uuid": "8e4f0ad1-3d62-4f7e-b79a-787956905cb0",
+      "silk": "Q13",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        33.284535,
+        18.244
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q14",
+      "field_uuid": "9e9626a9-005b-434e-950f-443e765cdb02",
+      "silk": "Q14",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        33.284535,
+        13.164
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q15",
+      "field_uuid": "3094a297-179b-4784-9c7a-5c4472e9d7ff",
+      "silk": "Q15",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        33.284535,
+        8.084
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q16",
+      "field_uuid": "59303f95-625f-4ac0-91a4-7508aaa820a6",
+      "silk": "Q16",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        33.284535,
+        3.003999
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q2",
+      "field_uuid": "4c70f1f4-b661-40e1-b16d-d0e2255bf453",
+      "silk": "Q2",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        32.471356
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q3",
+      "field_uuid": "070e2ce3-4ec1-4065-b996-32e0f4f31ce4",
+      "silk": "Q3",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        27.376714
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q4",
+      "field_uuid": "e7e147dd-ee3b-4ad0-9eea-02c3e8040e5f",
+      "silk": "Q4",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        22.332071
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q5",
+      "field_uuid": "3a231c56-ea13-4bb9-99aa-76014e480772",
+      "silk": "Q5",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        17.187429
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q6",
+      "field_uuid": "fe168374-0d74-4edd-8b41-a54e909d4a5f",
+      "silk": "Q6",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        12.092786
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q7",
+      "field_uuid": "3cb69d77-fcf2-4a64-a890-1ab965bec5dc",
+      "silk": "Q7",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        6.998143
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q8",
+      "field_uuid": "84c5c039-8ad2-40c3-97e4-d8cf4f1b6ac1",
+      "silk": "Q8",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        7.061,
+        1.9035
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "Q9",
+      "field_uuid": "c934cdfc-5e34-4e63-951a-6faa62720338",
+      "silk": "Q9",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        32.24494,
+        38.54
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R1",
+      "field_uuid": "34d28ffa-07be-4fee-a686-cadc741f93ba",
+      "silk": "1",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.382441,
+        39.24
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R11",
+      "field_uuid": "37bbe0c8-11fb-4c71-8983-ec92eb5e6846",
+      "silk": "11",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        24.136,
+        40.116
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R12",
+      "field_uuid": "46837e5d-ecf7-4b95-b2e3-78e3d8146e3f",
+      "silk": "12",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        24.236,
+        45.116
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R15",
+      "field_uuid": "a0bcfcd1-df3a-4adf-875c-805599eceea4",
+      "silk": "15",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        42.9285
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R16",
+      "field_uuid": "628bf51d-b2f9-4c18-aea6-bba8ed767113",
+      "silk": "16",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        37.933857
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R17",
+      "field_uuid": "b9f1ac5a-c06b-47ae-bc82-f70ff047eba1",
+      "silk": "17",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        32.839214
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R18",
+      "field_uuid": "3067d447-9063-4e38-b04b-4eb404277b65",
+      "silk": "18",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        27.744571
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R19",
+      "field_uuid": "906ad3fc-a32b-4679-99c6-e21e6242acfe",
+      "silk": "19",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        22.649929
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R2",
+      "field_uuid": "f4cd9b6b-d385-4821-add7-d0f603789837",
+      "silk": "2",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.622035,
+        34.184
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R20",
+      "field_uuid": "0fae6ab1-de1c-436d-9a4f-09b936091291",
+      "silk": "20",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        17.555286
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R21",
+      "field_uuid": "145b1d27-cf52-4bf2-b5e5-2e87fd34abf4",
+      "silk": "21",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        12.460643
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R22",
+      "field_uuid": "689b3aac-3fcb-4bfa-8e36-bab7d1a7ded9",
+      "silk": "22",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        9.7235,
+        7.366
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R23",
+      "field_uuid": "cd8c025a-f2db-425e-84f2-8e534e5b060e",
+      "silk": "23",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        3.110999,
+        38.116
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R24",
+      "field_uuid": "aac4be9b-1084-4e9c-98dc-2b10b780a64f",
+      "silk": "24",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        3.110999,
+        33.021357
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R25",
+      "field_uuid": "dbad86f6-01cc-457c-a9cd-7371acd8b2c7",
+      "silk": "25",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        3.110999,
+        27.926714
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R26",
+      "field_uuid": "8e2bac8f-fbae-4ba4-95bf-43c739a8b73e",
+      "silk": "26",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        3.110999,
+        22.832071
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R27",
+      "field_uuid": "f1968b02-ccfa-4e2e-a367-ef7d6c1878fb",
+      "silk": "27",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        3.110999,
+        17.537429
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R28",
+      "field_uuid": "a3b53c86-c7b2-4d8b-a825-e99ef3fe8cc6",
+      "silk": "28",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        3.110999,
+        12.642786
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R29",
+      "field_uuid": "8e7a3da7-d7d4-40b9-846c-df601ffb67e0",
+      "silk": "29",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        3.110999,
+        7.548143
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R3",
+      "field_uuid": "4153e6f7-031d-426a-8e2e-054945d8f616",
+      "silk": "3",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.622035,
+        29.104
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R30",
+      "field_uuid": "d3d6aca1-5ad6-4be8-bebc-4d409f92cdd4",
+      "silk": "30",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        2.911,
+        2.4535
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R31",
+      "field_uuid": "4352f01c-7771-401c-a6f3-ca81133d4759",
+      "silk": "31",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.432441,
+        38.6525
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R32",
+      "field_uuid": "f26e6156-6d77-4e7e-9c1b-8e72041152a8",
+      "silk": "32",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.472035,
+        33.6965
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R33",
+      "field_uuid": "80fbcbff-7f7f-4ea9-bfbb-32514103369f",
+      "silk": "33",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.472035,
+        28.6165
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R34",
+      "field_uuid": "fd940b5f-f6b7-461a-93a3-5e1d5e3bcf71",
+      "silk": "34",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.472035,
+        23.5365
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R35",
+      "field_uuid": "7ec51209-8cac-4e88-812a-1af44168872a",
+      "silk": "35",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.472035,
+        18.4565
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R36",
+      "field_uuid": "854a9d0f-5d00-43de-93fe-5394f383eb46",
+      "silk": "36",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.472035,
+        13.3765
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R37",
+      "field_uuid": "91ac6603-b7e8-4872-8447-fbf125040ffa",
+      "silk": "37",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.472035,
+        8.2965
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R38",
+      "field_uuid": "f49a96dd-2bf5-4448-9763-e8b3ba4b88b6",
+      "silk": "38",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        30.472035,
+        3.216499
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R39",
+      "field_uuid": "c7e7091a-4b0f-4510-92c7-7d9bdd5c0c98",
+      "silk": "39",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        18.785999,
+        5.366
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R4",
+      "field_uuid": "eb544f62-e880-4684-b927-61fb51c17a23",
+      "silk": "4",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.622035,
+        24.224
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R40",
+      "field_uuid": "cc2baf51-d92d-4e02-9b7f-a14a41aa623c",
+      "silk": "40",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        21.285999,
+        5.566
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R41",
+      "field_uuid": "4faa67fe-2607-4bec-87c1-50144e7f1fc2",
+      "silk": "41",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        23.986,
+        9.766
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R42",
+      "field_uuid": "3a6c0e87-42fb-4868-9b23-25a1e8b7ff7a",
+      "silk": "42",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.732441,
+        38.6525
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R43",
+      "field_uuid": "4c4e0e86-579c-4706-9b04-e31b82ce6665",
+      "silk": "43",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.972035,
+        33.6965
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R44",
+      "field_uuid": "b3bdf7a3-efaf-4615-a10d-a273f642b3b6",
+      "silk": "44",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.972035,
+        28.6165
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R45",
+      "field_uuid": "47157d92-68e1-4ad9-9835-a3eb27b99d08",
+      "silk": "45",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.972035,
+        23.5365
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R46",
+      "field_uuid": "7099a355-beb3-4a3c-a51c-2a4f5a685259",
+      "silk": "46",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.972035,
+        18.4565
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R47",
+      "field_uuid": "b6211285-29ff-40bf-8062-264ecd418797",
+      "silk": "47",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.972035,
+        13.3765
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R48",
+      "field_uuid": "8ff5cd96-a463-4cd1-89b0-706f60778a17",
+      "silk": "48",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.972035,
+        8.2965
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R49",
+      "field_uuid": "2c9c1b0c-ff7c-4e99-a625-57c82cfa54a1",
+      "silk": "49",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        28.972035,
+        3.216499
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R5",
+      "field_uuid": "f1d07001-80b4-4bcd-b901-49c5ad8c4f9c",
+      "silk": "5",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.622035,
+        18.944
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R50",
+      "field_uuid": "da3ce29c-7dee-47a0-9f54-d2da6d640185",
+      "silk": "50",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.182441,
+        43.82
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R51",
+      "field_uuid": "ee6cb46a-3580-4ed0-8113-36c6290ab7c5",
+      "silk": "51",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.222035,
+        38.964
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R52",
+      "field_uuid": "86f3423d-2132-4ebf-8f8d-0facf3db1904",
+      "silk": "52",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.222035,
+        33.884
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R53",
+      "field_uuid": "becdba3b-b071-440c-a75a-a067b682638b",
+      "silk": "53",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.222035,
+        28.804
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R54",
+      "field_uuid": "a5265985-5009-4e48-a100-2a987849ed50",
+      "silk": "54",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.222035,
+        23.724
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R55",
+      "field_uuid": "d18c44ab-67a8-4992-85d3-8ecd70cbd1f7",
+      "silk": "55",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.222035,
+        18.644
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R56",
+      "field_uuid": "320326db-f76d-4314-9ffb-a0e835d9de96",
+      "silk": "56",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.222035,
+        13.564
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R57",
+      "field_uuid": "3f72dedf-022c-474f-b2d8-0c20460bf31c",
+      "silk": "57",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        36.222035,
+        8.483999
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R6",
+      "field_uuid": "c6db1ce4-1033-4b9c-b903-855cb36698f6",
+      "silk": "6",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.622035,
+        13.864
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R66",
+      "field_uuid": "8f85c6d9-d401-4e41-9b78-6cc771e892bf",
+      "silk": "66",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        18.236,
+        42.766
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R67",
+      "field_uuid": "910de238-c312-4bb8-948e-d2620bb24fd3",
+      "silk": "67",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        12.736,
+        42.766
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R68",
+      "field_uuid": "bc9aa743-941a-4067-b4b6-c802f49a17be",
+      "silk": "68",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        12.985999,
+        47.966
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R7",
+      "field_uuid": "be7e0ec4-e937-4c95-949d-e1b75982ad43",
+      "silk": "7",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.622035,
+        8.784
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "R8",
+      "field_uuid": "f3156396-b220-46fe-b814-0698eca7faf4",
+      "silk": "8",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        37.222035,
+        3.653999
+      ],
+      "angle_degrees": 0.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "U1",
+      "field_uuid": "357d6407-85af-4008-8c21-3e34ba131c11",
+      "silk": "U1",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        20.7485,
+        35.241
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    },
+    {
+      "reference": "U2",
+      "field_uuid": "27e3eb6d-09a7-4f61-9464-e00d934d1dd4",
+      "silk": "U2",
+      "layer": "B.Silkscreen",
+      "position_mm": [
+        21.561,
+        14.1285
+      ],
+      "angle_degrees": 90.0,
+      "mirrored": true,
+      "size_mm": [
+        1.0,
+        1.0
+      ],
+      "stroke_mm": 0.15
+    }
+  ],
+  "leaders": [],
+  "edge_legends": [
+    {
+      "uuid": "fb9d4e0d-8a06-4cde-b44c-1482dd7069c2",
+      "text": "3V3",
+      "position_mm": [
+        39.65,
+        5.08
+      ],
+      "angle_degrees": 90.0
+    },
+    {
+      "uuid": "de2d162f-ec43-4391-beff-2e734b011718",
+      "text": "3V3",
+      "position_mm": [
+        39.65,
+        10.16
+      ],
+      "angle_degrees": 90.0
+    },
+    {
+      "uuid": "7b745ef1-bbfd-4daf-9226-aa16d846fbc4",
+      "text": "SDA",
+      "position_mm": [
+        39.65,
+        15.24
+      ],
+      "angle_degrees": 90.0
+    },
+    {
+      "uuid": "d436f248-4641-4efd-8db7-7f57888ded67",
+      "text": "SCL",
+      "position_mm": [
+        39.65,
+        20.32
+      ],
+      "angle_degrees": 90.0
+    },
+    {
+      "uuid": "b9893be6-c503-454d-8e00-2612fb6b63b6",
+      "text": "TX",
+      "position_mm": [
+        39.65,
+        25.4
+      ],
+      "angle_degrees": 90.0
+    },
+    {
+      "uuid": "2022462a-d8a3-4479-9ae3-21971558cc84",
+      "text": "GND",
+      "position_mm": [
+        39.65,
+        30.48
+      ],
+      "angle_degrees": 90.0
+    },
+    {
+      "uuid": "81b6a4e0-d2e7-4fdd-9d86-08217cdf17fa",
+      "text": "GND",
+      "position_mm": [
+        39.65,
+        35.56
+      ],
+      "angle_degrees": 90.0
+    }
+  ]
+}

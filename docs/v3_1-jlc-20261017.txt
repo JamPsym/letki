@@ -1,0 +1,55 @@
+V3.1 — purchase confirmed by user, 17 October 2026
+
+Status: PURCHASED_USER_CONFIRMED_AWAITING_DELIVERY.
+The user reported "kupiona możesz zapisać" on17October2026, confirming purchase
+and payment of the prepared5-board v3.1 batch. This supersedes the earlier
+cart-only/unpaid status. No new order/payment was submitted by the agent.
+Supplier order number, invoice and final paid amount were not independently
+inspected. Physical receipt remains unconfirmed; no shelf stock was credited.
+The figures below are the last observed checkout, not a new invoice readback.
+
+Cart: ledkiv3_1-gerbers_Y9, PCB prototype Y9-10656422A, quantity5.
+Checked accepted33R Gerber SHA256:
+1f1c133e1a40860b497abe350180ccc719554b6b5e34a9b47158393fbfe837d9
+All26exported CAD context inputs match the accepted package; ZIP CRC passes.
+Fresh core/power-connectivity/manufacturing checks PASS. Native ERC/DRC/open/
+parity/ignored0 belongs to that unchanged accepted2026-10-15 package.
+Physical qualification remains pending.
+
+Actual outline40.64x49.27mm (gbrjob extent40.69x49.32includes outline stroke).
+JLC detects49.27x40.64mm,4layers. Settings:1.6mm,FR4TG135,green/white,
+HASL with lead,1ozouter/0.5ozinner,ordinary0.3mmvias,standard tolerances,
+no castellations/edge plating/assembly/stencil/paid extras.
+PCB USD2.00 + Global Standard Direct Line USD1.50 + displayed customs duties
+and taxes USD4.30 = USD7.80 total. Delivery estimate12-18businessdays;
+PCB build3-4days. Taxes are reported as JLC's displayed aggregate, not an
+independently established legal tariff calculation.
+
+The prepared checkout selected Review Before Payment. The user subsequently
+confirmed purchase/payment; the actual supplier engineering/production state
+has not been independently inspected. The separate Confirm Production
+file option costs USD1.05 and is not selected; it differs from the free initial
+engineering review before payment. Supplier processed Gerbers display four
+copper layers plus masks/silks/outline/drill, tented small vias and open solder/
+mounting holes. This is a preview, not proof of final production-file geometry.
+
+Default process is Plugged, with Tented disabled. Official JLC documentation
+identifies Plugged as soldermask-ink filling followed by soldermask printing;
+this differs from epoxy/copper filling and does not apply to component pads.
+Local drill definitions separate0.30mmvias,0.60/0.80mmcomponentholes and
+2.20mmNPTH. Retain the accepted CAD tenting intent; do not rewrite the board.
+Manufacturer engineering approval and final production-file geometry remain
+unverified. Historical HOLD_PROCESS is not evidence of supplier approval.
+
+No production remark was entered. Automatic approval review rejected entry of
+a proposed manufacturing instruction as unapproved and potentially ambiguous.
+The user asked what the default would do; we explained the default process and
+prepared the standard quote with the remark blank. No support message sent.
+
+Records: config/purchase/v3_1-jlc-checkout-20261017.json
+Screenshots/current independent reports: build/purchase-v3_1/20261017/
+
+Official process reference, refreshed17October2026:
+https://jlcpcb.com/help/article/pcb-via-covering
+Promotion reference (observed checkout is authoritative for this cart):
+https://jlcpcb.com/blog/free-assembly-1-6-layer-pcb-discount-8-20-layer-pcba

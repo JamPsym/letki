@@ -1,0 +1,45 @@
+V3.2 AISLER quote and manufacturing comparison — 17 October 2026
+
+Scope: read-only review of the user-uploaded revision 1 and current checkout.
+No PCB, quote selections, upload, purchase, inventory or firmware changes.
+Local board SHA256: 95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2
+
+Observed checkout
+Beautiful Boards (bare PCB), quantity 12, 1.6 mm, ENIG, 35 um outer copper,
+green solder mask, white silkscreen, no selected extras. The overview reports
+49.6 x 49.6 mm, four layers, minimum drill 0.3 mm, zero elongated or castellated
+holes. Net EUR52.45, displayed VAT19% EUR9.97, total EUR62.42; approximately
+EUR5.20 per board at that displayed tax. Shipping was not shown and destination
+VAT was not confirmed. Estimated dispatch was Friday, 30 October 2026.
+These are a point-in-time quote, not a placed order or final delivered price.
+
+Provider profile differences
+The selected AISLER stack is 35/35/35/35 um, whereas the milestone's authored
+stack is 35/17.5/17.5/35 um. ENIG also differs from its HAL SnPb finish.
+The thicker inner planes are not by themselves a rejection, but prior numerical
+power-plane estimates use the old stack. Keep 35 um outer copper for this
+routing: AISLER's 70 um option requires 0.175 mm trace/space, exceeding existing
+0.150 mm tracks.
+
+Three verified items requiring an AISLER-specific revision or supplier agreement
+1. All299 vias are tented in the milestone. AISLER does not support tented vias.
+   Open-via manufacturing would change the intended solder-mask coverage.
+2. Copper at all28 rear edge-connection pads and one zone object on each of
+   F.Cu/In1.Cu/In2.Cu falls below AISLER's 0.300 mm edge clearance. The measured
+   overall minimum is 0.250 mm.
+3. One pair of via drill edges is separated by 0.265685 mm; AISLER requires
+   0.300 mm. UUIDs: 4acbe5c5-9166-458b-94f8-cfa5311afad5 and
+   b326e92f-e002-4140-8783-7b3ab9020f61. Next closest pair was 0.469029 mm.
+
+Method: loaded the local board with pcbnew, filled zones only in memory,
+measured copper polygons against the outline and drill-edge separation; did
+not save. Source hash stayed unchanged. Existing native DRC0 uses the authored
+rules, including 0.250 mm drill spacing, and is not AISLER qualification.
+The comparison is scoped: no complete supplier-specific DRC/physical test pass
+is claimed. The current main board remains for the user's manual edits; retain
+both frozen milestones and rerun applicable checks before manufacturing.
+
+Official supplier sources, inspected 17 October 2026
+https://community.aisler.net/t/4-layer-35-m-enig-design-rules/3733
+https://community.aisler.net/t/pcb-design-rules/41
+https://community.aisler.net/t/4-layers-1-6mm-35-m-stackup/5457

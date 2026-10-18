@@ -1,0 +1,81 @@
+Letki word extraction and cue authoring
+=====================================
+
+The player is native C++. Speech recognition is a separate optional offline
+Python tool, using the already installed local CPU Whisper model. It never
+opens UART or changes firmware. It does not install packages, alter Triton or
+modify the existing ROCm environment. The cached base model is sufficient for
+finding announcement regions; recognition over music needs review.
+
+Transcribe a whole recording, or select its later announcement section:
+    .tools/tts-venv/bin/python scripts/player_words.py transcribe \
+      build/media/tubular-bells-bbc-1973/nbYQYOM66MA.flac \
+      --language en --start 900 --threads 2 \
+      --output build/player/words/tubular-last-section.json
+
+For Polish lyrics, use --language pl. On a fresh setup the existing
+scripts/setup_native_tts.py prepares the alignment environment; select
+.tools/align-venv/bin/python if present, otherwise the existing tts-venv.
+No cloud transcription or API key is used. Models must already exist at
+.tools/whisper/<model>.pt; the tool will not silently download another model.
+
+The output JSON records the exact audio SHA256, language/model/range, absolute
+source timestamps, segment/word confidence, recognition flags and reviewed=false.
+It checkpoints each60-second chunk, with a2-second overlap and duplicate phrase
+suppression. Repeating the same command resumes matching output. Different
+sources/settings require a new output file. Completion also exports SRT and
+per-word CSV alongside JSON. These are candidate transcripts, not verified
+lyrics. Music, applause and instrument timbres can be mistaken for speech.
+
+Find and audition a candidate:
+    python3 scripts/player_words.py search \
+      build/player/words/tubular-last-section.json 'piano|organ|bell|guitar'
+    python3 scripts/player_words.py clip \
+      build/player/words/tubular-last-section.json 10 \
+      --output build/player/words/tubular-bells-announcement.wav
+
+The BBC recording's later section was actually processed. Approximate candidate
+regions include piano1189s, organ1213s, bass guitar1262s, mandolin1345s and
+"tubular bells"1389s. Several automatic names are incorrect, and are flagged.
+For example the base model heard "Round piano" and "Read and pipe, Morgan".
+Do not silently promote these into final performance captions. The model also
+hallucinated repeated "oh" over instrumental music; flags exclude this from
+automatic cue export. The complete source and flags remain inspectable.
+
+Create a native show from selected candidate words:
+    python3 scripts/player_words.py cues \
+      build/player/words/tubular-last-section.json \
+      --show config/player/tubular-bells.json --segment 10 \
+      --output build/player/words/tubular-cue-demo.json
+    build/player/letki-player \
+      --show build/player/words/tubular-cue-demo.json --seek 1395
+
+The example was generated from this exact recording and contains candidate
+captions for the recognized bells announcement. It is a draft. The tool verifies
+that the show's audio SHA256 matches the transcript before creating cues, and
+preserves audio/video paths when moving the derived JSON. Cue times are relative
+to recording start; the engine adds its intro automatically. --seek is show time
+and therefore includes the introduction. No waveform stretching is applied.
+
+For a final cue set, correct text/timestamps in transcript JSON, mark the checked
+segments reviewed=true, and export with --reviewed-only. Without explicit segment
+selection, flagged unreviewed segments are excluded. Explicit --segment selects
+a draft for inspection even when flagged. --min-probability defaults0.6; reviewed
+segments may retain corrected words regardless of the old model's score.
+
+Words are grouped to fit the40-column compact font. Short groups use centered,
+held captions; longer phrases can scroll. --lead/--tail/--hold adjust visible
+intervals. --phrases uses complete segment text instead of word groups. Text is
+normalized to uppercase Latin/Polish letters and spaces. The renderer supports
+cue mode="center" or "scroll". This gives instrument names a readable hold rather
+than trying to scroll a long sentence during a short spoken announcement.
+
+Useful native diagnostics:
+    build/player/letki-player --show config/player/ore-ore.json --analyze \
+      --report build/player/ore-spectrum.json
+This exports source-time bass/treble attack events from the real FFT analyzer,
+so an author can compare visual triggers to music and place manual cues. These
+are spectral attacks, not a promise of perfect beat/downbeat transcription.
+
+Primary implementation reference for Whisper's timestamps and confidence:
+https://github.com/openai/whisper/blob/main/whisper/transcribe.py

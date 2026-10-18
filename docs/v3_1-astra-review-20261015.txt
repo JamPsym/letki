@@ -1,0 +1,163 @@
+CURRENT PHASE: fresh PCB placement is synchronized and complete, with no routing.
+See docs/v3_1-placement.txt for current checks. The review/repair records below
+are earlier snapshots, retained unchanged as historical evidence.
+
+FOLLOW-UP REPAIR — 2026-10-15
+Both P1 connections and the P2 assembly figures/checker are corrected.
+R39.1 is on VCC and D9-D16 cathodes share L2 with R2.1. Current ERC0,
+independent schematic audit PASS (146 components,40gate/bias0603), native
+PCB geometry0/opens0/parity90/ignored0. PCB synchronization remains pending;
+no PCB, firmware or inventory edits. Five checker regression cases pass,
+including rejection of both original faults and an unsynchronized board.
+Repair evidence: /home/pies/letki/build/hardware/v3_1-astra-fixes/.
+
+The original review below is retained as evidence of the PRE-REPAIR source;
+its line numbers, hash, findings and relative paths refer to that snapshot.
+Original evidence: /home/pies/letki/build/hardware/v3_1-astra-review/.
+
+LETKI v3.1 — independent Astra electrical/design review, 2026-10-15
+
+Result: TWO confirmed functional schematic defects in the current saved source.
+Repair those before PCB synchronization. The intentionally older PCB is not a
+matched fabrication release. No authored source, firmware, inventory or cart
+was changed; no GUI, device, power or programming access occurred.
+
+Reviewed schematic SHA256:
+201e4107d153ad61b892436432de38c157f33aec7807ba179e1a3bd84f6f6601
+Project/PCB hashes and independent topology evidence: independent-net-audit.json.
+Raw independent KiCad XML export: netlist.xml. Root's independent native checks:
+native/kicad-erc.json, native/kicad-drc.json and native/native-summary.json.
+Those report ERC6; PCB geometry0/opens0 but parity99; ignored checks0.
+
+PRIORITIZED FINDINGS
+
+1. P1 — R39 has lost its VCC connection, leaving decoder A0 floating on HIGH.
+   Schematic: hw/ledkiv3.1/ledkiv3_1.kicad_sch:23141, R39 pin1 at
+   (26.67,49.53); separate VCC label at (26.67,44.45).
+   Netlist: R39.1 is alone on unconnected-(R39-Pad1). R39.2 joins U1.17
+   (PC7) and U2.1 (A) on /ADDR0. The pulse driver's display_init configures
+   PC5/6/7 as open-drain outputs (display.c:73-76); its HIGH command releases
+   the pad. Therefore alternate column addresses have no defined high level.
+   This can select the wrong column or leave the HC input at an undefined
+   level. R40/R41 still correctly pull ADDR1/2 to VCC.
+   Recommendation: restore R39.1-to-VCC wiring; verify that the actual XML
+   net contains both endpoints, then rerun ERC and address/pin audit.
+
+2. P1 — D9–D16 cathodes are disconnected from their row-current resistor.
+   Schematic: hw/ledkiv3.1/ledkiv3_1.kicad_sch:10662, L2 label at
+   (194.31,132.08); disconnected vertical wire at x194.31, y121.92..134.62.
+   Netlist: /L2 contains ONLY R2.1. D9.1 through D16.1 form the separate
+   Net-(D10-K) net. Thus this entire physical row lacks its intended sink
+   path through R2/Q10 and cannot be driven normally. The other seven
+   cathode-row nets and all eight anode-column nets are correct.
+   Recommendation: join the matrix cathode bus to L2; verify the resulting
+   net contains R2.1 plus all eight D9–D16 cathodes. Fix before F8 because
+   synchronization could otherwise propagate this error into the routed PCB.
+
+   Root's delta against the earlier clean schematic independently identifies
+   exactly these nine changed pin-net assignments: R39.1 and D9–D16.1.
+   These are saved-schematic regressions, not consequences of the documented
+   pending 0603/button PCB synchronization.
+
+3. P2 — Refresh the assembly current figure and current-revision check baseline.
+   docs/v3_1-assembly-test.txt:115-116 still states approximately35mA and
+   56.6mA despite the present33R population. With its stated assumptions:
+     nominal (3.3 - 2.1)/33 = 36.36mA;
+     upper model (3.465 - 1.6)/(33 * 0.97) = 58.26mA.
+   docs/v3_1-five-tile-plan.txt:15-21 already has the correct values.
+   scripts/check_v3_1_integrated.py:35-41 still compares the older retained
+   population and requires154parts; the current schematic has146. This
+   checker must be revised deliberately for the approved button/RC removal
+   and 0603 changes before it can qualify the synchronized revision. Preserve
+   its electrical/parity checks rather than broadly relaxing them.
+   These are handoff/documentation defects, not additional electrical faults.
+
+ELECTRICAL CHECKS THAT PASSED / CONDITIONAL ENGINEERING ACCEPTANCE
+
+- Actual netlist topology: Q1–Q8 are high-side AO3415A PMOS, source pin2=VCC,
+  drain pin3=anode column, gate pin1 driven through1k by the correct active-low
+  HC138 output, with10k gate-source pulls. Q9–Q16 are low-side DMN2056U-7,
+  source2=GND, drain3=K1..K8, gate1 through1k from MCU with10k toGND.
+  All16 gate networks and all8 drain/current-resistor networks have the
+  intended membership. Selected SOT23 footprint pin numbering matches both
+  manufacturers' G1/S2/D3 diagrams. LED pin1=K/pin2=A is consistent with
+  the reversed-polarity architecture. No added IC or direct LED GPIO load.
+
+- Proposed procurement overlay is still separate from CAD. Its5%1k gates and
+  1%10k biases are electrically reasonable; E12 is the nominal-value series.
+  With1k at+5% and10k at-1%, divider factor=9.9/10.95=0.9041.
+  WCH's conservative CMOS VOH minimum2.3V gives NMOS VGS>=2.079V. Use
+  DMN2056U's guaranteed85mohm at1.5V, not its2.5V rating, for a conservative
+  lower-gate calculation. At58.26mA this is ~4.95mV drain drop at25C.
+  Conditional on HC138 VOL<=0.4V, minimum PMOS |VGS| is
+  (3.135-0.4)*0.9041=2.473V. Its65mohm specification at1.8V is sufficient;
+  at eight58.26mA branches this gives ~30.3mV column drop at25C.
+  The TI table has no loaded3.3V VOL guarantee; that condition and real
+  switching remain prototype measurements, already acknowledged in the design.
+  Threshold voltage alone was NOT used as an on-resistance guarantee.
+
+- Gate resistors bound a worst initial step to3.465/950=3.65mA per pin,
+  below the WCH8mA characterization load and HC13825mA absolute pin limit.
+  All8 simultaneous MCU gate steps total29.2mA; static row gate-bias current
+  is only~0.32mA per active pin. Adding the documented20mA core/5mA other-I/O
+  allowances and three address-pull sinks keeps the illustrative VSS budget
+  below80mA (VDD absolute ceiling100mA). This is an engineering budget,
+  not a measured worst-case MCU core or transient current guarantee.
+  0603 gate/bias power is comfortably below100mW: a hypothetical persistent
+  full-rail drop on950ohm is12.64mW;10k at-1% dissipates1.21mW.
+
+- R1–R8 are single33R1%0805/125mW parts. The3% resistance allowance is
+  additional engineering margin, not their catalogue tolerance. Conditional
+ 58.26mA is below the LED80mA pulse ceiling at25C, but above20mA continuous.
+  Each LED has nominal80us/1ms=8%duty; a shared resistor can conduct8such
+  pulses per frame=64%duty. Its conditional average power is69.54mW, not
+  8% of pulse power. LED Vf1.6V remains an assumption, not a guaranteed hot
+  minimum. Existing physical current/tail/temperature qualification is needed.
+
+- Pulse driver source uses GPIO-LOW blanking before address changes,
+  TIM1/2 PWM2+one-pulse mode,110us windows and at most80us commanded HIGH.
+  It boots brightness0 and intentionally enables100% on command0. A missed
+  next SysTick need not hold the hardware pulse HIGH. Actual LED-current
+  tails, recurrence under interrupt load, timer behavior on debug halt, and
+  temperature derating remain unverified; this review does not upgrade those
+  documented limits to a guarantee. Original v3/repetitive study images are
+  incompatible. R49-open/R38-fitted first provisioning correctly isolates
+  factory PD7/NRST from its10k pulldown; separately verified GPIO option
+  configuration is required before fitting R49.
+
+- R50–R57 remain10k VCC-to-NMOS-drain/cathode bias resistors. They neither
+  replace the gate pulldowns nor independently protect pulse current. Their
+  net placement is consistent with off-row cathode bias/ghosting control;
+  optional removal needs the already-proposed physical A/B test. No removal
+  recommendation or authorization is inferred here.
+
+- U1/U2 power/ground and decoder enables are correct. C1/C3=100nF and
+  C4=10uF connect across VCC/GND; removed C2/C5 were button RC parts.
+  No new supply-capacitance disconnect was found. Supply is externally
+  regulated3.3V±5%; the documented two-ended SAME-source five-tile feed and
+  ~0.5A peak/tile budget are reasonable qualification assumptions. Schematic
+  capacitance and historical copper geometry do not prove transient impedance.
+
+- UART: U1.PD5→R66→J1.5; J3.5→R67→U1.PD6; R68 pulls the edge side of RX
+  HIGH. This is coherent for the directional3.3V chain. I2C PC1/SDA and
+  PC2/SCL join both edges; fit only one R11/R12 pull pair. J2 pins1/2/3 are
+  VCC/PD1-SWIO/GND. PD0/PA2 are intentionally NC after button removal.
+  The three ADDR nets are decoder select bits, not persistent tile addresses.
+  Five-tile text-chain control is explicitly deferred, not provided by this
+  standalone pulse image. Interface rise times/hot-plug remain unqualified.
+
+PROJECT AND SCOPE
+146 exported components; all referenced footprints exist in the local library.
+Project ERC/DRC exclusions are empty and no configured checks are ignored.
+Examined canonical schematic/project/local footprints and symbol definitions,
+pulse driver and current assembly/system/sourcing records. Native PCB findings
+are root-provided; no new copper-current solver, mechanical review, firmware
+build/flash or laboratory measurement was performed in this bounded review.
+PCB parity99 is expected from the acknowledged old population/footprints plus
+these new schematic net faults; geometry0/opens0 does not resolve that mismatch.
+
+Primary manufacturer material examined: retained AOS AO3415A Rev3.1(Aug2023),
+Diodes DMN2056U DS38480 Rev2-2(Jul2021), WCH datasheetv1.3, TI SN74HC138,
+and Xinglight XL-2012UOC. AOS/Diodes files are in the prior design session's
+build/hardware/v3_1-tme-study/references/; WCH/TI/LED immutable documents are
+in /home/pies/.local/share/electronics/datasheets/. No claim of latest revisions.

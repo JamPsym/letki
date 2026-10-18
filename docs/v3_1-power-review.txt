@@ -1,0 +1,38 @@
+V3.1 — CURRENT ROUTED POWER REVIEW, 2026-10-15
+
+PCB SHA256: 803db5887b970f85937dc4378c422b3fa6cc18b6e7a23571c9567cdb836355e2
+Human placement preserved. Current evidence and scope:
+docs/v3_1-completion-20261015.txt and
+build/hardware/v3_1-astra-completion-20261015T200432Z/.
+The previous placement's Q10 coordinates/outer rails are historical; do not
+replay those repair helpers on the current source.
+
+VCC:2mm35um front crossbar at y1.2, four ordinary0.6/0.3mm vias per end.
+Left rear1.2mm contact feed; right In2 2mm feed avoids the rear resistor bank.
+Rear1mm PMOS source trunk with0.5mm direct source branches. Selected-column
+/S1..S8 paths widened where practical outside In1; narrow In1 routes retained
+rather than further cutting GND. All413power/column tracks are explicitly
+bound in config/v3_1-power-layout.json. C4 gets a direct supply path to C3's
+gateway instead of relying only on the detour through the MCU supply.
+
+GND: In1 main region plus two locally isolated regions. B0.5mm bridges join
+U2.8 via(24.785,10.05284) to main via(25.303,11.777), and Q12source via
+(33.386,23.516) to main via(30.327,23.016). Independent actual-copper joining
+across all4layers establishes ONE physical GND net, not merely equal net names.
+All ordinary sink/logic/cap gateways lie in the main0.5mm-eroded geometric core
+except the two deliberately bridged regions. The erosion gauge is not a
+current or inductance solver. VCC also joins into one physical network.
+
+Main-ground approximate four-neighbour sheet model,17.5um copper:
+4.40mOhm at0.2mm grid,4.14mOhm at0.1mm grid between paired left/right GND
+contacts. Hypothetical2.5A through one board gives about10.3mV at the finer
+mesh. Model excludes vias, solder, contacts, AC/inductance, thermal behavior,
+local islands and complete five-tile power loop. Grid refinement is empirical,
+not a rigorous bound and not physical qualification.
+
+Keep the existing planning budget0.5Apeak/tile and both-end feeding from the
+SAME regulated3.3V source. The old2mm-equivalent chain model is planning only;
+actual rail/current/pulse/tails/temperature and soldered contacts need tests.
+Copper outside constraints:ordinary0.6/0.3mm tented vias, conservative0.36mm
+via/SMTguard,2.45mm all-layer M2exclusion. All pass independent checks.
+No physical power/flash operation, sourcing substitution or purchase occurred.

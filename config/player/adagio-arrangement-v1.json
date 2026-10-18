@@ -1,0 +1,165 @@
+{
+  "name": "Adagio for Strings — tension and release",
+  "title": "ADAGIO FOR STRINGS",
+  "artist": "TIESTO",
+  "audio": "../../build/media/youtube-2EaE0_gQLw0/2EaE0_gQLw0.flac",
+  "video": "../../build/media/youtube-2EaE0_gQLw0/2EaE0_gQLw0.video.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 10,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 1.1,
+  "style": "music-ribbon",
+  "cues": [
+    {
+      "at": 0,
+      "effect": "music-ribbon",
+      "label": "Pulse",
+      "level": 1,
+      "speed": 0.85,
+      "sustain": 0.3,
+      "variant": 0,
+      "duration": 15
+    },
+    {
+      "at": 15,
+      "effect": "music-ripple",
+      "label": "Opening current",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0.25,
+      "variant": 0,
+      "duration": 15
+    },
+    {
+      "at": 30,
+      "effect": "strings",
+      "label": "The beat recedes",
+      "level": 0.8,
+      "speed": 0.65,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 17
+    },
+    {
+      "at": 47,
+      "effect": "strings",
+      "label": "Long bow",
+      "level": 0.8,
+      "speed": 0.65,
+      "sustain": 0,
+      "variant": 1,
+      "duration": 18
+    },
+    {
+      "at": 65,
+      "effect": "music-ribbon",
+      "label": "Suspension",
+      "level": 0.65,
+      "speed": 0.45,
+      "sustain": 0.95,
+      "variant": 2,
+      "duration": 18
+    },
+    {
+      "at": 83,
+      "effect": "strings",
+      "label": "Rising line",
+      "level": 0.9,
+      "speed": 0.75,
+      "sustain": 0,
+      "variant": 2,
+      "duration": 18
+    },
+    {
+      "at": 101,
+      "effect": "strings",
+      "label": "Tension",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 15
+    },
+    {
+      "at": 116,
+      "effect": "music-lanterns",
+      "label": "Lift",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0.7,
+      "variant": 0,
+      "duration": 13
+    },
+    {
+      "at": 129,
+      "effect": "music-ripple",
+      "label": "Release",
+      "level": 1,
+      "speed": 1.2,
+      "sustain": 0.15,
+      "variant": 0,
+      "duration": 17
+    },
+    {
+      "at": 146,
+      "effect": "music-ribbon",
+      "label": "Wide open",
+      "level": 1,
+      "speed": 1.1,
+      "sustain": 0.25,
+      "variant": 3,
+      "duration": 17
+    },
+    {
+      "at": 163,
+      "effect": "music-daisy",
+      "label": "One current",
+      "level": 1,
+      "speed": 1.2,
+      "sustain": 0.35,
+      "variant": 1,
+      "duration": 17
+    },
+    {
+      "at": 180,
+      "effect": "music-ripple",
+      "label": "Final crest",
+      "level": 1,
+      "speed": 1.1,
+      "sustain": 0.2,
+      "variant": 2,
+      "duration": 16
+    },
+    {
+      "at": 196,
+      "effect": "strings",
+      "label": "Afterglow",
+      "level": 0.7,
+      "speed": 0.5,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 7
+    },
+    {
+      "at": 203,
+      "effect": "music-ribbon",
+      "label": "Blackout",
+      "level": 0,
+      "speed": 0.5,
+      "sustain": 0.9,
+      "variant": 0,
+      "duration": 2.728798186
+    }
+  ],
+  "recording": {
+    "sha256": "28a744a72c75d330d4506505c3f0736a263161f9082062be200c9d5f12b02dd8",
+    "duration_seconds": 205.72879818594106
+  },
+  "authoring": {
+    "version": 1,
+    "scope": "Complete recording, introduction, musical sections and ending",
+    "basis": "Recording FFT energy profiles; artistic phrase boundaries; local draft announcement/word alignment where noted",
+    "video_on_leds": false
+  }
+}

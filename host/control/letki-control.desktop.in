@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Name=Letki Studio
+Comment=Compose text, paint pixels and control the Letki display service
+Keywords=Letki;LED;matrix;display;PWM;text;
+Exec="@EXEC@"
+Icon=preferences-desktop-display
+Terminal=false
+Categories=Utility;Electronics;
+StartupWMClass=io.github.letki.Studio

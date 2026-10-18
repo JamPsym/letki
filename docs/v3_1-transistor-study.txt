@@ -1,0 +1,111 @@
+V3.1 TRANSISTOR STUDY A — 2026-10-14
+
+Preferred first candidate: eight P-channel MOSFETs sourcing columns, MCU
+sinking rows. Keep CH32V003F4P6 and SN74HC138PWR; no added IC.
+Native schematic: archive/hw/ledkiv3.1-studies-20261015/transistor-study/ledkiv3_1_pmos.kicad_sch
+Review PDF: build/hardware/v3_1-transistor-study/schematic.pdf
+Exact parts and quote assumptions: config/v3_1-pmos-study.json
+
+One current path:
+3.3V -> PMOS source/drain -> LED anode/cathode -> 680 ohm -> MCU row sink.
+Each column has one PMOS supplying up to eight such branches. HC138 outputs
+drive gates only. All 64 LED orientations reverse relative to the v3 seed.
+This is a new-board circuit, not a suggestion to rework the assembled boards.
+
+Why this topology:
+- Eight PMOS: active-low HC138 naturally selects a high-side P-channel switch.
+  No extra inverter and no DC base-drive budget. Selected for this study.
+- Eight PNP: same LED reversal and row sinking, possibly cheaper transistors,
+  but base drive, saturation drop and turn-off storage need a separate budget.
+  No exact PNP purchase quote was established; not claimed more expensive.
+- Sixteen discrete devices (e.g. PNP inversion + NMOS column sink): can retain
+  original LED polarity, with more parts and continued MCU row-source VOH review.
+- Adding eight further NMOS row sinks could increase the brightness/current
+  envelope while keeping the two-IC limit; that is a separate 16-MOSFET option,
+  not implemented or electrically qualified in Study A.
+
+Supply and current:
+One common externally regulated 3.3V rail, assumed +/-5% at EACH tile.
+No direct 5V/USB supply to this candidate; no regulator IC has been added.
+R1-R8: 680 ohm, 1%, 0805, 0.125W selected as a conservative initial population.
+A 3% engineering resistance allowance gives a zero-LED/drop upper bound of
+5.253mA per branch at 3.465V. Including its 10k startup pull, one row pad is
+bounded to 5.610mA under that model, below WCH's 8mA sink-characterization load.
+Eight pads plus assumed 20mA MCU core and 5mA other-I/O budgets give 69.88mA
+at VSS, versus the 80mA absolute ceiling. Core/other budgets are engineering
+allowances, not guaranteed maxima; the ceiling is not an operating target.
+The row resistor's zero-LED/drop power bound is about 18.2mW, well below its
+125mW rating at 70C. Temperature and supply-envelope verification remain.
+
+For illustration only: 3.3V, LED Vf=2.1V, MCU VOL=0.1V and 680 ohm give
+about 1.62mA selected / 0.162mA average per pixel at nominal 10% duty.
+These drops are assumptions, not measured low-current LED/GPIO characteristics.
+This could be dimmer than the user's existing full-column v3 result (~3.92mA
+per LED pulse); useful brightness remains a physical trial. Do not retain 51
+ohm merely because the column transistor can carry the current: row GPIOs
+still carry the LED current in this minimum-transistor-count architecture.
+
+Gate drive and startup:
+Q1-Q8: JSCJ CJ2305/C8549, SOT23 G1/S2/D3. Manufacturer-authored April 2015
+PDF (distributor mirror) specifies max 90mohm at VGS=-1.8V/25C, +/-8V VGS.
+R15-R22: 1k series; R23-R30: stocked 10k gate-to-source pulls.
+An initial gate-current bound with the 3% allowance is 3.57mA; selected DC
+pull current is <=0.325mA. At minimum supply, conditional on decoder VOL<=0.4V,
+minimum gate magnitude is about 2.47V. Use the -1.8V resistance specification
+for the budget rather than extrapolating -2.5V across that boundary.
+TI's HC138 table has no loaded 3.3V VOL guarantee. The <=0.4V condition and
+settling during the 100us blank therefore need physical verification; this is
+a prototype engineering choice, not a completed guaranteed-specification audit.
+CJ2305 gate charge/timing values have test conditions; do not substitute an
+RC estimate for checking actual gates/columns. Temperature scaling also remains.
+
+R31-R38: stocked 10k pull-ups on MCU sides of row resistors keep rows HIGH
+and dark during reset. Driver forces HIGH before changing column addresses;
+only lit rows return to active-low PWM. Timer main outputs invert; complementary
+outputs remain disabled, preserving SWIO. Startup and address-transition glitches
+are contained by row blanking conceptually; validate on real hardware.
+R39-R41: stocked 4.7k address pulls; firmware configures PC5/6/7 open drain.
+This removes reliance on the WCH loaded VOH case for HC address highs. Rise
+time, pad/trace capacitance and HC input transition limits still need review.
+UART, SWIO, I2C and button assignments are retained. No new port buffering,
+hot-plug qualification or unpowered-chain protection is established.
+Inactive-column leakage, LED reverse bias and ghosting need physical checks;
+the intended 3.465V maximum rail is below the LED's 5V reverse absolute ceiling.
+
+Cost and inventory:
+Reuse MCU/decoder/LEDs and existing passives from uncommitted canonical stock.
+Additional 16 x 10k and 3 x 4.7k per tile are credited to exact recorded parts;
+no reservation/consumption was made. Eight CJ2305, eight 680-ohm and eight
+1k resistors per tile are unconfirmed/new, pending user resistor identification.
+Viewed LCSC tiers: CJ2305 $0.0422 from 10; 680R $0.0061 from 100; 1k $0.0037
+from 100. New consumed parts total ~$0.416/tile at those tiers. MOQ cash for
+one tile is $1.402, or $2.668 for five, before delivery/tax and other costs.
+These are dated illustrations, not a cart, selected quantity or complete cost.
+Diodes DMP2305U-7 is an electrically reviewed G1/S2/D3 reference alternative;
+TME page showed zero stock, so it is not selected for immediate TME purchase.
+Its Diodes data must not be attributed to CJ2305 or used to qualify that part.
+Raw PDFs could be read through web tooling; shell downloads failed DNS. They
+were not archived into the shared catalog by this isolated session.
+
+Implementation and checks:
+make VARIANT=v3_1-pmos builds the separate active-low text-firmware candidate.
+Its driver is a local copy at firmware/v3_1-pmos/User/display.c. Active v3 and
+archived drivers are unchanged. The two driver copies intentionally diverge;
+future shared improvements need an explicit review, not blind synchronization.
+Host tests cover the real PMOS driver with HIGH blanking, inverted main PWM,
+open-drain addresses, all gamma settings, all row channels and frame boundaries.
+make test, make all-variants and clangd pass. These are simulated registers.
+Official schematic ERC: zero findings, no ignored checks/exclusions. Independent
+net audit verifies two ICs, eight exact G1/S2/D3 stages, all 64 reversed LEDs,
+current-path isolation, supply pins, startup pulls and retained interfaces.
+The diagram was exported and visually inspected; native PDF is the review view.
+No PCB was created for this electrical study. DRC/parity/manufacturing checks
+are not applicable to a missing study PCB. Original seed violations remain.
+No board access, flash, order, inventory write or promotion took place.
+
+Next work: validate a representative transistor stage and acceptable brightness
+with the assembly/testing session; identify the extra resistors; then integrate
+the selected circuit with the proposed edge/contact/mechanical changes and
+place/route/check a new PCB. This document does not authorize those physical
+operations or a purchase. Existing v3 full-column firmware resets into its
+full-column pattern; the test session last blanked it after measurements.

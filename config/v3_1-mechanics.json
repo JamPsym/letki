@@ -1,0 +1,193 @@
+{
+  "board_mm": [
+    40.64,
+    49.27,
+    1.6
+  ],
+  "mounting_holes_mm": [
+    [
+      2.54,
+      46.75
+    ],
+    [
+      38.1,
+      46.75
+    ]
+  ],
+  "mounting_drill_mm": 2.2,
+  "fastener_clearance_radius_mm": 2.45,
+  "swio_header_pin1_mm": [
+    7.62,
+    46.75
+  ],
+  "swio_test_pads_mm": [
+    [
+      5.08,
+      44.45
+    ],
+    [
+      7.62,
+      44.45
+    ],
+    [
+      10.16,
+      44.45
+    ]
+  ],
+  "led_pitch_mm": 5.08,
+  "grid_depth_mm": 6.2,
+  "grid_wall_mm": 0.8,
+  "face_thickness_mm": 0.6,
+  "carrier_back_mm": -9.2,
+  "carrier_beam_front_mm": -5.8,
+  "carrier_bottom_mm": 55.27,
+  "board_screws": "M2 x 12 mm, two per tile; printed pilot holes require fit testing",
+  "carrier_join_screws": "M2 x 6 mm, four per carrier joint",
+  "status": "Routing complete around preserved human component positions; populated1/4tile nominal checks rerun in checked prototype package; physical print/optical/thermal qualification pending",
+  "edge_wire": {
+    "hole_mm": 0.8,
+    "wire_mm": 0.5,
+    "front_protrusion_mm": 0.5,
+    "front_solder_radius_mm": 0.75,
+    "front_solder_height_mm": 0.6,
+    "grid_relief_radius_mm": 0.8,
+    "grid_relief_depth_mm": 0.8,
+    "rear_bridge_standoff_mm": 0.8,
+    "left_holes_mm": [
+      [
+        1.27,
+        7.62
+      ],
+      [
+        1.27,
+        12.7
+      ],
+      [
+        1.27,
+        17.78
+      ],
+      [
+        1.27,
+        22.86
+      ],
+      [
+        1.27,
+        27.94
+      ],
+      [
+        1.27,
+        33.02
+      ],
+      [
+        1.27,
+        38.1
+      ]
+    ],
+    "right_holes_mm": [
+      [
+        39.37,
+        7.62
+      ],
+      [
+        39.37,
+        12.7
+      ],
+      [
+        39.37,
+        17.78
+      ],
+      [
+        39.37,
+        22.86
+      ],
+      [
+        39.37,
+        27.94
+      ],
+      [
+        39.37,
+        33.02
+      ],
+      [
+        39.37,
+        38.1
+      ]
+    ],
+    "uniform_span_mm": 2.54,
+    "pitch_mm": 5.08,
+    "pad_size_mm": [
+      2.04,
+      1.6
+    ],
+    "hole_edge_setback_mm": 1.27,
+    "grid_hood_wall_mm": 0.4,
+    "grid_hood_roof_mm": 0.4,
+    "footprint": "EdgeWire_1x07_P5.08mm_D0.8mm",
+    "front_land_mm": 1.4,
+    "inner_land_mm": 1.4,
+    "ground_zone_attachment": "solid",
+    "legend_columns_mm": {
+      "left": 3.3,
+      "right": 37.34
+    }
+  },
+  "testpoints": [],
+  "connector_body_envelopes_mm": [
+    {
+      "name": "SWIO",
+      "box": [
+        6.12,
+        45.6,
+        -5.8,
+        5.5,
+        3.2,
+        4.2
+      ]
+    }
+  ],
+  "source_board": "hw/ledkiv3.1/ledkiv3_1.kicad_pcb",
+  "carrier_cable_opening_mm": [
+    4.1,
+    43.5,
+    29.4
+  ],
+  "rear_access_points": [
+    {
+      "name": "SWIO_PAD_1",
+      "xy_mm": [
+        5.08,
+        44.45
+      ],
+      "radius_mm": 0.65,
+      "end_z_mm": -1.6
+    },
+    {
+      "name": "SWIO_PAD_2",
+      "xy_mm": [
+        7.62,
+        44.45
+      ],
+      "radius_mm": 0.65,
+      "end_z_mm": -1.6
+    },
+    {
+      "name": "SWIO_PAD_3",
+      "xy_mm": [
+        10.16,
+        44.45
+      ],
+      "radius_mm": 0.65,
+      "end_z_mm": -1.6
+    }
+  ],
+  "front_component_hoods": [],
+  "front_configuration_jumpers": [],
+  "bezel_rear_lip_depth_mm": 2.0,
+  "carrier_top_rest_x_mm": [
+    11.5,
+    29.0
+  ],
+  "mechanical_eco": "All77nonfixed parts are rear-mounted; obsolete frontR4hood and removed-button access entries omitted. Existing fixed fastener/header/wire geometry and carrier rests retained.",
+  "carrier_top_rest_width_mm": 2.4,
+  "placement_check_evidence": "build/hardware/v3_1-placement-20261015/mechanics-1/ and mechanics-4/"
+}

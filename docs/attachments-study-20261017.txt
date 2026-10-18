@@ -1,0 +1,231 @@
+LETKI ATTACHMENTS — AGREED ARCHITECTURE, 2026-10-17
+
+Latest staged prototype plan: docs/x035-bringup-plan-20261018.txt.
+On 2026-10-18 the user selected later fast SPI for the ESP link; hardware
+preparation and tests have not started. This supersedes the earlier ESP UART
+transport choice. Initial development powers the WeAct from PC USB; eventual
+charger/PC VBUS separation remains the integrated-system requirement.
+
+Status and purpose
+Saved at the user's request after the architecture discussion. This supersedes
+this file's initial alternatives: direct ESP-to-tile communication, a manual
+USB/Wi-Fi UART selector, and independently powered sections of the connected
+array are no longer the baseline. This is an architecture, not released CAD
+or implemented/qualified firmware.
+
+Designing and learning converters for classes is an explicit requirement.
+Develop the two boards independently and expect several converter iterations.
+Focus on v3.2; its firmware is developed independently and implements a generic
+UART/I2C interface. It must not identify or depend on X035-specific behaviour.
+
+System architecture
+External USB-C PD charger -> VBUS -> custom V007 buck -> regulated 3.3 V
+                                                       |-> display array
+                                                       |-> X035 controller
+                                                       `-> ESP-12F
+PC -> USB data -> X035 -> UART/I2C -> display
+Wi-Fi -> ESP-12F -> SPI (planned) -> X035
+X035 -> I2C management -> V007
+X035 -> CC1/CC2 -> charger PD negotiation
+
+X035 dongle / communication board
+Use CH32X035, not CH32X033, for integrated PD capability. From the display's
+perspective the dongle is a computer/host speaking the same public protocol
+as other hosts. X035 coordinates PC and Wi-Fi requests; ESP8266 is its Wi-Fi
+peripheral, not an independent display-bus controller in this baseline.
+X035 also negotiates the charger contract and supervises the converter.
+The controller board operates from external regulated 3.3 V, supplied by the
+buck in the integrated system or a separate development supply on the bench.
+Do not inadvertently parallel those supplies.
+
+PC USB is for data, not display power. Simultaneous PC data and charger input
+require separate connection/power paths; connector choice, VBUS detection,
+backfeed prevention and CC routing remain schematic work. The WeAct board is
+a development aid, not a qualified high-current PD power path.
+
+V007 converter board
+Develop a custom buck power stage with V007 local regulation/control, sensing
+and protection. Final asynchronous/synchronous topology, control-loop method,
+gate driver, switching frequency, component ratings and compensation remain
+learning/design decisions. The main regulator is not replaced by a ready-made
+module merely to avoid converter design. Prototype at modest current using a
+current-limited DC source and a test load before increasing power.
+
+Output remains 3.3 V for v3.2 whether input is initial USB-C 5 V or a higher
+negotiated PD voltage. The converter must start autonomously from 5 V before
+X035 can negotiate. V007 therefore requires an input-derived startup/bias
+supply independent of the initially absent main output; circuit remains TBD.
+X035 boots on the resulting 3.3 V, negotiates PD, then permits higher load.
+Keep startup consumption within available initial USB-C power; LED blanking
+or load enable implementation remains TBD. Maintain output regulation through
+PD input transitions and define behaviour on contract loss/input collapse.
+No extra always-on controller converter is assumed in this architecture.
+
+Power budget and distribution
+Provisional charger class: approximately 60–65 W USB-C PD, possibly an
+inexpensive Lenovo laptop charger. No exact charger/cable/profile selected or
+purchased. Verify supported profiles and cable rating before final ratings.
+At 60 W input and assumed 90% efficiency, 3.3 V output is about 16.4 A; this is
+a planning calculation, not a qualified converter rating or measured efficiency.
+
+Keep existing VCC/GND edge connections, including doubled connection wires.
+The array is one continuous power rail powered by ONE converter. Additional
+feeds may distribute the SAME converter output to reduce voltage drop.
+Do not parallel independent converters or assume isolated power sections.
+Array size is flexible within the finite converter, charger and distribution
+limits. Wide copper/planes and doubled wires are useful existing features,
+but actual voltage drop, heating and current capacity need verification.
+
+X035 knows the permitted PD voltage/current contract. V007 telemetry reports
+actual measured operation. Available input power, output power and consumption
+are distinct; allow for conversion losses and controller/ESP consumption.
+Use the lowest applicable charger, converter and distribution limit. Host-side
+brightness/power limiting can supplement local converter protection; exact
+policy and tile protocol support remain to be defined.
+
+Converter management and PC testing
+Use 3.3 V I2C with common ground: X035 controller, V007 target. Candidate
+operations: read input/output voltage, output current, faults and temperature
+if sensed; set enable and bounded limits/setpoints; clear eligible faults.
+The normal display output stays 3.3 V; arbitrary voltage changes while attached
+to tiles are not an operating mode. Final register/packet contract is TBD.
+Regulation and fast protection remain local to V007, independent of polling,
+PC connectivity, Wi-Fi or X035 reset. Define defaults and communication-loss
+behaviour during circuit/firmware design.
+
+PC -> USB -> X035 -> I2C -> V007 supports logging, controlled parameter changes
+and converter tests. A suitable PC-to-I2C adapter can exercise the same
+management interface independently. No test software is implemented here.
+
+Display interfaces and wireless maintenance
+Normal commands: PC/ESP -> X035 -> standard tile UART/I2C protocol.
+Updates: Wi-Fi -> ESP -> SPI (planned) -> X035 -> I2C -> resident tile loader.
+The user handles initial SWIO wiring/programming manually. Wireless updating
+is a maintenance feature, not the main project objective. Retain local recovery.
+The V006 loader in docs/v3_2-network-update.txt is a proposal, not implemented;
+its flash budget does not automatically apply to V003-based boards.
+
+The independently developed v3.2 protocol determines bus roles/timing. Do not
+silently move the display-head clock role to X035 or introduce competing I2C
+controllers. Prefer a separate converter-management bus if pin resources
+permit; shared-bus addressing, ownership and scheduling remain open.
+Audit F8U6 pin multiplexing for USB, PD, tile UART, ESP SPI and I2C/debug before
+committing a schematic. Do not assume all hardware peripherals coexist on
+this small package. Use bounded buffering and explicit command arbitration.
+
+Existing v3 streaming evidence: 230400 baud demonstrated on five boards,
+including GRAY4 at 18 fps. 460800 failed the PC-to-head zero-error criterion;
+921600 is unqualified. 115200 is the default/recovery rate. Protocol proposals
+include higher baud negotiation; v3.2 must establish its own achievable rates.
+These results are not an X035 throughput qualification or a v3.2 speed ceiling.
+See docs/general-firmware-hardware-20261017.txt and general-firmware-protocol.txt.
+
+Near-term v3 head-edge prototype and optional IMU/logging
+The existing five-board v3 R3 chain is the first remote-control target while
+waiting for further PCB purchases. Mount/connect the X035/ESP attachment at
+the exposed start edge of the head, using the existing compatible 3.3 V/GND,
+UART input and shared SDA/SCL connections after a pin/mechanical check.
+Current UART replies return from the LAST tile, not the head's exposed start
+edge: retain a tail-to-dongle RX return wire unless a later design changes
+the transport. The head's TX already feeds tile 2. Keep one intended supply
+arrangement and qualify added ESP/controller demand on the existing rail.
+
+The user requested both gyro/accelerometer sample logging and logging of the
+existing display I2C traffic. Purchase evidence identifies one completed
+AliExpress order dated 2025-10-11 (3062089302460468, Win win. Store), four
+ordered BMI160 module packs/units as advertised; pack contents, actual remaining
+quantity, physical receipt and location are unverified. This is the SAME order
+in electronics-catalog.csv line 78 and orders-register.csv line 86, not eight
+modules. No BMI160 lot exists in the confirmed shelf reporter. Locate and
+identify a module before crediting/reserving physical stock.
+Source: /home/pies/electronics/purchases/aliexpress/2026-10-17/electronics-catalog.csv.
+
+BMI160 combines three-axis acceleration and three-axis angular-rate sensing,
+with I2C/SPI and a 1024-byte FIFO. Check the actual breakout's supply, pull-ups
+and interface straps before wiring. Sensor sampling can run on a local
+dongle-controlled sensor bus if pins permit; log sample sequence, acquisition
+timestamp and six-axis values to PC or Wi-Fi, with explicit loss counters.
+
+The current v3 head remains display-I2C controller: 100 kHz, seven-byte clock
+beacons every 100 ms. A logger attached at the head edge observes that same
+shared bus using passive inputs without ACKs or clock/data drive. Do not start
+gyro polling as another controller on this bus. Lossless passive capture while
+handling USB/UART/Wi-Fi is unqualified; investigate suitable capture hardware
+or a spare X035 dedicated to capture. Decode timestamps, addresses, direction,
+bytes, ACK/NACK and errors with bounded buffers and explicit overflow counts.
+Keep telemetry/log records separate from display command packets. No v3
+firmware change is needed for UART hosting or a passive external logger;
+having the v3 head actively read a new sensor would require firmware work.
+Bosch source: https://www.bosch-sensortec.com/media/boschsensortec/downloads/datasheets/bst-bmi160-ds000.pdf
+Existing clock/transport: firmware/general/README.txt and docs/uart-chain.md.
+
+Electrical development notes
+Budget the ESP's 3.3 V supply for Wi-Fi transients separately from LED load
+steps; do not assume the WeAct onboard regulator can power the ESP. Preserve
+ESP programming access/boot straps and prevent boot logs entering tile command
+streams. Keep antenna clearance from copper, metal and converter switching
+nodes. I2C pull-ups are to 3.3 V; bus capacitance, wiring and unpowered-device
+behaviour require review. Exact GPIO assignments remain open.
+
+User stock context (unchanged by this design save)
+1. Owned CH32V007E8R6 devices are available for converter iterations; this save
+   creates no additional stock reservation or consumption record.
+2. Prototype USB/USB-PD on an owned WeAct CH32X035F8 board, revision V1.0.
+   User physically found four boards. The matching purchase entries name
+   CH32X035F8U6 and total three boards, not an additional three to add to four.
+   The fourth board has no matched purchase provenance. Keep the four complete
+   boards distinct from bare MCU stock. One is held for this USB/PD prototype;
+   three remain free. Function and exact as-built components are not tested.
+3. Use one already owned ESP-12F/ESP8266 module for Wi-Fi access. Ownership
+   and the ESP-12F identity were already recorded in config/v3_1-system.json;
+   the user reaffirmed the use here. The remaining ESP count and the selected
+   carrier/board details are not physically inventoried, so no numerical ESP
+   stock balance or lot deduction is invented. This is a one-module design
+   allocation from owned stock, pending identification of the chosen unit.
+
+Sources checked on2026-10-17
+Espressif I2C API (master-mode enumeration):
+https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/api-reference/peripherals/i2c.html
+Espressif GPIO/software I2C implementation:
+https://github.com/espressif/ESP8266_RTOS_SDK/blob/master/components/esp8266/driver/i2c.c
+Espressif UART API and UART0 swap/ROM-log behavior:
+https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/api-reference/peripherals/uart.html
+Espressif standalone power guidance:
+https://docs.espressif.com/projects/esp-techpedia/en/latest/esp-friends/get-started/try-firmware/try-firmware-hardware/esp8266.html
+Espressif boot straps:
+https://docs.espressif.com/projects/esptool/en/latest/esp8266/advanced-topics/boot-mode-selection.html
+WeAct hardware and example:
+https://github.com/WeActStudio/WeActStudio.CH32X035CoreBoard/tree/master/Hardware
+https://github.com/WeActStudio/WeActStudio.CH32X035CoreBoard/tree/master/Examples/02-PD_Sink
+Retained manufacturer schematic/example:
+build/research/weact-x035/schematic.pdf and main.c.
+
+
+No CAD, firmware, inventory, programming, power or purchase changes were made
+by saving this architecture. Next work: converter fundamentals and requirements,
+then initial power-stage calculations and controller pin/interface allocation.
+
+Later media/TV host discussion — 2026-10-18
+The user explicitly placed the media host as the last planned system component;
+"last" does not mean development ends there. It is not the current hardware workstream. The near-term focus remains ESP8266 -> SPI -> X035
+-> generic display interfaces. Keep desktop and future appliance hosts compatible.
+
+The user owns a spare device described as a VASOUN M2S with Intel N5095. This is
+the leading reuse candidate for the eventual media host, not a deployed or tested
+Letki appliance. The matching published M2S is a mini-PC with external DC input;
+the user's actual enclosure, RAM, ports, radio and installed OS remain unverified.
+Linux offers the closest reuse of the current C++/GTK/service implementation.
+Windows or Android would require platform adaptation. No OS installation or
+change was requested. Raspberry Pi Zero 2 W, Android/Google TV and Android-based
+Fire TV were alternatives discussed; no purchase or platform port was authorized.
+
+Proposed media host responsibilities: local video/audio playback, animation or
+prepared-timeline playback, optional FFT and timestamped Wi-Fi delivery to ESP.
+HDMI audio is the initial synchronization candidate; Bluetooth requires output
+latency calibration. The Wi-Fi/SPI proxy and end-to-end timing remain unqualified.
+Ordinary HDMI cannot power the host from the TV; retain a suitable power source.
+No changes to the independent V007 converter or 3.3 V display rail are implied.
+
+Manufacturer references used for the candidate assessment:
+https://www.benton-cn.com/mini-pc/bt-m2s.html
+https://www.intel.com/content/www/us/en/products/sku/212322/intel-celeron-processor-n5095-4m-cache-up-to-2-90-ghz/specifications.html

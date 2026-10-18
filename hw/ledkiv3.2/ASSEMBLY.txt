@@ -1,0 +1,77 @@
+LETKI V3.2 — FIVE-BOARD HAND-ASSEMBLY PLAN, 2026-10-17
+
+Purchase update: the user ordered15bare PCBs, split5+10. This document and the
+export retain their five-board pilot scope; use docs/v3_2-order-and-bringup.txt
+and config/purchase/v3_2-assembly-requirements-20261017.csv from the repository
+root for current quantities and the incoming-parts substitution work.
+
+Source identity: fabrication.json. Use the matching fabrication-20261017-r2 export,
+not the historical first-robot export. Five identical upright PCBs; fit one as
+the I2C pull-up tile(147SMT), the other four as ordinary tiles(145SMT each).
+Total727SMT. J2 header is optional:0 fitted by default, up to5 optional.
+
+Read assembly/five-board-BOM.csv for exact part quantities and stock shortfalls.
+It is a quantity floor without assembly loss/MOQ/shipping; stock is a dated
+availability report after existing v3/v4.1 holds, not reserved for these boards.
+The separate new five-v3.1 batch also needs components: do not allocate the
+same free LEDs twice. The user's combined-batch cart is in the electronics
+repository; it includes candidate substitutions, not changes to this exact BOM.
+AO3414/AO3415 seller variants require a separate exact-lot substitution review.
+
+Assembly maps
+assembly-front.svg looks at the LED face. assembly-back.svg/rear-labels.svg
+look directly at the rear and are mirrored for rear reading. Full references
+are on Fab/map/BOM; R=# means a numeric resistor silkscreen label. Native
+positions are review coordinates, not a qualified factory CPL/rotation file.
+
+Fitting order
+1. Identify the board and parts before soldering. Keep power disconnected.
+   U1 must be CH32V006E8R6/QSOP24,3.9x8.7mm,pitch0.635mm. The owned
+   CH32V006F8P6/TSSOP20 does not fit. CH32V007E8R6 is not an approved
+   assembly substitute. Electronics now records50V006E8R6/QSOP24 ordered by
+   the user from AliExpress; physical receipt and lot checks remain pending.
+2. Fit rear resistors/capacitors, U1/U2 and MOSFETs using the pad numbers and
+   pin1/body marks. U2 is SN74HC138PWR,inverting; do not use HCT238.
+   Q1-Q8 are P-channel AO3415A; Q9-Q16 are N-channel DMN2056U-7.
+   These share SOT23 G1/S2/D3 but have opposite channel types.
+   The ordered AO3415/AO3414 candidates require a reviewed assembly overlay
+   and lot qualification; this baseline does not silently adopt them.
+3. Fit all R1-R8 as33ohm1%0805, single resistors, not older parallel68ohm
+   combinations. Fit R49 normally: the V006E8R6 reset is PC5, not PD7.
+   R69/R70=1k0805;R71/R73=10k0805;R72=47k0805;C6=100nF0805.
+   Fit R11/R12=4.7k only on the one pull-up tile per whole connected I2C bus.
+4. Fit64 XL-2012UOC per front face. Pad1=cathode/L-row, pad2=anode/S-column;
+   follow actual package polarity marks, not reel direction or mirror intuition.
+5. Inspect all fine-pitch pins and MOSFET orientation; compare the full BOM/map.
+   Check unpowered VCC-GND for solder shorts. Check supply/contact polarity.
+   SWIO J2/bare pads are in parallel; fit the optional header only if wanted.
+
+Initial electrical checks after assembly (not executed by this package)
+Use a current-limited external regulated3.3V supply with common ground; keep
+within3.135-3.465V design range. Do not apply5V or assume programmer supplies
+power. First power one tile with LEDs held blank; inspect rail and idle current
+before connecting an array. R72 should pull LED_BLANK high at reset, disabling
+U2 pin4/G2A and all column PMOS switches. Verify this physically before
+running a display program. R73/C6 provide nominal1ms reset RC, not a measured
+reset timing guarantee. Keep test logs per board.
+
+No V006 application/custom loader is included or flashed. Do not load the
+existing V003/v3.1 firmware. Preserve per-tile SWIO and reset access for later
+scoped programming. Firmware must leave PA6 high-impedance (bonded with PA1
+on physical pin17), use the reviewed remaps, initialize rows/addresses while
+blanked and release blank only after bounded scan timing is established.
+Firmware development, optical/current/waveform/network/mechanical qualification
+remain later work; this plan does not claim those tests passed.
+
+Joining tiles
+Power off all tiles before soldering or changing connections. Keep every tile
+upright; match numbered solder contacts and rails. Edge holes are ordinary
+0.8mmPTH, not castellated/plated edges. Nominal staples span2.54mm across
+abutting PCBs, using0.5mmwire. Do not force fit until real-board tolerance
+and solder access are checked. J2 is0.6mmPTH; M2 holes are2.2mmNPTH.
+West RX1 receives upstream east TX1; south RX2 receives upstream north TX2.
+Never join two outputs. SDA/SCL/GND/3V3 are shared. Replies/recovery need
+future I2C firmware; two USARTs are not four bidirectional neighbor ports.
+Choose a five-tile arrangement and power injection based on measured array
+current/drop; do not extrapolate to arbitrary tile counts. Earlier diffuser/
+carrier models do not fit49.6mm square/6.2mmpixels. No mechanics are qualified.

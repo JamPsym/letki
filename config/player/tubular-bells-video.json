@@ -1,0 +1,24 @@
+{
+  "name": "Tubular Bells \u2014 BBC 1973 \u2014 spectral video",
+  "title": "TUBULAR BELLS",
+  "artist": "MIKE OLDFIELD",
+  "audio": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.flac",
+  "intro_seconds": 10,
+  "style": "bells",
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "cues": [
+    {
+      "at": 0,
+      "duration": 8,
+      "text": "LIVE AT THE BBC"
+    },
+    {
+      "at": 8,
+      "duration": 8,
+      "text": "NINETEEN SEVENTY THREE"
+    }
+  ],
+  "video": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.video.mp4",
+  "video_target": "PC only"
+}

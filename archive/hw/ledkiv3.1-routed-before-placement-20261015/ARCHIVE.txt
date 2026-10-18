@@ -1,0 +1,4 @@
+Saved human/agent v3.1 source before the user-requested fresh placement-only PCB iteration.
+Previous routing preserved; schematic already has0603/button removal and Astra repairs.
+This snapshot has known schematic/PCB parity differences; not a fabrication release.
+Active edit project remains /home/pies/letki/hw/ledkiv3.1/ledkiv3_1.kicad_pro.

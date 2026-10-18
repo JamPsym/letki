@@ -1,0 +1,286 @@
+{
+  "board_mm": [
+    40.64,
+    49.27,
+    1.6
+  ],
+  "mounting_holes_mm": [
+    [
+      2.54,
+      46.75
+    ],
+    [
+      38.1,
+      46.75
+    ]
+  ],
+  "mounting_drill_mm": 2.2,
+  "fastener_clearance_radius_mm": 2.45,
+  "swio_header_pin1_mm": [
+    7.62,
+    46.75
+  ],
+  "swio_test_pads_mm": [
+    [
+      5.08,
+      44.45
+    ],
+    [
+      7.62,
+      44.45
+    ],
+    [
+      10.16,
+      44.45
+    ]
+  ],
+  "led_pitch_mm": 5.08,
+  "grid_depth_mm": 6.2,
+  "grid_wall_mm": 0.8,
+  "face_thickness_mm": 0.6,
+  "carrier_back_mm": -9.2,
+  "carrier_beam_front_mm": -5.8,
+  "carrier_bottom_mm": 55.27,
+  "board_screws": "M2 x 12 mm, two per tile; printed pilot holes require fit testing",
+  "carrier_join_screws": "M2 x 6 mm, four per carrier joint",
+  "status": "Unprinted prototype dimensions; physical fit and retention remain unqualified",
+  "edge_wire": {
+    "hole_mm": 0.8,
+    "wire_mm": 0.5,
+    "front_protrusion_mm": 0.5,
+    "front_solder_radius_mm": 0.75,
+    "front_solder_height_mm": 0.6,
+    "grid_relief_radius_mm": 0.8,
+    "grid_relief_depth_mm": 0.8,
+    "rear_bridge_standoff_mm": 0.8,
+    "left_holes_mm": [
+      [
+        1.27,
+        7.62
+      ],
+      [
+        1.27,
+        12.7
+      ],
+      [
+        1.27,
+        17.78
+      ],
+      [
+        1.27,
+        22.86
+      ],
+      [
+        1.27,
+        27.94
+      ],
+      [
+        1.27,
+        33.02
+      ],
+      [
+        1.27,
+        38.1
+      ]
+    ],
+    "right_holes_mm": [
+      [
+        39.37,
+        7.62
+      ],
+      [
+        39.37,
+        12.7
+      ],
+      [
+        39.37,
+        17.78
+      ],
+      [
+        39.37,
+        22.86
+      ],
+      [
+        39.37,
+        27.94
+      ],
+      [
+        39.37,
+        33.02
+      ],
+      [
+        39.37,
+        38.1
+      ]
+    ],
+    "uniform_span_mm": 2.54,
+    "pitch_mm": 5.08,
+    "pad_size_mm": [
+      2.04,
+      1.6
+    ],
+    "hole_edge_setback_mm": 1.27,
+    "grid_hood_wall_mm": 0.4,
+    "grid_hood_roof_mm": 0.4,
+    "footprint": "EdgeWire_1x07_P5.08mm_D0.8mm",
+    "front_land_mm": 1.4,
+    "inner_land_mm": 1.4,
+    "ground_zone_attachment": "solid",
+    "legend_columns_mm": {
+      "left": 3.3,
+      "right": 37.34
+    }
+  },
+  "testpoints": [
+    {
+      "ref": "TP1",
+      "net": "/USB_VBUS",
+      "label": "USB_IN",
+      "xy_mm": [
+        28.25,
+        39.9
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        26.85,
+        39.9
+      ]
+    },
+    {
+      "ref": "TP2",
+      "net": "+3V3",
+      "label": "3V3",
+      "xy_mm": [
+        14.069469,
+        4.010531
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        15.469469,
+        4.010531
+      ]
+    },
+    {
+      "ref": "TP3",
+      "net": "/MCU_UTX",
+      "label": "MCU_TX",
+      "xy_mm": [
+        25.092893,
+        19.707107
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        25.092893,
+        18.107107
+      ]
+    },
+    {
+      "ref": "TP4",
+      "net": "/MCU_URX",
+      "label": "MCU_RX",
+      "xy_mm": [
+        15.53033,
+        22.13033
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        14.144689,
+        21.33033
+      ]
+    },
+    {
+      "ref": "TP5",
+      "net": "/COL_ADDR0",
+      "label": "ADDR0",
+      "xy_mm": [
+        15.586337,
+        31.73033
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        14.200696,
+        32.53033
+      ]
+    },
+    {
+      "ref": "TP6",
+      "net": "/COL_ADDR1",
+      "label": "ADDR1",
+      "xy_mm": [
+        23.6132,
+        24.812125
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        24.763199,
+        22.820266
+      ]
+    },
+    {
+      "ref": "TP7",
+      "net": "/COL_ADDR2",
+      "label": "ADDR2",
+      "xy_mm": [
+        15.6,
+        24.0
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        15.6,
+        25.6
+      ]
+    },
+    {
+      "ref": "TP8",
+      "net": "/COL_GATE1",
+      "label": "COL_GATE",
+      "xy_mm": [
+        3.3,
+        39.4
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        4.7,
+        39.4
+      ]
+    },
+    {
+      "ref": "TP9",
+      "net": "/S1",
+      "label": "COL_SINK",
+      "xy_mm": [
+        3.4775,
+        30.5
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        2.091859,
+        31.3
+      ]
+    },
+    {
+      "ref": "TP10",
+      "net": "GND",
+      "label": "GND",
+      "xy_mm": [
+        26.8,
+        21.25
+      ],
+      "pad_mm": 1.0,
+      "side": "back",
+      "silk_xy_mm": [
+        26.8,
+        22.85
+      ]
+    }
+  ]
+}

@@ -1,0 +1,147 @@
+V3.2 TRACE CLEANUP
+
+Two proposal modes share the Astra-reviewed one-chain safety framework.
+scripts/pcb_trace_cleanup.py simplifies an existing chain with the installed
+KiCadRoutingTools octolinear simplifier. scripts/pcb_trace_reroute.py removes
+the complete selected chain from its obstacle map and searches a fresh path
+with the installed Rust GridRouter A*. Native KiCad geometry and independent
+checks grade every intermediate candidate.
+
+Run from the repository root, with the installed native KiCad/Shapely environment:
+
+.tools/kicad-routing-env/bin/python scripts/pcb_trace_cleanup.py inventory \
+  --board hw/ledkiv3.2/ledkiv3_2.kicad_pcb --output build/hardware/chains.json
+
+.tools/kicad-routing-env/bin/python scripts/pcb_trace_cleanup.py run \
+  --board hw/ledkiv3.2/ledkiv3_2.kicad_pcb \
+  --output build/hardware/trace-cleanup-NEW
+
+For genuine point-to-point rerouting instead of existing-chain simplification:
+
+.tools/kicad-routing-env/bin/python scripts/pcb_trace_reroute.py run \
+  --board hw/ledkiv3.2/ledkiv3_2.kicad_pcb \
+  --output build/hardware/trace-reroute-NEW
+
+Use a fresh output directory. --limit N bounds the inventory prefix for a pilot;
+omit it to consider every eligible chain once. --chain ID selects exactly one
+stable chain ID from the inventory for a focused rerun. Save and close the PCB editor
+before taking an offline snapshot or applying a result; the tool does not read
+unsaved editor state. Proposal generation never edits the main project.
+
+Eligible chains have at least four segments, two unique pad/via anchors, one
+width and one outer copper layer. Locked/grouped tracks, supply nets, inner
+layers, ambiguous connections and untouched chains remain unchanged. Every via,
+footprint, native padstack, field, model, rule and other authored object is fixed.
+Only the proposed track blocks and derived zone fills may differ.
+
+The checker requires an exact continuous integer-coordinate path and fewer
+actual bends. Simplification permits no length increase. Fresh rerouting may
+trade at most 5% and at most 0.25 mm per connection for fewer bends; both caps
+apply. Contacts to sibling traces inside the original
+terminal lands represent the same fixed junction. Any contact outside those
+lands is rejected, including an otherwise DRC-legal new same-net connection.
+New tracks also retain the 2.45 mm fastener copper exclusion. No vias or parts
+are added or moved to make a proposal pass.
+
+The fresh search has no old-path attraction and excludes all copper pours,
+including their saved fills. Authored track keepouts remain obstacles. Other
+traces, pads, vias, board edges and mounting-hole exclusions stay fixed; other
+branches of the same net also remain obstacles outside the terminal lands.
+The search uses one layer, an endpoint-anchored 5-12.5 um grid, a 2 um numerical
+guard, and a finite window extending 4 mm around the old route. It is bounded
+to 500,000 search states and 12 million raster cells. Unsupported terminal
+coordinates, exhausted searches and unhelpful results retain their old copper.
+A bounded search failure is not proof that a connection cannot be routed.
+The old path affects only the finite window, never the path cost.
+
+For each changed chain the tool retains a complete candidate, patch.json,
+report.json, raw native DRC and independent all-net copper reports, and a
+fixed-scale before/after/overlay comparison.png rendered from native copper.
+Native checks refill zones and include all severities, schematic parity and
+ignored checks. Findings must match the baseline exactly; existing warnings
+remain visible. Independent continuity includes filled supply/ground regions.
+A failed proposal is retained and never accumulated into the working copy.
+
+Inspect every accepted trial's comparison before applying the accumulated result.
+The final report calls these CHECKED_CANDIDATE, not visually approved. A review
+JSON binds the exact absolute run path and each inspected comparison image:
+
+{"status":"VISUALLY_REVIEWED","run":"/absolute/run/path",
+ "images":{"/absolute/run/path/trial-000":"SHA256-of-comparison.png"}}
+
+Then:
+.tools/kicad-routing-env/bin/python scripts/pcb_trace_cleanup.py apply \
+  --run /absolute/run/path --review /absolute/review.json
+
+pcb_trace_reroute.py accepts the same inventory/apply commands and review format.
+source.json and runner-snapshot/ bind the exact proposal and safety code used.
+
+Application refuses changed source/context hashes, open-editor lock files,
+changed comparison images or incomplete review lists. It compares every
+unrelated authored object again, saves source-before-apply.kicad_pcb, atomically
+replaces only the PCB file, and records exact hashes in applied.json. The source
+schematic, project/rules, libraries, exports and accepted milestone stay intact.
+Existing fabrication exports describe their earlier source and need regeneration
+before use. These are CAD checks; physical/EMC/current/optical qualification is
+not established by trace simplification.
+
+Native safety regressions:
+.tools/kicad-routing-env/bin/python tests/test_pcb_trace_cleanup.py
+.tools/kicad-routing-env/bin/python tests/test_pcb_trace_reroute.py
+
+Applied run, 2026-10-17
+68 individually checked and visually reviewed chains were applied to the main
+v3.2 PCB: 1,850 -> 1,594 segments, 299 vias and 159 footprints unchanged.
+All 76 nets remain connected. No new DRC/parity findings; the existing /ADDR0
+stub warning remains. Nineteen chains made no useful change; five were rejected.
+Evidence and exact backup: build/hardware/v3_2-trace-cleanup-checked-20261017/.
+The safety/application suite now has eleven tests; the fresh-router suite adds
+three native fixtures covering removal of the complete old trace, exclusion of
+actual saved foreign fill, and preservation of authored track keepouts.
+
+Fresh-routing follow-up, 2026-10-17
+The genuine A* pass considered 83 anchored chains and retained 50 checked,
+visually reviewed candidates: 48 on F.Cu and two on B.Cu. The complete board
+changed from 1,594 to 1,490 segments; affected paths changed from 267 to
+170 bends and from 347.199 to 352.893 mm (+5.693 mm / 1.64%). All 299 vias,
+159 footprints, supply geometry and unrelated authored CAD remain fixed.
+Native DRC/parity findings match the baseline exactly, including the existing
+/ADDR0 warning; all 76 nets pass independent connectivity after zone refill.
+
+The 33 retained-original outcomes comprise 22 without fewer bends, three with
+ambiguous external contacts, three bounded searches without a path, two length
+increases beyond the cap, two unsupported endpoint lattices, and one terminal
+blocked by the conservative raster. No failures were promoted.
+
+Evidence: build/hardware/v3_2-point-reroute-checked-20261017/.
+The final audit and nine native overlay review pages are saved there. All 50
+replacements were applied to the main board after the editor closed; the exact
+previous PCB is preserved as source-before-apply.kicad_pcb. applied.json binds
+the change from SHA256
+70af623a6e69eb830eca177dc6771266e6e5e16c430598d21abbd5e2ea685435 to
+1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22.
+promoted-check/ retains the repeated native checks on the applied source.
+All fourteen native router/safety/application regression tests passed.
+
+Public visual comparison
+https://psym.pl/zobaczadas/v3.2-comparison/ compares the accepted first robot
+milestone (2,015 segments) with the applied current board (1,490 segments).
+It includes the user's manual work before these two cleanup passes: component
+placements match, while one SCL via moved 0.05 mm during the earlier manual
+work. Neither cleanup pass moved a via.
+
+scripts/v3_2_web_comparison.py builds the pinned KiCad SVG Extras views in a
+fresh --work directory. scripts/check_v3_2_web_comparison.py checks the four
+layers, linked highlighting, zoom/pan, mirroring, wipe view and actual mobile
+viewport widths in Firefox. Source, SVG hashes, raw logs, browser previews,
+the 33-file publishing allowlist and rollback location are retained under
+build/hardware/v3_2-web-comparison-20261017/. CAD was unchanged by export.
+
+Accepted main version, 2026-10-17
+The user accepted the current board as the main v3.2 version after reviewing
+the published comparison. Milestone v3_2-main-20261017 records PCB SHA256
+1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22.
+Its complete CAD context is frozen in
+archive/hw/ledkiv3.2-main-milestone-20261017/; ongoing edits stay in hw/ledkiv3.2/.
+The first robot milestone and original unrouted checkpoint remain preserved.
+Recording acceptance did not alter any CAD bytes or regenerate old exports.

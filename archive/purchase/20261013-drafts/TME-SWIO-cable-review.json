@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-13",
+  "status": "Proposed two-line add-on; user imports into existing18-line basket; no cart/order changed",
+  "components": [
+    {
+      "tme_symbol": "MX-51021-0300",
+      "mpn": "510210300",
+      "quantity": 1,
+      "purpose": "Three-circuit PicoBlade receptacle housing; matches PCB530470310 header; no loose contacts purchased",
+      "unit_net_PLN_snapshot": 0.39,
+      "unit_gross_PLN_snapshot": 0.48,
+      "stock_snapshot": 34210,
+      "snapshot_age": "3weeks",
+      "url": "https://www.tme.eu/pl/details/mx-51021-0300/zlacza-sygnalowe-raster-1-25mm/molex/51021-0300/"
+    },
+    {
+      "tme_symbol": "MX-79758-1059",
+      "mpn": "797581059",
+      "quantity": 1,
+      "purpose": "152mm red28AWG wire with factory-crimped PicoBlade50079contacts at both ends. Cut midway to obtain two76mm single-ended leads; insert into housing cavities2and3.",
+      "unit_net_PLN_snapshot": 7.32,
+      "unit_gross_PLN_snapshot": 9.0,
+      "stock_snapshot": 36,
+      "snapshot_age": "3dayPLcatalogue/5dayproductpage",
+      "url": "https://www.tme.eu/en/details/mx-79758-1059/cables-with-crimped-terminals/molex/797581059/",
+      "manufacturer_drawing": "https://www.molex.com/content/dam/molex/molex-dot-com/products/automated/en-us/salesdrawingpdf/797/79758/797581059_sd.pdf",
+      "housing_compatibility_datasheet": "https://www.tme.eu/Document/9e67f22ce73571ccfd47def2097e08b3/797581059.pdf"
+    }
+  ],
+  "cost_gross_PLN_snapshot": 9.48,
+  "user_existing_basket_PLN": 193,
+  "rough_combined_PLN_if_existing193_is_gross": 202.48,
+  "price_availability_note": "Cachedpubliccatalogue, not live logged-in quote; refresh both new lines in userbasket; does not include tools/adaptationmaterials/shipping.",
+  "assembly": [
+    "Cut the152mm precrimped wire at midpoint. The two76mm halves each retain one factorycrimped PicoBlade contact.",
+    "Insert contacts into housing positions2(SWIO)and3(GND), matching contact locking orientation; leaveposition1empty.",
+    "Splice free wire ends to existing female2.54mm WCH-Link jumper leads, insulate joints and label both redwires SWIO/GND.",
+    "Verify terminal retention and electrical continuity from housing2toWCHSWIO and housing3toWCHGND, with no shorts betweencontacts.",
+    "Power PCB from its USB5Vhead; leave WCH3V3/5Vpower outputs disconnected."
+  ],
+  "PCB_J2_verified_netlist": {
+    "1": "+3V3(reference;leaveempty)",
+    "2": "/SWDIO(SWIO PD1)",
+    "3": "GND"
+  },
+  "requirements": "Existing programmer jumperleads, solder and insulation for two splices. These purchases form a board-end pigtail; not a readymadePicoBlade-toWCHcable.",
+  "alternative": {
+    "tme_symbol": "MX-15134-0303",
+    "quantity": 1,
+    "length_mm": 300,
+    "gross_PLN_snapshot": 32.0,
+    "note": "Complete3wirePicoBlade-PicoBladeassembly; still adapt one end forWCH. More costly than precrimpkit."
+  },
+  "import_existing_cart": "config/purchase/TME-SWIO-cable-add.csv",
+  "import_empty_cart": "config/purchase/v4.1-TME-5-boards-with-SWIO-cable.csv",
+  "native_CAD_Gerbers": "Unchanged",
+  "source_list_sha256": "8e2613427caa9d5de05f6bc324cc31784eb113d92f5a84466c667428bfed223f"
+}

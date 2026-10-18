@@ -1,0 +1,175 @@
+General firmware physical qualification — 2026-10-17
+
+STATUS: R3 functional chain qualification COMPLETE. All five final role images
+and saved-show restart checks passed. Final results are at the end of this record;
+earlier in-progress/failure paragraphs are retained as chronological evidence.
+Electrical waveform/current and optical metrology remain unperformed.
+
+Review: docs/general-firmware-review-20261017.txt. The user authorized automatic
+Astra review/completion and asks only for SWIO moves. Evidence/backups are under
+build/board-readback/general-20261017/; final migration uses revision3/.
+
+Each update identifies UUID/position, saves two identical16KiB working backups,
+preserves options and programmer power, compares programmed-image readback and
+restarts. Options/programmer power/separate programmer erase commands are not
+changed/exposed by these tests. All previous working backups remain preserved.
+
+The first physical flash-content test caught a buffer-reset ordering defect.
+The fixed rightmost board passed two validA/B manifests/contentCRCs and exact
+persisted UART readback after restart. R3 adds bounded idle-BUSY clock recovery.
+The BUSY explanation for stopped beacons is a hypothesis; the measured stale
+clock ages and resulting host freshness-wait pauses were confirmed. Probe GPIO/
+I2C register reads captured reset-state values and do NOT establish live pin
+levels or diagnose the physical bus lines.
+
+The raw player was corrected to use three UART timestamp samples independently
+of I2C freshness and to flush/reanchor after significant clock changes. A full
+38.4s narrated six-scene PWM demo at230400 then passed:22fps,859future frames
+uploaded,0skipped,0late uploads,0audio warnings,0serial timeouts/invalid replies,
+no added UART errors/dropped replies. The user confirmed: "wow, works nice
+(when music has been playing)". Frame count includes lookahead uploads that are
+flushed at show end, not a claim that859frames were optically observed.
+Evidence: pwm-audio-stream.json/log. The earlier visibly lagging run remains
+as pwm-audio-stream-attempt1.json/log rather than being concealed.
+
+230400 is the measured streaming setting.460800 failed the PC-to-head UART
+zero-error criterion;921600 is unqualified. Default/recovery115200 is retained.
+Actual PWM/scan waveforms, electrical rails/current, runtime stack high-water
+and optical timing skew remain unmeasured. Software PRESENTED is the actual
+local scan latch, not an optical sensor.
+
+
+R3 chain progress: all five roles now have verified programmed-image readbacks.
+All five accepted and returned their full3008-byte content capacity. Head saved
+content survived restart; receiver restart checks remain in progress. Final R3
+RAM controls, scheduled loading, all three frame formats and safe A/B operations
+passed. Loaded timeline/audio passed the full38.4 seconds with8 timing checks,
+no audio warnings and no added UART errors/drops (loaded-audio.json/log).
+
+Head column5 investigation: the user confirmed full-on, uniform25% and isolated
+column5 patterns light correctly. A native scrolling-text diagnostic overlaid a
+fixed25% line on that column; simulation kept all8 pixels at least25%. The user
+first reported it going dark, then clarified "now te line is dimmed but visable".
+The latest observation matches the deliberately dim pilot. No confirmed wiring
+or scan defect was established. A non-reset probe RAM capture failed to identify
+the chip and supplies no live-frame evidence. The saved show was restored by
+restart, with executable/options preserved and exact saved-program readback.
+No firmware change was made for this report. Evidence: head-column-*.json and
+column-check-restart-1/, restart-column-check-head.log. If a complete dark column
+recurs during a commanded solid pilot, that remains grounds for renewed physical
+investigation; the static tests do not prove absence of intermittent faults.
+
+After restoring the saved show, the user confirmed: "now the column is working".
+
+
+COLUMN5 RECURRENCE — EARLIER CLEAR OBSERVATION WAS TEMPORARY
+
+The user subsequently reported "now it stoped working again" and, with a fixed
+100% column5 pilot plus native scrolling text, "swio on1. column still of".
+Thus the previous successful static tests do NOT close the intermittent report.
+
+A custom debug helper initialized only the pinned WCH-LinkE transport, omitting
+LESetupInterface's explicit target reset. It saved/restored CPU registers around
+RAM/peripheral reads and resumed execution. The134-byte RAM diagnostic object,
+arena program pointer and >500-second uptime survived; this establishes live
+state rather than the reset-state snapshots obtained earlier. No firmware,
+option bytes, power settings or content flash were changed by capture.
+
+Two full per-pixel duty buffers contain1200 ticks for all8 column5 pixels;
+canonical levels are100. Targeted halt next_scan_column5 means current column
+index4. GPIOC OUTDR=0x20 selects binary100 on PC5/6/7 (A2/A1/A0). GPIOC
+INDR=0x3f, GPIOA INDR=0x2 and GPIOD INDR=0xfe confirm all8 row pad inputs high.
+Both timer ARR values1199 and all8 CCR values1200 agree with full duty. Row
+pins are in AF/PWM mode. These are MCU-side observations, not decoder-output,
+current, light or full-waveform measurements. Evidence: head-fault-live* and
+head-fault-column5*, live_capture.c. The latter helper is diagnostic only and
+stays under ignored build/; downloaded tool source was not modified.
+
+Archived v3 PCB net audit (read-only pcbnew) connects /S5 to U2/74HC138 pad11
+and cathodes D5,D13,D21,D29,D37,D45,D53,D61. Correct MCU state plus the user's
+persistent dark-column report points toward this decoder-output/common-cathode
+path, including solder/trace continuity, but does not identify a failed part.
+The defect remains unresolved; do not claim complete optical qualification.
+Head currently runs the RAM-only full-brightness pilot/text diagnostic. The
+saved3008-byte flash object remains intact. Probe is on head/position1.
+
+R3 raw retained-flash follow-up: automatic22fps run had31 skipped/35 late uploads;
+this does not supersede the earlier successful measured22fps music run, but
+shows it is not a universal rate guarantee. Lower18fps run completed194 uploads
+with0skipped/0late uploads and3ACK timeouts recovered by bounded retries. All
+five3008-byte active programs read back unchanged, no new UART errors/drops,
+and explicit PLAY returned to the saved content. This was followed by the
+column diagnostic above. Evidence: stream-retention-capacity*.json/log.
+
+
+Current inspection hold: at the user's request, head/position1 now holds all64
+pixels at100%, acknowledged by its actual scan latch. The prior full-column
+pilot/text RAM program remains loaded but paused under raw-frame mode. Saved
+flash remains untouched. Other displays were not commanded to change by this
+operation. Evidence: head-all-on-latest.json. Preserve this hold until user
+inspection/steering; the recurring optical report is still unresolved. Remaining
+restart checks require SWIO moves to positions3,4,5 after the head investigation.
+
+
+Post-rework continuation: the user resoldered the suspected connection and
+reported "seems okey", requesting continuation. Head identity, executable and
+original options matched; its full3008-byte show read back exactly after restart.
+The first UART reconnect timed out; a read-only all-node HELLO then passed, as
+did three further head-restart discovery trials (sequential forward, sequential
+reverse and batched HELLO). This did not establish the timeout's root cause and
+no firmware/driver change was made. Cumulative UART errors after the restart
+experiments were [0,1,1,0,1], dropped replies all0; subsequent steady-run tests
+must compare counter deltas rather than claim a clean zero-counter history.
+The saved show is playing again on all five. Head all-on/raw and pilot holds
+have ended. Board2 was already restart-qualified; positions3,4,5 remain.
+Evidence: resolder-restart-1/, restart-resolder-head.log,
+boot-1-resolder-attempt1.json, boot-1-resolder-retry.log, boot-1.json,
+resolder-discovery-bootstrap.json and post-restart-discovery-orders.json.
+
+
+FINAL FUNCTIONAL QUALIFICATION — COMPLETE
+
+All five R3 application images have identified-board matching programmed-image
+readbacks, two matching pre-update full backups and preserved original options.
+All five loaded/read back their full3008-byte content capacity and independently
+restarted into that exact saved object. After each restart, host synchronization
+and common PLAY recovered the chain. Board1 passed again after the user's solder
+repair; positions3/4/5 subsequently passed without application writes.
+
+The capacity test objects were explicitly discarded through the bounded content
+loader, returning all five to normal safe A/B storage. Each accepted and returned
+an exact484-byte narrated program followed by the final228-byte looping demo.
+On connected position5, full physical flash verified both LGF1 headers/content
+CRCs (generation8,484 bytes at0x08003a00; generation9,228 bytes at0x08003400),
+unchanged executable prefix/options and exact newest-program readback after
+restart. No option-byte, programmer-power or separate programmer-erase command
+was issued during this final continuation.
+
+Final full38.4-second PC audio/narration + original six-scene PWM run used all
+five final R3 boards at230400,GRAY4,18fps.706 frames uploaded including lookahead
+flushed at show end;0skipped/late uploads,0added per-node late-frame counters,
+0audio warnings,0invalid replies,0added UART errors or dropped TX replies.
+15 acknowledgement timeouts recovered through bounded retries. Mean upload
+40.25ms,maximum284ms. All five228-byte saved programs read back unchanged after
+streaming; their active flash objects were retained. This is a measured run,
+not an unconditional guarantee against arbitrary host stalls or multiple losses.
+
+Final state: all five running the228-byte looping standalone demo from safe A/B
+flash, brightness100, unpaused, timeline mode, two LEVEL8-sized queue slots,
+fresh shared clock beacons. Serial is closed/restored to115200 and tty settings
+restored. SWIO may stay on board5. User reported column5 appears okay after
+resoldering; no optical sensor or decoder-output waveform measurement was made.
+The earlier intermittent report and MCU-side captures remain preserved.
+
+make test passed with the current43-test general suite plus clock/display/flash
+register tests and existing host suites. Earlier current-native all-variant,
+renderer, sanitizer and clangd evidence remains valid; no native/source code
+change was needed during this final rework/restart continuation. Native image
+sizes13272(head)/13284(receivers),RAM2036/2048 including256 stack, assessed
+combined stack236/256; actual runtime high-water remains unmeasured.
+
+Evidence: revision3/position-1/ through revision3/position-5/,
+boot-1.json through boot-5.json, resolder-restart-1/, finish.json/log,
+final-safe-restart-5/, stream-retention.json/log, summary.json and
+build/general/full-host-tests-final.log. Rawstream command for this measured
+setting is documented in firmware/general/README.txt.

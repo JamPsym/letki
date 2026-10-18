@@ -1,0 +1,67 @@
+LETKI V4.1 — PROTOTYPE PURCHASE HANDOFF
+
+Five identical PCBs: one USB head and four followers. Hand assembly.
+The exact purchased supporting parts are in TME-BUY-5-boards.csv; use the
+two-column TME-QUICKBUY file for import. MCU and orange LEDs use user stock.
+The stock ledger reserves components for four remaining v3 boards.
+Recommended quantities include spares; the -minimum comparison omits them.
+
+Before ordering: recheck exact TME prices/stock and acceptable delivery.
+Use cut-tape resistor symbols, not full-reel MPN order codes with5000MOQ.
+Finish the pending two-board v3 I2C baseline.
+No order is placed by the exporter. No v4 hardware is physically qualified.
+
+JLCPCB upload: ledkiv4_1-gerbers.zip only.
+Single PCB, 5pcs, 4layers,40.64x49.27mm,1.6mm FR4, green mask, white silk,
+outer1oz/inner0.5oz, HASL(with lead), standard ordinary through vias.
+No castellation/edge plating; side wire holes are enclosed PTH pads.
+No factory assembly. Optional paste Gerbers are separate for stencil use.
+Keep minimum0.3mm routing drills; USB plated slots are routed Excellon PTH.
+Use Plugged via covering if required by the leadedHASL portal; attach the via
+map, keep ALL solder holes/slots and NPTHs open, follow mask openings.
+No epoxy/copper-capped process. Covered near-pad vias may remain unfilled.
+Production-file confirmation is optional; the prepared quote leaves itoff.
+Explicit mask/drill/via-finish notes define the standardprocess. If youchoose
+paidfileconfirmation,disableautomaticapproval; thisdoesnotqualifythecircuit.
+
+Suggested fabrication remark:
+Plug covered0.30mm vias only where process allows. Keep exposed vias,
+0.60/0.80mm solder holes,NPTH and platedUSBslots open. Follow mask openings.
+No epoxy/copper capping. See via-finish-map.png and via-finish.csv.
+
+Populate C10,J4,U5,R30,R31,R32 only on the head. Close JP1/JP2 only there.
+Followers receive5V/GND through wire contacts and have both jumpers open.
+J2 PicoBlade is optional; bare SWIO pads remain on every PCB.
+U2 is active-HIGH74HCT238D,653, notHC/LVC138.
+U4 is Nexperia74LVC2G34GW,125; R26/R27are220ohm,100kidlepullsremain.
+Shortstaplelinks/fastpush-pull3.3VUARTadapteraretheinitialtestenvelope.
+VerifybothU4inputtransitions<=10ns/V; UARTsuccessalonedoesnotproveedges.
+TI SN74LVC2G17DCKR is a reviewed same-footprint alternative, currently omitted
+frombuyinglistsbecauseTMEzerostockdeliveryisunconfirmed.
+U6 MIC5504 pins1VIN,2GND,3EN,4NC,5OUT; inspect pin1 orientation.
+ALPS button pads connect row pairs1/2and3/4; follow rear assembly drawing.
+USB4105 shell stakes are shorter than the PCB thickness: solder/inspect from
+the component side. Qualify PicoBlade pin protrusion and0.6mmholefill too.
+
+First board: inspect polarity/pin1 and check unpowered GND/supply shorts.
+Use regulated5V1Awall supply through one head; measure5V and3.3V rails first.
+SWIO connector1REF3.3V,2SWIO/PD1,3GND. Connect SWIO/GND; keep programmer
+power outputs disconnected. REF is not a power input for this regulator.
+Identify the new chip and preserve readback before any authorized programming.
+Check PD7/NRST configuration on new chips; option-byte changes need separate
+authorization. Run walking pixels, PWM/brightness, UART115200 andI2C100kHz.
+Record measured rails/current/temperatures/optics/fit in qualification CSV.
+Keep every HCT rail >=4.5V and chain current below the measured head limit.
+Five/twenty are purchase comparisons, not certified maximum chain lengths.
+
+Mechanical: print opaque grid, translucent face, bezel and1-/4-tilecarriers
+from supplied STLs; all fit the180mmbed envelope by nominalCAD checks.
+TwoM2x12panheadscrews per tile; fourM2x6 per carrier section joint.
+0.5mmtinned solid copper staples,7peradjacenttilejoint,2.54mmhole-to-hole
+span whenboards touch. Printed support must carry cable/handling loads.
+Printing/screw/optical fit remains an iterative physical qualification.
+
+Next iteration: edit hw/ledkiv4.1 native CAD and config/v4_1-parts.json,
+keep reference/MPN mappings aligned, work routing in isolated copies, rerun
+all checks and scripts/v4_1_package.py. Preserve this checked snapshot first.
+Do not replay one-time creation/placement/ECO helpers on routed source.

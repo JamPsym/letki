@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-17",
+  "recorded_UTC": "2026-10-17T19:05:10.966304+00:00",
+  "status": "ORDERED_USER_CONFIRMED_AWAITING_DELIVERY",
+  "source": "Logged-in JLCONE live cart and PRE_CAL checkout preview through user-preferred temporary loopback CDP",
+  "user_decision": "seems nice, you might leave it that way so i can pay for it",
+  "scope": "Historical bare-PCB quote/cart comparison followed by direct user confirmation of the prepared15-board order. No order or payment was submitted by the agent; no assembly purchase, stock reservation, firmware or CAD modification.",
+  "Gerber_file": "hw/ledkiv3.2/exports/fabrication-20261017-r2/ledkiv3_2-gerbers.zip",
+  "Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+  "same_checked_r2_Gerbers_for_both_batches": true,
+  "specification": {
+    "layers": 4,
+    "dimensions_mm": [
+      49.6,
+      49.6
+    ],
+    "thickness_mm": 1.6,
+    "color": "Green",
+    "silkscreen": "White",
+    "finish": "HASL(with lead)",
+    "via_covering": "Plugged, JLCONE default accepted by user",
+    "outer_copper_oz": 1,
+    "inner_copper_oz": 0.5,
+    "paid_special_options": false
+  },
+  "cart_items": [
+    {
+      "name": "ledkiv3_2-gerbers_Y10",
+      "prototype_id": "Y10-10656422A",
+      "quantity": 5,
+      "USD": 2,
+      "special_offer": true,
+      "original_preserved": true
+    },
+    {
+      "name": "ledkiv3_2-gerbers_Y11",
+      "prototype_id": "Y11-10656422A",
+      "quantity": 10,
+      "USD": 8,
+      "special_offer": false,
+      "user_requested_to_keep": true
+    }
+  ],
+  "total_board_quantity": 15,
+  "merchandise_USD": 10,
+  "shipping": {
+    "country": "Poland, as selected in cart estimator",
+    "method": "Global Standard Direct Line",
+    "discounted_USD": 1.5,
+    "cart_regular_crossed_out_USD": 6.13,
+    "checkout_regular_crossed_out_USD": 6.42,
+    "cart_estimated_weight_kg": 0.26,
+    "estimated_business_days": [
+      12,
+      18
+    ],
+    "monthly_offer_uses": 3,
+    "remaining_this_month": 1,
+    "offer_valid_until": "2026-12-31",
+    "counter_scope": "Shipping special offer; no monthly $2-PCB limit established"
+  },
+  "cart_subtotal_USD": 11.5,
+  "checkout_preview": {
+    "stage": "PRE_CAL; Continue not clicked",
+    "merchandise_USD": 10,
+    "shipping_USD": 1.5,
+    "customs_duties_and_taxes_USD": 6.14,
+    "JLCONE_exclusive_discount_display": "--",
+    "grand_total_USD": 17.64,
+    "limitations": "Displayed preview, not paid amount. Later address/payment/coupon adjustments are not assumed."
+  },
+  "comparison": {
+    "single_batch_PCB_only_USD": {
+      "5": 2,
+      "10": 8,
+      "15": 29.6,
+      "20": 31.1,
+      "25": 32.6
+    },
+    "engineering_fee_USD": 25,
+    "engineering_fee_first_observed_quantity": 15,
+    "five_plus_five_plus_five": {
+      "board_quantities": [
+        5,
+        5,
+        5
+      ],
+      "item_prices_USD": [
+        2,
+        8,
+        8
+      ],
+      "merchandise_USD": 18,
+      "shipping_USD": 1.5,
+      "cart_subtotal_before_checkout_charges_USD": 19.5,
+      "cart_estimated_weight_kg": 0.27,
+      "temporary_Y12_removed": true
+    },
+    "five_plus_five": {
+      "item_prices_USD": [
+        2,
+        8
+      ],
+      "merchandise_USD": 10,
+      "shipping_USD": 1.5,
+      "cart_estimated_weight_kg": 0.22
+    },
+    "finding": "One five-board item retains $2 in the live cart; later five-board items quote $8 each. Five plus ten gives fifteen boards for $10 before shipping/checkout charges."
+  },
+  "prototype_confidence": "CAD/ERC/DRC/connectivity checks clean for current derivative; V006 firmware and physical power/current/thermal/tile-network/mechanical qualification pending. Extra boards remain prototype stock; assemble and test a first tile and 2x2 before populating the full 3x5 array.",
+  "assembly_package_scope": "Existing checked assembly BOM/stock snapshot remains five boards; no fifteen-board parts allocation or assembly package implied.",
+  "support_message_sent": false,
+  "order_submitted": true,
+  "payment_submitted": null,
+  "evidence": {
+    "quantity-quotes": "build/purchase-v3_2/quantity-strategy-20261017/quantity-quotes.json",
+    "cart-five-plus-five": "build/purchase-v3_2/quantity-strategy-20261017/cart-five-plus-five.json",
+    "cart-five-plus-five-plus-five": "build/purchase-v3_2/quantity-strategy-20261017/cart-five-plus-five-plus-five.json",
+    "cart-five-plus-ten": "build/purchase-v3_2/quantity-strategy-20261017/cart-five-plus-ten.json",
+    "cart-five-plus-ten-selected": "build/purchase-v3_2/quantity-strategy-20261017/cart-five-plus-ten-selected.json",
+    "checkout-five-plus-ten": "build/purchase-v3_2/quantity-strategy-20261017/checkout-five-plus-ten.json",
+    "cart_prepared_for_user": "build/purchase-v3_2/quantity-strategy-20261017/cart-prepared-for-user.json"
+  },
+  "debugging_cleanup": {
+    "temporary_loopback_debugging_closed": true,
+    "normal_app_restored": true,
+    "proof": "build/purchase-v3_2/quantity-strategy-20261017/cleanup.json"
+  },
+  "purchase_confirmation_record": "config/purchase/v3_2-jlc-order-20261017.json",
+  "order_submission_provenance": "Direct user confirmation, not agent action",
+  "order_submitted_by_agent": false,
+  "payment_submitted_by_agent": false,
+  "physical_receipt_confirmed": false,
+  "actual_paid_USD": null,
+  "order_or_payment_submitted": true,
+  "order_or_payment_submitted_provenance": "User reports ordered after manual checkout; agent submitted neither order nor payment",
+  "payment_made_independently_verified": false,
+  "payment_submitted_scope": "User payment not independently inspected; payment_submitted_by_agent remains false",
+  "status_history": [
+    {
+      "status": "FIVE_PLUS_TEN_CART_SAVED_FOR_USER_PAYMENT",
+      "user_decision": "seems nice, you might leave it that way so i can pay for it"
+    },
+    {
+      "status": "ORDERED_USER_CONFIRMED_AWAITING_DELIVERY",
+      "confirmation": "Ordered. Use the information to update the electronics repo. Check what is needed from here.",
+      "record": "config/purchase/v3_2-jlc-order-20261017.json"
+    }
+  ]
+}

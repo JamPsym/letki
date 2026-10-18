@@ -1,0 +1,99 @@
+Skuteczność technik PCB — Letki v3.1, 2026-10-14
+
+Routing i montażowe opisy CAD zostały domknięte. Wyniki dotyczą CAD, a nie działania
+sprzętu. Wejścia historycznych prób różnią się; nie tworzą rankingu prędkości.
+
+Równoległość na Ryzen 9 5950X
+Ten sam zestaw trzech strategii i ośmiu sieci: 17,400 s kolejno, 6,448 s
+w trzech procesach (2,699x). Wszystkie warianty połączyły 8/8 badanych sieci
+z jednakowymi wynikami KiCad. Średnia zajętość CPU: 1,443 / 3,454 rdzenia.
+To jedna para prób, serial jako pierwszy. Nie wykazuje skalowania na 16 rdzeni
+ani przyspieszenia całej płytki; stan cache mógł wpłynąć na wynik.
+
+Co pomogło
+- Stałe wyprowadzenia i lokalne poprawki zamknęły 6/7 trudnych sieci.
+  Cztery nowe podziały VCC ograniczyły ogólną poprawę z 80 do 78 przerw.
+- Przesunięcie jednej przelotki GND o 0,2 mm domknęło NG4 bez ruchu elementów.
+- Przeniesienie dwóch rezystorów uwolniło dostęp UART/przycisku. Jawny mostek
+  ROW5 na In1 (3,585 mm zamiast 8,554 mm na F) uwolnił SWIO; GND pozostało
+  jednym obszarem. Dalsze mostki są osobno wymienione w pliku wyjątków.
+- Warianty kolejności dały 49/46/52 przerw. Lokalne dojścia 0,2 mm zapewniły
+  tyle samo połączeń co 0,15 mm. Wybrano 0,2 mm, zachowując szerokie szyny.
+
+Co nie pomogło lub zostało odrzucone
+- Natywne A*: 181,956 s, zamknięte 2/9 sieci. Kolejne 39,591 s nie dało
+  domknięć przed błędem obsługi opisu PTH. Błędy adapterów to osobna kategoria.
+- Dodanie 17 wyprowadzeń nie wystarczyło: następny przebieg KRT trwał
+  53,941 s i pozostawił 28 przerw. Potrzebne są zmiany rozmieszczenia/tras.
+- Małe przesunięcia R11/R12 przeszły kontrolę fizyczną, ale późniejsza próba
+  dostępu przez zwykłe przelotki nie znalazła żadnej opcji dla siedmiu grup.
+  Nie uznano tych ruchów za rozwiązanie dostępu.
+- Freerouting 2.2.2: trzy warstwy sygnałowe, 77,060 s i nadal 28 przerw;
+  cztery warstwy diagnostycznie: 63,037 s, 18 przerw, jedno zwarcie i trzy
+  obszary GND. Oba wyniki odrzucono.
+- Pierwszy adapter DSN gubił definicje zamrożonych sieci. Poprawiono go przez
+  jawne przeszkody geometryczne. Początkowe wyniki nie są benchmarkiem.
+- Import SES: GetDrill() zwraca domyślne -1, mimo rzeczywistego 0,3 mm.
+  Porównywanie przelotek wymaga GetDrillValue(); pierwszy import duplikował
+  39 przelotek. Surowy wynik zachowano, poprawiony import sprawdzono ponownie.
+
+Stan kontrolowanej gałęzi
+Wcześniejszy wynik: 20 → 17 przerw po poszerzeniu próbnego limitu In1.
+Nie można przypisać tej poprawy zmianie przejścia grafu: zmieniono dwa
+parametry naraz. GetConnectedItems() zwraca cały klaster; wcześniejsze
+wyjaśnienie o jednym sąsiedzie było błędne i zostało wycofane.
+
+Węższa poprawka K6/SCL otworzyła dojścia do obu rezystorów L8. Kolejna
+propozycja dziesięciu wskazanych sieci z karą za użycie In1 dała sześć domknięć.
+Wewnętrzna bramka routera odrzuciła ją za szacowany stan GND/VCC. Zatrzymano
+osobną kopię diagnostyczną, zachowując wszystkie kontrole KiCad i ich reguły.
+Po oficjalnym przeliczeniu pól: dziewięć przerw, GND w jednym obszarze;
+wewnętrznej diagnozy utraty GND nie potwierdził wynik natywny.
+
+Aktualizacja 2026-10-15
+Oba ostatnie połączenia zamknięto przez zmianę strony elementów: R4 jest
+z przodu między rzędami LED, JP2 na dolnym przednim marginesie. Nie dodano
+części. R4 wymaga zamkniętej nieprzezroczystej kieszeni w kratce; do JP2
+trzeba zdjąć przednią ramkę/optikę. Są to nowe warunki montażu i kwalifikacji.
+
+Aktualna kopia jp2-via-guard-fix: ZERO DRC/przerw/parity/ignorowanych kontroli.
+ERC wcześniejszej identycznej wersji schematu:0. Audyt369pinów/390padówPASS.
+GND: jeden obszar,1443,951mm²;399,932mm jawnych tras In1. Wymaga oceny
+szyjek i dróg powrotu; ciągłość sama nie dowodzi dobrej jakości zasilania.
+
+Ważne niepowodzenia: proste przesunięcie końców długich tras do środka
+przelotek wprowadziło osiem naruszeń odstępów. Zastosowano krótkie lokalne
+dojścia. Usunięcie przelotki używanej tylko na jednej warstwie rozerwało
+połączenie między różnymi końcami tras; odtworzono jawne połączenie miedzią.
+Zmiany pola VCC liczone są jako nowe przerwy, nawet przy poprawie sygnałów.
+Natywne DRC nie zgłosiło otworu pod przesuniętą zworką: własny audyt wykrył
+kolizję i zworkę/przelotkę przesunięto. Audyt wszystkich przelotek po tej
+poprawce:0kolizji przy konserwatywnym promieniu0,36mm względem padów SMT.
+
+Pierwsze bieżące sprawdzenie STEP wykryło drobne kolizje nowych górnych
+rezystorów ze starymi podporami i tylną wargą ramki. Poprawiono mechanikę;
+wyniki prób1/4kafelków są w osobnych raportach, bez twierdzeń o realnym druku.
+Najnowszy wariant m2-polygon-margin ma0naruszeń/przerw/parity/ignorowanych
+kontroli oraz niezależny audyt montażu/zasilaniaPASS. Został przeniesiony do
+hw/ledkiv3.1/ z zachowaniem wcześniejszego nieroutowanego źródła.
+Końcowy eksporter ponownie sprawdza zamrożoną wersję i bieżącySTEP; fizyczna
+kwalifikacja pozostaje osobnym etapem.
+
+Pełne opisy rezystorów nie mieściły się przy1mm/.15mm. Próby zachłannego
+rozmieszczania i innej czcionki odrzucono; TrueType miał82błędy grubości.
+Rozwiązanie: numery rezystorów, P1/P2, legendaR=#/P=JP, pełne oznaczenia
+wCAD/Fab/BOM. Natywne kształty glifów pomogły rozmieścić75opisów; sześć
+odsuniętych opisów ma odnośniki. Miedź i położenia elementów zachowano.
+
+Audyt powrotuGND pokazał wąski językQ10, mimo jednego dużego poligonu.
+Nie stwierdzono przeciążenia: model samej szyjki daje~0,44mV przy0,5A,
+bez reszty pętli. Krótkie równoległe połączenie do głównego obszaru poprawia
+margines geometrii; nie jest pomiarem impedancji ani kwalifikacją5kafelków.
+C4wymaga oceny realnej pętli impulsowej. Wykryto też inscribedkeepoutM2:
+poligon o promieniu2,45mm miał apotemę2,447mm; powiększono do2,46mm,
+bez osłabiania wymaganej kontroli minimalnego odstępu2,45mm.
+
+Dokładne wejścia, profile, wersje, czasy i wyniki: sąsiedni JSON oraz
+../experiments.csv. Surowe próby pozostają w sesji Letki pod
+build/hardware/v3_1-integration/. Wspólny workflow otrzymuje tylko wnioski
+poparte tymi danymi. Nie wykonywano operacji na sprzęcie, zamówień ani pushy.

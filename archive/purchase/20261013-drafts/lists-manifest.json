@@ -1,0 +1,114 @@
+{
+  "prepared_date": "2026-10-12",
+  "boards": 5,
+  "USB_heads": 1,
+  "SWIO_headers": 5,
+  "stock_used": {
+    "CH32V003F4P6": 5,
+    "XL-2012UOC": 320
+  },
+  "stock_available_after_reserving_four_v3": {
+    "CH32V003F4P6": 43,
+    "XL-2012UOC": 680
+  },
+  "excluded": [
+    "stocked MCU and LEDs",
+    "optional probe cable",
+    "PCB",
+    "shipping and taxes",
+    "mounting screws",
+    "inter-board wire",
+    "printed parts"
+  ],
+  "quantity_policy": {
+    "v4.0": "Original recommended five-board list, MOQ/tiers plus selected1000-piece low-cost resistor stock; not the later user-enlarged actual cart. No new spare allowance.",
+    "v4.1": "Current five-board TME list with20%spares(minimum-one) and supplier minima; two reviewed alternatives substituted at unchanged quantities."
+  },
+  "comparison_note": "The lists intentionally preserve the previous quantity decisions; they do not provide a same-quantity price comparison.",
+  "import_note": {
+    "LCSC": "CSV has LCSC Part #/Quantity header; TXT tab-separated code and quantity.",
+    "TME": "CSV semicolon-separated symbol and quantity, no header; TXT tab-separated. Import into an empty draft to avoid duplicate quantities."
+  },
+  "procurement_substitutions": {
+    "v4.1": {
+      "R30_R31": "RC0603FR-075K1L",
+      "U5": "AP22653W6-7",
+      "R32": "retain33k1%"
+    }
+  },
+  "native_CAD_and_manufacturing_files": "Unchanged; v4.1 native BOM still names original selections. Substitutions documented in parts-mapping and review JSON, not silently applied to CAD.",
+  "availability": "No cart/order or purchase submitted. Supplier availability and pricing require live checkout confirmation.",
+  "sources": {
+    "hw/ledkiv4/exports/prototype/procurement/BUY-5-BOARDS.csv": "dcc7995d7843c16185a39a640be13e9fc840393a86ddf12f99402275dbfe3f47",
+    "build/purchase-v4_1/TME-quickbuy-alternatives.csv": "8e2613427caa9d5de05f6bc324cc31784eb113d92f5a84466c667428bfed223f",
+    "config/parts-stock.csv": "9cb04d41c4775d112618755ffe37af01aca2a79c4ea55aa81ce07aca920f6ddb"
+  },
+  "files": {
+    "v4.0-LCSC-5-boards.csv": "dcc7995d7843c16185a39a640be13e9fc840393a86ddf12f99402275dbfe3f47",
+    "v4.0-LCSC-5-boards.txt": "bcb60b08ebdcb7ec6dbe8d0431d892c567ebb1b5f36a685a9bbc1b872cff6d0d",
+    "v4.1-TME-5-boards.csv": "8e2613427caa9d5de05f6bc324cc31784eb113d92f5a84466c667428bfed223f",
+    "v4.1-TME-5-boards.txt": "fad41abdfcd7ca91162cd65527bae21a57a48c22ca8a9db836e1c15a9914d72b",
+    "parts-mapping-5-boards.csv": "0b674dbfc4a4dca52bd19d49a55c9e36d2b0759414ff14bf798b75e3a116c100",
+    "TME-SWIO-cable-add.csv": "1894b621103b62d483147a2da8bc697b65f19d7af66c9ba440d90a8469a81214",
+    "TME-SWIO-cable-add.txt": "a16cbceeddc9d811f527269145d96c411e4d692e3dac2631890aafba06c15a4b",
+    "v4.1-TME-5-boards-with-SWIO-cable.csv": "0cf13bd798e69896941109a22716a8434d6a963879bcb47f48846d12c1077d4a",
+    "TME-SWIO-cable-review.json": "1b825a7a95017a782657f732fbd6d1062a9f45f6e0bd897d6f6205a520683108",
+    "TME-SWIO-crimp-add.csv": "0a56b107f8268fae7ba15ec484f23621ac7eb7e865829d39016042dbaab0d759",
+    "TME-SWIO-crimp-add.txt": "4d2c908cfb04ff8f5516f07c25474498c88b95ec7988d71d46c26e5fd38a1a82",
+    "v4.1-TME-5-boards-with-SWIO-crimp.csv": "1de5bb268b1b08e2bc99872b62bf3c07ea49c525394e529c3b400fde01b0e2eb",
+    "TME-SWIO-crimp-review.json": "00d840e8b26afb01220c7ad18b2ece1720dfad17d86413f092c3677ddc9e6f26"
+  },
+  "purchase_decision": {
+    "date": "2026-10-13",
+    "selected_supplier": "TME",
+    "selected_PCB_revision": "v4.1",
+    "selected_board_quantity": 5,
+    "selected_quickbuy_csv": "config/purchase/v4.1-TME-5-boards.csv",
+    "selected_quickbuy_txt": "config/purchase/v4.1-TME-5-boards.txt",
+    "reason": "User chose the small TME order after LCSC checkout showed USD20 shipping and USD20 tariff.",
+    "LCSC_shipping_USD_user_report": 20,
+    "LCSC_tariff_USD_user_report": 20,
+    "LCSC_fee_evidence": "User report, not independently verified checkout",
+    "LCSC_status": "Not selected for this purchase; all prepared lists retained for later use.",
+    "PCB_pairing": "Use v4.1 CAD/Gerbers with selected TME list; v4.0 LCSC parts are not interchangeable as a whole.",
+    "order_status": "No order or payment submitted by agent.",
+    "user_checked_parts_lines": 18,
+    "user_reported_parts_price_PLN": 193,
+    "SWIO_cable_proposal": {
+      "addon_csv": "config/purchase/TME-SWIO-cable-add.csv",
+      "complete_csv": "config/purchase/v4.1-TME-5-boards-with-SWIO-cable.csv",
+      "gross_PLN_snapshot": 9.48,
+      "status": "Proposed separate add-on; not yet confirmed in userbasket; needs splicing into existing probe leads."
+    },
+    "SWIO_crimp_proposal": {
+      "addon_csv": "config/purchase/TME-SWIO-crimp-add.csv",
+      "cost_gross_PLN_approx": 1.68,
+      "tool_model_pending": true,
+      "tool_not_included": true
+    },
+    "JLCPCB_cart": {
+      "date": "2026-10-13",
+      "revision": "v4.1",
+      "item_name": "ledkiv4_1-gerbers_Y8",
+      "prototype_identifier": "Y8-10656422A",
+      "boards": 5,
+      "PCB_price_USD": 2,
+      "quote_shipping_estimate_USD": 1.5,
+      "Gerber_SHA256": "31de94b8df6cec8883f9bfa811c942c091c43b7e7b3588ef1af4935bc057a927",
+      "status": "Saved to cart, not ordered/paid; checkout costs to be verified",
+      "cart_shipping_estimate_USD": 1.5,
+      "cart_subtotal_estimate_USD": 3.5,
+      "shipping_method": "Global Standard Direct Line"
+    },
+    "TME_order": {
+      "order_number": "35700057",
+      "date": "2026-10-13",
+      "lines": 20,
+      "all_required_parts_present": true,
+      "status": "Ordered;all20linesawaitingdelivery;notyetonhand",
+      "merchandise_gross_PLN_from_export": "174.15170",
+      "ledger": "config/parts-incoming.csv",
+      "source": "config/orders/TME-35700057-source.json"
+    }
+  }
+}

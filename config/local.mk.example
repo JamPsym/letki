@@ -1,0 +1,5 @@
+# Copy to config/local.mk when using a different Linux WCH installation.
+# Include the complete binary prefix, ending in a hyphen.
+# CROSS_COMPILE := /opt/mrs/RISC-V_Embedded_GCC/bin/riscv-none-embed-
+# CROSS_COMPILE := /opt/mrs/RISC-V_Embedded_GCC12/bin/riscv-none-elf-
+# OPT := -O0

@@ -1,0 +1,40 @@
+ACCEPTED V3.1 BASELINE — 2026-10-15
+User accepted this checked CAD as actual v3.1. Exact identity and frozen
+source/fabrication package: hw/ledkiv3.1/baseline.json and
+archive/hw/ledkiv3.1-baseline-20261015/BASELINE.txt.
+Physical qualification remains pending. CAD bytes were not changed for acceptance.
+
+V3.1 — ONE SHARED HUMAN/AGENT PROJECT, updated2026-10-15
+
+Edit hw/ledkiv3.1/ledkiv3_1.kicad_pro: schematic AND PCB in the same project.
+Current circuit:8single33R E12/1% row resistors; noR58-R65 orJP1/JP2;
+buttons/RC removed;40gate/bias0603. The human placement is preserved and
+routing is complete:146footprints,974tracks/131ordinaryvias. ERC/DRC/open/
+parity/ignored0; independent circuit, actualmultilayerpower and manufacturing
+checks pass. Read docs/v3_1-completion-20261015.txt and v3_1-assembly-test.txt.
+
+Firmware: firmware/v3_1-pulse/ and firmware/v3_1-interface/ (profiles33R).
+Routed checks: use .tools/kicad-routing-env/bin/python with
+scripts/check_v3_1_integrated.py and scripts/check_v3_1_manufacturing.py.
+The old placement-only checker requires zero copper and is historical.
+Current power/label contracts:config/v3_1-power-layout.json,v3_1-labels.json,
+and the project's exact in1-exceptions.json. Changing a whitelist alone cannot
+pass the mandatory independent actual-copper connectivity gate.
+BOM/qualification/export: scripts/v3_1_{bom,qualify,package}.py.
+Current checked package:hw/ledkiv3.1/exports/prototype/manifest.json.
+The source is a CAD-checked prototype, not a physically qualified release.
+
+Historical checked34R baseline AND frozen exports:
+archive/hw/ledkiv3.1-checked-34R-20261015/.
+This frozen package is historical; use the current33R package above.
+Fabricator process/preview confirmation and physical tests remain.
+Exact circuit study history: archive/hw/ledkiv3.1-studies-20261015/.
+Old build/session paths are preserved evidence, not active authored projects.
+
+Reusable electronics notes and purchase alternatives:
+/home/pies/electronics/notes/sourcing/letki-v3_1-index.txt
+/home/pies/electronics/notes/circuits/2026-10-15-led-matrix-drive-studies.txt
+/home/pies/electronics/purchases/README.txt
+Refresh shopping lists for40new33R resistors and current quantities before buying;
+old34R source/stock credits are historical. No purchase, stock/reservation mutation,
+physical hardware access or flash follows this collaboration setup.

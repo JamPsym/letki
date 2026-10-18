@@ -1,0 +1,97 @@
+CURRENT FABRICATION DERIVATIVE, 2026-10-17
+Read fabrication.json, ASSEMBLY.txt and docs/v3_2-fabrication-20261017.txt.
+1,489 segments, 299 fixed vias, 159 fixed footprints; fresh ERC/DRC/opens/
+parity/ignored0 and independent76/76net continuity. The accepted1,490-segment
+milestone remains frozen. Its only dangling ADDR0stub was removed; the two
+Q3source segments are restored to0.5mm and the R25bias feed to0.3mm.
+Six formerly generic passives now have exact MPNs without electrical changes.
+The historical routing record below describes the first robot version.
+Current checked export: hw/ledkiv3.2/exports/fabrication-20261017-r2/.
+Supplier-process quote/spacing issues are explicit in the handoff; this is a
+prototype package, with physical qualification and new firmware still pending.
+
+HISTORICAL FIRST ROBOT ROUTING RECORD FOLLOWS
+
+LETKI V3.2 — ROUTED CAD PROTOTYPE, 2026-10-17
+
+Open hw/ledkiv3.2/ledkiv3_2.kicad_pro. The QSOP24 CH32V006E8R6,
+49.6 mm square, 6.2 mm LED lattice and four upright directional ports retain
+the reviewed study circuit and all 159 placements/padstacks. There are 2015
+track segments, 299 ordinary tented 0.6/0.3 mm through vias and seven zones.
+No component moves or electrical ECOs were needed during routing.
+
+The complete unrouted placement is preserved at
+archive/hw/ledkiv3.2-unrouted-20261017/ (38 manifest-bound files). To try human
+routing, copy that whole directory and open hw/ledkiv3.2/ledkiv3_2.kicad_pro
+inside the copy. Keep the checkpoint unchanged. Its native baseline has
+307 opens and no tracks/vias/zones; it is intentionally not fabrication CAD.
+
+The routed board uses the v3.1 matrix/local-driver patterns and a mixed native
+KiCad/API plus bounded KRT0.23.0 workflow. Terminal escapes resolved repeated
+router failures. A front VCC reinforcement zone with 43 additional legal
+stitches joins the striped inner VCC distribution. R40 has an explicit 0.5 mm
+rear bias-feed bridge. GND remains one actual copper network on In1, with an
+exact reviewed exception: seven 0.15 mm segments, 29.392 mm total, on SEL1
+and ADDR2. This is substantial plane use, not merely two tiny crossovers.
+Their UUIDs/net/geometry are bound in hw/ledkiv3.2/in1-exceptions.json.
+
+The final native ERC, DRC, opens, schematic parity and ignored counts are all
+zero. Independent checks compare all 24 MCU pins and 380 unique ref/pin pairs
+(383 numbered physical pads), footprint poses/identities, per-layer padstacks,
+authored rules, physical copper continuity on all 76 nets, duplicate copper,
+ordinary tented vias, 0.36 mm via-to-SMT guard and 2.45 mm all-layer M2 copper
+exclusion. The original 26 v3.1 source hashes still match. The 116 rear labels
+include 83 component labels, 28 edge-net legends and five board/service labels.
+R=# means numeric resistor labels; full references remain on Fab and in BOM.
+Use the native coordinate/assembly maps to identify crowded components.
+
+Power and return evidence
+A DC F/In2 resistor mesh at 0.1 mm pitch estimates VCC west/east 16.177 mOhm
+and north/south 4.762 mOhm, or 40.44/11.90 mV at an illustrative 2.5 A. The
+0.2 mm result was 17.474/5.069 mOhm and missed eight barrels; the finer mesh
+missed none. Copper is modelled as 35/17.5 um, resistivity 1.724e-8 ohm*m,
+with assumed 25 um barrel plating. B copper, contact/solder/wire resistance,
+temperature, array current distribution and AC/EMI are excluded. This is an
+estimate, not a measured limit, error bound or thermal rating.
+The reviewed In1 slots end inside the board, away from M2/edge-to-edge cuts.
+A 0.2 mm GND sheet comparison gives W/E3.003 and N/S2.944 mOhm versus
+2.873/2.817 mOhm before the slots, about 4.5% greater. Connectivity, erosion
+geometry and DC estimates do not qualify high-frequency return impedance.
+
+Assembly and use
+Supply regulated 3.3 V. Every tile stays upright: W RX1 to E TX1 and S RX2
+to N TX2; common SDA/SCL and grounds. Populate R11/R12 on exactly one tile
+per connected I2C bus; omit them elsewhere. Ordinary tiles fit 145 SMT parts,
+the one pull-up tile 147; J2 is optional on either. The BOM includes 148 CAD
+purchase references and separately marks 11 non-purchased mechanical/contact
+features. R69/R70/R71/R72/R73/C6 need exact MPN selection; the new QSOP24 MCU
+is proposed procurement, not a credit against stocked TSSOP20 V006 parts.
+The old V003 firmware is incompatible. See v3_2-study.txt for the exact GPIO/
+timer/remap contract and v3_2-network-update.txt for downloader feasibility.
+New firmware/loader implementation and qualification remain future work.
+
+Recheck/export with Python containing native pcbnew and Shapely, for example:
+.tools/kicad-routing-env/bin/python scripts/v3_2_package.py \
+  --geometry-python .tools/kicad-routing-env/bin/python \
+  --output build/hardware/v3_2-package/fresh-run
+Use a new output directory. The read-only exporter rejects native findings,
+unreviewed plane/power changes and physical disconnections. It generates four
+layer Gerbers, separate PTH/NPTH, paste, assembly SVGs, schematic PDF, population
+BOM, native review positions, populated STEP, source ZIP and hash manifests.
+The source ZIP includes the unrouted baseline needed by its independent gate.
+KiCad10 standard 3D libraries remain an external dependency. Never replay the
+development placement/routing helpers on this reviewed board.
+
+Fabrication intent: 1.6 mm, four layers, 35/17.5/17.5/35 um copper, HAL SnPb;
+ordinary tented vias, no filling/capping, castellations or edge plating. Contact
+holes stay ordinary open PTH. Fabricator preview/process confirmation is still
+required before any order; native positions are not a qualified assembler file.
+Physical rail/current/thermal/PWM/startup/blanking/network/update/optical and
+mechanical tests remain pending. The prior diffuser/carrier does not fit this
+49.6/6.2 mm revision. No physical fit, flashed application or production release
+is implied. No hardware, purchase, stock reservation, commit or push occurred.
+
+Detailed development evidence, including rejected candidates and actual command
+timings, is retained in /home/pies/electronics/build/experiments/v32-routing-20261017/.
+Reusable findings and trial identities are in that repository's routing notes
+and notes/experiments.csv. Historical pre-routing records remain unchanged.

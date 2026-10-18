@@ -1,0 +1,9 @@
+(fp_lib_table
+	(lib
+		(name "Letki31")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/Letki31.pretty")
+		(options "")
+		(descr "v3.1 complete local footprint context")
+	)
+)

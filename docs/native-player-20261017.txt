@@ -1,0 +1,123 @@
+Native Letki music engine — verified baseline, 2026-10-17
+======================================================
+
+C++17 implementation: host/player/.
+Guide: host/player/README.txt. Word tools: docs/player-word-tools.txt.
+Build: make player. Tests: make player-test; make player-sanitize.
+The default MCU firmware build and the R3 milestone are preserved.
+No application flash, option-byte, programmer power or CAD changes occurred.
+
+The engine plays local audio through PortAudio with absolute DAC presentation
+clock scheduling. It streams from a fixed512KiB ring, analyzes24logarithmic FFT
+bands at50Hz, detects separate bass/treble attacks and supports title text,
+held/scrolling word cues, seek/pause, full0..100 LEVEL8 PWM or GRAY4, simulated
+five-node firmware, explicit physical UART, baud recovery, bounded future frames
+and persistent-show retention. The default is LEVEL8 at12fps/230400baud, with
+My Cyganie as the selected local preset. No Python runtime is used by playback.
+
+The current art direction uses the original silk ribbon and ripple garden
+geometry, with bass-hit motion bursts, strong PWM pulses and small treble highlights.
+Video now plays in full color on the PC above the simulator. It never affects
+LED pixels. V toggles that PC panel; N advances instrument/effect cues. Earlier
+video-to-LED texture experiments were a misunderstanding and have been removed.
+The user permits repeated shapes and asks for clear ideas. The instrument theatre
+prototype uses piano keys, organ pipes, mallets, guitars, mandolin and hanging
+bells. Its announcement labels/timings are explicitly draft. Original PWM
+geometry/music is available unobstructed in config/player/original-pwm.json.
+The user especially likes its first two scenes: music-ribbon/music-ripple retain
+those shapes while bass attacks move/brighten them and treble lights their cores.
+The first music-reactive tuning was rejected as perceptually ineffective despite
+valid UART traffic. A revised envelope uses a55ms hold,85ms release,2.5% floor,
+full attack gain and a seven-step motion burst per bass event. This is a creative
+prototype; packet/render tests alone do not establish musical quality.
+config/player/my-cyganie-shapes.json alternates these every20seconds.
+
+Local recordings supplied for this session:
+- Don Vasyl / My Cyganie (Ore ore),278.338s;8s introduction.
+- Mike Oldfield / Tubular Bells, BBC1973,1548.307s;10s introduction.
+- Tiesto / Adagio for Strings,205.729s;10s introduction.
+Files live under ignored build/media/. Presets are in config/player/.
+Video variants are alongside the audio/procedural presets. Each accepts overrides.
+
+Final complete software simulations use the actual recording features and real
+C firmware packet/router/node/queue/render path. Every resulting320-pixel frame
+is compared in the selected full-precision format:
+- final-tubular-check.json:18700frames, full1548.307s recording plus intro.
+- final-adagio-check.json:2589frames, full205.729s recording plus intro.
+- final-cyganie-video-check.json:3437frames, historical LED-video experiment;
+  superseded by the PC-only video correction.
+- final-words-check.json:30s sample around the spoken bells announcement.
+All artifacts above are under build/player/, with matching .log files.
+
+Physical final excerpt checks on all five existing R3 boards:
+- final-tubular-words-hardware.json:12s around the announcement,145uploads,
+  0skipped/late,0audio warnings,5bounded retries,0invalid replies.
+- final-adagio-hardware.json:25s including its introduction,301uploads,
+  0skipped/late,0audio warnings,12bounded retries,0invalid replies.
+- final-cyganie-hardware.json:30s historical ribbon/LED-video experiment,361uploads,
+  0skipped/late,0audio warnings,16bounded retries,0invalid replies.
+
+These final checks followed smaller retry timeouts at230400 and a30fps preview
+cap with650ms queue lookahead. Earlier trial reports remain visible: some had
+skips/late frames, and the user rejected noisy video and ring/comet art directions.
+The final excerpt results do not claim entire physical playback of all long
+recordings or permanent immunity to USB/OS stalls. One earlier full My Cyganie
+run completed in the initial equalizer style; this is retained as historical
+functional audio evidence, not approval of that art direction.
+
+my-cyganie-before.json and final-hardware-state.json prove all five228-byte safe
+flash programs retained exactly matching SHA256, with zero added per-node UART
+errors or TX drops. The prior receiver UART-error count1 remains unchanged.
+All five returned to unpaused standalone timeline playback with twoLEVEL8 slots.
+The serial port is released/restored. No probe move was required.
+
+Software tests cover CRC/COBS golden vectors, cached retries and corrupt replies,
+clock jumps, two virtual hours and request/generation wrap, real POSIX PTY
+coalescing/poison recovery/exclusivity/tty restoration, both pixel formats,
+frequency separation, known synthetic bass/treble attacks and ribbon response,
+production audio callback/ring/gain/pre-roll/seeks/EOF, PC RGB video decode/dimensions/seek/looping and LED/video independence, centered/scrolling text, recording-identity checks and cue
+export. Eight native CLI tests and four word-tool unit tests passed. ASan/UBSan
+passed for driver/analysis tests, the production audio callback harness and native
+video tests. make test and make all-variants -j4 also passed during integration.
+
+Word authoring was exercised on the BBC's900..1548s announcement section and the
+full Polish My Cyganie recording. JSON/word confidence/SRT/CSV are in
+build/player/words/. A selected bells announcement was converted to a native
+show and exercised on the hardware. Recognition is imperfect over music:
+several instrument names and Polish phrases are wrong, so they remain flagged
+and reviewable; the draft is not represented as final accurate lyrics.
+
+Limitations: optical timing/skew, electrical waveforms/current/rails and runtime
+MCU stack high-water were not measured. The existing R3 hardware qualification
+limits remain. Audio synchronization relies on the selected backend's DAC clock;
+UART midpoint offsets include chain asymmetry. Source/video cache and telemetry
+are bounded. Independent board-clock changes are detected periodically; already
+queued frames can be affected until detection. Saved-show restoration needs fresh
+shared I2C clocks, and reports failure if those are stale. Abrupt SIGKILL cannot
+run cleanup. The game/animation art direction is subjective and remains editable.
+
+PC-video correction and clear-shape validation:
+- pc-video-theatre-tests.log: native/CLI/audio/RGB-video/word tests passed;
+  render() has no video input and a regression checks video-path independence.
+- pc-video-theatre-sanitize.log: ASan/UBSan core/audio/RGB-video passed.
+- pc-only-theatre-check.json:2881 frames over240s of instrument announcements,
+  through the real five-node C firmware with exact320-pixel comparisons.
+- original-pwm-replay.json:full38.4s narrated original show on all five boards,
+  461 uploads,0skipped/late/audio warnings,24bounded retries,0invalid replies.
+- clear-shapes-tests.log: music-ribbon/music-ripple respond to known synthetic
+  bass attacks with bounded PWM and keep the original spatial geometry.
+- clear-shapes-check.json:complete My Cyganie procedural show against C firmware.
+The PC RGB panel and the LED-only simulator were visually inspected together.
+New physical/sanitizer results and source fingerprints: build/player/summary.json.
+
+Final clear-shape revision:
+strong-pulse-tests.log and final-cli-tests.log passed. strong-pulse-check.json
+compares all3437 full-show frames against the five-node C firmware. The45s
+physical excerpt (strong-pulse-hardware.json) completed541 uploads with0skipped,
+0late uploads,0audio warnings,28cached retries and0invalid replies. The video
+was shown normally in the PC panel, never on the LEDs. In a10..40s recording
+sample, the5th/95th percentile of peak pixel request changed from19/73 to3/100;
+this quantifies a stronger frame envelope, not an optical brightness measurement.
+The final arithmetic-only envelope revision passed native response tests; memory
+sanitizers had passed on the preceding core/audio/RGB-video implementation.
+Final state/readback and source snapshot are linked from build/player/summary.json.

@@ -1,0 +1,177 @@
+{
+  "name": "Adagio for Strings — suspended light",
+  "title": "ADAGIO FOR STRINGS",
+  "artist": "TIESTO",
+  "audio": "../../build/media/youtube-2EaE0_gQLw0/2EaE0_gQLw0.flac",
+  "video": "../../build/media/youtube-2EaE0_gQLw0/2EaE0_gQLw0.video.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 0,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 0.45,
+  "style": "adagio-shutters",
+  "cues": [
+    {
+      "at": 0,
+      "effect": "adagio-shutters",
+      "label": "Pulse gates",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 15,
+      "clock": "grid"
+    },
+    {
+      "at": 0,
+      "duration": 8,
+      "text": "ADAGIO FOR STRINGS  TIESTO",
+      "mode": "scroll"
+    },
+    {
+      "at": 15,
+      "effect": "adagio-prism",
+      "label": "Fractured light",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 15,
+      "clock": "grid"
+    },
+    {
+      "at": 30,
+      "effect": "adagio-bows",
+      "label": "The bow remains",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 17,
+      "clock": "grid"
+    },
+    {
+      "at": 47,
+      "effect": "adagio-vault",
+      "label": "Suspended arches",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 18,
+      "clock": "grid"
+    },
+    {
+      "at": 65,
+      "effect": "adagio-bows",
+      "label": "Held breath",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 18,
+      "clock": "grid"
+    },
+    {
+      "at": 83,
+      "effect": "adagio-vault",
+      "label": "Rising vault",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 18,
+      "clock": "grid"
+    },
+    {
+      "at": 101,
+      "effect": "adagio-bows",
+      "label": "Taut strings",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 15,
+      "clock": "grid"
+    },
+    {
+      "at": 116,
+      "effect": "adagio-vault",
+      "label": "Opening the ceiling",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 13,
+      "clock": "grid"
+    },
+    {
+      "at": 129,
+      "effect": "adagio-shutters",
+      "label": "Release",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 17,
+      "clock": "grid"
+    },
+    {
+      "at": 146,
+      "effect": "adagio-prism",
+      "label": "Refraction",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 17,
+      "clock": "grid"
+    },
+    {
+      "at": 163,
+      "effect": "adagio-shutters",
+      "label": "Crossing gates",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 17,
+      "clock": "grid"
+    },
+    {
+      "at": 180,
+      "effect": "adagio-prism",
+      "label": "Final facets",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 16,
+      "clock": "grid"
+    },
+    {
+      "at": 196,
+      "effect": "adagio-bows",
+      "label": "Afterglow",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "duration": 7,
+      "clock": "grid"
+    },
+    {
+      "at": 203,
+      "effect": "adagio-bows",
+      "label": "Blackout",
+      "level": 0,
+      "speed": 1,
+      "variant": 0,
+      "duration": 2.728798186,
+      "clock": "grid"
+    }
+  ],
+  "recording": {
+    "sha256": "28a744a72c75d330d4506505c3f0736a263161f9082062be200c9d5f12b02dd8",
+    "duration_seconds": 205.72879818594106
+  },
+  "authoring": {
+    "version": 2,
+    "scope": "Complete recording: bowed strings, suspended architecture, pulse gates and angular facets",
+    "basis": "Joint pulse fit0..29 and129..196: period0.423360seconds, origin0.192seconds. Sustained FFT mids during breakdown30..129; editorial scene boundaries.",
+    "video_on_leds": false,
+    "output": "Host output_gamma0.5 for the current low-current configuration. Audio, video and title begin together."
+  },
+  "output_gamma": 0.5,
+  "rhythm": {
+    "bpm": 141.7233560090703,
+    "offset": 0.192
+  }
+}

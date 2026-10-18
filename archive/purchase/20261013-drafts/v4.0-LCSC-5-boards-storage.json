@@ -1,0 +1,35 @@
+{
+  "status": "Purchase proposal; no cart changed or order submitted",
+  "boards": 5,
+  "USB_heads": 1,
+  "stocked_MCU_and_LEDs_excluded": true,
+  "integrated_circuit_quantities": "Unchanged; user explicitly does not store ICs in magazines",
+  "quantity_policy": "1000 each resistor value;1000 100nF bypass caps;50 4.7uF caps;300 MOSFETs; other quantities unchanged",
+  "capacity_warning": "Only500 orangeLEDs/magazine has been confirmed. These are economical stocking quantities, not confirmed full-container counts. Paper tape is harder to pack.",
+  "supplier_refresh_directory": "build/purchase-v4_1/lcsc-storage-refresh",
+  "parts_subtotal_USD": "41.1139",
+  "baseline_parts_subtotal_USD": "16.3549",
+  "additional_spend_USD": "24.7590",
+  "excludes": [
+    "shipping",
+    "VAT",
+    "PCB",
+    "cables",
+    "mechanics"
+  ],
+  "supplier_snapshot_notice": "Changed items were fetched anew; unchanged IC/connectors/buttons retain2026-10-12 snapshots. Checkout can change price/stock/shipping tiers.",
+  "substitution": {
+    "C14663": "C1591",
+    "part": "SamsungCL10B104KB8NNNC",
+    "manufacturer_url": "https://product.samsungsem.com/mlcc/CL10B104KB8NNN.do",
+    "purpose": "100nF50VX7R10%0603 bypass replacement; original stock0 in fresh LCSC data",
+    "CAD_and_Gerbers": "Unchanged; native BOM continues to identify original Yageo part; substitution recorded explicitly in purchase review"
+  },
+  "baseline_sha256": "dcc7995d7843c16185a39a640be13e9fc840393a86ddf12f99402275dbfe3f47",
+  "files": {
+    "v4.0-LCSC-5-boards-storage.csv": "2026a57a82c287f684046bb565fb9dc089a4a7383d5f25536fa8075c6a5f4aa2",
+    "v4.0-LCSC-5-boards-storage.txt": "34c9b0329890462be1a2777ccc973fc78af4ec1baa16077c2061ae739a921b32",
+    "v4.0-LCSC-5-boards-storage-review.csv": "1d89591511993c28d875c28f9984a52fa9708685ff30de3beb0c12e168e7e905",
+    "v4.0-LCSC-5-boards-storage-quantity-options.csv": "7a87f9c680a29cba868e49026c0ceed1f21dcfc79978e9f81fe1668d42666405"
+  }
+}

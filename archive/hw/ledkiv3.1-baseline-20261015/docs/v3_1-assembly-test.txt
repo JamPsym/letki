@@ -1,0 +1,162 @@
+CURRENT PHASE: completed146-footprint PCB around the human placement;
+974tracks/131vias, nativeERC/DRC/opens/parity/ignored0. Independent circuit,
+power-connectivity and manufacturing checks pass. Current package and checked
+source identity are recorded in exports/prototype/manifest.json. This is a
+CAD-checked prototype; all physical qualification steps below still apply.
+
+LETKI v3.1 — ASSEMBLY AND FIRST HARDWARE QUALIFICATION
+2026-10-14 — development procedure, to accompany the checked tile package
+
+Scope
+Five Study C LED tiles. The owned ESP-12F and custom USB-C/buck head are
+deferred until tile verification. This design session performs no probe,
+power, flash, option-byte operation or purchase. The separate hardware
+session must identify the board and obtain the applicable authorization.
+The integrated README/package manifest records the current release status.
+
+1. Population and polarity
+Use the integrated schematic, its current BOM and assembly drawing together.
+The original v3 wiring/firmware is incompatible with this tile.
+- U1 CH32V003F4P6; U2 TI SN74HC138PWR. Do not substitute HCT238 or invert
+  the decoder outputs. Q1-Q8 AO3415A P-MOS; Q9-Q16 DMN2056U-7 N-MOS.
+  Both selected SOT23 devices: pin1 gate, pin2 source, pin3 drain.
+- D1-D64 XL-2012UOC: pin1 cathode, pin2 anode. All are rotated180degrees
+  relative to the original v3 population. Check the manufacturer's physical
+  cathode marking against the assembly drawing before soldering all64.
+- R1-R8: one33ohm E12 nominal,1%0805/125mW resistor per row.
+  Exact selected catalogue part: Royalohm0805S8F330JT5E. R58-R65 removed.
+  A solder bridge can remove current limiting. Qualify measured current/power.
+- First provision ONLY: leave R49 open. Fit R38 (Q16 gate pulldown).
+  Final normal population includes R49 after the procedure below.
+- Ordinary tiles: R11/R12 DNP. Fit one4.7k pair on ONE I2C pull-up tile.
+  JP1/JP2 have been removed; resistor population is the selection mechanism.
+  Check additional controller pull-ups before choosing the population.
+- All current resistors, ICs and MOSFETs are on the rear. R4 is no longer
+  front-mounted and its optical hood is omitted. One/four-tile populated
+  nominal fit passes; physical assembly/optical tests remain.
+- Dense-layout silk uses resistor NUMBERS: "42" means R42. Capacitor marks retain C1/C3/C4. The old P1/P2 jumper marks are removed.
+  Full identifiers remain in CAD/Fab/BOM. Use the current placement views;
+  old offset leaders are removed. All print is1mm/0.15mm.
+- J1/J3 are ordinary PCB wire holes, not purchased edge connectors.
+  J2 is the vertical Molex53047-0310 on the rear; its bare pads are parallel.
+
+2. Unpowered inspection
+Check polarity, IC orientation, gate resistor values, the single resistor per row,
+rail shorts and solder bridges under magnification. Confirm continuity from
+each capacitor GND pad to the common ground and both supply contact pairs.
+The old v3 C1/C3 repair is not a substitute for checking this new PCB.
+Check the power cable polarity at the disconnected board end with a meter.
+
+3. Provision the first MCU with R49 absent
+A factory CH32V003 may expose NRST on PD7. Its internal pull-up can be
+overcome by the fitted R49/R38 gate network, holding the MCU in reset.
+Keep R49 DNP and R38 fitted until all of the following are complete:
+a. Connect independent, regulated3.3V board power; programmer power must
+   be disconnected. Use the owned TPS3010 in CV/CC mode, initially with a
+   low current limit. Verify the actual rail with a meter at the board.
+b. J2 pin1=REF3.3V, pin2=PD1/SWIO, pin3=GND. The present LinkE cable
+   uses pins2/3 only; pin1 stays empty. Verify connector pin numbers from
+   the drawing/continuity, not apparent left/right in a rear photograph.
+c. Identify the MCU; preserve and hash its original full readback and
+   configuration before any programming. Build ONLY:
+       make VARIANT=v3_1-pulse -j4
+   Use that variant's image. Read back and compare every programmed byte.
+d. An option-byte change needs its own explicit authorization. The hardware
+   session must use the saved WCH manual and a read/modify/write procedure
+   preserving unrelated options, set PD7 to GPIO (RST_MODE11), and verify
+   the resulting readback. This document supplies no blind option-write
+   command and does not authorize one.
+e. Power OFF and disconnect the programmer before fitting R49. Reinspect
+   the joint. Record the MCU identity, firmware hash and option evidence.
+An already provisioned MCU still needs positive configuration evidence.
+
+4. First controlled light
+The new pulse image boots dark (brightness0). UART hw must return exactly:
+    FW LETKI_V3_1_PULSE expects=33R/3V3
+This identifies software only; independently verify the physical33ohm
+population and supply. Other firmware must not drive this high-current tile.
+
+Use1152008N1 with common GND. No port means offline plan only:
+    python3 scripts/v3_1_qualify.py --pattern single
+The hardware session may explicitly select its identified live port:
+    python3 scripts/v3_1_qualify.py --port /dev/IDENTIFIED_PORT --pattern single --brightness 25
+The helper verifies the profile, blanks the display, applies one pattern and
+finally requests brightness0/blank with acknowledgements. A disconnected link
+can prevent cleanup; inspect the board instead of assuming it became dark.
+The helper does not flash, set options, power hardware or measure current.
+Do not use command0 during setup: it deliberately restores brightness100.
+
+After single-pixel checks, use walk, rows and columns to verify all64 positions
+and polarity. Advance to brightness100 and all-on only while observing actual
+current/rail/pulse limits. Set a sensible current limit for the selected
+pattern; if CC causes rail droop, stop and resolve the load/supply rather
+than interpreting the resulting logic behavior as a normal operating point.
+
+5. Measurements required before accepting Study C brightness
+Record instrument, probes, bandwidth, load pattern, supply at the tile,
+ambient/LED temperature, gamma setting and captured waveform files.
+- Rail:3.135..3.465V at EVERY tile under load, including simultaneous edges.
+  Characterize startup, output enable, reset, text/frame changes and the
+  all-on load. A converter's printed3A rating is not test evidence.
+- LED current: measure voltage ACROSS one33ohm row resistor and use
+  its measured resistance. Use a differential probe or correctly
+  referenced channel subtraction; never ground a scope lead to a live node.
+  Gate pulse width alone does not include MOSFET/LED current tails.
+- At maximum brightness, verify current-pulse width<=100us AND duty<=10%
+  together, on every row and column. Measure recurrence as well as width,
+  including delayed interrupt service and sustained UART/SWIO activity.
+  Nominal80us/1ms leaves margin but does not establish the loaded maximum.
+- Datasheet25C stress ceilings are20mA continuous and80mA for the specified
+  pulse condition. Neither is an operating target. The illustrative3.3V,
+  Vf2.1V model gives36.36mA peak with33R. The provisional3.465V/Vf1.6V/3%R
+  envelope gives58.26mA; Vf1.6V is an engineering assumption, not a guaranteed
+  hot LED bound. Check actual peak/current overshoot, minimum hot Vf,
+  resistor/driver temperature and manufacturer derating before warmer use.
+  Each shared row resistor can conduct eight80us pulses per1ms frame:
+  its maximum nominal duty is64%, although an individual LED has8% duty.
+  The same conditional58.26mA envelope gives about69.54mW average per
+  shared33R resistor at full white; qualify pulse loading and temperature.
+- Scope gate/column settling in the initial blank and current in unselected
+  LEDs. Test one bright pixel adjacent to dark pixels, alternating frames,
+  low gamma settings, all-on, reset and repeated power cycles. The v3 PWM
+  ghosting fix was verified on v3; it does not qualify the new transistor path.
+- Debug: verify TIM1/2 continue running when the CPU halts. A debug freeze
+  setting can hold a HIGH gate indefinitely. Until this is checked, blank
+  or disable/limit LED current before breakpoints. Do not blindly trust the
+  inherited SDK TIM-stop masks; they disagree with the saved manual.
+
+6. Two and five tiles
+At an abutting seam connect all7 matching contacts with0.5mm wire staples
+through0.8mm holes, span2.54mm. Trim front protrusion<=0.5mm; keep the
+solder envelope within0.75mm radius/0.6mm height for the optical hoods.
+Pins top-to-bottom:1/2 VCC,3 SDA,4 SCL,5 UART,6/7 GND. The right TX
+feeds the next tile's left RX; UART is directional, I2C is a shared bus.
+Use common regulated3.3V, and feed both ends from the SAME source for the
+five-tile power test. Do not join independent supply outputs. The new UART
+resistors/biasing require measurement; unpowered hot-plug is not qualified.
+
+Repeat pattern/rail/current and acknowledged UART tests as tiles are added.
+Verify I2C rise times/levels across the assembled chain with only one enabled
+pull pair. Build make v3_1-interface-demos: the UART/controller/target
+images deliberately keep every row gate LOW. Check hw returns exactly
+FW LETKI_V3_1_INTERFACE_LED_OFF expects=33R/3V3 before using interface
+commands. See firmware/v3_1-interface/README.txt. The original v3
+interface-demo scan exceeds this circuit's pulse condition and must not be
+flashed onto a 33-ohm tile. Original-v3 transport results are baseline only.
+The pulse text image accepts per-tile commands; it does not yet implement
+an ESP-managed five-tile message/frame protocol.
+
+7. Mechanical/optical acceptance
+Print one tile first. Verify M2 alignment, actual PCB thickness, screw length,
+rear header, bare-pad access, staple/solder fit, latch/retention,
+removal without stressing the PCB, light isolation and face transmission.
+Then trial the4+1carrier join and five-tile alignment. NominalCAD/STEP tests
+cannot qualify printer tolerances, connector hole fill, cable bends or optics.
+
+Record each acceptance result or failure in the hardware session. Keep the
+design labelled PROTOTYPE—PHYSICAL QUALIFICATION PENDING until those checks
+are complete. Purchasing/fabrication authorization remains a separate action.
+
+Use docs/v3_1-qualification.csv as an unfilled test template. Copy it into the
+hardware session evidence directory before recording measurements; identify
+boards, image hashes, instruments and conditions. All rows currently PENDING.

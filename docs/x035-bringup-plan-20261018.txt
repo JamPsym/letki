@@ -1,0 +1,109 @@
+WEACT CH32X035 / ESP — STAGED BRING-UP PLAN
+2026-10-18; planning only, hardware not prepared by user yet.
+
+Scope
+Use an owned WeAct CH32X035F8 V1.0 board to develop the communication module
+independently of the V007 converter. The first target is the existing five-board
+v3 LED matrix chain. No additional screen is required. The user clarified that
+this is planning, not a request to inspect a prepared connection or program now.
+This file supersedes the earlier UART-only ESP transport plan: stage V develops
+fast SPI between X035 and ESP-12E/F. ESP UART remains available for programming.
+
+I. WCH-LinkE connection and target identification
+Plan two-wire X035 SDI: DIO = PC18, DCK = PC19, plus common ground. This differs
+from the one-wire V003 SWIO connection. Verify actual board labels before wiring.
+Use the WeAct USB input for the intended board supply; leave programmer power
+outputs disconnected in that arrangement. Later identify the actual target,
+preserve original flash, and verify programmed-image readback during a scoped
+programming session. Probe/tool compatibility must be established before writes.
+Success: reproducible target identification and preserved original image.
+
+II. PC USB and initial power
+Connect the WeAct USB connector to the PC for USB data and initial 5 V power;
+its onboard regulator supplies the board's 3.3 V logic. The serial-bridge USB
+function comes from stage III firmware, not simply plugging in a stock board.
+Assess the available USB current and regulator thermals before powering the
+five-tile array or ESP from this path. Initial PC-powered development differs
+from the eventual separate PD-charger-powered array architecture. Retain one
+intended 3.3 V source; do not tie LinkE power, WeAct output and another supply
+together. ESP transmit current and display load must fit any shared supply.
+Success: stable board power and repeatable USB enumeration once firmware exists.
+
+III. USB-to-UART bridge and initial control proxy
+Base the USB device on WCH's USBFS serial/CDC reference as appropriate for the
+selected SDK. Forward binary data both ways without text conversion or log
+injection. Preserve the current tile COBS/CRC16 protocol and host retry rules.
+Propagate host serial line-coding changes to UART, including 115200 bootstrap
+and the existing 230400 streaming setting, with defined drain/switch behaviour.
+Expose proxy diagnostics/control separately from the raw tile stream; exact
+USB interface or explicit operating-mode design remains open.
+
+X035 TX -> head/start RX; fifth/last tile TX -> X035 RX; common ground and
+compatible 3.3 V logic. The head's TX continues to tile 2. Keep the tail return
+wire even if the dongle mounts at the head edge. First test loopback and binary
+integrity, then the existing PC driver/Studio against the five tiles. Verify
+status, text, brightness, play/pause, and the measured GRAY4 streaming workload.
+No display firmware change is required for a faithful external UART bridge.
+Success: PC controls the chain through X035 with measured error/drop counters.
+
+IV. Display I2C observation, gyro and interactive animation
+Add passive observation of the existing head-controlled display I2C bus and
+log timestamped transactions/ACKs/errors with explicit overflow counters.
+Do not independently drive that active bus. Add a BMI160 on a separately owned
+sensor bus if pins permit; final hardware/software I2C allocation is pending.
+The purchase lead is four modules in a completed 2025-10-11 order, not a
+confirmed physical count. Locate and check a module before wiring.
+Log timestamped accelerometer/gyro samples; map tilt/motion to an animation
+through the existing UART interface, initially using the PC if convenient.
+Audit USB/PD/SDI/I2C pin multiplexing before choosing pads: small F8U6 package
+resources are constrained. Lossless sniffing alongside other tasks is unproven.
+Success: visible motion-reactive LED effect plus usable sensor/bus logs.
+
+V. Fast SPI to ESP-12E/F and wireless proxy
+Develop a framed SPI transport, provisionally X035 controller and ESP HSPI
+peripheral, with length/sequence/integrity checks and ready/flow control.
+Exact pins, initial clock and reliable maximum rate remain test decisions;
+ESP boot straps and programming access must remain valid. ESP SPI0 serves its
+flash; use the user HSPI interface. Local SPI speed does not establish end-to-end
+Wi-Fi/display throughput. Route Wi-Fi requests through the same X035 proxy,
+with bounded arbitration between USB and Wi-Fi and explicit logging channels.
+Qualify the actual ESP variant/carrier and its 3.3 V supply separately.
+Success: Wi-Fi control and then a measured live-stream workload without losses
+being concealed by unbounded buffering. The five-tile firmware is unchanged.
+
+VI. USB-PD voltage experiments
+Test charger capabilities, negotiate supported voltages and measure actual
+VBUS in a dedicated test configuration before integrating a converter/load.
+WeAct publishes a PD_Sink example; inspect actual CC bridges, regulator and
+power-path ratings first. Do not apply negotiated VBUS to the 3.3 V rail.
+Concurrent PC data and charger power require the planned two-connector setup,
+with separate VBUS paths, correct CC attachment and PC VBUS sensing. A stock
+single-connector WeAct board does not provide that separation automatically.
+Successful PD negotiation alone does not qualify a 60–65 W power path.
+Success: repeatable contract/voltage reporting and defined disconnect fallback.
+
+End-to-end arrangement after stage V
+PC USB -> X035 -> UART -> v3 head -> remaining tiles -> UART return -> X035
+Wi-Fi -> ESP-12E/F -> SPI -> X035 -> the same display protocol
+BMI160 -> sensor acquisition -> USB/Wi-Fi logs and animation control
+Display SDA/SCL -> passive logger -> USB/Wi-Fi logs
+
+Stage VI adds charger negotiation; the custom V007 buck is a separate workstream.
+Later v3.2 firmware maintenance can use Wi-Fi -> ESP -> SPI -> X035 -> I2C ->
+resident tile loader. Initial SWIO provisioning remains manual; this is not an
+existing v3 firmware-updater feature.
+
+References
+Architecture: docs/attachments-study-20261017.txt
+Current chain: docs/milestones/v3-general-r3-20261017.txt
+Wire protocol: docs/general-firmware-protocol.txt
+WeAct schematic and examples:
+https://github.com/WeActStudio/WeActStudio.CH32X035CoreBoard
+Retained schematic: build/research/weact-x035/schematic.pdf
+WCH USB examples:
+https://github.com/openwch/ch32x035/tree/main/EVT/EXAM/USB/USBFS
+Espressif SPI API (HSPI and peripheral-mode operations):
+https://docs.espressif.com/projects/esp8266-rtos-sdk/en/latest/api-reference/peripherals/spi.html
+
+No firmware implementation, physical identification, programming, power changes,
+PD negotiation or link validation was performed while saving this plan.

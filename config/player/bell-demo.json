@@ -1,0 +1,41 @@
+{
+  "name": "Letki \u2014 narrated bell garden",
+  "audio": "../../build/pwm-show/audio/score.wav",
+  "title": "LETKI",
+  "artist": "LIGHT AND SOUND",
+  "intro_seconds": 0,
+  "style": "pwm",
+  "gain": 0.8,
+  "cues": [
+    {
+      "at": 0,
+      "duration": 3.5,
+      "text": "SILK RIBBON"
+    },
+    {
+      "at": 6.4,
+      "duration": 3.5,
+      "text": "RIPPLE GARDEN"
+    },
+    {
+      "at": 12.8,
+      "duration": 3.5,
+      "text": "EMBER TRAILS"
+    },
+    {
+      "at": 19.2,
+      "duration": 3.5,
+      "text": "FIVE LANTERNS"
+    },
+    {
+      "at": 25.6,
+      "duration": 3.5,
+      "text": "LIGHT LADDER"
+    },
+    {
+      "at": 32,
+      "duration": 3.5,
+      "text": "DAISY CHAIN"
+    }
+  ]
+}

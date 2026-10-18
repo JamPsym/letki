@@ -1,0 +1,23 @@
+{
+  "name": "My Cyganie \u2014 PC video and LED animation",
+  "title": "MY CYGANIE",
+  "artist": "DON VASYL",
+  "audio": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.flac",
+  "intro_seconds": 8,
+  "style": "ribbons",
+  "gain": 0.7,
+  "cues": [
+    {
+      "at": 0,
+      "duration": 6,
+      "text": "DON VASYL"
+    },
+    {
+      "at": 6,
+      "duration": 6,
+      "text": "ORE ORE"
+    }
+  ],
+  "video": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.video.mp4",
+  "video_target": "PC only"
+}

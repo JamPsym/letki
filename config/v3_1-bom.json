@@ -1,0 +1,154 @@
+{
+  "revision": "v3.1 shared schematic: no buttons; grouped MOSFETs;0603gate/bias",
+  "date": "2026-10-15",
+  "batch_tiles": 5,
+  "pullup_tiles": 1,
+  "scope": "Schematic and PCB placement synchronized146footprints; no routing or inventory mutations; sourcing overlay remains separate",
+  "groups": [
+    {
+      "refs": "U1",
+      "value": "CH32V003F4P6",
+      "MPN": "CH32V003F4P6",
+      "supplier": "LCSC",
+      "code": "C5187096"
+    },
+    {
+      "refs": "U2",
+      "value": "SN74HC138PWR",
+      "MPN": "SN74HC138PWR",
+      "supplier": "LCSC",
+      "code": "C157527"
+    },
+    {
+      "refs": "D1-D64",
+      "value": "XL-2012UOC",
+      "MPN": "XL-2012UOC",
+      "supplier": "LCSC",
+      "code": "C965813"
+    },
+    {
+      "refs": "Q1-Q8",
+      "value": "AO3415A",
+      "MPN": "AO3415A",
+      "supplier": "TME",
+      "code": "AO3415A"
+    },
+    {
+      "refs": "Q9-Q16",
+      "value": "DMN2056U-7",
+      "MPN": "DMN2056U-7",
+      "supplier": "TME",
+      "code": "DMN2056U-7"
+    },
+    {
+      "refs": "R1-R8",
+      "value": "33R 1%",
+      "MPN": "0805S8F330JT5E",
+      "supplier": "TME",
+      "code": "SMD0805-33R-1%",
+      "note": "One 33R/1%/0805/125mW per row; 8/tile, 40/five tiles. New purchase, not stocked 68R."
+    },
+    {
+      "refs": "R15-R22 R42-R49",
+      "value": "1k 1%",
+      "MPN": "0603SAF1001T5E",
+      "supplier": "TME",
+      "code": "SMD0603-1K-1%",
+      "note": "0603/1%/100mW gate series; catalogue identity checked, checkout stock/prices pending; R49 DNP first provisioning."
+    },
+    {
+      "refs": "R66-R67",
+      "value": "1k 1%",
+      "MPN": "0805S8F1001T5E",
+      "supplier": "TME",
+      "code": "SMD0805-1K-1%",
+      "allowed_cad_MPNs": [
+        "RC0805FR-071KL",
+        "0805S8F1001T5E"
+      ],
+      "note": "UART series remain0805"
+    },
+    {
+      "refs": "R23-R38 R50-R57",
+      "value": "10k",
+      "MPN": "0603SAF1002T5E",
+      "supplier": "TME",
+      "code": "SMD0603-10K-1%",
+      "note": "0603/1%/100mW MOSFET gate/cathode bias; catalogue identity checked, checkout stock/prices pending."
+    },
+    {
+      "refs": "R68",
+      "value": "10k",
+      "MPN": "RC0805FR-0710KL",
+      "supplier": "LCSC",
+      "code": "C84376",
+      "note": "UART idle bias remains0805"
+    },
+    {
+      "refs": "R39-R41",
+      "value": "4.7k",
+      "MPN": "0805W8J0472T5E",
+      "supplier": "LCSC",
+      "code": "C26022"
+    },
+    {
+      "refs": "R11-R12",
+      "value": "4.7k",
+      "MPN": "0805W8J0472T5E",
+      "supplier": "LCSC",
+      "code": "C26022",
+      "population": "ONE_PULLUP_TILE",
+      "note": "Fit R11/R12 on one pull-up tile only; DNP on other four. Direct rail connection; no JP1/JP2."
+    },
+    {
+      "refs": "C1 C3",
+      "value": "0.1uF",
+      "MPN": "C0805B104K500NT",
+      "supplier": "LCSC",
+      "code": "C476766"
+    },
+    {
+      "refs": "C4",
+      "value": "10uF",
+      "MPN": "CL21A106KAYNNNE",
+      "supplier": "LCSC",
+      "code": "C15850"
+    },
+    {
+      "refs": "J2",
+      "value": "53047-0310",
+      "MPN": "530470310",
+      "supplier": "TME",
+      "code": "MX-53047-0310",
+      "note": "One per tile. Incoming6:5reservedv4.1,onependinguncommitted; no automatic reassignment/receipt."
+    }
+  ],
+  "excluded_from_purchases": {
+    "J1": "PCB wire contacts",
+    "J3": "PCB wire contacts",
+    "H1": "board mounting hole",
+    "H2": "board mounting hole"
+  },
+  "extras_for_five_tiles": [
+    {
+      "item": "0.5mm bare wire U-staple",
+      "quantity": 28,
+      "note": "4tile seams x7contacts;2.54mmspan. Additionalendfeed/serialwires separate."
+    },
+    {
+      "item": "M2x12 fastener",
+      "quantity": 10,
+      "note": "Nominal mechanical model; physical length/thread/retention fit pending."
+    },
+    {
+      "item": "M2x6 fastener",
+      "quantity": 4,
+      "note": "Two printed splice plates join4+1carriers; physical fit pending."
+    },
+    {
+      "item": "printed splice plate",
+      "quantity": 2,
+      "note": "Use current4+1carrier model/export."
+    }
+  ]
+}

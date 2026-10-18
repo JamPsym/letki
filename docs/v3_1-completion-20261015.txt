@@ -1,0 +1,56 @@
+V3.1 — COMPLETED HUMAN/ASTRA PCB, 2026-10-15
+
+One canonical project: hw/ledkiv3.1/ledkiv3_1.kicad_pro.
+PCB SHA256: 803db5887b970f85937dc4378c422b3fa6cc18b6e7a23571c9567cdb836355e2
+Evidence: build/hardware/v3_1-astra-completion-20261015T200432Z/.
+Human baseline: human-before/ in that evidence directory.
+
+All 146 component placements, pad/net geometry, component identities, models
+and the outline are preserved. Schematic, project rules/severities, libraries
+and BOM are unchanged. Current board: 974 tracks, 131 ordinary tented vias.
+The 69 fixed LED/interface/mounting footprints retain their agreed geometry.
+
+Power changes:
+- 2mm F.Cu VCC crossbar; four ordinary 0.6/0.3mm vias at each end.
+- Left 1.2mm rear connector feed; right 2mm In2 feed avoids the rear row bank.
+- 1mm rear PMOS source trunk, 0.5mm source branches to all eight PMOS devices.
+- 194 selected-column segments widened to 0.3/0.4/0.5mm where space permits.
+  Narrow In1 runs retain return space; precise widths remain bound in the
+  power contract. Each selected PMOS supplies up to eight LED pulse currents.
+- 0.5mm rear bridges join the U2.8 and Q12-source GND islands to the main plane.
+  In1 still has three filled regions, but all GND copper across all four layers
+  forms ONE independently checked physical network. VCC likewise forms one
+  network despite six In2 regions. Polygon count alone is not connectivity.
+- C4 gets a more direct supply path via C3's gateway. A dangling ADDR2 stub
+  is removed. Ten via/SMT margin flags are repaired; one local L2 dogleg
+  provides U1.17 via clearance. There is no whole-board signal reroute.
+- 77 rear 1mm/0.15mm assembly labels are fitted around the actual placement;
+  resistor numbers map to R references. Seven right edge legends move0.28mm
+  to clear rear pads, staying inside the outline. No component moves.
+
+Validation before promotion:
+ERC/DRC/open connections/parity/ignored checks: all ZERO.
+350 electrical pad mappings and the exact 84-segment In1 manifest pass.
+All ordinary vias pass the conservative 0.36mm SMT guard; no drill-under-pad
+geometry. All-layer 2.45mm M2 copper exclusion passes. 413 exact power/column
+tracks and 77 label definitions are independently bound by geometry contracts.
+Canonical checks, firmware builds/host tests, populated one/four-tile fit and
+fabrication exports are rerun by scripts/v3_1_package.py; its exported manifest
+records the final result. The package is published only if every gate passes.
+
+Power interpretation:
+A plane can carry power without duplicate rails if its connections/necks are
+adequate. Here the signal cuts and narrow gateways required explicit bridges
+and feeds. The main 17.5um GND sheet model gives approximately4.14mOhm between
+paired left/right contacts at a0.1mm mesh, excluding vias, solder, contacts,
+AC inductance, thermal behavior and the full five-tile loop. This is a model,
+not a measured current/temperature rating or proof of five-tile regulation.
+Use external regulated3.3V, feed BOTH ends from the SAME source, and qualify
+rail drop, LED pulse/current/tails and temperature on the assembled chain.
+Conservative planning budget:0.5A peak/tile;2.5A for five tiles before head.
+
+Fabrication candidate:4layers,1.6mm,35/17.5/17.5/35um,HALSnPb.
+Generated package: hw/ledkiv3.1/exports/prototype/ (ignored artifacts).
+No order, upload, hardware operation, flash or inventory mutation occurs.
+Physical qualification and fabricator process/preview confirmation remain.
+ESP-12F and the USB-C/buck head remain deferred until tile verification.

@@ -1,0 +1,27 @@
+{
+  "revision": "v3.2",
+  "reviewed_on": "2026-10-17",
+  "scope": "Complete the six originally generic passive selections without changing values, packages, placement or connectivity. No purchase or stock reservation.",
+  "assignments": {
+    "R69": {"MPN":"0805S8F1001T5E","Supplier":"TME","Supplier code":"SMD0805-1K-1%","Sourcing":"Selected 0805 1k 1% 125mW; same exact part as R66/R67; not purchased","Datasheet":"https://www.tme.eu/pl/details/smd0805-1k-1%25/rezystory-smd/royalohm/0805s8f1001t5e/"},
+    "R70": {"MPN":"0805S8F1001T5E","Supplier":"TME","Supplier code":"SMD0805-1K-1%","Sourcing":"Selected 0805 1k 1% 125mW; same exact part as R66/R67; not purchased","Datasheet":"https://www.tme.eu/pl/details/smd0805-1k-1%25/rezystory-smd/royalohm/0805s8f1001t5e/"},
+    "R71": {"MPN":"RC0805FR-0710KL","Supplier":"LCSC","Supplier code":"C84376","Sourcing":"Exact existing shelf identity; 0805 10k 1% 125mW; availability report is separate from consumption","Datasheet":"https://www.yageogroup.com/component-documentation/download/specsheet/RC0805FR-0710KL"},
+    "R72": {"MPN":"0805S8F4702T5E","Supplier":"TME","Supplier code":"SMD0805-47K-1%","Sourcing":"Selected 0805 47k 1% 125mW; new purchase required; no shelf credit","Datasheet":"https://www.tme.eu/pl/details/smd0805-47k-1%25/rezystory-smd/royalohm/0805s8f4702t5e/"},
+    "R73": {"MPN":"RC0805FR-0710KL","Supplier":"LCSC","Supplier code":"C84376","Sourcing":"Exact existing shelf identity; 0805 10k 1% 125mW; availability report is separate from consumption","Datasheet":"https://www.yageogroup.com/component-documentation/download/specsheet/RC0805FR-0710KL"},
+    "C6": {"MPN":"C0805B104K500NT","Supplier":"LCSC","Supplier code":"C476766","Sourcing":"Exact existing TORCH shelf identity; 100nF 50V X7R 10% 0805; same part as C1; no consumption recorded","Datasheet":"https://www.lcsc.com/product-detail/C476766.html"}
+  },
+  "rating_review": {
+    "supply_max_V": 3.465,
+    "1k_short_to_ground_dissipation_max_mW": 12.13,
+    "10k_bias_dissipation_max_mW": 1.213,
+    "47k_bias_dissipation_max_mW": 0.259,
+    "calculation": "Vmax^2 / (0.99 * nominal resistance); each resistor is rated 125mW at its catalogue reference temperature. Normal same-rail 3.3V prototype operation only; no hot-plug or mixed-power qualification.",
+    "C6": "100nF 50V X7R matches the schematic reset capacitor and existing 0805 land pattern; nominal R73*C6 = 1ms. Physical reset timing remains a later qualification task."
+  },
+  "procurement_notes": [
+    "U1 remains CH32V006E8R6, QSOP24, 3.9x8.7mm, 0.635mm pitch. Stocked CH32V006F8P6 TSSOP20 parts do not fit and receive no credit.",
+    "Do not treat the JLCPCB Assembly C9900207262 service placeholder as stocked WCH silicon; it showed zero stock on 2026-10-17.",
+    "TME's resistor listings show MOQ/multiple 100; recheck checkout quantities, delivery and totals before buying.",
+    "Existing v3 and v4.1 reservations/planning allocations remain separate and unchanged."
+  ]
+}

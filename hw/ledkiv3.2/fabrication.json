@@ -1,0 +1,95 @@
+{
+  "revision": "v3.2",
+  "id": "v3_2-fabrication-20261017",
+  "status": "CAD_CHECKED_FIVE_BOARD_PROTOTYPE_PACKAGE",
+  "parent_accepted_milestone": "v3_2-main-20261017",
+  "parent_pcb_sha256": "1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22",
+  "cad_sha256": {
+    "ledkiv3_2.kicad_dru": "a994d71f10027d2363993b680580f9a3dc65743c5ed8c6ef670f943506935179",
+    "ledkiv3_2.kicad_sch": "06834d3471e18db822d9c6013ed8671eea3cad5ca7b0319c58e00f994f40b3a7",
+    "ledkiv3_2.kicad_pro": "d71e069e7598e0c38f5aa2c7236197357719e5e0d32eb609a76eca029293a3f5",
+    "ledkiv3_2.kicad_pcb": "bddc92364a1d159535429667e7dee44b1b360e75906d5b59d24bad622b669859"
+  },
+  "changes": {
+    "removed_dangling": "3328184b-a334-45f0-92d4-3efce52064bf",
+    "widths_restored": {
+      "6f6b2e1a-afd4-4414-a9f0-7d2318f144b7": ".5",
+      "a80690b9-edae-48fc-8356-266df29b2c70": ".5",
+      "8bf73872-a914-491e-ae26-3134b768f487": ".3"
+    },
+    "scope": "No track endpoints, vias, placements, net assignments or zone outlines changed; no rule relaxation"
+  },
+  "metadata_changes": "Six generic passives assigned exact MPNs in PCB and schematic; Q3/R17/R25 label UUID contracts rebound after verifying text/position/side unchanged. No placement/padstack/net/ordinary-via changes.",
+  "checks": {
+    "ERC": 0,
+    "DRC": 0,
+    "opens": 0,
+    "parity": 0,
+    "ignored": 0,
+    "independently_connected_nets": 76,
+    "footprints": 159,
+    "segments": 1489,
+    "vias": 299
+  },
+  "package_path": "hw/ledkiv3.2/exports/fabrication-20261017-r2",
+  "fabrication_process": "User explicitly chose JLCONE defaults for this prototype: leadedHASL/defaultinkPlugged, preserving source copper/drills/mask intent. SupplierDFM findings and physical/production-file limits stay documented; no support message or order.",
+  "stock_or_orders_changed": false,
+  "firmware_or_hardware_tested": false,
+  "limits": [
+    "Supplier process/production files require review",
+    "Five-board quantity floor only; parts not bought/reserved",
+    "Physical qualification and V006 firmware/custom loader outside this handoff"
+  ],
+  "silk_marker_fix": {
+    "scope": "Only the two J2 pin1-marker silk lines and their library equivalents moved by0.1mm inX/Y; no copper,pads,vias,placements,text or rules changed.",
+    "changed": [
+      {
+        "uuid": "d16989e7-927b-4f32-952b-89163d4f64dc",
+        "start": [
+          16.1,
+          41.45
+        ],
+        "end": [
+          16.1,
+          42.45
+        ],
+        "new_start": [
+          16.2,
+          41.55
+        ],
+        "new_end": [
+          16.2,
+          42.55
+        ]
+      },
+      {
+        "uuid": "f08eff96-ccb3-4dbc-b8a0-0afca4a296e1",
+        "start": [
+          16.1,
+          41.45
+        ],
+        "end": [
+          17.1,
+          41.45
+        ],
+        "new_start": [
+          16.2,
+          41.55
+        ],
+        "new_end": [
+          17.2,
+          41.55
+        ]
+      }
+    ],
+    "candidate_pcb_sha256": "bddc92364a1d159535429667e7dee44b1b360e75906d5b59d24bad622b669859"
+  },
+  "previous_checked_pcb_sha256": "aad082e03fb8b8e3e3bc5a018124e35bdab8e0cba824d0f50f4f61a5a943d4fc",
+  "supplier_quote_record": "config/purchase/v3_2-jlc-quote-20261017.json",
+  "current_Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+  "default_process_user_decision": {
+    "date": "2026-10-17",
+    "answer": "thats no important lets stick with defaults",
+    "interpretation": "Use JLCONE default fabrication options for the five-board prototype; do not send the support draft. Retain measured DFM findings and source NPTH/PTH intent; this is not physical qualification or paid-order authorization."
+  }
+}

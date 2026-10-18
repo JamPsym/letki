@@ -1,0 +1,12 @@
+MPN,supplier_code,package,estimated_on_hand_min,hard_v3_reservation,separate_planned_v4_1,available_after_both,candidate_use,qualification
+0805W8F510JT5E,C17738,0805,984,24,0,960,existing row option only,51 ohm; cannot inherit as a demonstrated safe current limit
+0805W8F680JT5E,C17802,0805,992,24,0,968,existing row option only,68 ohm; cannot inherit as a demonstrated safe current limit
+0805W8J0472T5E,C26022,0805,1000,10,0,990,selectable I2C pulls/possible current limit,4.7k 5%; evaluate bus capacitance and resistor network
+C0805B104K500NT,C476766,0805,242,12,0,230,4 existing per tile,"100nF 0805; two are button capacitors, two IC bypasses"
+CH32V003F4P6,C5187096,TSSOP-20-175mil,46,3,5,38,1 per tile,Retain TSSOP20 pin map; supply/logic budget still required
+CL21A106KAYNNNE,C15850,0805,198,3,0,195,1 existing per tile,10uF 0805; exact rating/dielectric/effective capacitance review required
+RC0805FR-0710KL,C84376,0805,996,16,0,980,button network/startup pulls/possible current limit,10k 1%; final LED values unresolved
+SN74HC138PWR,C157527,TSSOP-16,46,3,0,43,1 per tile,Retain active-low TSSOP16 decoder; must bound total selected-column current
+TS-1089S-02526,C455282,SMD-4P 4.2x3.3mm,48,8,0,40,up to 2 per tile,Verify archived series drawing against exact purchased suffix and local footprint
+TS-1187A-B-C-B,C692460,SMD-4P 5.1x5.1mm,20,0,0,20,optional alternative only,Different 5.1mm body/lands; no automatic substitution
+XL-2012UOC,C965813,0805,872,192,320,360,64 per tile,0805; qualify low-current optical output and reverse bias

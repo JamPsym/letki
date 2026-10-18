@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-17",
+  "recorded_UTC": "2026-10-17T19:11:36.935109+00:00",
+  "status": "ORDERED_USER_CONFIRMED_AWAITING_DELIVERY",
+  "confirmation": {
+    "source": "direct_user_report",
+    "message": "Ordered. Use the information to update the electronics repo. Check what is needed from here.",
+    "scope": "Prepared v3.2 fifteen-board split5+10 cart, inferred from immediately preceding cart preparation",
+    "supplier_order_number": null,
+    "invoice_observed": false,
+    "final_paid_amount_independently_verified": false
+  },
+  "supplier": "JLCPCB via JLCONE",
+  "revision": "v3.2",
+  "board_quantity": 15,
+  "cart_items": [
+    {
+      "name": "ledkiv3_2-gerbers_Y10",
+      "prototype_id": "Y10-10656422A",
+      "quantity": 5,
+      "USD": 2,
+      "special_offer": true,
+      "original_preserved": true
+    },
+    {
+      "name": "ledkiv3_2-gerbers_Y11",
+      "prototype_id": "Y11-10656422A",
+      "quantity": 10,
+      "USD": 8,
+      "special_offer": false,
+      "user_requested_to_keep": true
+    }
+  ],
+  "Gerber_file": "hw/ledkiv3.2/exports/fabrication-20261017-r2/ledkiv3_2-gerbers.zip",
+  "Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+  "pcb_sha256": "bddc92364a1d159535429667e7dee44b1b360e75906d5b59d24bad622b669859",
+  "specification": {
+    "layers": 4,
+    "dimensions_mm": [
+      49.6,
+      49.6
+    ],
+    "thickness_mm": 1.6,
+    "color": "Green",
+    "silkscreen": "White",
+    "finish": "HASL(with lead)",
+    "via_covering": "Plugged, JLCONE default accepted by user",
+    "outer_copper_oz": 1,
+    "inner_copper_oz": 0.5,
+    "paid_special_options": false
+  },
+  "last_checkout_preview_USD": {
+    "boards": 10,
+    "shipping": 1.5,
+    "duties_and_taxes": 6.14,
+    "grand_total": 17.64
+  },
+  "actual_paid_USD": null,
+  "shipping": {
+    "method": "Global Standard Direct Line",
+    "last_estimated_business_days": [
+      12,
+      18
+    ],
+    "dispatch_date": null,
+    "delivery_date": null,
+    "tracking_number": null
+  },
+  "supplier_engineering_and_production_file_status": "Not independently observed; user-selected defaults retained; original DFM limits documented",
+  "order_submitted_by_agent": false,
+  "payment_submitted_by_agent": false,
+  "physical_receipt_confirmed": false,
+  "on_hand_quantity_credited": 0,
+  "component_reservations_changed": false,
+  "assembly_requirements_record": "config/purchase/v3_2-assembly-requirements-20261017.json",
+  "next_steps": "docs/v3_2-order-and-bringup.txt",
+  "quote_history": "config/purchase/v3_2-quantity-strategy-20261017.json"
+}

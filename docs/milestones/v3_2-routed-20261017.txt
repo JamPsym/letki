@@ -1,0 +1,30 @@
+LETKI V3.2 — ACCEPTED ROUTED CAD MILESTONE
+Milestone: v3_2-routed-20261017
+Accepted: 2026-10-17
+
+Frozen PCB SHA256:
+95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2
+
+This directory preserves the routed board accepted before the user's manual
+component/placement/routing work. Open ledkiv3_2.kicad_pro here to inspect it.
+Use /home/pies/letki/hw/ledkiv3.2/ledkiv3_2.kicad_pro for ongoing editing;
+that live project remains the main v3.2. Do not edit this milestone or replace
+the user's later main-project changes with it automatically.
+
+Complete project-local libraries/models, source rules, reviewed contracts and
+the checked export package are retained. The support/ directory preserves the
+contemporaneous config, notes and read-only check/export scripts. The frozen
+exports/prototype/ledkiv3_2-sources.zip reconstructs the checked repository layout
+including the unrouted baseline used by its independent geometry check.
+Installed KiCad10 standard 3D models remain an external dependency.
+
+Milestone checks: ERC/DRC/opens/parity/ignored0; all76physical nets connected.
+159footprints,2015segments,299ordinarytented vias,7zones. Physical qualification
+and new V006 firmware/custom loader remain pending. These results apply to the
+frozen revision; recheck after manual changes and review changes to baseline-
+specific pose/power/plane/label contracts. The original no-copper human-routing
+checkpoint also remains at archive/hw/ledkiv3.2-unrouted-20261017/.
+
+snapshot-manifest.json binds every frozen file except itself. baseline.json is
+acceptance metadata; the older exports keep their original validated source
+hashes. No new CAD, routing, device, stock, purchase, commit or push operation.

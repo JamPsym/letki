@@ -1,0 +1,81 @@
+{
+  "productCode": "C4190",
+  "productModel": "0603WAF2201T5E",
+  "encapStandard": "0603",
+  "minBuyNumber": 100,
+  "split": 100,
+  "stockNumber": 4570000,
+  "productPriceList": [
+    {
+      "ladder": 100,
+      "productPrice": "0.0018",
+      "usdPrice": 0.0018,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0018,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0018",
+      "extPrice": "0.18",
+      "isRealOff": false
+    },
+    {
+      "ladder": 1000,
+      "productPrice": "0.0014",
+      "usdPrice": 0.0014,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0014,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0014",
+      "extPrice": "1.40",
+      "isRealOff": false
+    },
+    {
+      "ladder": 5000,
+      "productPrice": "0.0012",
+      "usdPrice": 0.0012,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0012,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0012",
+      "extPrice": "6.00",
+      "isRealOff": false
+    },
+    {
+      "ladder": 10000,
+      "productPrice": "0.0011",
+      "usdPrice": 0.0011,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0011,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0011",
+      "extPrice": "11.00",
+      "isRealOff": false
+    },
+    {
+      "ladder": 50000,
+      "productPrice": "0.0009",
+      "usdPrice": 0.0009,
+      "cnyProductPriceList": null,
+      "discountRate": "1",
+      "currencyPrice": 0.0009,
+      "currencySymbol": "$",
+      "isForeignDiscount": null,
+      "ladderLevel": null,
+      "discountPrice": "0.0009",
+      "extPrice": "45.00",
+      "isRealOff": false
+    }
+  ],
+  "checked_utc": "2026-10-12T21:59:12.804357+00:00"
+}

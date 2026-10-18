@@ -1,0 +1,1092 @@
+{
+  "name": "My Cyganie — stepping together",
+  "title": "MY CYGANIE",
+  "artist": "DON VASYL",
+  "audio": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.flac",
+  "video": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.video.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 0,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 0.32,
+  "style": "dance-steps",
+  "cues": [
+    {
+      "at": 0,
+      "duration": 12,
+      "effect": "dance-steps",
+      "label": "Butterflies",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 0,
+      "duration": 8,
+      "text": "MY CYGANIE  DON VASYL",
+      "mode": "scroll"
+    },
+    {
+      "at": 12,
+      "duration": 12,
+      "effect": "dance-skirts",
+      "label": "Turning skirts",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 24,
+      "duration": 12.799999999999997,
+      "effect": "dance-weave",
+      "label": "Crossed threads",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 36.8,
+      "duration": 18.400000000000006,
+      "effect": "dance-clap",
+      "label": "The answer",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 38.28,
+      "duration": 1.6,
+      "text": "ORE ORE",
+      "mode": "center"
+    },
+    {
+      "at": 55.2,
+      "duration": 18.39999999999999,
+      "effect": "dance-steps",
+      "label": "Step together",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 73.6,
+      "duration": 18.200000000000003,
+      "effect": "dance-skirts",
+      "label": "Turning skirts",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 91.8,
+      "duration": 18.400000000000006,
+      "effect": "dance-weave",
+      "label": "Over and under",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 110.2,
+      "duration": 18.39999999999999,
+      "effect": "dance-clap",
+      "label": "Answer returns",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 128.6,
+      "duration": 18.30000000000001,
+      "effect": "dance-steps",
+      "label": "Across the floor",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 129.88,
+      "duration": 1.6,
+      "text": "ORE ORE",
+      "mode": "center"
+    },
+    {
+      "at": 146.9,
+      "duration": 18.299999999999983,
+      "effect": "dance-flowers",
+      "label": "Embroidered flowers",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 165.2,
+      "duration": 18.30000000000001,
+      "effect": "dance-weave",
+      "label": "Threads gather",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 183.5,
+      "duration": 16.30000000000001,
+      "effect": "dance-steps",
+      "label": "Changing feet",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 199.8,
+      "duration": 18.299999999999983,
+      "effect": "dance-clap",
+      "label": "Together",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 218.1,
+      "duration": 18.30000000000001,
+      "effect": "dance-weave",
+      "label": "Quick weave",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 234.18,
+      "duration": 1.6,
+      "text": "ORE ORE",
+      "mode": "center"
+    },
+    {
+      "at": 236.4,
+      "duration": 18.299999999999983,
+      "effect": "dance-steps",
+      "label": "Final steps",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 254.7,
+      "duration": 17.30000000000001,
+      "effect": "dance-clap",
+      "label": "Last answer",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 272,
+      "duration": 4,
+      "effect": "dance-flowers",
+      "label": "Embroidered flowers",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 276,
+      "duration": 2.337596371882114,
+      "effect": "dance-flowers",
+      "label": "Blackout",
+      "level": 0,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    }
+  ],
+  "recording": {
+    "sha256": "0a7d3c2bcc1f7bef969a9873c14c3fef51db9b14a5e695dfc8d054bd07c623d8",
+    "duration_seconds": 278.3375963718821
+  },
+  "authoring": {
+    "version": 3,
+    "scope": "Complete recording; butterflies, claps, woven patterns, turning skirts, embroidered flowers and short refrain text",
+    "basis": "Local autocorrelation and predicted-pulse tracking through tempo ramps; fast verse pulse fits; editorial motifs and existing approximate refrain text placements.",
+    "video_on_leds": false,
+    "geometry": "Independent dance renderer; no original PWM showcase geometry",
+    "timing": "Measured fast verse pulses and locally tracked slow-to-fast refrain pulses. Piecewise beat anchors drive both dance geometry and bass-brightness accents. Approximate boundaries; pulse phase is not a verified bar downbeat.",
+    "output": "Host gamma0.5 lifts low levels for the current low-current v3.1 configuration; zero stays black and100 stays100. No hardware current change.",
+    "title": "Eight-second title overlay begins with source audio/video at0; no silent introduction."
+  },
+  "rhythm": {
+    "bpm": 160,
+    "offset": 0.07,
+    "anchors": [
+      {
+        "at": 0.07,
+        "beat": 0
+      },
+      {
+        "at": 36.445,
+        "beat": 97
+      },
+      {
+        "at": 37.22,
+        "beat": 98
+      },
+      {
+        "at": 37.88,
+        "beat": 99
+      },
+      {
+        "at": 38.56,
+        "beat": 100
+      },
+      {
+        "at": 39.26,
+        "beat": 101
+      },
+      {
+        "at": 39.94,
+        "beat": 102
+      },
+      {
+        "at": 40.6,
+        "beat": 103
+      },
+      {
+        "at": 41.28,
+        "beat": 104
+      },
+      {
+        "at": 41.92,
+        "beat": 105
+      },
+      {
+        "at": 42.58,
+        "beat": 106
+      },
+      {
+        "at": 44.5,
+        "beat": 109
+      },
+      {
+        "at": 46.98,
+        "beat": 113
+      },
+      {
+        "at": 47.58,
+        "beat": 114
+      },
+      {
+        "at": 48.16,
+        "beat": 115
+      },
+      {
+        "at": 48.76,
+        "beat": 116
+      },
+      {
+        "at": 49.34,
+        "beat": 117
+      },
+      {
+        "at": 49.94,
+        "beat": 118
+      },
+      {
+        "at": 50.5,
+        "beat": 119
+      },
+      {
+        "at": 51.08,
+        "beat": 120
+      },
+      {
+        "at": 54.44,
+        "beat": 126
+      },
+      {
+        "at": 55.52,
+        "beat": 128
+      },
+      {
+        "at": 56.08,
+        "beat": 129
+      },
+      {
+        "at": 56.6,
+        "beat": 130
+      },
+      {
+        "at": 57.14,
+        "beat": 131
+      },
+      {
+        "at": 58.7,
+        "beat": 134
+      },
+      {
+        "at": 59.2,
+        "beat": 135
+      },
+      {
+        "at": 59.74,
+        "beat": 136
+      },
+      {
+        "at": 60.22,
+        "beat": 137
+      },
+      {
+        "at": 61.26,
+        "beat": 139
+      },
+      {
+        "at": 61.76,
+        "beat": 140
+      },
+      {
+        "at": 62.24,
+        "beat": 141
+      },
+      {
+        "at": 62.74,
+        "beat": 142
+      },
+      {
+        "at": 63.22,
+        "beat": 143
+      },
+      {
+        "at": 63.72,
+        "beat": 144
+      },
+      {
+        "at": 64.64,
+        "beat": 146
+      },
+      {
+        "at": 65.14,
+        "beat": 147
+      },
+      {
+        "at": 65.6,
+        "beat": 148
+      },
+      {
+        "at": 66.6,
+        "beat": 150
+      },
+      {
+        "at": 67.06,
+        "beat": 151
+      },
+      {
+        "at": 67.54,
+        "beat": 152
+      },
+      {
+        "at": 68.0,
+        "beat": 153
+      },
+      {
+        "at": 68.48,
+        "beat": 154
+      },
+      {
+        "at": 68.94,
+        "beat": 155
+      },
+      {
+        "at": 69.42,
+        "beat": 156
+      },
+      {
+        "at": 69.96,
+        "beat": 157
+      },
+      {
+        "at": 70.48,
+        "beat": 158
+      },
+      {
+        "at": 71.06,
+        "beat": 159
+      },
+      {
+        "at": 71.7,
+        "beat": 160
+      },
+      {
+        "at": 72.36,
+        "beat": 161
+      },
+      {
+        "at": 72.78,
+        "beat": 162
+      },
+      {
+        "at": 73.26,
+        "beat": 163
+      },
+      {
+        "at": 73.885,
+        "beat": 164
+      },
+      {
+        "at": 110.26,
+        "beat": 261
+      },
+      {
+        "at": 110.94,
+        "beat": 262
+      },
+      {
+        "at": 113.74,
+        "beat": 266
+      },
+      {
+        "at": 114.42,
+        "beat": 267
+      },
+      {
+        "at": 115.08,
+        "beat": 268
+      },
+      {
+        "at": 118.28,
+        "beat": 273
+      },
+      {
+        "at": 119.52,
+        "beat": 275
+      },
+      {
+        "at": 120.12,
+        "beat": 276
+      },
+      {
+        "at": 120.74,
+        "beat": 277
+      },
+      {
+        "at": 121.9,
+        "beat": 279
+      },
+      {
+        "at": 122.5,
+        "beat": 280
+      },
+      {
+        "at": 123.66,
+        "beat": 282
+      },
+      {
+        "at": 125.34,
+        "beat": 285
+      },
+      {
+        "at": 125.92,
+        "beat": 286
+      },
+      {
+        "at": 126.48,
+        "beat": 287
+      },
+      {
+        "at": 129.72,
+        "beat": 293
+      },
+      {
+        "at": 130.24,
+        "beat": 294
+      },
+      {
+        "at": 130.78,
+        "beat": 295
+      },
+      {
+        "at": 131.28,
+        "beat": 296
+      },
+      {
+        "at": 131.82,
+        "beat": 297
+      },
+      {
+        "at": 132.34,
+        "beat": 298
+      },
+      {
+        "at": 132.82,
+        "beat": 299
+      },
+      {
+        "at": 133.34,
+        "beat": 300
+      },
+      {
+        "at": 135.34,
+        "beat": 304
+      },
+      {
+        "at": 135.82,
+        "beat": 305
+      },
+      {
+        "at": 136.28,
+        "beat": 306
+      },
+      {
+        "at": 137.24,
+        "beat": 308
+      },
+      {
+        "at": 138.16,
+        "beat": 310
+      },
+      {
+        "at": 138.66,
+        "beat": 311
+      },
+      {
+        "at": 139.12,
+        "beat": 312
+      },
+      {
+        "at": 140.08,
+        "beat": 314
+      },
+      {
+        "at": 140.54,
+        "beat": 315
+      },
+      {
+        "at": 141.02,
+        "beat": 316
+      },
+      {
+        "at": 141.48,
+        "beat": 317
+      },
+      {
+        "at": 142.92,
+        "beat": 320
+      },
+      {
+        "at": 143.44,
+        "beat": 321
+      },
+      {
+        "at": 143.98,
+        "beat": 322
+      },
+      {
+        "at": 144.56,
+        "beat": 323
+      },
+      {
+        "at": 145.2,
+        "beat": 324
+      },
+      {
+        "at": 145.62,
+        "beat": 325
+      },
+      {
+        "at": 146.1,
+        "beat": 326
+      },
+      {
+        "at": 146.72,
+        "beat": 327
+      },
+      {
+        "at": 147.055,
+        "beat": 328
+      },
+      {
+        "at": 183.055,
+        "beat": 424
+      },
+      {
+        "at": 183.64,
+        "beat": 425
+      },
+      {
+        "at": 184.38,
+        "beat": 426
+      },
+      {
+        "at": 185.14,
+        "beat": 427
+      },
+      {
+        "at": 185.86,
+        "beat": 428
+      },
+      {
+        "at": 186.62,
+        "beat": 429
+      },
+      {
+        "at": 187.32,
+        "beat": 430
+      },
+      {
+        "at": 188.04,
+        "beat": 431
+      },
+      {
+        "at": 188.72,
+        "beat": 432
+      },
+      {
+        "at": 189.38,
+        "beat": 433
+      },
+      {
+        "at": 190.08,
+        "beat": 434
+      },
+      {
+        "at": 191.44,
+        "beat": 436
+      },
+      {
+        "at": 192.1,
+        "beat": 437
+      },
+      {
+        "at": 193.38,
+        "beat": 439
+      },
+      {
+        "at": 194.06,
+        "beat": 440
+      },
+      {
+        "at": 195.3,
+        "beat": 442
+      },
+      {
+        "at": 195.94,
+        "beat": 443
+      },
+      {
+        "at": 196.54,
+        "beat": 444
+      },
+      {
+        "at": 197.16,
+        "beat": 445
+      },
+      {
+        "at": 198.36,
+        "beat": 447
+      },
+      {
+        "at": 198.94,
+        "beat": 448
+      },
+      {
+        "at": 199.54,
+        "beat": 449
+      },
+      {
+        "at": 202.44,
+        "beat": 454
+      },
+      {
+        "at": 203.0,
+        "beat": 455
+      },
+      {
+        "at": 203.58,
+        "beat": 456
+      },
+      {
+        "at": 204.12,
+        "beat": 457
+      },
+      {
+        "at": 205.8,
+        "beat": 460
+      },
+      {
+        "at": 206.34,
+        "beat": 461
+      },
+      {
+        "at": 206.86,
+        "beat": 462
+      },
+      {
+        "at": 207.42,
+        "beat": 463
+      },
+      {
+        "at": 210.54,
+        "beat": 469
+      },
+      {
+        "at": 212.04,
+        "beat": 472
+      },
+      {
+        "at": 212.5,
+        "beat": 473
+      },
+      {
+        "at": 213.04,
+        "beat": 474
+      },
+      {
+        "at": 213.52,
+        "beat": 475
+      },
+      {
+        "at": 216.02,
+        "beat": 480
+      },
+      {
+        "at": 218.42,
+        "beat": 485
+      },
+      {
+        "at": 218.88,
+        "beat": 486
+      },
+      {
+        "at": 219.36,
+        "beat": 487
+      },
+      {
+        "at": 219.82,
+        "beat": 488
+      },
+      {
+        "at": 220.26,
+        "beat": 489
+      },
+      {
+        "at": 220.74,
+        "beat": 490
+      },
+      {
+        "at": 223.04,
+        "beat": 495
+      },
+      {
+        "at": 223.48,
+        "beat": 496
+      },
+      {
+        "at": 224.86,
+        "beat": 499
+      },
+      {
+        "at": 226.62,
+        "beat": 503
+      },
+      {
+        "at": 227.12,
+        "beat": 504
+      },
+      {
+        "at": 230.64,
+        "beat": 512
+      },
+      {
+        "at": 231.1,
+        "beat": 513
+      },
+      {
+        "at": 231.98,
+        "beat": 515
+      },
+      {
+        "at": 232.44,
+        "beat": 516
+      },
+      {
+        "at": 232.88,
+        "beat": 517
+      },
+      {
+        "at": 234.14,
+        "beat": 520
+      },
+      {
+        "at": 235.06,
+        "beat": 522
+      },
+      {
+        "at": 236.38,
+        "beat": 525
+      },
+      {
+        "at": 236.8,
+        "beat": 526
+      },
+      {
+        "at": 237.24,
+        "beat": 527
+      },
+      {
+        "at": 237.64,
+        "beat": 528
+      },
+      {
+        "at": 238.06,
+        "beat": 529
+      },
+      {
+        "at": 238.5,
+        "beat": 530
+      },
+      {
+        "at": 239.34,
+        "beat": 532
+      },
+      {
+        "at": 240.22,
+        "beat": 534
+      },
+      {
+        "at": 241.06,
+        "beat": 536
+      },
+      {
+        "at": 241.44,
+        "beat": 537
+      },
+      {
+        "at": 241.9,
+        "beat": 538
+      },
+      {
+        "at": 242.74,
+        "beat": 540
+      },
+      {
+        "at": 243.18,
+        "beat": 541
+      },
+      {
+        "at": 243.6,
+        "beat": 542
+      },
+      {
+        "at": 244.04,
+        "beat": 543
+      },
+      {
+        "at": 245.3,
+        "beat": 546
+      },
+      {
+        "at": 245.7,
+        "beat": 547
+      },
+      {
+        "at": 246.54,
+        "beat": 549
+      },
+      {
+        "at": 246.94,
+        "beat": 550
+      },
+      {
+        "at": 247.82,
+        "beat": 552
+      },
+      {
+        "at": 248.22,
+        "beat": 553
+      },
+      {
+        "at": 248.6,
+        "beat": 554
+      },
+      {
+        "at": 249.02,
+        "beat": 555
+      },
+      {
+        "at": 250.22,
+        "beat": 558
+      },
+      {
+        "at": 251.48,
+        "beat": 561
+      },
+      {
+        "at": 251.86,
+        "beat": 562
+      },
+      {
+        "at": 252.28,
+        "beat": 563
+      },
+      {
+        "at": 252.66,
+        "beat": 564
+      },
+      {
+        "at": 253.06,
+        "beat": 565
+      },
+      {
+        "at": 254.2,
+        "beat": 568
+      },
+      {
+        "at": 254.6,
+        "beat": 569
+      },
+      {
+        "at": 254.98,
+        "beat": 570
+      },
+      {
+        "at": 255.4,
+        "beat": 571
+      },
+      {
+        "at": 255.78,
+        "beat": 572
+      },
+      {
+        "at": 256.18,
+        "beat": 573
+      },
+      {
+        "at": 256.54,
+        "beat": 574
+      },
+      {
+        "at": 258.44,
+        "beat": 579
+      },
+      {
+        "at": 258.8,
+        "beat": 580
+      },
+      {
+        "at": 259.94,
+        "beat": 583
+      },
+      {
+        "at": 260.66,
+        "beat": 585
+      },
+      {
+        "at": 261.0,
+        "beat": 586
+      },
+      {
+        "at": 261.38,
+        "beat": 587
+      },
+      {
+        "at": 262.1,
+        "beat": 589
+      },
+      {
+        "at": 262.48,
+        "beat": 590
+      },
+      {
+        "at": 262.82,
+        "beat": 591
+      },
+      {
+        "at": 263.2,
+        "beat": 592
+      },
+      {
+        "at": 264.28,
+        "beat": 595
+      },
+      {
+        "at": 264.62,
+        "beat": 596
+      },
+      {
+        "at": 264.98,
+        "beat": 597
+      },
+      {
+        "at": 265.32,
+        "beat": 598
+      },
+      {
+        "at": 265.68,
+        "beat": 599
+      },
+      {
+        "at": 266.0,
+        "beat": 600
+      },
+      {
+        "at": 266.38,
+        "beat": 601
+      },
+      {
+        "at": 266.72,
+        "beat": 602
+      },
+      {
+        "at": 267.08,
+        "beat": 603
+      },
+      {
+        "at": 267.76,
+        "beat": 605
+      },
+      {
+        "at": 268.12,
+        "beat": 606
+      },
+      {
+        "at": 270.16,
+        "beat": 612
+      },
+      {
+        "at": 270.52,
+        "beat": 613
+      },
+      {
+        "at": 270.84,
+        "beat": 614
+      },
+      {
+        "at": 271.2,
+        "beat": 615
+      },
+      {
+        "at": 271.52,
+        "beat": 616
+      },
+      {
+        "at": 271.86,
+        "beat": 617
+      }
+    ]
+  },
+  "output_gamma": 0.5
+}

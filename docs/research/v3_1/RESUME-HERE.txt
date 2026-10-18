@@ -1,0 +1,98 @@
+LETKI v3.1 — RESUME, 2026-10-15
+
+Task: prepare the full v3.1 LED tile in this independent session.
+ESP-12F controller, USB-C/buck head and their software are explicitly deferred
+until tile hardware verification. Do not expand this work into the head.
+
+Read hw/ledkiv3.1/integrated/README.md and docs/v3_1-five-tile-plan.txt.
+The exporter produces hw/ledkiv3.1/integrated/exports/prototype/. Its manifest
+identifies the exact frozen revision and checks; start with START-HERE.txt
+and v3_1-assembly-test.txt inside that package. All 15 physical qualification
+rows remain PENDING. No hardware, flash, options, programmer power, ordering,
+shared-ledger mutation, commit or push occurred in this design session.
+
+CURRENT SOURCE
+The integrated board is now fully routed and promoted from the reviewed copy.
+PCB SHA256: 8ed06d4da822652605ac51a19c34048dfd4aa7a7d353fba810f5046fec4d8269
+Initial unrouted integration is preserved in:
+  build/hardware/v3_1-integration/pre-promotion-source/
+All 461 protected inputs (including v3/v4/v4.1 and archives) are unchanged.
+Native ERC/DRC/open nets/parity/ignored checks: zero. Independent circuit audit
+checks 369 retained core pins and 390 pads. No production qualification claimed.
+
+Five tiles, 40.64x49.27mm, four layers. Retain CH32V003F4P6 + SN74HC138PWR;
+8 AO3415A column sources and 8 DMN2056U-7 row sinks per tile. LEDs reverse
+relative to v3. Two 68ohm 1%0805 per row =34ohm. External regulated 3.3V±5%,
+never direct5V. Five-tile BOM: 782 parts =777SMT+5headers. User selected TME
+pair; prices/stock are dated snapshots, not orders or new reservations.
+
+Symmetric 7-contact ordinary PTH interfaces: 0.8mm drill, 0.5mm wire,
+2.54mm staple span. No castellations, edge plating or filled vias. All 278
+ordinary vias are tented, 0.6/0.3mm, with independent all-via SMT clearance.
+Two M2 holes; keepout polygons have2.46mm circumradius, giving>2.45mm apothem.
+In1 exact whitelist:262tracks/399.932mm. Ground is one polygon; this does not
+certify return impedance. Q10 has a2.063mm B0.3mm parallel return to via
+(4.9,36.8), joining the main0.5mm corridor core. C4 transient loop still needs
+measurement. See docs/v3_1-power-review.txt for the bounded electrical review.
+
+R4 is front at(16.45,27.7), beneath a closed opaque grid pocket. Its solder
+allowance is3.4x1.6x0.7mm; cavity3.6x1.8x0.85mm. JP2 is front at(33.5,45.3),
+accessed with optics removed. Other row resistors are rear. 75 assembly marks
+use resistor numbers, P1/P2 jumpers and C1-C5. Full references remain in
+CAD/Fab/BOM; six displaced marks have leaders. Minimum1mm/.15mm retained.
+Current-pose populated STEP/mechanics for1and4tiles are exporter gates.
+4+1carrier fits A1mini nominally; physical print/connector/solder/optics pending.
+
+FIRMWARE / FIRST PROVISIONING
+make VARIANT=v3_1-pulse: dark boot, hw profile
+  FW LETKI_V3_1_PULSE expects=34R/3V3
+8kHz slots/1kHz frames, hardware-ended PWM2/OPM nominal<=80us per1ms.
+Measure actual LED current width<=100us AND duty<=10%, including tails and
+temperature. Never use original-v3 or repetitive-MOSFET firmware on34R.
+Command0 deliberately restores brightness100. Pulse memory:9780flash sections,
+1760RAM including256stack; conservative static stack144, runtime unmeasured.
+First provision R49DNP/R38FIT; matching image/readback, separately authorized
+PD7GPIO configuration/readback, then power OFF before fitting R49.
+Rear J2 PicoBlade:1REF3V3,2SWIO,3GND. Present LinkE cable uses pins2/3 only,
+with independent board supply and pin1 empty.
+
+make v3_1-interface-demos builds UART/controller/target LED-OFF images:
+  FW LETKI_V3_1_INTERFACE_LED_OFF expects=34R/3V3
+Only one controller and one target at0x32. Additional three tiles may load
+the bus in UART mode; duplicate-address targets are not an addressing test.
+Static interface stack160/384bytes. All variants and host tests are exporter
+gates. No flashing here. ESP chain text/frame/address management is deferred.
+Original-v3 physical UART/I2C results are baseline, not v3.1 qualification.
+
+TECHNIQUE MONITORING
+User requested ongoing measurement and publication to ~/electronics.
+69 CAD trial records include failures, input/profile hashes, native results,
+complete command times where measured and separate helper-stage timings.
+Published notes/routing/2026-10-14-v3_1-routing.{txt,json} and
+notes/experiments.csv. Canonical pcb-workflow references updated; no tool forks.
+Fixed three-strategy portfolio:17.400s serial vs6.448s in3processes=2.699x
+on one fixture; no whole-board or16core scaling claim.
+KiCad10 GetConnectedItems returns the full cluster including seed;
+GetConnectedTracks is adjacency. EXCLUDE_ZONES must be passed into the query.
+Earlier one-hop attribution was withdrawn. Native DRC missed an old via under
+moved JP2; all-via/moved-SMT checks caught it. Long endpoint snaps caused eight
+clearances; local necks fixed them. Via caps can bridge unmatched track ends;
+count all opens, including power, after pruning. Rejected label/font attempts
+remain recorded. A numeric label map solved fit without lowering print limits.
+No agent work remains pending. Final read-only Astra power review is retained
+under build/hardware/v3_1-integration/final-power-review/.
+
+LATER / WORKBENCH
+User owns ESP-12F, WanptekTPS3010 and untested LM2596/small3.3V buck modules.
+Do not renew PSU shopping or scraped-chip identification unless asked.
+Future head target3.3V/3Aclass,>=3.5A transient is a model, not a qualified
+supply. Feed both strip ends from the SAME source. Earlier~59mV copper-drop
+estimate is an ideal equivalent-width model, not a solution of the actual plane.
+User prefers Polish sourcing/InPost and combining a future basket.
+
+EXPORT COMPLETE
+The final exporter run passed. Package manifest verifies453source files,
+94artifacts,461protected inputs and all native/host/mechanical gates. All
+three ZIPs passed CRC checks. See build/hardware/v3_1-integration/
+final-handoff-audit.json for exact hashes/timings and retained parser failure.
+Physical qualification remains explicitly deferred by the user.

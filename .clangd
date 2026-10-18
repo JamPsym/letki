@@ -1,0 +1,7 @@
+CompileFlags:
+  # clangd does not understand WCH's ISA extension or the RV32E ABI.
+  # These substitutions affect indexing only; Make uses the WCH flags.
+  Remove: [-march=*, -mabi=*, -msave-restore]
+  Add: [--target=riscv32-unknown-elf, -march=rv32ic, -mabi=ilp32]
+Index:
+  Background: Build

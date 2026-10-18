@@ -1,0 +1,21 @@
+(footprint "TestPoint_1.5mm"
+	(version 20241229)
+	(generator "pcbnew")
+	(layer "F.Cu")
+	(attr smd exclude_from_pos_files exclude_from_bom)
+	(fp_circle
+		(center 0 0)
+		(end 1.05 0)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill none)
+		(layer "F.CrtYd")
+	)
+	(pad "1" smd circle
+		(at 0 0)
+		(size 1.5 1.5)
+		(layers "F.Cu" "F.Mask")
+	)
+)

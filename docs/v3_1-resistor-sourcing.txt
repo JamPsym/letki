@@ -1,0 +1,67 @@
+V3.1 — TME RESISTORS BEFORE PCB REWORK — 2026-10-15
+
+Use E12 nominal values. “10% series” does not require parts with ±10%
+tolerance. Gate/bias resistors can be 5%; compare actual available offers.
+The current 33 ohm LED-current budget retains 1% parts, also an E12 value.
+
+Lowest-cash suitable shortlist found for five tiles:
+Purpose          Package Value  Part tolerance Required Buy Approx gross PLN
+MOSFET gates     0603    1k     5%             80       100       4.00
+MOSFET bias      0603    10k    1%            120       120       6.00
+LED current      0805    33R    1%             40       100       7.00
+UART series      0805    1k     1%             10        10       1.00
+TOTAL                                                         18.00
+
+Exact MPNs and source URLs are in config/v3_1-resistor-sourcing.json.
+Amounts multiply public rounded gross unit prices by purchase quantities.
+They are estimates, not unrounded basket totals or a supplier quotation.
+The selected rows have positive stock in the retrieved TME snapshots;
+the 33R page is older (crawler reports eight months). Recheck at purchase.
+This is the lowest shortlist found among the recorded offers, not an
+exhaustive live TME catalogue ranking. No purchase or cart action occurred.
+
+1k/0603: Royalohm 0603SAJ0102T5E, SMD0603-1K, 100mW.
+100 pieces at displayed 0.04 PLN gross. Yageo RC0603FR-071KL /1% is tied
+at the rounded 100-piece price; it is an acceptable option after exact
+basket comparison. Royalohm 1% cut tape showed zero stock. Therefore
+5% gate parts are the sourcing choice, not a circuit requirement.
+
+10k/0603: Yageo RC0603FR-0710KL, RC0603FR-0710K, 100mW.
+120 pieces at displayed 0.05 PLN gross. Royalohm 1% and 5% cut-tape
+offers showed zero stock; their nominal 100-piece price would require
+buying 200 pieces (~8 PLN). Yageo 5% RC0603JR-0710KL was cheaper
+(~3.60 PLN for 120) but its retrieved Polish product page showed zero
+stock. It remains a conditional alternative, not the selected buy row.
+
+33R/0805: Royalohm 0805S8F330JT5E, SMD0805-33R-1%, 125mW.
+100 pieces at displayed 0.07 PLN gross. Retains the existing tolerance
+and current budget. A valid Polish price/stock offer for ordinary 5%
+33R was not obtained; no saving is asserted. Do not silently substitute
+5% here without recomputing worst-case current and pulse limits.
+
+1k/0805: Yageo RC0805FR-071KL, RC0805FR-071K, 125mW.
+10 pieces at displayed 0.10 PLN gross. Buying 100 Royalohm parts for
+the two UART resistors per tile is unnecessary; gates now use 0603.
+
+Other resistors are unchanged: five 10k/0805 UART bias resistors and
+17 total 4.7k/0805 address/I2C resistors have exact shelf identities.
+The live ledger showed 980 and 990 conservatively free, respectively.
+This is a dated read-only observation, not a new allocation or stocktake.
+No 0805 lot was credited against a 0603 requirement. R50-R57 remain in
+the counts; possible omission of cathode pull-ups needs a separate decision.
+
+Bulk option, not selected: 1000 Royalohm 1k/0603 at displayed 0.01 gross
+would be ~10 PLN, versus ~4 PLN for 100 (+~6 PLN). Yageo 10k/0603
+1000 at 0.02 would be ~20 PLN versus ~6 PLN for 120 (+~14 PLN).
+Rounded cents are too coarse to approve bulk quantities; check exact line
+totals and useful spare stock when combining the basket.
+
+The shared wishlist in /home/pies/electronics/purchases/wishlist.csv is
+the editable purchase backlog. Historical quote snapshots and the old LCSC
+alternative describe an earlier BOM; they are not the current purchase list.
+Shipping belongs once to a combined TME order, not to each resistor row.
+
+CAD was not changed by this research. Apply the selected gate part/tolerance
+and bias MPN during the next shared schematic/PCB iteration. Keep all gate/
+bias footprints 0603 and R1-R8 at 0805. The PCB is still pending schematic
+synchronization and checks. No new fabrication handoff was generated.

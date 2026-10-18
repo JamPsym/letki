@@ -1,0 +1,105 @@
+{
+  "status": "EXACT_CAD_EXCEPTION",
+  "tracks": [
+    {
+      "uuid": "76bcdb21-f08b-4920-b201-5024e4f39178",
+      "net": "/SEL1",
+      "start_mm": [
+        27.05,
+        7.55
+      ],
+      "end_mm": [
+        24.35,
+        4.85
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "ae21e865-3bc2-4a17-9d32-6d9f9d1aee61",
+      "net": "/SEL1",
+      "start_mm": [
+        22.6,
+        6.6
+      ],
+      "end_mm": [
+        18.75,
+        6.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "c183dd91-1ecf-4595-837c-b84f08bf461f",
+      "net": "/SEL1",
+      "start_mm": [
+        24.35,
+        4.85
+      ],
+      "end_mm": [
+        22.6,
+        6.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "296dbe49-62dc-4f07-a7ef-3874b8a064df",
+      "net": "/ADDR2",
+      "start_mm": [
+        23.95,
+        6.5
+      ],
+      "end_mm": [
+        24.9,
+        6.5
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "34b110a8-40cc-4365-a1e0-3b29324dee28",
+      "net": "/ADDR2",
+      "start_mm": [
+        21.0,
+        19.9
+      ],
+      "end_mm": [
+        21.0,
+        9.45
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "7d431374-fe7b-47f2-a8af-fd86fb7dd025",
+      "net": "/ADDR2",
+      "start_mm": [
+        21.0,
+        9.45
+      ],
+      "end_mm": [
+        23.95,
+        6.5
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "8ba43e27-0476-48a5-84e2-5be26974f057",
+      "net": "/ADDR2",
+      "start_mm": [
+        23.6,
+        22.5
+      ],
+      "end_mm": [
+        21.0,
+        19.9
+      ],
+      "width_mm": 0.15
+    }
+  ],
+  "total_length_mm": 29.39213562373095,
+  "note": "Await ground-return and joint review; not source-authorized blanket plane routing.",
+  "review_status": "REVIEWED_CAD_RETURN_PATHS",
+  "review": {
+    "reviewer": "Astra",
+    "date": "2026-10-17",
+    "findings": "Both slots terminate in the board interior; no M2/edge-to-edge cut. Fresh native GND is one physical component. 0.2mm DC sheet mesh: W/E3.003mOhm,N/S2.944mOhm vs2.873/2.817 baseline (~4.5% increase).",
+    "limits": "DC/geometric review only; waveform/EMI/return inductance unqualified."
+  }
+}

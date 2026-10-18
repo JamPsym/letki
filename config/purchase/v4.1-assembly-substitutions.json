@@ -1,0 +1,47 @@
+{
+  "revision": "v4.1",
+  "status": "Purchased same-footprint substitutions for TME order35700057; apply at assembly. FrozennativeCADanduploadedGerbersunchanged.",
+  "order": "35700057",
+  "source_archive": "archive/hw/ledkiv4.1-purchase-20261013",
+  "changes": [
+    {
+      "references": [
+        "R30",
+        "R31"
+      ],
+      "native_MPN": "0603SAF5101T5E",
+      "purchased_MPN": "RC0603FR-075K1L",
+      "TME": "RC0603FR-075K1L",
+      "package": "0603",
+      "electrical": "5.1kohm1%0.1WUSBCCpulls;retainvalueandlands",
+      "quantity_ordered": 100,
+      "source": "https://yageogroup.com/component-documentation/download/specsheet/RC0603FR-075K1L"
+    },
+    {
+      "references": [
+        "U5"
+      ],
+      "native_MPN": "TPS2553DBVR",
+      "purchased_MPN": "AP22653W6-7",
+      "TME": "AP22653W6-7",
+      "package": "SOT26TypeA1 matchesexistingSOT23-6lands",
+      "pinmap": {
+        "1": "IN(USBVBUS)",
+        "2": "GND",
+        "3": "EN(tiedUSBVBUS)",
+        "4": "FAULT(unconnected)",
+        "5": "ILIM(R32)",
+        "6": "OUT(VCC)"
+      },
+      "quantity_ordered": 2,
+      "retained_R32": "33k1%",
+      "limit_typ_mA": 758.0734975399948,
+      "limit_fit_min_max_mA_with_3percent_R": [
+        653.914650209374,
+        870.711401552469
+      ],
+      "limit_note": "Manufacturer best-fit estimate; startup/foldback/fault/thermalbehavior require physicalqualification; not productionguarantee",
+      "source": "https://www.diodes.com/datasheet/download/AP22652_AP22653_AP22652A_AP22653A.pdf"
+    }
+  ]
+}

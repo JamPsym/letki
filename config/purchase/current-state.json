@@ -1,0 +1,89 @@
+{
+  "updated_on": "2026-10-17",
+  "selected_revision": "v4.1",
+  "prototype_boards": 5,
+  "USB_heads": 1,
+  "assembly": "Hand assembly",
+  "TME": {
+    "order_number": "35700057",
+    "date": "2026-10-13",
+    "lines": 20,
+    "all_required_parts_present": true,
+    "status": "Ordered;all20linesawaitingdelivery;notyetonhand",
+    "merchandise_gross_PLN_from_export": "174.15170",
+    "ledger": "config/parts-incoming.csv",
+    "source": "config/orders/TME-35700057-source.json"
+  },
+  "JLCPCB": {
+    "date": "2026-10-13",
+    "revision": "v4.1",
+    "item_name": "ledkiv4_1-gerbers_Y8",
+    "prototype_identifier": "Y8-10656422A",
+    "boards": 5,
+    "PCB_price_USD": 2,
+    "quote_shipping_estimate_USD": 1.5,
+    "Gerber_SHA256": "31de94b8df6cec8883f9bfa811c942c091c43b7e7b3588ef1af4935bc057a927",
+    "status": "Saved cart estimate verified2026-10-13; user handlingcheckout; PCBorder/paymentconfirmation not yet provided",
+    "cart_shipping_estimate_USD": 1.5,
+    "cart_subtotal_estimate_USD": 3.5,
+    "shipping_method": "Global Standard Direct Line"
+  },
+  "selected_wire_kit": {
+    "housing": "MX-51021-0300",
+    "housings_ordered": 5,
+    "contacts": "MX-50079-8000",
+    "contacts_ordered": 20,
+    "cable": "DIY SWIO/GND,position1empty;28AWGwire and programmer-end leads from own stock",
+    "crimper": "User pictured LionRage with exchangeabledies marked0.08mm2minimum;exactmodel and PicoBladefitness unconfirmed. Testexistingtool first. No new crimperpurchase confirmed.",
+    "crimper_photo_local_evidence": "build/purchase-v4_1/user-crimper-20261013.png",
+    "crimper_photo_sha256": "f40487477020235b98c250bbfe3b00ccba9465f2e54b98d80df1ff00d956f6e2"
+  },
+  "LCSC": {
+    "status": "Deferred; draftlistsarchived",
+    "shipping_USD_user_report": 20,
+    "tariff_USD_user_report": 20,
+    "evidence": "Usercheckoutreport;notindependentlyverified",
+    "historical_drafts": "archive/purchase/20261013-drafts"
+  },
+  "stock_accounting": "config/parts-stock.csv isestimatedLCSCon-hand inventory;config/parts-incoming.csv TMEorderawaitingdelivery;do not countpendingquantityason-hand.",
+  "remaining": [
+    "UserfinishesJLCPCBcheckout;order/paymentstatusunknown",
+    "ReceiveandcountTMEparts",
+    "TestcrimperandassembleSWIOcable",
+    "Two-boardv3I2Ctest",
+    "Firstv4.1electrical/mechanical/opticalqualification"
+  ],
+  "native_hardware_snapshot": "archive/hw/ledkiv4.1-purchase-20261013",
+  "frozen_Gerber_SHA256": "31de94b8df6cec8883f9bfa811c942c091c43b7e7b3588ef1af4935bc057a927",
+  "active_files_sha256": {
+    "TME-35700057-ordered.csv": "a6091f90e63887ad443d89997b7c18c503c6b7b80f0068d358094077e0794fcc",
+    "JLCPCB-v4.1-cart.json": "bbaa0a2680f1319760e018cba3a4db63834b6735fec6cf14c51ce3d5b5386492",
+    "v4.1-assembly-substitutions.json": "3d623f74839fbb5cb84107e2da5505627cf6ad16ca6ab16f732ce672dc38d8b9",
+    "README.md": "9db375e55e8e7027c9361277605e104aff30b6b1c7d5cc613c5dba1a4c95d9f1"
+  },
+  "current_summary": "docs/current-state.md",
+  "native_hardware_and_Gerbers": "Unchanged by archival/documentation cleanup",
+  "actual_order_import": "config/purchase/TME-35700057-ordered.csv (record only, alreadyordered)",
+  "current_record_files_sha256": {
+    "config/parts-incoming.csv": "094c44ec1b80127f5e22488e391b6bff59ed8d1fc49f89410cfa211e6bb558f0",
+    "config/orders/TME-35700057-backorders.csv": "253d69410f243c1429ace8e7e85aaa73ca99d31a419ba440ad15a45bd143de93",
+    "config/orders/TME-35700057-source.json": "af5eac4291bde2ae03e52564a8cf7da344890e4826e09691317a0ed89e9d01c3"
+  },
+  "historical_scope_note": "Original v4.1 selection and TME order snapshot retained. Later independent v3.1/v3.2 PCB orders are listed separately; current narrative and work priorities are in docs/current-state.md.",
+  "additional_user_confirmed_PCB_orders": {
+    "v3.1": {
+      "boards": 5,
+      "record": "config/purchase/v3_1-jlc-checkout-20261017.json",
+      "receipt_confirmed": false
+    },
+    "v3.2": {
+      "boards": 15,
+      "split": [
+        5,
+        10
+      ],
+      "record": "config/purchase/v3_2-jlc-order-20261017.json",
+      "receipt_confirmed": false
+    }
+  }
+}

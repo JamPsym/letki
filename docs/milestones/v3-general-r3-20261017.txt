@@ -1,0 +1,119 @@
+LETKI MILESTONE — FIVE-BOARD UART DISPLAY PLATFORM, R3
+Milestone ID: v3-general-r3-20261017
+Recorded: 2026-10-17
+Status: verified functional baseline on the existing five-board v3 chain.
+
+WHAT THIS ESTABLISHES
+
+New text, bitmap assets, brightness envelopes and arbitrary PC-generated effects
+can be delivered over UART without another application flash. Boards retain
+bounded rendering, independent PWM/scan refresh, validated content storage and
+timestamped frame queues. The shared I2C bus distributes the show clock.
+
+Supported paths: loaded RAM playback; persistent safe A/B or maximum-capacity
+flash playback; timed replacement of RAM segments; real-time MONO1/GRAY4/LEVEL8
+frames; synchronized PC music and narration. Each tile can receive its own program.
+The driver discovers actual capacities and exposes explicit replacement policy.
+
+VERIFIED BASELINE
+
+- Five commissioned role images: head, tile1, tile2, tile3, tile4, left to right.
+- Every application write identified the board, retained two matching full
+  pre-update backups, preserved option bytes and passed programmed-image readback.
+- Astra reviewed the native R3 and host changes; findings and fixes are recorded.
+- make test passed, including 43 general Python tests and actual driver/clock/
+  flash-controller register tests. Native builds, memory assessment, shared C
+  simulation, sanitizer and renderer evidence are retained.
+- Every tile loaded and read back its full 3008-byte content capacity, then
+  independently restarted into the exact saved object.
+- Safe A/B replacement and interrupted uncommitted-upload recovery passed.
+  Final physical readback on board 5 checked both bank header/content CRCs,
+  unchanged executable/options and newest-show selection after restart.
+- Final 38.4-second music/narration PWM run: 230400 baud, GRAY4, 18 fps,
+  706 uploads including lookahead flushed at the end, zero late/skipped uploads,
+  zero added per-node late frames/UART errors/TX drops and no audio warnings.
+  Fifteen acknowledgement timeouts recovered through bounded retries.
+- Saved programs read back unchanged after streaming. Final live audit verified
+  all five back in standalone playback, with fresh clocks and serial released.
+
+MEMORY AND IDENTITIES
+
+All roles: 2036/2048 RAM bytes including the reserved 256-byte stack.
+Compiler assessment: 236/256 bytes for combined foreground/ISR stack paths.
+Each tile: 752-byte shared arena; default two LEVEL8 slots leave 592 program bytes.
+Persistent programs: 1472 bytes with safe A/B replacement, or 3008 bytes with
+explicit capacity replacement. Application images: head 13272 bytes, others 13284.
+Exact image/source hashes and position-to-UUID mapping are in the adjacent JSON.
+
+LEFT RUNNING
+
+All five play config/general/demo.json, a 228-byte looping program per tile,
+from safe A/B flash, brightness 100, unpaused, with two LEVEL8-sized queue slots.
+UART default/recovery is 115200. SWIO was left on rightmost board 5.
+The user resoldered the head S5 connection and reported it appears okay; the
+intermittent column report, native live captures and repair history are retained.
+
+REPEAT / USE
+
+From the repository root:
+  make general-host
+  python3 scripts/letki_general.py inspect
+  python3 scripts/letki_general.py text 'LETKI DZIAŁA' --mode fall
+  python3 scripts/letki_general.py play
+
+The last command starts the currently active loaded program at position zero.
+A chain restart selects the newest valid persistent program. Returning from a
+RAM object to a new persistent upload needs an explicit replacement transition;
+see the storage-policy notes in firmware/general/README.txt.
+
+With the prepared score and the documented audio Python environment:
+  .tools/native-tts/bin/python scripts/letki_general.py --baud 230400 stream config/general/pwm-show.json --fps 18 --audio build/pwm-show/audio/score.wav
+  python3 scripts/letki_general.py play
+Streaming retains active flash programs when every tile has one. The second
+command returns to that retained program. See firmware/general/README.txt for
+RAM replacement behavior, other modes, dependencies and controls.
+
+RECOVERY SNAPSHOT
+
+Local archive: build/milestones/v3-general-r3-20261017.tar.gz
+Checksum/index: docs/milestones/v3-general-r3-20261017.json
+The archive contains working-tree firmware/host sources, tests, build scripts,
+relevant configs/docs, the five frozen native images, physical backups/results,
+test logs and the prepared audio score. MANIFEST.json hashes each archived file.
+It excludes CAD, downloaded toolchains, models/environments and Git metadata.
+Extract into a new directory; install the documented toolchain/dependencies,
+then use make general-images STACK_USAGE=1 and make general-test as appropriate.
+Extraction/building does not program a board. Any later hardware restore must
+identify the board and preserve current readbacks/options under existing rules.
+
+This is a working-tree milestone snapshot. The historical Git HEAD predates
+this firmware; it is not a source identifier for this milestone. The snapshot
+and per-file hashes identify the tested state. No Git commit/tag or push is
+implied by this record. Generated images and backups remain outside Git.
+
+LIMITS RETAINED
+
+18 fps is the final measured streaming setting; automatic 22 fps was not
+reliable in every run. 460800 failed the PC-to-head zero-error criterion;
+921600 remains unqualified. Initial reconnect timeouts were observed, with
+subsequent discovery trials passing. Independent receiver restart needs host
+PLAY to restore a common show phase. Runtime stack high-water, supply/current,
+continuous electrical waveforms and optical timing skew remain unmeasured.
+This milestone establishes the v3 functional baseline, not v4 qualification.
+
+PRIMARY RECORDS
+
+firmware/general/README.txt
+  Build, launch commands, allocation and behavior.
+docs/general-firmware-protocol.txt
+  Exact wire/content/storage contract.
+docs/general-firmware-review-20261017.txt
+  Astra reviews, fixes and physical follow-up.
+docs/general-firmware-hardware-20261017.txt
+  Successful/failed trials, column investigation, repair and measurement limits.
+build/board-readback/general-20261017/summary.json
+  Requirement-to-evidence completion audit and frozen role hashes.
+build/board-readback/general-20261017/final-live-state.json
+  Last verified identities, saved content, playback and port release.
+build/general/review-candidate/manifest.json
+  Five native image hashes, per-source hashes, capacities and stack assessment.

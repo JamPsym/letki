@@ -1,0 +1,103 @@
+LETKI V4.1 — CURRENT PROTOTYPE HANDOFF (2026-10-13)
+
+Five identical PCBs: one USB head and four followers. Hand assembly.
+Current status and remaining checks: docs/current-state.md.
+
+PURCHASE STATE
+TME order 35700057 is placed: 20 lines / 883 parts, all awaiting delivery.
+The exact ordered quantities are config/purchase/TME-35700057-ordered.csv.
+Do not import this existing-order record into another cart.
+config/parts-incoming.csv tracks pending deliveries and confirmed receipt.
+config/parts-stock.csv retains the old LCSC stock and four-v3 reservation.
+MCU and orange LEDs are from user stock: estimated 43 / 680 after reservation.
+
+JLCPCB cart: ledkiv4_1-gerbers_Y8, prototype Y8-10656422A, 5 boards.
+User has taken over checkout; PCB payment/order completion is unconfirmed.
+Recorded cart estimate: USD 2 PCB + USD 1.50 Global Standard Direct Line.
+Final checkout taxes and delivery costs may differ. No agent payment/order.
+
+ASSEMBLY SUBSTITUTIONS
+Native CAD and the original package retain their earlier part numbers.
+Use config/purchase/v4.1-assembly-substitutions.json when assembling:
+- R30/R31: Yageo RC0603FR-075K1L, 5.1k 1%, 0603.
+- U5: Diodes AP22653W6-7, same pin mapping and existing SOT-23-6 lands.
+  Retain R32 = 33k 1%. Do not use the AP22653A latch-off variant.
+  Calculated typical current limit is 758mA; best-fit range with a 3% R
+  allowance is about 654–871mA. Measure startup, fault current and heating.
+Generated TME worksheets describe the original CAD selection; they are not
+records of this placed order. Historical Quick Buy drafts are archived in
+archive/purchase/20261013-drafts/.
+
+FROZEN FABRICATION FILE
+hw/ledkiv4.1/exports/prototype/ledkiv4_1-gerbers.zip was uploaded.
+SHA-256: 31de94b8df6cec8883f9bfa811c942c091c43b7e7b3588ef1af4935bc057a927
+Native source snapshot: archive/hw/ledkiv4.1-purchase-20261013/.
+Original ZIPs/manifest: build/hardware/v4_1/purchase-snapshot-20261013/.
+Do not regenerate/overwrite these bytes merely to refresh documentation.
+
+Single PCB, 5pcs, 4 layers, 40.64 x 49.27mm, 1.6mm FR4, green mask,
+white silk, outer 1oz / inner 0.5oz, HASL with lead, ordinary through vias.
+No castellation, edge plating or factory assembly. Optional paste Gerbers
+are separate for stencil use. Minimum routing drill is 0.3mm.
+USB plated slots are Excellon PTH; wire contacts use enclosed PTH holes.
+
+The saved cart uses Plugged via covering. Follow the mask/via map; keep
+exposed vias, all solder holes, USB plated slots and NPTH open. No epoxy or
+copper capping. Covered near-pad vias may remain unfilled. Production-file
+confirmation is optional and off; it does not qualify circuit function.
+
+Recorded fabrication remark:
+Plug covered 0.30mm vias only where process allows. Keep exposed vias,
+0.60/0.80mm solder holes, USB plated slots and NPTH open. Follow mask openings.
+No epoxy/copper capping.
+
+POPULATION AND PIN MAP
+Populate C10/J4/U5/R30/R31/R32 only on the USB head. Close JP1/JP2 only there.
+Followers receive 5V/GND through wire contacts; both jumpers remain open.
+U2 is active-HIGH 74HCT238D,653, not HC/LVC138.
+U4 is 74LVC2G34GW,125. Both R26/R27 = 220ohm; 100k idle pulls remain.
+Use short staple links and a fast push-pull 3.3V UART adapter initially.
+Measure both U4 input transitions against the <=10ns/V requirement.
+TI SN74LVC2G17DCKR is a reviewed alternative, not in the placed order.
+U6 MIC5504: 1 VIN, 2 GND, 3 EN tied to VIN, 4 NC, 5 OUT.
+ALPS switches: physical pins 1/2 and 3/4 form permanent pairs.
+USB4105 stakes are shorter than the PCB: solder/inspect from component side.
+Qualify PicoBlade pin protrusion and 0.6mm hole fill on the 1.6mm board.
+
+SWIO LEAD
+Ordered: MX-51021-0300 housings x5, MX-50079-8000 contacts x20.
+Use one housing and two contacts with suitable 28AWG wire per probe lead.
+J2: 1 REF3.3V (leave empty), 2 SWIO/PD1, 3 GND.
+Connect SWIO/GND only; keep programmer power outputs disconnected.
+User's LionRage crimper has an apparent 0.08mm2 die; exact fit is unconfirmed.
+Make a trial crimp; check conductor/insulation retention, straightness,
+housing latch and cable continuity. Wire/probe-end leads are from own stock.
+No new crimper purchase has been confirmed.
+
+FIRST BOARD
+Two-board v3 I2C remains a pending baseline; v3 USART physically passed.
+No v4.1 hardware has been physically qualified. Inspect pin 1, LED polarity,
+and unpowered GND/supply shorts. Use one regulated 5V 1A charger through the
+head. Measure 5V and 3.3V before connecting the probe.
+Identify the new chip and preserve readback before authorized programming.
+Check fresh-MCU PD7/NRST configuration; option-byte changes need separate
+authorization. Run walking pixels, PWM/brightness, UART115200 and I2C100kHz.
+Record rails, current, temperatures, optics and fit in the qualification CSV.
+Keep every HCT supply >=4.5V and chain current below the measured head limit.
+Five/twenty are purchase quantities, not certified maximum chain lengths.
+
+MECHANICS AND ITERATION
+Print the opaque grid, translucent face, bezel and one/four-tile carriers;
+nominal STL envelopes fit the A1 mini's 180mm bed. Two M2x12 pan-head screws
+per tile, four M2x6 per carrier section joint. Use 0.5mm solid copper staples,
+seven per adjacent-board joint, 2.54mm hole-to-hole span when boards touch.
+Printed support carries handling/cable loads. Optical and screw fit require
+physical iteration; two M2 holes and the grid seating are retained.
+
+Continue in hw/ledkiv4.1 native CAD. Preserve the purchase snapshot, update
+exact part/footprint metadata deliberately, route in isolated copies, and
+rerun ERC/DRC/parity/pin/geometry checks for actual hardware changes. A new
+package must have a new identity; do not silently replace the uploaded ZIP.
+KiCadRoutingTools and KiCad SVG Extras are integrated. The nine-panel SVG
+report and trial statistics remain in exports/prototype/routing-review/.
+Do not replay one-time creation/placement/ECO helpers on routed source.

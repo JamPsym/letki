@@ -1,0 +1,146 @@
+{
+  "revision": "v3.1 shared33R E12 iteration; qualification pending",
+  "recorded_on": "2026-10-15",
+  "tile_count": 5,
+  "head_count": 1,
+  "priorities": [
+    "Maximize useful brightness within component ratings",
+    "Minimize complete system purchase, PCB and assembly cost",
+    "Reuse stocked v3 ICs and LEDs"
+  ],
+  "IC_constraint": {
+    "per_LED_tile": [
+      "CH32V003F4P6",
+      "SN74HC138PWR"
+    ],
+    "additional_tile_ICs": 0,
+    "head": "Separate ESP8266 and buck converter board accepted in deployment discussion"
+  },
+  "controller": {
+    "family": "ESP8266",
+    "source": "User confirms already owned",
+    "exact_module": "ESP-12F",
+    "interface": "3.3V UART; ESP TX to first RX, last TX to ESP RX; shared GND",
+    "physical_module_footprint": "Confirmed ESP-12F; head design/software deferred by user until v3.1 tile hardware verification"
+  },
+  "development_supply": {
+    "source": "Owned Wanptek TPS3010; regulated external 3.3V for tile qualification",
+    "status": "No measurements in design session; generic converters remain unqualified temporary candidates"
+  },
+  "tile_supply_V": {
+    "nominal": 3.3,
+    "minimum": 3.135,
+    "maximum": 3.465
+  },
+  "row_resistor_ohm": 33,
+  "resistance_engineering_allowance": 0.03,
+  "LED_model": {
+    "nominal_Vf_V": 2.1,
+    "continuous_current_ceiling_A_at_25C": 0.02,
+    "datasheet_Vf_min_at_20mA_25C_V": 1.8,
+    "assumed_Vf_floor_at_20mA_V": 1.6,
+    "floor_status": "Engineering temperature/lot allowance; not a manufacturer hot-temperature guarantee; requires physical qualification",
+    "pulse_current_ceiling_A_at_25C": 0.08,
+    "operating_pulse_budget_A": 0.06,
+    "rating_conditions": {
+      "maximum_pulse_us": 100,
+      "maximum_duty": 0.1,
+      "ambient_C": 25
+    }
+  },
+  "scan": {
+    "column_slot_us": 125,
+    "blank_us": 45,
+    "initial_timer_blank_us": 30,
+    "timer_window_us": 110,
+    "tail_margin_to_next_nominal_slot_us": 15,
+    "maximum_gate_pulse_us": 80,
+    "columns": 8,
+    "frame_Hz": 1000,
+    "status": "Isolated v3_1-pulse driver uses PWM2/OPM with hardware pulse end. GPIO LOW before address changes retained; actual MOSFET waveform still pending."
+  },
+  "budget_assumptions": {
+    "tile_core_A": 0.02,
+    "tile_other_IO_A": 0.005,
+    "tile_decoder_A": 0.001,
+    "tile_average_gate_charge_allowance_A": 0.002,
+    "ESP_nominal_A": 0.08,
+    "ESP_supply_capacity_allowance_A": 0.5,
+    "head_other_A": 0.01,
+    "buck_efficiency_for_budget": 0.85,
+    "USB_min_at_converter_V": 4.5
+  },
+  "power_layout_targets": {
+    "VCC_rail_width_mm": 2.0,
+    "GND_equivalent_return_width_mm_for_budget": 2.0,
+    "outer_copper_thickness_um": 35,
+    "per_tile_path_mm": 40.64,
+    "tile_peak_budget_A": 0.5,
+    "copper_resistivity_ohm_mm2_per_m_at_20C": 0.01724,
+    "hot_resistance_factor": 1.3,
+    "extra_contact_and_wire_drop_budget_V": 0.04,
+    "head_minimum_output_V_at_load": 3.25,
+    "status": "Completed human/Astra prototype:2mm F crossbar,left1.2mm rear/right2mm In2 feeds,1mm rear PMOS source trunk,0.5mm branches, twoGND island bridges; actualmultilayerconnectivity PASS. Models and physical qualification remain separate.",
+    "supply_topology": "Same head feeds both ends of five-tile strip; retain UART return alongside rear wiring"
+  },
+  "head_power": {
+    "input": "USB-C 5V",
+    "output_nominal_V": 3.3,
+    "output_capacity_target_A": 3.0,
+    "preferred_candidate": null,
+    "candidate_status": "AP63203 2A is the lower-current baseline reference, insufficient as final pulse-head choice. Compare >=3A synchronous bucks and complete magnetics/caps/cost; selection pending.",
+    "input_current_handling": "Target a USB-C source advertising 3A at 5V for pulse profile; proper CC Rd, source-current handling and inrush review required. Rd alone does not grant 3A.",
+    "protection_and_layout": "Review input inrush/capacitance, source current budget, buck OCP/thermal behavior, hot loop/feedback routing, ESP decoupling and antenna clearance",
+    "inductor_and_caps": "Choose from manufacturer design equations; verify inductor saturation at temperature and effective MLCC capacitance under DC bias",
+    "transient_peak_target_A": 3.5,
+    "candidate_reference": "AP63300WU-7: manufacturer 3A family reference, not a final selected or fully sourced BOM",
+    "candidate_datasheet": "https://www.diodes.com/datasheet/download/AP63300_AP63301.pdf",
+    "candidate_TME_snapshot": {
+      "url": "https://www.tme.eu/pl/details/ap63300wu-7/regulatory-napiecia-uklady-dc-dc/diodes-incorporated/",
+      "unit_net_PLN_at_1": 3.42,
+      "unit_displayed_gross_PLN_at_1": 4.21,
+      "stock_on_viewed_PL_page": 0,
+      "status": "Reference price only. Earlier category/locale stock conflicts prevent claiming current availability."
+    },
+    "magnetics_starting_requirements": {
+      "candidate_inductance_uH": 4.7,
+      "tolerance": 0.2,
+      "continuous_RMS_A_min": 3,
+      "saturation_A_at_temperature_target_min": 5.5,
+      "status": "No exact MPN selected; check 3.5A transient + ripple against minimum limit and hot saturation."
+    },
+    "capacitor_review": "Input capacitance/inrush must meet USB-C; size effective output capacitance for scan/Wi-Fi transients and verify DC bias. No automatic reuse of nominal stock 10uF.",
+    "implementation_scope": "Deferred after v3.1 tile hardware verification per user; retain engineering budget for future head"
+  },
+  "interface_baseline": {
+    "UART": {
+      "status": "Physical two-v3 transport PASS, 20 packets, zero diagnostics",
+      "evidence": "/home/pies/letki/build/board-readback/uart-chain-20261014/live-result.json"
+    },
+    "I2C": {
+      "status": "User confirmed and original-session report records 20 physical CRC replies",
+      "guide": "/home/pies/letki/docs/i2c-v3-test.md",
+      "evidence": "/home/pies/letki/build/board-readback/i2c-two-v3-20261014/live-result.json"
+    },
+    "scope": "Existing v3 transport; ESP app, five-tile operation and new transistor hardware not physically qualified"
+  },
+  "inventory_policy": "Read-only forecast here; assembly session retains ownership of shared reservations and consumption",
+  "procurement_status": "Five-tile read-only stock/BOM and dated TME parts snapshot prepared. Exact checkout/fabrication/assembly quotes pending; no orders, carts or inventory changes. Head deferred.",
+  "drive_profile": "pulse",
+  "row_population": {
+    "per_row": "One33ohm E12 nominal,1%0805/125mW",
+    "MPN": "0805S8F330JT5E",
+    "Supplier": "TME",
+    "code": "SMD0805-33R-1%",
+    "quantity_per_tile": 8
+  },
+  "sources": {
+    "pulse_schematic": "archive/hw/ledkiv3.1-studies-20261015/pulse-study/ledkiv3_1_pulse.kicad_sch",
+    "pulse_firmware": "firmware/v3_1-pulse/User/",
+    "conservative_100R_reference": "archive/hw/ledkiv3.1-studies-20261015/tme-study/ledkiv3_1_tme.kicad_sch",
+    "notes": "docs/v3_1-five-tile-plan.txt",
+    "integrated_tile": "hw/ledkiv3.1/ledkiv3_1.kicad_pro"
+  },
+  "shared_project": "hw/ledkiv3.1/ledkiv3_1.kicad_pro",
+  "firmware_profile_status": "Matching source profiles now identify33R; built/tested separately; not flashed"
+}

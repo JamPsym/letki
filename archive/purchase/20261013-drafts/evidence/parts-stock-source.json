@@ -1,0 +1,56 @@
+{
+  "receipt_basename": "LCSC__WM2510170101_20261011230640.csv",
+  "receipt_sha256": "6f616d9c4cbb4fdfd3ec7d194cc307af190639865edbe84375eaac60b6b080cf",
+  "recorded_on": "2026-10-11",
+  "source": "User LCSC order export and report: one assembled v3 board; roughly two ICs used during ground debugging",
+  "accounting": "Parts are assumed to have come from this order; counts are estimates rather than a physical stocktake",
+  "v3_board_consumption": {
+    "C5187096": 1,
+    "C157527": 1,
+    "C455282": 2,
+    "C84376": 4,
+    "C26022": 2,
+    "C15850": 1,
+    "C476766": 4,
+    "C965813": 64
+  },
+  "uncertainties": [
+    "Allow zero to two extra debugging losses for each IC type; exact types/counts unconfirmed",
+    "Eight total row resistors assumed, but 51/68 ohm split unknown; each row records an independent 0-8 use range",
+    "No other loss or use reported; switches/capacitors are assumed fully populated according to the archived v3 netlist"
+  ],
+  "future_reservations": "Four remaining v3 boards reserved in parts-stock.csv (user2026-10-12); prior one-board reservation retained under previous_reservation_for_second_v3_board",
+  "reservation_notes": [
+    "Reserve eight each of 51/68 ohm rows conservatively until the actual row value is confirmed; all counts remain estimates."
+  ],
+  "reservation_update": {
+    "date": "2026-10-12",
+    "user_instruction": "Plan to assemble the four remaining v3 boards; reserve their components before v4.1 purchases.",
+    "v3_boards_reserved": 4,
+    "orange_leds_reserved": 256
+  },
+  "previous_reservation_for_second_v3_board": {
+    "C5187096": 1,
+    "C157527": 1,
+    "C455282": 2,
+    "C84376": 4,
+    "C26022": 2,
+    "C15850": 1,
+    "C476766": 4,
+    "C965813": 64,
+    "C17738": 8,
+    "C17802": 8
+  },
+  "reserved_for_four_remaining_v3_boards": {
+    "C5187096": 4,
+    "C157527": 4,
+    "C455282": 8,
+    "C84376": 16,
+    "C26022": 8,
+    "C15850": 4,
+    "C476766": 16,
+    "C965813": 256,
+    "C17738": 32,
+    "C17802": 32
+  }
+}

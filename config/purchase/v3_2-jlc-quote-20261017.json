@@ -1,0 +1,246 @@
+{
+  "date": "2026-10-17",
+  "status": "ORDERED_USER_CONFIRMED_AWAITING_DELIVERY",
+  "source": "Logged-in JLCONE quote via approved loopback CDP",
+  "quantity": 5,
+  "dimensions_mm": [
+    49.6,
+    49.6
+  ],
+  "layers": 4,
+  "thickness_mm": 1.6,
+  "base_special_offer_USD": 2,
+  "normal_crossed_out_USD": 8,
+  "coupon_selected": false,
+  "finish": "HASL(with lead)",
+  "via_covering_selected": "Plugged",
+  "finish_surcharge_USD": 0,
+  "via_surcharge_USD": 0,
+  "shipping": {
+    "country": "Poland",
+    "method": "Global Standard Direct Line",
+    "USD": 1.5,
+    "regular_crossed_out_USD": 4.69,
+    "estimated_business_days": [
+      12,
+      18
+    ],
+    "estimated_weight_kg": 0.17
+  },
+  "PCB_and_shipping_subtotal_USD": 3.5,
+  "taxes_and_checkout_total": "NOT_CHECKED",
+  "comparison_board_prices_USD": {
+    "LeadFree_HASL": 7.1,
+    "ENIG": 18.9
+  },
+  "tented_option": "Disabled on all three pre-upload four-layer finish comparisons",
+  "Gerber_uploaded": true,
+  "CAM_reviewed": false,
+  "cart_saved": true,
+  "order_or_payment_submitted": true,
+  "production_status": "USER_ACCEPTED_JLCONE_DEFAULTS_FOR_PROTOTYPE",
+  "process_issue": "92 vias have less than0.35mm from hole edge to a pad-mask opening in the conservative audit; blanket ink plugging is not confirmed. Source specifies ordinary tented vias.",
+  "approval_review": {
+    "action": "Upload checked v3.2 Gerber ZIP to JLCONE cart.jlcpcb.com for quote/preview",
+    "result": "REJECTED",
+    "reason": "Upload sends proprietary Gerber/CAD data to an external JLCONE account; quote checking did not explicitly authorize this payload/destination. User approval required before retrying."
+  },
+  "observed_UI": {
+    "selected": [
+      "Up to 32 layers, Controlled impedance, Quick turn rigid PCB, Relatively low cost. FR-4",
+      "4",
+      "Industrial/Consumer electronics",
+      "1",
+      "Single PCB",
+      "1.6mm",
+      "Green",
+      "White",
+      "FR4 TG135",
+      "HASL(with lead)",
+      "1 oz",
+      "0.5 oz",
+      "No",
+      "Plugged",
+      "Not Specified",
+      "0.3mm/(0.4/0.45mm)",
+      "\u00b10.2mm(Regular)",
+      "No",
+      "Remove Mark",
+      "Flying Probe Fully Test",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No"
+    ],
+    "price": "Charge Details\nSpecial Offer\n$2.00\nVia Covering\n$0.00\nSurface Finish\n$0.00\nPCB Build Time \n 3-4 days\n$0.00\n 3 days PCBA Only\n$0.00\n 2-3 days\n$66.20\nCalculated Price\n$8.00 $2.00\n\nAdditional charges may apply for special cases\n\nSAVE TO CART\nShipping Estimate\n$1.50\nGlobal Standard Direct Line\n12-18 business days\nWeight \n0.17kg\nCoupons \nSave $30.00Save $20.00 ",
+    "inputs": [
+      "49.6",
+      "49.6"
+    ],
+    "shipping": [
+      "<div class=\"clearfix\"><h2 class=\"pull-left text-14\">Shipping Estimate</h2> <span class=\"pull-right\">\n        $1.50\n      </span></div>"
+    ]
+  },
+  "user_upload_approval": {
+    "date": "2026-10-17",
+    "answer": "Allow this Gerber upload",
+    "scope": "Checked ZIP915158c130250e109730ec0905c34a1a0d936819fc20d1acb7cbe0643fb99088 to logged-in JLCONE/cart.jlcpcb.com, quote and preview only; no order or payment"
+  },
+  "uploaded_Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+  "detected": {
+    "layers": 4,
+    "dimensions_mm": [
+      49.6,
+      49.6
+    ]
+  },
+  "upload_project_uuid": "7f77946e8bc54f51b8c56440bb434026",
+  "supplier_UI_message": "Success! The file has been saved to Projects > Quotes",
+  "tented_disabled_explanation": "The Via Tented option is upgraded to Via Plugged for free.",
+  "local_latest_PCB_sha256": "bddc92364a1d159535429667e7dee44b1b360e75906d5b59d24bad622b669859",
+  "local_latest_Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+  "local_latest_package": "hw/ledkiv3.2/exports/fabrication-20261017-r2",
+  "corrected_upload_status": "APPROVED_UPLOADED_PREVIEW_REVIEWED",
+  "second_approval_review": {
+    "result": "REJECTED",
+    "reason": "The corrected r2 Gerber hash differs from the specifically approved first ZIP; new upload approval required. No bypass or second upload occurred."
+  },
+  "Gerber_preview_reviewed": true,
+  "production_files_confirmed": false,
+  "uploaded_UI_quote": {
+    "selected": [
+      "Up to 32 layers, Controlled impedance, Quick turn rigid PCB, Relatively low cost. FR-4",
+      "4",
+      "Industrial/Consumer electronics",
+      "1",
+      "Single PCB",
+      "1.6mm",
+      "Green",
+      "White",
+      "FR4 TG135",
+      "HASL(with lead)",
+      "1 oz",
+      "0.5 oz",
+      "No",
+      "No",
+      "Plugged",
+      "Not Specified",
+      "0.3mm/(0.4/0.45mm)",
+      "\u00b10.2mm(Regular)",
+      "No",
+      "Remove Mark",
+      "Flying Probe Fully Test",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No",
+      "No"
+    ],
+    "price": "Charge Details\nSpecial Offer\n$2.00\nVia Covering\n$0.00\nSurface Finish\n$0.00\nPCB Build Time \n 3-4 days\n$0.00\n 3 days PCBA Only\n$0.00\n 2-3 days\n$66.20\nCalculated Price\n$8.00 $2.00\n\nAdditional charges may apply for special cases\n\nSAVE TO CART\nShipping Estimate\n$1.50\nGlobal Standard Direct Line\n12-18 business days\nWeight \n0.17kg\nCoupons \nSave $30.00Save $20.00 ",
+    "inputs": [
+      "49.6",
+      "49.6"
+    ],
+    "shipping": [
+      "<div class=\"clearfix\"><h2 class=\"pull-left text-14\">Shipping Estimate</h2> <span class=\"pull-right\">\n        $1.50\n      </span></div>"
+    ]
+  },
+  "DFM_result": "Raw findings retained; first-upload two silk danger findings repaired locally inr2; other findings/profile classifications remain explicit. No all-DFM-pass claim.",
+  "corrected_upload_user_approval": {
+    "date": "2026-10-17",
+    "answer": "Allow corrected Gerber upload",
+    "Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+    "destination": "Same logged-in JLCONE account at cart.jlcpcb.com, quote and preview only"
+  },
+  "process_user_decision": {
+    "date": "2026-10-17",
+    "answer": "thats no important lets stick with defaults",
+    "interpretation": "Use JLCONE default fabrication options for the five-board prototype; do not send the support draft. Retain measured DFM findings and source NPTH/PTH intent; this is not physical qualification or paid-order authorization."
+  },
+  "support_message_authorization": "NOT_GIVEN_USE_DEFAULTS",
+  "support_message_sent": false,
+  "previous_uploads": [
+    {
+      "Gerber_sha256": "915158c130250e109730ec0905c34a1a0d936819fc20d1acb7cbe0643fb99088",
+      "project_uuid": "0cc1cfb14e344a82b33952baa212bdee",
+      "preview": "Reviewed; supplier DFM led to the silk-marker correction"
+    }
+  ],
+  "corrected_upload_detected": {
+    "layers": 4,
+    "dimensions_mm": [
+      49.6,
+      49.6
+    ],
+    "quantity": 5
+  },
+  "default_process_accepted_by_user": true,
+  "corrected_upload_file_bytes": 255075,
+  "temporary_loopback_debugging_closed": true,
+  "normal_app_restored_without_debugging": true,
+  "upload_history": [
+    {
+      "uuid": "832cf03bd4174b1aa054b5c927f3f8b5",
+      "Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+      "status": "previous upload, retained"
+    }
+  ],
+  "cart_item": "ledkiv3_2-gerbers_Y10",
+  "prototype_id": "Y10-10656422A",
+  "latest_upload_event": {
+    "time_UTC": "2026-10-17T18:46:47.688774+00:00",
+    "user_request": "upload the correct gerver file now",
+    "Gerber_file": "hw/ledkiv3.2/exports/fabrication-20261017-r2/ledkiv3_2-gerbers.zip",
+    "Gerber_sha256": "c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df",
+    "verified_against_current_checked_CAD": true,
+    "upload_uuid": "7f77946e8bc54f51b8c56440bb434026",
+    "detected_layers": 4,
+    "detected_dimensions_mm": [
+      49.6,
+      49.6
+    ],
+    "quantity": 5,
+    "cart_item": "ledkiv3_2-gerbers_Y10",
+    "prototype_id": "Y10-10656422A",
+    "board_price_USD": 2,
+    "fabrication_defaults_preserved": true,
+    "cart_saved": true,
+    "order_or_payment_submitted": false,
+    "support_message_sent": false,
+    "debugging_closed": true,
+    "normal_app_restored": true,
+    "cart_proof": "build/hardware/v3_2-fabrication-20261017/reupload/cart-proof.json"
+  },
+  "record_scope": "Original five-board quote/item history; current user-selected fifteen-board split cart is recorded in current_cart_plan.",
+  "current_cart_plan": {
+    "record": "config/purchase/v3_2-quantity-strategy-20261017.json",
+    "total_board_quantity": 15,
+    "item_quantities": [
+      5,
+      10
+    ],
+    "merchandise_USD": 10,
+    "shipping_USD": 1.5,
+    "checkout_preview_grand_total_USD": 17.64,
+    "user_requested_to_leave_for_manual_payment": true,
+    "order_or_payment_submitted": true,
+    "status": "ORDERED_USER_CONFIRMED_AWAITING_DELIVERY",
+    "purchase_record": "config/purchase/v3_2-jlc-order-20261017.json"
+  },
+  "purchase_confirmation_record": "config/purchase/v3_2-jlc-order-20261017.json",
+  "order_submitted": true,
+  "order_submission_provenance": "Direct user confirmation, not agent action",
+  "order_submitted_by_agent": false,
+  "payment_submitted_by_agent": false,
+  "physical_receipt_confirmed": false,
+  "actual_paid_USD": null,
+  "order_or_payment_submitted_provenance": "User reports ordered after manual checkout; agent submitted neither order nor payment",
+  "payment_made_independently_verified": false
+}

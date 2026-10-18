@@ -1,0 +1,176 @@
+{
+  "robot": {
+    "sha256": "95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2",
+    "segments": 2015,
+    "vias": 299,
+    "footprints": 159,
+    "nets": 76,
+    "layers": {
+      "F.Cu": {
+        "segments": 905,
+        "length_mm": 956.4037749567631
+      },
+      "B.Cu": {
+        "segments": 816,
+        "length_mm": 1129.2682479769333
+      },
+      "In1.Cu": {
+        "segments": 7,
+        "length_mm": 29.39213562373095
+      },
+      "In2.Cu": {
+        "segments": 287,
+        "length_mm": 653.7132619241796
+      }
+    }
+  },
+  "now": {
+    "sha256": "1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22",
+    "segments": 1490,
+    "vias": 299,
+    "footprints": 159,
+    "nets": 76,
+    "layers": {
+      "F.Cu": {
+        "segments": 593,
+        "length_mm": 961.333786580342
+      },
+      "B.Cu": {
+        "segments": 603,
+        "length_mm": 1127.9553951301607
+      },
+      "In1.Cu": {
+        "segments": 7,
+        "length_mm": 29.39213562373095
+      },
+      "In2.Cu": {
+        "segments": 287,
+        "length_mm": 653.7132619241796
+      }
+    }
+  },
+  "tool": {
+    "repository": "https://github.com/adamws/kicad-svg-extras.git",
+    "commit": "2104304bcda48fd1a9c7610f4b13232b071fba37",
+    "license": "MIT",
+    "purpose": "Read-only local per-net SVGs and interactive routing-review reports",
+    "execution": "System Python with bundled KiCad pcbnew; no runtime pip dependencies"
+  },
+  "date": "2026-10-17",
+  "exports": [
+    {
+      "version": "robot",
+      "layer": "F.Cu",
+      "svg": "robot/front.svg",
+      "svg_sha256": "411ef8e41b518d2ee7bf7d549fdf093abcb66f82f8b42f57212a1eac3c2c231a",
+      "inline_sha256": "bdb78fcea6b9c753d9b8212a6d696a185c550f78f4317813434c1dec19fcb009",
+      "cache_verified": true
+    },
+    {
+      "version": "robot",
+      "layer": "B.Cu",
+      "svg": "robot/back.svg",
+      "svg_sha256": "bfdc283cbb64067154c306d2cbf628de77c4fc403acdd66265a2a3d80bec8f6c",
+      "inline_sha256": "2467391b2d4ac34d45d61d94995f2be8ccee89485ea67c8af7173010221c4c47",
+      "cache_verified": true
+    },
+    {
+      "version": "robot",
+      "layer": "In1.Cu",
+      "svg": "robot/inner1.svg",
+      "svg_sha256": "fef273f2c8294e8c5e2a15dc1777a2e6ba51a13ce04d46328c8be1cb342020e6",
+      "inline_sha256": "915a45b363bac31debc6699a796a8d9ef53cc82294d42b3b6c8d7c948d14ff71",
+      "cache_verified": true
+    },
+    {
+      "version": "robot",
+      "layer": "In2.Cu",
+      "svg": "robot/inner2.svg",
+      "svg_sha256": "ed110695df0604c7b37ff1af47e30a14b821cd4e9e11642e63cf13b726e5deb9",
+      "inline_sha256": "2f57c7036960f11b6387b34d89133ff91e5c6ac13392eda488a55b0a94c421d5",
+      "cache_verified": true
+    },
+    {
+      "version": "now",
+      "layer": "F.Cu",
+      "svg": "now/front.svg",
+      "duration_seconds": 16.697,
+      "svg_sha256": "3844e25d5f5d2ae7acdc8150a32b91cdbcc2619778fbe345490e99f3c594d0bd",
+      "inline_sha256": "7954a6bd158871ce95cfedac44696f2fdc8794e5030fb543b5c3a99960948dc6"
+    },
+    {
+      "version": "now",
+      "layer": "B.Cu",
+      "svg": "now/back.svg",
+      "duration_seconds": 29.468,
+      "svg_sha256": "77cdd33fa29283acec7820fa3e7e00a96eb84abc2af9498a83612945863d6043",
+      "inline_sha256": "7be78ad1ca550695a024d15db69aa85706dd0c02b1068fc7db58322a1ed29f85"
+    },
+    {
+      "version": "now",
+      "layer": "In1.Cu",
+      "svg": "now/inner1.svg",
+      "duration_seconds": 16.272,
+      "svg_sha256": "f7da022b82e666416f9a6164e45bc88c28aece8821b22ca51889f6f3feb0fd6f",
+      "inline_sha256": "7d929f2539b60fa9444d0c056ebb6cb661cafb90fd881261057bdf1310240cfa"
+    },
+    {
+      "version": "now",
+      "layer": "In2.Cu",
+      "svg": "now/inner2.svg",
+      "duration_seconds": 16.823,
+      "svg_sha256": "a5cf9624ae8a1ed2fa321d1ee63efa58efe34334159195ee3cd601f90abd167c",
+      "inline_sha256": "f69af972d5e2bf65f1f39b3a7133b7d68fbe967c6cd736792806720a16059a20"
+    }
+  ],
+  "source_unchanged": true,
+  "same_component_placements": true,
+  "via_changes": {
+    "removed": [
+      {
+        "net": "/SCL",
+        "position_mm": [
+          4.85,
+          14.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "layers": [
+          0,
+          2
+        ]
+      }
+    ],
+    "added": [
+      {
+        "net": "/SCL",
+        "position_mm": [
+          4.8,
+          14.3
+        ],
+        "diameter_mm": 0.6,
+        "drill_mm": 0.3,
+        "layers": [
+          0,
+          2
+        ]
+      }
+    ],
+    "modified": []
+  },
+  "change_note": "Track objects: 2,015 \u2192 1,490 (525 fewer). All 159 component placements match. Both states have 299 vias; one SCL via moved from (4.85, 14.30) to (4.80, 14.30) mm during the manual work before cleanup. The two cleanup passes preserved all via positions.",
+  "checks": {
+    "robot": {
+      "violations": 0,
+      "opens": 0,
+      "parity": 0
+    },
+    "now": {
+      "violations": 1,
+      "opens": 0,
+      "parity": 0,
+      "connected_nets": 76
+    }
+  },
+  "scope": "Saved-state CAD comparison, including manual changes and both trace cleanup passes; no physical or EMC qualification"
+}

@@ -1,0 +1,101 @@
+V3.1 — ASTRA PLACEMENT, HUMAN ITERATION NEXT, NO ROUTING — 2026-10-15
+
+Open hw/ledkiv3.1/ledkiv3_1.kicad_pro, the single shared human/agent project.
+All146footprints match the repaired button-free schematic. PCB is placed,
+not routed: zero tracks, vias or copper zones. No fabrication package exists.
+The previous routed source is preserved with local libraries and hashes in
+archive/hw/ledkiv3.1-routed-before-placement-20261015/.
+
+AGREED GEOMETRY PRESERVED AND LOCKED — 69 FOOTPRINTS
+-40.64x49.27mm board,1.6mm, four-layer stack and authored fabrication rules.
+-64front LEDs retain positions,pitch,180degree polarity and exact pad geometry:
+ X=2.54+5.08*column; Y=40.64-5.08*row; row0 is D1-D8 at the bottom.
+-J3left/J1right retain14ordinary0.8mm PTH holes and their native per-layer
+ round/oval padstacks. X=1.27/39.37; Y=7.62+5.08*index, seven contacts/side.
+ The staple span remains2.54mm when boards abut. No half-hole process.
+-H1/H2 retain2.2mm M2 holes at(2.54,46.75)/(38.10,46.75), with the existing
+ all-layer fastener keepouts. Independent pad-clearance radius check:2.45mm.
+-J2 retains PicoBlade position/orientation/body,3PTHpins and parallel bare
+ SWIO pads. The supply/SWIO/GND pin ordering is unchanged.
+
+REAR PLACEMENT — 77 PARTS
+Coordinates below are front-view board coordinates; the rear assembly view
+is mirrored for reading. All active circuitry/passives are rear-mounted.
+-Q1-Q8 PMOS column sources: top bank, Y4.8; X4.6,9.1,...36.1mm.
+ Each has its10k source-gate pull atY7.65 and1k gate resistor atY9.55.
+-Q9-Q16 NMOS row sinks: right bank X31.3; Y40.64,36.64,...12.64mm.
+ Orientation0degrees now faces gates inward and drains toward current resistors.
+ Each stage has its1k gate resistor,10k gate pulldown,10k cathode bias
+ and single33R/0805 current resistor together. R1-R8 are atX36.15.
+ This brings row-current resistors beside the corresponding row buses,
+ rather than collecting every row sink along the bottom of the board.
+-U2decoder:(14.5,18.0); U1MCU:(14.5,28.0). C1:(20.5,20.275),180degrees;
+ C3:(9.4,26.375),90degrees. Supply-pad distances are2.100/2.271mm respectively.
+ The earlier note's2.10mm baseline figure was wrong: actual VCC-pad distances
+ were4.175mm for both. MCU supply-plus-nearest-IC-ground distance sum falls
+6.645to4.542mm; decoder sum stays almost unchanged12.239to12.190mm. These
+ straight-line proxies omit the future ground plane, obstacles and vias.
+ C4bulk:(4.6,15.8), beside the left supply entry. Return paths still need
+ deliberate routing and measurement; placement is not an impedance proof.
+-R39-R41 sit between the ICs; R11/R12 are beside the MCU I2C pins. UART
+ series/idle parts sit near RX and the MCU. R49 remains accessible for
+ first-provisioning DNP; R38 remains fitted as documented.
+-All resistor references use the existing numeric R=# convention. Full
+ identifiers remain in PCB/Fab/BOM. All77rear assembly labels are mirrored,
+1mm high/0.15mm stroke. Old offset leaders were removed; no silk exclusions.
+
+MECHANICS
+The front now contains only the LEDs plus fixed holes. R4 is rear-mounted,
+so its old closed optical hood is omitted. Removed-button access entries
+are omitted; agreed grid/bezel/carrier dimensions, rests, connector envelope,
+wire hoods, fastener/cable access and1+4tile arrangement remain unchanged.
+Populated STEP checks pass for one and four tiles, including21intertile
+wire bridges in the four-tile case. Optical grid,face,bezel and carrier
+intersection volumes are zero in those nominal CAD checks. Print tolerances,
+solder/cable details, mechanical fit and optical/thermal tests are pending.
+
+CHECKS / LIMITS
+Fresh native ERC0; placement DRC0; schematic parity0; ignored0. There are
+280open connections by design, so native DRC exits5 and no routed acceptance
+is claimed. Independent pin/net/footprint audit checks350electrical pads;
+placement audit verifies69fixed objects and their padstacks,5305same-side
+courtyard pairs,17PTH/2NPTH holes and all-layer M2 pad clearance. Minimum
+conservative per-loop courtyard-box gap is0.11mm; no component overlap.
+
+From repository root:
+ python3 scripts/check_v3_1_integrated.py
+ python3 scripts/check_v3_1_placement.py
+The first is an electrical/pad/geometry audit, not a routed-open-net gate.
+The second intentionally requires an unrouted board. The older manufacturing
+checker binds the previous routing and must be revisited after new routing.
+No automated creation/placement helper should be replayed on this shared PCB.
+
+Placement/readable-label snapshot: config/v3_1-placement.json and v3_1-labels.json.
+Current raw evidence,previews,native reports,nominal models and failed trials:
+ build/hardware/v3_1-astra-placement-20261015/
+Initial placement evidence remains in build/hardware/v3_1-placement-20261015/.
+CLI rendering creates front/rear SVG/PNG previews directly from the source.
+The Astra experiment retained its first53silk findings and script failures,
+then completed clean candidate and final shared-source native checks. The
+baseline live save had one silk finding after a label edit; that version
+is retained rather than silently described as a clean input.
+
+PLACEMENT COMPARISON / HUMAN TURN
+One bounded Astra revision shortened geometric gate-net MST29.44%, summed
+drain-to33R distances39.16%, and33R-to-nearest-LED distances12.13%. Total
+non-power MST improved4.45%. None establishes routed length or speed.
+The checked placement is applied and saved in the shared PCB, using one undo
+transaction named "Astra placement iteration — no routing". The user then
+closed the editor during handoff; reopening does not guarantee undo history.
+Its immutable saved
+checkpoint is build/hardware/v3_1-astra-placement-20261015/astra-as-applied.kicad_pcb.
+The human can now edit the shared project and save; use the same read-only
+metrics/audits for comparison. See docs/v3_1-placement-comparison.txt.
+
+NEXT PHASE
+Human placement iteration first; route signals and deliberate power/return
+paths only when requested. Keep the
+2mm front VCC bus and1.2mm rear entry feeds as routing constraints; reserve
+In1 for GND. None of that copper has been created in this placement stage.
+Resistor sourcing remains the separately recorded TME overlay; this task did
+not change the schematic/BOM part selection, firmware, stock, orders or carts.

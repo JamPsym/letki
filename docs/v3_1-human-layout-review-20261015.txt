@@ -1,0 +1,70 @@
+V3.1 human layout review — 2026-10-15
+
+Reviewed latest saved files after KiCad closed, not an IPC live capture.
+PCB SHA256: 674b6bf8158b3fc9c6cfcfbebd6ac12f7cbd1834e9f9edde22ea73e2233c29ff
+Evidence: build/hardware/v3_1-human-review-20261015T195053Z/
+Canonical CAD was not changed; source hashes rechecked after review.
+
+1. Finish the power connections first.
+Native DRC after zone refill reports 10 open connections: 8 VCC, 2 GND.
+GND endpoints include U2 pad8 (23.836,11.266) and Q13 pad2
+(32.347035,19.894). VCC endpoints include U2 pad6, R39–R41,
+J1 pad1 and disconnected power branches. Exact endpoint records follow below.
+
+2. Review ground continuity and power paths.
+GND is on In1.Cu; VCC is on In2.Cu. The board has 85 signal segments
+on In1 and 88 on In2. Saved fills contain three GND and five VCC polygons;
+these are saved-fill counts, while the open connections above come from a
+fresh native refill. Plane cuts need return-path review and reconnection.
+The independent integrated checker stops at 'Unreviewed In1 copper': the
+85 segments do not match the old reviewed exception manifest. This is not
+waived or a full checker pass. All drawn tracks are 0.2mm; bulk current may
+use planes, but plane necks and the five-tile supply drop remain unqualified.
+
+3. Manufacturing margins and cleanup.
+Ten ordinary vias trigger the conservative 0.36mm SMT-pad guard: eight by
+D8/D16/D24/D32/D40/D48/D56/D64 pad1, one by C4 pad2 and one by U1 pad17.
+No actual drill intrusion into SMT pads was found. These are margin flags,
+not ten native DRC errors. Review before choosing the fabrication process.
+Native DRC also reports 35 silk overlaps, 62 silk-over-copper warnings,
+and a dangling 0.470mm /ADDR2 In1 stub at (21.828821,32.544152).
+
+Checks that pass:
+ERC zero findings; schematic parity zero; no ignored DRC checks;
+no native copper/hole-clearance or courtyard overlap findings.
+350 electrical pad/net mappings match the schematic. All 69 fixed LED,
+connector and mounting placements retain their geometry. 146 footprints,
+943 track segments, 116 ordinary through vias (0.6/0.3mm).
+Nominal populated one- and four-tile STEP checks pass with zero intersection
+with the grid, face, bezel and carrier. Physical fit, soldering, electrical,
+thermal and optical qualification remain pending. This is not a release.
+
+Native DRC: 98 warnings plus 10 unconnected items; ERC: zero.
+Whole command times: DRC/refill 2.118s; ERC 1.117s; STEP 1.016s.
+Mechanical runs: one tile 17.542s, four tiles 41.028s (concurrent runs,
+not a CPU scaling benchmark).
+
+Exact open-connection records (coordinates in mm):
+{"description": "Missing connection between items", "items": [{"description": "Pad 8 [GND] of U2 on B.Cu", "pos": {"x": 23.836, "y": 11.266}, "uuid": "c05dfe9d-1208-4ea0-b7ab-f40a163b8b1d"}, {"description": "Track [GND] on B.Cu, length 0.6560 mm", "pos": {"x": 21.886, "y": 11.266}, "uuid": "205149aa-8eea-4a2b-ad20-15e2c96c743a"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Pad 2 [GND] of Q13 on B.Cu", "pos": {"x": 32.347035, "y": 19.894}, "uuid": "98956418-758f-4a9e-8738-3ef4c5a4cced"}, {"description": "Track [GND] on B.Cu, length 1.4693 mm", "pos": {"x": 32.347035, "y": 24.554965}, "uuid": "d903810f-3a83-4372-b025-4f7bd6688428"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Track [VCC] on B.Cu, length 1.0985 mm", "pos": {"x": 5.912786, "y": 13.792786}, "uuid": "bb445a9a-7b25-472a-acc9-90198fa631c5"}, {"description": "Track [VCC] on B.Cu, length 1.1440 mm", "pos": {"x": 4.327071, "y": 18.824929}, "uuid": "a3282b21-fea8-483a-bc83-64faa29b2021"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Track [VCC] on B.Cu, length 1.2324 mm", "pos": {"x": 6.007429, "y": 18.887429}, "uuid": "97855c74-a49b-49e8-b732-007773e53157"}, {"description": "Via [VCC] on F.Cu - B.Cu", "pos": {"x": 5.157429, "y": 23.016}, "uuid": "daf80e58-1813-4933-9897-77b51aca2f05"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Track [VCC] on B.Cu, length 0.6000 mm", "pos": {"x": 18.386, "y": 18.516}, "uuid": "a8029edc-89a6-488b-9cc8-612ac76386fa"}, {"description": "Track [VCC] on B.Cu, length 0.7580 mm", "pos": {"x": 20.172001, "y": 29.802001}, "uuid": "430f8a12-0225-45ca-b2b2-502526e450ec"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Pad 1 [VCC] of R40 on B.Cu", "pos": {"x": 19.886, "y": 6.766}, "uuid": "256f668e-817c-489a-8ecb-9fcda6ffe8d2"}, {"description": "Pad 1 [VCC] of R41 on B.Cu", "pos": {"x": 22.386, "y": 6.766}, "uuid": "fc3cf536-03c2-43de-8add-8b16a137dd62"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Pad 1 [VCC] of R40 on B.Cu", "pos": {"x": 19.886, "y": 6.766}, "uuid": "256f668e-817c-489a-8ecb-9fcda6ffe8d2"}, {"description": "Pad 1 [VCC] of R39 on B.Cu", "pos": {"x": 17.386, "y": 6.766}, "uuid": "df6bef02-893a-46cf-bece-68d949225f27"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Pad 6 [VCC] of U2 on B.Cu", "pos": {"x": 22.536, "y": 11.266}, "uuid": "0f19a0dc-fd07-4c13-85b6-c3ded8f31140"}, {"description": "Pad 1 [VCC] of R41 on B.Cu", "pos": {"x": 22.386, "y": 6.766}, "uuid": "fc3cf536-03c2-43de-8add-8b16a137dd62"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "Via [VCC] on F.Cu - B.Cu", "pos": {"x": 22.886, "y": 12.666}, "uuid": "5802cf89-51b4-4cc4-915c-b9c32e6ff1e5"}, {"description": "Track [VCC] on B.Cu, length 1.1250 mm", "pos": {"x": 19.286, "y": 16.991}, "uuid": "3078748d-b06d-4993-bf4c-95f08405afde"}], "severity": "error", "type": "unconnected_items"}
+{"description": "Missing connection between items", "items": [{"description": "PTH pad 1 [VCC] of J1", "pos": {"x": 39.37, "y": 7.62}, "uuid": "a852c777-533d-4b22-babf-b01fcc7f5ae3"}, {"description": "Pad 1 [VCC] of R57 on B.Cu", "pos": {"x": 37.134535, "y": 7.053999}, "uuid": "57b40bba-a11f-4c9e-bcb3-dd023253ee18"}], "severity": "error", "type": "unconnected_items"}
+
+Ground-island follow-up:
+Native saved polygon membership locates the U2.8 GND via at
+(24.785,10.052840) in the small isolated region 0, separated from the
+main region by surrounding signal clearances (/S5 and /ADDR2 nearby).
+The Q12.2 GND via (33.386,23.516) lands in right-side region 2, whereas
+Q13.2 via (33.136,18.766) and Q11.2 via (33.136,28.766) land in main
+region 1. The DRC Q13-to-Q12 endpoint pair describes separation between
+clusters; it does not mean Q13 is the isolated device. Thus the practical
+repairs are U2.8 to main GND and the Q12-source region to main GND.
+A via assigned GND only joins copper it physically touches; another via
+inside the same island alone will not bridge the split. Use an outer-layer
+GND bridge to a connected region or move the cutting signal routes.

@@ -1,0 +1,120 @@
+LETKI V3.2 — FIVE-BOARD FABRICATION AND HAND-ASSEMBLY HANDOFF
+2026-10-17
+
+Scope
+Five bare prototype PCBs and a checked hand-assembly package. New V006 firmware,
+physical qualification, purchases and paid assembly are outside this handoff.
+This is CAD_CHECKED, not physically qualified production. The correctedr2Gerber upload/reference preview are complete. The user chose
+JLCONE default fabrication options for this prototype. Supplier production-file
+engineering and physical qualification are not claimed.
+
+Canonical project: hw/ledkiv3.2/ledkiv3_2.kicad_pro
+Current source identity: hw/ledkiv3.2/fabrication.json
+Checked package: hw/ledkiv3.2/exports/fabrication-20261017-r2/
+Upload file: ledkiv3_2-gerbers.zip inside that package, approved and uploaded.
+The older exports/prototype/ is the historical first-robot package. Do not use
+it for this derivative. Both accepted milestones and the unrouted checkpoint
+are preserved unchanged.
+
+Changes relative to the accepted main1,490-segment board
+- Removed the2mm dangling /ADDR0 B.Cu stub; its real connection stays intact.
+- Restored Q3 source feed to0.5mm on its two existing segments and R25 bias
+  feed to0.3mm. No endpoints, vias, placements, net assignments or zone outlines
+  changed. No rule/severity relaxation.
+- Selected exact MPNs for R69/R70/R71/R72/R73/C6, preserving values/packages.
+- Rebound the three stale Q3/R17/R25 label UUIDs after checking their text,
+  position/font/visibility/side; actual labels are unchanged.
+- Shifted only two J2 pin1-marker silk lines by0.1mm inX/Y and updated their
+  local-library equivalents. This clears a real0.11mm silk-to-bare-pad gap
+  found by vendorDFM; all J2 silk now passes0.15mm against its pads.
+Final:1,489segments,299ordinary0.6/0.3mmvias,159footprints,7zones.
+
+Checks
+Fresh native ERC/DRC/opens/schematic-parity/ignored0. Independent full copper
+connectivity76/76nets. Exact24MCUpins,380ref/pinpairs,383numberedphysicalpads,
+159placements/padstacks,116rearlabels, seven reviewed In1 signal segments and
+reviewed power geometry all pass. Zero via/SMT or M2 keepout guard findings.
+Full command logs, sources, tool/config hashes and ZIP CRCs are in the package.
+The exporter verifies source bytes remain unchanged throughout the export.
+Assembly/front/rear/label SVGs were rendered and visually inspected.
+
+Manufacturing intent
+Single49.6x49.6mm PCB,4layers,1.6mmFR4TG135,greenmask/whitelegend,
+35/17.5/17.5/35umcopper,HALSnPb. Ordinary through vias are tented in CAD;
+no blind/buried,castellated,edge-plated or via-in-pad process. Components and
+wire contacts stay open PTH:3x0.6mm,28x0.8mm;4x2.2mmM2NPTH.299x0.3mmvias.
+Mask pad openings follow1:1 CAD geometry. Native source/rules unchanged.
+
+Supplemental fabrication review
+JLCPCB capability page checked2026-10-17:
+https://jlcpcb.com/capabilities/pcb-capabilities
+The board's minimum via-via drilled gap0.265685mm exceeds0.2mm; pad-pad
+hole gap0.650mm exceeds0.45mm. Minimum foreign-copper clearance from via hole
+edge0.350mm and from component hole edge0.4005mm exceed the relevant published
+limits. Source DRC verifies authored0.15mmtrack/copper and0.2mmedge rules.
+
+The default JLCONE Plugged option cannot be equated with source tenting.
+Conservative hole-edge-to-mask-opening measurements find92vias below0.35mm;
+the closest edge-contact case is0.0561mm. JLCPCB says nearby openings restrict
+ink plugging. Its guidance also distinguishes component PTH from vias:
+https://jlcpcb.com/help/article/pcb-via-covering
+The user chose the default process for this prototype instead of sending the
+prepared supplier question. No additional manufacturing remark was sent.
+The actual final production-file treatment is unconfirmed; alternative
+finish comparisons did not enable Tented. After upload, the tooltip explains
+that Tented is upgraded to Plugged free of charge. That does not confirm
+how the supplier will handle the close-to-pad cases.
+This finding does not imply an electrical net/clearance failure.
+
+Current offer checked in logged-in JLCONE via approved local debugging
+Approved Gerber ZIP was uploaded; JLCONE detects4layers and49.6x49.6mm and
+automatically saved it under Projects > Quotes. The actual uploaded-board
+five-piece quote retains automatic SpecialOfferUSD2.00,
+normalUSD8 crossed out, no coupon selected. LeadedHASL/Plugged addUSD0.
+GlobalStandardDirectLine toPolandUSD1.50,12-18businessdays,0.17kg.
+Nominal bare-PCB+shipping subtotalUSD3.50, before checkout taxes/other charges.
+LeadFreeHASL comparisonUSD7.10 and ENIGUSD18.90, before shipping/tax;
+Tented was disabled on both comparison forms too. The latter finish comparisons were parameter-based. The uploaded-board
+quote is saved; no cart/order/payment was submitted.
+Shipping selection resets after parameter changes: reselect GlobalStandard.
+The live2-dollar promotion is available; fabrication compatibility at that price
+has been accepted by the user with the default process for this prototype.
+The reference Gerber preview recognized four copper layers,
+top/bottom silk and mask, board outline and drills; top/bottom thumbnails
+were inspected. Raw bottom thumbnail uses top-projected coordinates, unlike
+the rear-reading assembly map. This preview is not engineering production-file
+acceptance. Do not call a public promo or uploaded quote a final
+production-file acceptance or delivered total. Quote evidence is retained in
+build/hardware/v3_2-fabrication-20261017/ and the handoff evidence directory.
+
+Assembly and parts
+Read hw/ledkiv3.2/ASSEMBLY.txt. The package includes one147SMT pull-up tile plus
+four145SMT ordinary tiles=727SMT,exact-MPN aggregated five-board quantities,
+optional0-5J2headers, stock report/shortfalls, native review positions,
+front/rear maps, schematicPDF, paste layers and populatedSTEP. The positions
+are not a qualified automatic assembler CPL. Only one R11/R12 pair per I2C bus.
+
+Shared shelf credit respects all existing v3 hard holds and separate v4.1 plans;
+incomingTME is not physical stock. Availability reports do not reserve parts.
+New five-v3.1 and five-v3.2 planning overlaps: the combined batch has a recorded
+280LED shortage if the v4.1 plan is retained. Do not double-credit the360free
+LEDs to both batches. Candidate AliExpress substitutions/1000-piece resistor
+packs and actual selected cart quantities are preserved separately in
+/home/pies/electronics/purchases/aliexpress/potential-cart/; this package keeps
+the exact original semiconductor MPNs and reviewed passive selections.
+
+U1 is CH32V006E8R6/QSOP24. W Official Store's advertised10-piece pack and the
+user's later20-piece combined-cart proposal are recorded there, not bought or
+received. No current product URL was supplied; recheck selected variant before
+purchase. Owned V006F8P6/TSSOP20 is incompatible; V007QSOP24 is not automatically
+approved. The JLCPCBAssembly service placeholder is not stocked WCH silicon.
+
+No firmware, flash, option-byte, power, inventory, reservation, order, commit or
+push action is implied. Actual waveform/current/temperature/optical/network/
+mechanical/provisioning tests remain future work after boards arrive.
+
+Supplier DFM follow-up: docs/v3_2-dfm-20261017.txt. The currentr2package fixes
+two silk-marker gaps and is now approved/uploaded. Its latest top/bottom
+previews were inspected. Detailed vendorDFM findings describe the first
+iteration; no all-pass vendorDFM claim. User-selected defaults supersede the
+earlier process/upload holds. No support message, cart, order or payment.

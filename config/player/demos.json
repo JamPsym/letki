@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "demos": [
+    {
+      "id": "my-cyganie",
+      "name": "My Cyganie — stepping together",
+      "show": "config/player/my-cyganie-full.json",
+      "recording_seconds": 278.3375963718821,
+      "intro_seconds": 0,
+      "total_seconds": 278.3375963718821
+    },
+    {
+      "id": "tubular-bells",
+      "name": "Tubular Bells — instrument theatre",
+      "show": "config/player/tubular-bells-full.json",
+      "recording_seconds": 1548.3065759637188,
+      "intro_seconds": 0,
+      "total_seconds": 1548.3065759637188
+    },
+    {
+      "id": "adagio",
+      "name": "Adagio for Strings — suspended light",
+      "show": "config/player/adagio-full.json",
+      "recording_seconds": 205.72879818594106,
+      "intro_seconds": 0,
+      "total_seconds": 205.72879818594106
+    },
+    {
+      "id": "lamour-toujours",
+      "name": "L'Amour Toujours — together in light",
+      "show": "config/player/lamour-toujours-full.json",
+      "recording_seconds": 242.493,
+      "intro_seconds": 0,
+      "total_seconds": 242.493
+    },
+    {
+      "id": "laskowski-2pac",
+      "name": "Laskowski x 2Pac — wielkie pojednanie",
+      "show": "config/player/laskowski-2pac-full.json",
+      "recording_seconds": 306.393,
+      "intro_seconds": 0,
+      "total_seconds": 306.393
+    }
+  ]
+}

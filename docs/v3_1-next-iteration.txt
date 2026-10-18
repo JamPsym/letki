@@ -1,0 +1,7 @@
+SUPERSEDED REVIEW COPY — SINGLE SHARED PROJECT NOW ACTIVE
+
+Continue all design edits in hw/ledkiv3.1/ledkiv3_1.kicad_pro.
+Read docs/v3_1-shared-workflow.txt. The old candidate in
+build/hardware/v3_1-schematic-review/ is preserved historical evidence only.
+The33R E12 schematic and removal ofJP1/JP2 are promoted into the shared
+schematic and PCB; the old checked34R design/package is archived.

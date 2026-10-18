@@ -1,0 +1,58 @@
+{
+  "objective": "Complete v3.1 LED tile design and reproducible prototype handoff",
+  "updated_on": "2026-10-15",
+  "scope_confirmation": "User deferred ESP-12F and its implementation until after tile hardware verification.",
+  "candidate": "hw/ledkiv3.1/ledkiv3_1.kicad_pro",
+  "physical_operations": "Separate hardware session; no probe, power, flash or orders here",
+  "requirements": [
+    {
+      "id": "circuit",
+      "requirement": "Both retained ICs,16selectedMOSFETs,one33ohmE12/1%rowresistor,regulated3.3V",
+      "status": "implemented; independently checked"
+    },
+    {
+      "id": "pcb",
+      "requirement": "Complete routed four-layer PCB, continuous return paths, wide chain power, native ERC/DRC/parity and independent pin/geometry checks",
+      "status": "Placement and schematic/PCB identity PASS; no routing;280open connections expected"
+    },
+    {
+      "id": "interfaces",
+      "requirement": "Symmetric ordinary-PTH wire contacts, UART RX left/TX right, selectable I2C pulls, PicoBlade SWIO plus bare pads; buttons removed from latest schematic",
+      "status": "implemented in tile; physical qualification pending"
+    },
+    {
+      "id": "mechanics",
+      "requirement": "Two M2 mounts and removable printable optics/carrier; nominal fit and export checks",
+      "status": "Agreed interfaces preserved; one/four-tile populated nominal fit PASS; no frontR4hood; physical tests pending"
+    },
+    {
+      "id": "firmware",
+      "requirement": "Dedicated hardware-ended pulse driver with build/host tests, memory/stack review and programming handoff",
+      "status": "pulse plus LED-off interface images; build/host/memory/static-stack checks; not flashed"
+    },
+    {
+      "id": "assembly",
+      "requirement": "Exact BOM/stock forecast, sourcing/cost comparison, assembly/polarity drawings and five-tile quantities",
+      "status": "BOM/stock/cost snapshot, numbered assembly maps and provisioning procedure prepared"
+    },
+    {
+      "id": "exports",
+      "requirement": "Reproducible fabrication/mechanical package with source/check/export hashes and no unexplained findings",
+      "status": "No new fabrication package; old routing/manufacturing exporter must be revised after new routing"
+    },
+    {
+      "id": "qualification",
+      "requirement": "Concrete physical current/pulse/temperature/transport/optical/mechanical test procedure and unresolved qualification list",
+      "status": "15-row physical worksheet and bounded procedure prepared; measurements deferred"
+    }
+  ],
+  "deferred": [
+    "ESP-12F controller/head PCB and software",
+    "Custom USB-C buck power head",
+    "Physical qualification by the authorized hardware session"
+  ],
+  "acceptance_evidence": "Astra placement:build/hardware/v3_1-astra-placement-20261015; no fabrication package. Routing/power/manufacturing gates remain pending.",
+  "workflow": "One shared project;146footprints placed and synchronized; no tracks/vias/copper zones",
+  "latest_review_repairs": "2026-10-15 Astra schematic repairs retained; current ERC0/parity0 and350pad circuit audit PASS",
+  "latest_placement": "2026-10-15 Astra placement applied through liveIPC;69fixed/77rear; no routing; human iteration next"
+}

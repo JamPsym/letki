@@ -1,0 +1,9 @@
+(sym_lib_table
+	(lib
+		(name "LetkiStudy")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/LetkiStudy.kicad_sym")
+		(options "")
+		(descr "Exact retained v3 ICs; inherited pin geometry")
+	)
+)

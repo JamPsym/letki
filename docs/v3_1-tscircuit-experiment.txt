@@ -1,0 +1,128 @@
+TSCIRCUIT / V3.1 EXPERIMENT — 2026-10-16
+
+Outcome: the local workflow can generate and route a small repeated circuit,
+but this full-board trial did not produce an acceptable v3.1 alternative.
+The accepted v3.1 remains the reference. No source promotion or hardware work.
+
+Evidence root: build/hardware/tscircuit-v3_1-20261016/
+Requested model: 6.1-sol, xhigh, current session; no delegated agents.
+This is one workflow feasibility experiment, not a controlled model benchmark.
+
+TOOLCHAIN
+Node24.22.0, Bun1.4.3, tscircuit0.0.2911, CLI0.1.2348,
+core0.0.2165, capacity-autorouter0.0.985, circuit-json0.0.528,
+kicad-to-circuit-json0.0.142, circuit-json-to-kicad0.0.235, kicadts0.0.53.
+Exact transitive dependencies: project/package-lock.json.
+Runtime archives, package metadata, hashes and upstream skill references are
+retained under downloads/, results/ and upstream-skill/ in the evidence root.
+The runtimes/packages are local to the experiment, not system installations.
+Node archive SHA256 and Bun release digest were verified. Npm retained peer
+warnings and a Git-dependency integrity warning; do not claim all dependencies
+were independently authenticated. The exporter required a local installation
+of its undeclared runtime dependency polygon-clipping0.15.7. CLI required Bun
+despite the documented Node-or-Bun prerequisite. No installed package source
+was patched. Build/routing ran locally; no circuit publication or cloud job.
+
+1. EXACT IMPORT / EXPORT GATE
+project/roundtrip.mjs attempts the accepted native PCB without edits.
+Initial attempt exposed the missing exporter dependency. After installing it,
+the importer failed: Class "padstack" not registered via SxClass.register.
+No no-edit roundtrip board was produced. See logs/roundtrip-v2.log.
+This concerns the installed versions and this board; it is not a universal
+claim about all KiCad files or future releases.
+
+2. NATIVE TSCIRCUIT RECONSTRUCTION
+extract_reference.py reads the isolated native board into reference-fixture.json.
+project/index.circuit.tsx builds custom pad footprints and traces from it.
+All146 placements were held fixed; this did not test automatic placement.
+No new circuit/parts selection was performed. Generic chip elements carry
+physical pin/net data; semiconductor/power semantics remain underspecified.
+The reconstruction deliberately does not preserve authored copper/planes,
+silkscreen, model/courtyard/library identity or complete project metadata.
+It uses four layers,0.2mm trace/clearance requests,0.6/0.3mm ordinary vias,
+no blind/buried vias and no requested via-in-pad. GND traces request0.5mm,
+VCC1mm and selected-column nets0.5mm. These are diagnostic routing inputs,
+not a replacement for v3.1's reviewed2mm distribution and plane contracts.
+Front/inner circular edge-contact lands are used on all layers in this
+reconstruction;14reviewed rear oval lands are therefore explicitly lost.
+Original schematic/project/rules were restored beside exports before grading.
+No check/severity/exclusion was relaxed.
+
+3. FIVE-COMPONENT NMOS STAGE
+Q9,R31,R42,R50,R1; three internal multi-pin nets. The three external stage
+boundary terminals are intentionally left outside this subset's connectivity.
+Final build2.618s; native KiCad export0.164s. These are complete command times,
+not model reasoning time.11physical pads preserve positions, dimensions,
+side, shape and internal net topology.10segments,0vias,9.372mm trace length.
+Tscircuit build, PCB/ Gerber-derived shorts checks and style check pass.
+Native DRC:0opens,0copper findings;10findings remain: five missing library
+registrations and five missing courtyards. This is not a fully clean package.
+Artifacts: stage-routed-v2/; results/stage-native-audit.json,stage-drc.json.
+
+4. FULL-BOARD ROUTING
+First attempt:95.614s total;90s phase timeout during power-trace expansion.
+No completed routed result. CLI left a stale earlier circuit.json in dist;
+full-routed-v1/OUTPUT-NOTICE.txt identifies it and excludes it from grading.
+Fresh timeout diagnostics are preserved in full-routed-v1/timeout-debug/.
+
+Second attempt corrected J2 pad shapes and duplicate logical pin selectors,
+then used a180s phase limit. It produced a candidate in113.293s, exiting1:
+its routing DRC failed with "Illegal Parameters" and two via/pad overlaps.
+Artifacts: full-routed-v2/, results/full-build-routed-v2-command.json.
+Native pad audit:146components,352pads, all positions retained,68multi-pin
+net groups match.15pad geometry differences remain:14rear contact ovals and
+J2.1's rounded rectangular PTH land. No lossless geometry pass.
+
+Circuit JSON contains277routed trace objects and185via objects. Raw KiCad
+export contains3255track segments and318vias, including133exact duplicate
+via geometries (also133duplicate via UUID occurrences). Raw track length
+2264.017mm. Native DRC reports557violations:
+9shorts,88clearance,6hole-clearance,22hole-to-hole,133co-located holes,
+4solder-mask bridges,3off-centre track/via joins,146missing courtyards and
+146library findings. It also reports623schematic-parity findings, including
+renamed nets, changed footprint identifiers/fields and absent filters.
+Independent endpoint-group topology matching is separate from native parity.
+Native0opens does not offset the shorts. Independent GND/VCC continuity
+checks each find one connected cluster; they do not qualify shorts or power.
+Tscircuit's Gerber-derived shorts check fails with8reported contact regions.
+Its full-board style checker crashes in Bun with SIGSEGV; no style pass.
+
+5. EXPORTER DUPLICATE-VIA DIAGNOSTIC
+full-routed-dedup/ removes only133identical same-net vias from a separate raw
+export copy. It does not reroute or alter rules. Mutation UUIDs/hashes are in
+results/dedup-mutation.json. A native geometry-multiset audit verifies all
+track geometry is preserved and only those duplicate via instances are removed;
+UUID-only dictionaries cannot establish this because the exporter duplicates
+UUIDs too. Native DRC still fails with379violations:
+6shorts,67clearance,3hole-clearance,6hole-to-hole,2solder-mask bridges,
+3off-centre joins and292library/courtyard findings.0opens,623parity findings.
+Thus duplicate export holes explain some findings, but do not explain away
+the routing faults. Neither raw nor diagnostic copy is a fabrication output.
+
+REFERENCE / INTERPRETATION
+Fresh reference DRC/parity/open/excluded findings:0. Reference contains
+974segments,131vias and2077.388mm of tracks, plus its authored planes.
+The reconstructed candidate has no zones and different power treatment.
+Length/via differences are descriptive, not a like-for-like quality ranking.
+Input/after source hashes are retained; the complete source comparison must
+remain unchanged. Initial helper mistakes (a temporary SWIG bounding-box
+reference and duplicate-number pad comparison) were corrected before the
+reported audits; raw intermediate audit reports are retained separately.
+The duplicate-via diagnostic emitted native API/deallocation warnings; saved
+native reports, not successful process exit alone, determine its outcome.
+
+Useful conclusion: tscircuit is operational locally and useful for concise
+repeated circuit experiments. Existing v3.1 migration is blocked at exact
+import, and this simplified full-board routing run still has real faults.
+Keep it as experiment evidence, not a successor revision or a tool ranking.
+
+REPLAY (from Letki root, installed experiment environment)
+python3 build/hardware/tscircuit-v3_1-20261016/run.py --timeout 230 replay-full -- ./node_modules/.bin/tsci build index.circuit.tsx --pcb-only --pcb-svgs --autorouter-timeout 180s --inject-props '{"scope":"full","route":true}'
+This command is expected to retain errors; it does not publish or program.
+
+Upstream references checked2026-10-16:
+https://docs.tscircuit.com/intro/quickstart-cli
+https://docs.tscircuit.com/guides/importing-modules-and-chips/importing-from-kicad
+https://github.com/tscircuit/kicad-to-circuit-json
+https://github.com/tscircuit/circuit-json-to-kicad
+https://github.com/tscircuit/skill

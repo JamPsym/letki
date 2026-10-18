@@ -1,0 +1,51 @@
+(footprint "SWIO_Pads_1x03_P2.54mm"
+	(version 20241229)
+	(generator pcbnew)
+	(layer "F.Cu")
+	(descr "PCB-only solder connection; no purchased connector")
+	(attr smd exclude_from_bom exclude_from_pos_files board_only)
+	(property "Reference" "REF**"
+		(at 0 -2 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 0.8 0.8)
+			)
+		)
+	)
+	(property "Value" "SWIO_Pads_1x03_P2.54mm"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 0.8 0.8)
+			)
+			(hide yes)
+		)
+	)
+	(pad "1" smd circle
+		(at 0.0 0)
+		(size 1.6 1.6)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "2" smd circle
+		(at 2.54 0)
+		(size 1.6 1.6)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "3" smd circle
+		(at 5.08 0)
+		(size 1.6 1.6)
+		(layers "F.Cu" "F.Mask")
+	)
+	(fp_rect
+		(start -1.05 -1.05)
+		(end 6.13 1.05)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+	)
+)

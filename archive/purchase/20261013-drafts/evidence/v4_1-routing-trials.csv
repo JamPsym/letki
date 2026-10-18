@@ -1,0 +1,6 @@
+Trial,Source_SHA256,Engine_successful,Engine_failed,Engine_reported_seconds,Measured_route_command_seconds,KiCad_DRC,KiCad_open_connections,Candidate_vias,Candidate_trace_length_mm,Notes
+v4_1-plugin-route,8069b8d21722f6f1b5b6301216820c0e610a99754246b5f50c415642bf65250b,9,10,2.2199999999999998,not recorded,52,32,231,2729.46,Different prepared input/placement/escapes per trial; no direct algorithm ranking
+v4_1-plugin-route2,not recorded,0,10,1.7999999999999998,not recorded,not recorded,not recorded,not recorded,not recorded,Different prepared input/placement/escapes per trial; no direct algorithm ranking
+v4_1-plugin-route3,bfe86b4c2ee1d6713b7cc55fadaa8c85a929c9de169ccf08234931415e79dd7e,5,5,0.88,not recorded,38,25,232,2683.491,Different prepared input/placement/escapes per trial; no direct algorithm ranking
+v4_1-plugin-route4,d85c0f851b0b053c93b5efe9cb6e50a5effda7dabcc7e6337bfda023c136acc4,6,7,1.48,not recorded,31,8,242,2628.693,Different prepared input/placement/escapes per trial; no direct algorithm ranking
+v4_1-plugin-route5,49e14d936538f1e212c3bb0ac2ccbdfda78ea0a5368e1ff1224730c3f3ee1a90,9,10,2.1,not recorded,41,12,280,2841.782,Different prepared input/placement/escapes per trial; no direct algorithm ranking

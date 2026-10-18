@@ -1,0 +1,58 @@
+{
+  "milestone_id": "v3_2-routed-20261017",
+  "revision": "v3.2",
+  "status": "USER_ACCEPTED_ROUTED_CAD_MILESTONE",
+  "accepted_on": "2026-10-17",
+  "recorded_UTC": "2026-10-17T11:32:17.853207+00:00",
+  "accepted_by": "User: save this board as a milestone and leave it as main v3.2; manual replacements and routing will follow",
+  "canonical_project": "hw/ledkiv3.2/ledkiv3_2.kicad_pro",
+  "frozen_snapshot": "archive/hw/ledkiv3.2-routed-milestone-20261017",
+  "snapshot_manifest": "archive/hw/ledkiv3.2-routed-milestone-20261017/snapshot-manifest.json",
+  "cad_sha256": {
+    "ledkiv3_2.kicad_pcb": "95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2",
+    "ledkiv3_2.kicad_sch": "1080c04a06bc6d71fc69999fe1ddb904598b3392941479f71ad9bdc30d3c458c",
+    "ledkiv3_2.kicad_pro": "d71e069e7598e0c38f5aa2c7236197357719e5e0d32eb609a76eca029293a3f5",
+    "ledkiv3_2.kicad_dru": "a994d71f10027d2363993b680580f9a3dc65743c5ed8c6ef670f943506935179",
+    "in1-exceptions.json": "25d4a9e3e2d78c7afbfa028db15faba16f7d8f99d10e78f6a010f89d9492809c"
+  },
+  "validation": {
+    "ERC": 0,
+    "DRC": 0,
+    "opens": 0,
+    "parity": 0,
+    "ignored": 0
+  },
+  "independent_checks": "PASS: 76 physical nets connected; pin/net, placement, padstack, copper, manufacturing and labels",
+  "counts": {
+    "footprints": 159,
+    "track_segments": 2015,
+    "ordinary_tented_vias": 299,
+    "zones": 7
+  },
+  "physical_qualification": "PENDING",
+  "firmware_custom_loader": "Not implemented or flashed",
+  "main_project_policy": "Live hw/ledkiv3.2 remains the single editable project for user component/placement/routing changes. Preserve this milestone; never restore it over human changes without instruction.",
+  "checks_apply_to": "Frozen milestone only. Recheck changed CAD; baseline-specific geometry/power/plane/label contracts may need reviewed updates.",
+  "exports": {
+    "manifest.json": {
+      "path": "archive/hw/ledkiv3.2-routed-milestone-20261017/exports/prototype/manifest.json",
+      "sha256": "3f90e960d3177ad30239b7e41762e8dea445e9040b0dadc0044cba16f02c0341"
+    },
+    "ledkiv3_2-gerbers.zip": {
+      "path": "archive/hw/ledkiv3.2-routed-milestone-20261017/exports/prototype/ledkiv3_2-gerbers.zip",
+      "sha256": "3669fee2f54a0ceb53b81f3a41a91934bb65a46b2d5da571aea268e3d48cf16b"
+    },
+    "ledkiv3_2-sources.zip": {
+      "path": "archive/hw/ledkiv3.2-routed-milestone-20261017/exports/prototype/ledkiv3_2-sources.zip",
+      "sha256": "c5ea2dc58fe76bd9c83abb84bce8a2992ca05b1c5ca9b4053a705af042932c0b"
+    },
+    "artifact-sha256.json": {
+      "path": "archive/hw/ledkiv3.2-routed-milestone-20261017/exports/prototype/artifact-sha256.json",
+      "sha256": "a76fa06f5e693b8dce66d13db9ce5b16012fd8f185191ae596b4979efce48cca"
+    }
+  },
+  "unrouted_checkpoint": "archive/hw/ledkiv3.2-unrouted-20261017",
+  "git_commit_created": false,
+  "orders_placed": false,
+  "hardware_accessed": false
+}

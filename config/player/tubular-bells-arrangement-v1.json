@@ -1,0 +1,427 @@
+{
+  "name": "Tubular Bells — instrument theatre",
+  "title": "TUBULAR BELLS",
+  "artist": "MIKE OLDFIELD",
+  "audio": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.flac",
+  "video": "../../build/media/tubular-bells-bbc-1973/nbYQYOM66MA.video.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 10,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 1.1,
+  "style": "piano",
+  "cues": [
+    {
+      "at": 0,
+      "effect": "piano",
+      "label": "Opening mechanism",
+      "level": 0.85,
+      "speed": 0.8,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 95
+    },
+    {
+      "at": 95,
+      "effect": "music-ribbon",
+      "label": "Threads emerge",
+      "level": 0.8,
+      "speed": 0.7,
+      "sustain": 0.9,
+      "variant": 0,
+      "duration": 85
+    },
+    {
+      "at": 180,
+      "effect": "strings",
+      "label": "Widening",
+      "level": 0.85,
+      "speed": 0.65,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 65
+    },
+    {
+      "at": 245,
+      "effect": "guitar",
+      "label": "Interlock",
+      "level": 0.85,
+      "speed": 0.8,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 51
+    },
+    {
+      "at": 296,
+      "effect": "music-lanterns",
+      "label": "Still water",
+      "level": 0.7,
+      "speed": 0.6,
+      "sustain": 0.8,
+      "variant": 0,
+      "duration": 28
+    },
+    {
+      "at": 324,
+      "effect": "music-ripple",
+      "label": "The mechanism returns",
+      "level": 0.85,
+      "speed": 0.8,
+      "sustain": 0.65,
+      "variant": 0,
+      "duration": 64
+    },
+    {
+      "at": 388,
+      "effect": "music-ribbon",
+      "label": "Gathering momentum",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0.35,
+      "variant": 0,
+      "duration": 78
+    },
+    {
+      "at": 466,
+      "effect": "guitar-duo",
+      "label": "Two lines",
+      "level": 0.9,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 70
+    },
+    {
+      "at": 536,
+      "effect": "music-ripple",
+      "label": "Undertow",
+      "level": 0.85,
+      "speed": 0.9,
+      "sustain": 0.5,
+      "variant": 1,
+      "duration": 65
+    },
+    {
+      "at": 601,
+      "effect": "music-lanterns",
+      "label": "Breathing space",
+      "level": 0.65,
+      "speed": 0.5,
+      "sustain": 0.8,
+      "variant": 0,
+      "duration": 40
+    },
+    {
+      "at": 641,
+      "effect": "strings",
+      "label": "A new thread",
+      "level": 0.8,
+      "speed": 0.65,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 68
+    },
+    {
+      "at": 709,
+      "effect": "piano",
+      "label": "Small mechanism",
+      "level": 0.7,
+      "speed": 0.65,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 56
+    },
+    {
+      "at": 765,
+      "effect": "music-ribbon",
+      "label": "Weaving",
+      "level": 0.9,
+      "speed": 0.85,
+      "sustain": 0.8,
+      "variant": 2,
+      "duration": 67
+    },
+    {
+      "at": 832,
+      "effect": "music-daisy",
+      "label": "Hand to hand",
+      "level": 0.85,
+      "speed": 0.8,
+      "sustain": 0.65,
+      "variant": 0,
+      "duration": 59
+    },
+    {
+      "at": 891,
+      "effect": "guitar-duo",
+      "label": "The gathering",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 66
+    },
+    {
+      "at": 957,
+      "effect": "music-ripple",
+      "label": "Crest",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0.4,
+      "variant": 3,
+      "duration": 58
+    },
+    {
+      "at": 1015,
+      "effect": "music-lanterns",
+      "label": "Reset",
+      "level": 0.7,
+      "speed": 0.6,
+      "sustain": 0.8,
+      "variant": 0,
+      "duration": 61
+    },
+    {
+      "at": 1076,
+      "effect": "music-ribbon",
+      "label": "Procession",
+      "level": 1,
+      "speed": 0.9,
+      "sustain": 0.5,
+      "variant": 0,
+      "duration": 62
+    },
+    {
+      "at": 1138,
+      "effect": "piano",
+      "label": "The stage is ready",
+      "level": 0.85,
+      "speed": 0.8,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 50.9
+    },
+    {
+      "at": 1188.9,
+      "effect": "piano",
+      "label": "Grand piano",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 24.1
+    },
+    {
+      "at": 1188.9,
+      "duration": 2.8,
+      "text": "GRAND PIANO",
+      "mode": "center"
+    },
+    {
+      "at": 1213,
+      "effect": "organ",
+      "label": "Reed and pipe organ",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 24.8
+    },
+    {
+      "at": 1213,
+      "duration": 2.8,
+      "text": "PIPE ORGAN",
+      "mode": "center"
+    },
+    {
+      "at": 1237.8,
+      "effect": "mallets",
+      "label": "Glockenspiel",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 24.58
+    },
+    {
+      "at": 1237.8,
+      "duration": 2.8,
+      "text": "GLOCKENSPIEL",
+      "mode": "center"
+    },
+    {
+      "at": 1262.38,
+      "effect": "bass-guitar",
+      "label": "Bass guitar",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 25.4
+    },
+    {
+      "at": 1262.38,
+      "duration": 2.8,
+      "text": "BASS GUITAR",
+      "mode": "center"
+    },
+    {
+      "at": 1287.78,
+      "effect": "guitar-fast",
+      "label": "Double-speed guitar",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 24.1
+    },
+    {
+      "at": 1287.78,
+      "duration": 2.8,
+      "text": "DOUBLE SPEED",
+      "mode": "center"
+    },
+    {
+      "at": 1311.88,
+      "effect": "guitar-duo",
+      "label": "Two slightly distorted guitars",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 33.08
+    },
+    {
+      "at": 1311.88,
+      "duration": 2.8,
+      "text": "TWO GUITARS",
+      "mode": "center"
+    },
+    {
+      "at": 1344.96,
+      "effect": "mandolin",
+      "label": "Mandolin",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 17.56
+    },
+    {
+      "at": 1344.96,
+      "duration": 2.8,
+      "text": "MANDOLIN",
+      "mode": "center"
+    },
+    {
+      "at": 1362.52,
+      "effect": "guitar",
+      "label": "Spanish guitar",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 2.22
+    },
+    {
+      "at": 1362.52,
+      "duration": 1.8,
+      "text": "SPANISH",
+      "mode": "center"
+    },
+    {
+      "at": 1364.74,
+      "effect": "guitar",
+      "label": "Acoustic guitar",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 24.06
+    },
+    {
+      "at": 1364.74,
+      "duration": 2.8,
+      "text": "ACOUSTIC",
+      "mode": "center"
+    },
+    {
+      "at": 1388.8,
+      "effect": "tubular-bells",
+      "label": "Tubular bells",
+      "level": 1,
+      "speed": 1,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 54.2
+    },
+    {
+      "at": 1388.8,
+      "duration": 2.8,
+      "text": "TUBULAR BELLS",
+      "mode": "center"
+    },
+    {
+      "at": 1443,
+      "effect": "tubular-bells",
+      "label": "Resonance",
+      "level": 0.65,
+      "speed": 0.65,
+      "sustain": 0,
+      "variant": 0,
+      "duration": 47
+    },
+    {
+      "at": 1490,
+      "effect": "music-ribbon",
+      "label": "Unravelling",
+      "level": 0.8,
+      "speed": 0.5,
+      "sustain": 0.8,
+      "variant": 0,
+      "duration": 30
+    },
+    {
+      "at": 1520,
+      "effect": "music-lanterns",
+      "label": "Curtain",
+      "level": 0.5,
+      "speed": 0.45,
+      "sustain": 0.9,
+      "variant": 0,
+      "duration": 25.8
+    },
+    {
+      "at": 1525,
+      "duration": 6,
+      "text": "MIKE OLDFIELD",
+      "mode": "scroll"
+    },
+    {
+      "at": 1535,
+      "duration": 4,
+      "text": "LETKI",
+      "mode": "center"
+    },
+    {
+      "at": 1545.8,
+      "effect": "music-ribbon",
+      "label": "Blackout",
+      "level": 0,
+      "speed": 0.4,
+      "sustain": 0.9,
+      "variant": 0,
+      "duration": 2.506575964
+    }
+  ],
+  "recording": {
+    "sha256": "ecc36ad164431b0a1dda667420661288b14bb48c27f353d4e93c3ecfd48f88c8",
+    "duration_seconds": 1548.3065759637188
+  },
+  "authoring": {
+    "version": 1,
+    "scope": "Complete recording, introduction, musical sections and ending",
+    "basis": "Recording FFT energy profiles; artistic phrase boundaries; local draft announcement/word alignment where noted",
+    "video_on_leds": false
+  }
+}

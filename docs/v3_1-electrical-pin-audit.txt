@@ -1,0 +1,101 @@
+V3.1 ELECTRICAL PIN / FOOTPRINT AUDIT — 2026-10-16
+
+Result: PASS for the saved accepted CAD. No pin-number/net mismatch, swapped
+MOSFET source/drain, reversed IC footprint numbering or unintended backside
+mirroring was found in the scope below. This specifically checks faults that
+ERC/DRC alone cannot detect when a symbol and footprint share an incorrect
+pin-number assumption.
+
+Source identity
+PCB: 803db5887b970f85937dc4378c422b3fa6cc18b6e7a23571c9567cdb836355e2
+Schematic: 042f22ebb5dab0d5e7f16b24260525cb057902e70ac4f9adfbff369b13d59c7d
+Both unchanged by this read-only audit.
+Evidence: build/hardware/v3_1-electrical-pin-audit-20261016/
+Re-run from the project root:
+.tools/kicad-routing-env/bin/python build/hardware/v3_1-electrical-pin-audit-20261016/check.py
+
+Method
+Read the manufacturer's component/pin drawings visually, including top versus
+bottom views. Export the current schematic netlist. Construct a separate full
+expected circuit map from those pin functions and the intended matrix, rather
+than merely compare with the historical study schematic. Verify every numbered
+pad in the actual PCB against that map. Undo each footprint's rear-side flip
+and rotation in memory and compare embedded pad positions/numbers/sizes/drills
+with its local library. Check physical numbering against the component drawings.
+No file is saved through pcbnew.
+
+347 unique schematic component/pin pairs checked; 350 physical numbered pads
+checked (J2 has three additional parallel bare pads). All 146 footprint pad
+geometries match their local library definitions after placement normalization.
+No differences. The separate fresh ERC/DRC/parity and copper-connectivity
+checks from the preceding production audit also passed on these same CAD hashes.
+
+Detailed findings
+U1 CH32V003F4P6: correct TSSOP20 package and counterclockwise top-view numbering.
+VDD9, VSS7, SWIO/PD1 pin18, TX/PD5 pin2, RX/PD6 pin3, SDA/PC1 pin11 and
+SCL/PC2 pin12 agree with the manufacturer's F4P6 pinout. No use of the different
+F4U6 QFN or A4M6 SOP pin assignment. All row/address GPIO connections checked.
+
+U2 SN74HC138PWR: correct TSSOP16 numbering. VCC16/GND8, active-low enables4/5
+at GND, active-high enable6 at VCC. Address A/B/C pins1/2/3 connect to
+PC7/PC6/PC5 with their 4.7k pull-ups. Y0..Y7 pins15/14/13/12/11/10/9/7 feed
+the matching PMOS gates through R15..R22. Active-low selection suits PMOS drive.
+
+Q1..Q8 AO3415A: gate1/source2/drain3. Source goes to VCC, drain to an LED
+anode column, gate to the decoder through 1k with 10k gate-to-source pull-up.
+Q9..Q16 DMN2056U-7: gate1/source2/drain3. Source goes to GND, drain to the
+row-current resistor, gate to its MCU output through 1k with 10k pulldown.
+The physical SOT23 two-lead side has gate/source in the correct order; the
+single-lead side is drain. Both body diodes oppose the intended off-state
+supply-to-load current path. All sixteen devices were checked individually.
+
+D1..D64 XL-2012UOC: manufacturer pin1=cathode, pin2=anode. Every anode belongs
+to its PMOS-driven column; every cathode belongs to its row's single 33R
+resistor and NMOS sink. No disconnected cathode row or resistor bypass in the
+expected topology. All64 cathode-side silk closures and Fab chamfers agree
+with pad1. LEDs are intentionally rotated180degrees from original v3:
+with the saved board viewed from the front, cathode/pad1 is on the RIGHT.
+This is the intended v3.1 drive polarity, not an accidental KiCad flip.
+
+J2 Molex53047-0310: 1.25mm pitch and circuit numbering retained; pin1 VCC,
+pin2 SWIO, pin3 GND. Each bare pad is electrically parallel with its same-number
+header hole. Rear mounting mirrors its apparent position in a front view;
+use pin numbers and the component-side view when making the cable. The known
+0.6mm-hole/1.6mm-board mechanical adaptation is separate from pin correctness.
+
+J1/J3 edge contacts: matching Y positions connect VCC/VCC/SDA/SCL/UART/GND/GND
+across an abutted seam. Right TX feeds the next tile's left RX; supply and I2C
+are not crossed. Both 1k UART series resistors and the RX-side pull-up match
+the intended topology. Only one tile should populate R11/R12 I2C pulls.
+
+All capacitor endpoints connect across VCC/GND; the selected capacitors are
+nonpolar ceramic parts. All passive endpoints, gate/drain biases, decoder
+address pulls and intentionally disconnected MCU pins are included in the
+complete expected map. Driver review agrees with physical pixel placement:
+bit0 is the top row through PD7/Q16; decoder address0 selects the left column.
+The earlier R39 pull-up and D9..D16 cathode disconnections remain repaired.
+
+Manufacturer sources inspected
+AOS AO3415A Rev3.1 August2023, page1 top/bottom views:
+https://www.aosmd.com/res/datasheets/AO3415A.pdf
+Diodes DMN2056U DS38480 Rev2-2 July2021, page1 top view:
+https://www.diodes.com/datasheet/download/DMN2056U.pdf
+TI SN74HC138 SCLS107G, page3 16-pin top view and function table:
+https://www.ti.com/lit/ds/symlink/sn74hc138.pdf
+WCH CH32V003 datasheet v1.3, printed page10 / PDF page12, F4P6 pinout:
+retained docs/reference/wch/CH32V003DS0.PDF.
+Xinglight XL-2012UOC, page7 polarity, package markings and landing pattern:
+manufacturer-authored retained PDF, distributor mirror:
+https://datasheet.lcsc.com/datasheet/pdf/b40afb7140c7e33828adf1e17d75beb8.pdf?productCode=C965813
+Molex530470000-SD RevB, sheet1 and 3-circuit table:
+manufacturer-authored retained series drawing, distributor mirror:
+https://images.100y.com.tw/pdf_file/10-molex-53047-1510.pdf
+Exact local document paths are recorded in evidence/references.json. Retained
+revision dates describe the inspected files; no blanket latest-revision claim.
+
+Scope limits
+This closes the static pin/pad mapping concern for the saved CAD. It does not
+inspect the parts actually delivered or soldered, cable crimp order, or physical
+LED current/timing/thermal behavior. The first-provisioning R49-open/PD7-GPIO
+procedure and use of matching v3.1 firmware remain necessary. There was no
+hardware access, source-CAD edit, fabrication upload or order during this audit.

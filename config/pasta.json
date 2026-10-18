@@ -1,0 +1,236 @@
+{
+  "language": "pl",
+  "model": "v3",
+  "seed": 42,
+  "gain": 0.65,
+  "pause_seconds": 0.1,
+  "scroll_step_ms": 30,
+  "speech_delay_pixels": 0,
+  "phrases": [
+    {
+      "speech": "bądź",
+      "display": "BĄDŹ"
+    },
+    {
+      "speech": "na",
+      "display": "NA"
+    },
+    {
+      "speech": "szwedzkim",
+      "display": "SZWEDZKIM"
+    },
+    {
+      "speech": "wycieczkowcu",
+      "display": "WYCIECZKOWCU"
+    },
+    {
+      "speech": "idź",
+      "display": "IDŹ"
+    },
+    {
+      "speech": "srać",
+      "display": "SRAĆ"
+    },
+    {
+      "speech": "wysraj",
+      "display": "WYSRAJ"
+    },
+    {
+      "speech": "się",
+      "display": "SIĘ"
+    },
+    {
+      "speech": "spłukuj",
+      "display": "SPŁUKUJ"
+    },
+    {
+      "speech": "nie",
+      "display": "NIE"
+    },
+    {
+      "speech": "działa",
+      "display": "DZIAŁA"
+    },
+    {
+      "speech": "oshit kropka PNG",
+      "display": "OSHIT PNG"
+    },
+    {
+      "speech": "co",
+      "display": "CO"
+    },
+    {
+      "speech": "robić",
+      "display": "ROBIĆ"
+    },
+    {
+      "speech": "znajdź",
+      "display": "ZNAJDŹ"
+    },
+    {
+      "speech": "sprzątaczkę",
+      "display": "SPRZĄTACZKĘ"
+    },
+    {
+      "speech": "nie",
+      "display": "NIE"
+    },
+    {
+      "speech": "umiej",
+      "display": "UMIEJ"
+    },
+    {
+      "speech": "po",
+      "display": "PO"
+    },
+    {
+      "speech": "szwedzku",
+      "display": "SZWEDZKU"
+    },
+    {
+      "speech": "ona",
+      "display": "ONA"
+    },
+    {
+      "speech": "nie",
+      "display": "NIE"
+    },
+    {
+      "speech": "umie",
+      "display": "UMIE"
+    },
+    {
+      "speech": "po",
+      "display": "PO"
+    },
+    {
+      "speech": "angielsku",
+      "display": "ANGIELSKU"
+    },
+    {
+      "speech": "złap",
+      "display": "ZŁAP"
+    },
+    {
+      "speech": "ją",
+      "display": "JĄ"
+    },
+    {
+      "speech": "za",
+      "display": "ZA"
+    },
+    {
+      "speech": "rękę",
+      "display": "RĘKĘ"
+    },
+    {
+      "speech": "i",
+      "display": "I"
+    },
+    {
+      "speech": "zaprowadź",
+      "display": "ZAPROWADŹ"
+    },
+    {
+      "speech": "do",
+      "display": "DO"
+    },
+    {
+      "speech": "męskiego",
+      "display": "MĘSKIEGO"
+    },
+    {
+      "speech": "sracza",
+      "display": "SRACZA"
+    },
+    {
+      "speech": "już",
+      "display": "JUŻ"
+    },
+    {
+      "speech": "ma",
+      "display": "MA"
+    },
+    {
+      "speech": "cię",
+      "display": "CIĘ"
+    },
+    {
+      "speech": "za",
+      "display": "ZA"
+    },
+    {
+      "speech": "świra",
+      "display": "ŚWIRA"
+    },
+    {
+      "speech": "pokaż",
+      "display": "POKAŻ"
+    },
+    {
+      "speech": "jej",
+      "display": "JEJ"
+    },
+    {
+      "speech": "gówno",
+      "display": "GÓWNO"
+    },
+    {
+      "speech": "które",
+      "display": "KTÓRE"
+    },
+    {
+      "speech": "zrobiłeś",
+      "display": "ZROBIŁEŚ"
+    },
+    {
+      "speech": "powiedz",
+      "display": "POWIEDZ"
+    },
+    {
+      "speech": "titta",
+      "display": "TITTA"
+    },
+    {
+      "speech": "patrz",
+      "display": "PATRZ"
+    },
+    {
+      "speech": "po",
+      "display": "PO"
+    },
+    {
+      "speech": "szwedzku",
+      "display": "SZWEDZKU"
+    },
+    {
+      "speech": "i",
+      "display": "I"
+    },
+    {
+      "speech": "spróbuj",
+      "display": "SPRÓBUJ"
+    },
+    {
+      "speech": "spłukać",
+      "display": "SPŁUKAĆ"
+    },
+    {
+      "speech": "gówno",
+      "display": "GÓWNO"
+    },
+    {
+      "speech": "spłukuje",
+      "display": "SPŁUKUJE"
+    },
+    {
+      "speech": "się",
+      "display": "SIĘ"
+    },
+    {
+      "speech": "normalnie",
+      "display": "NORMALNIE"
+    }
+  ],
+  "output_name": "pasta"
+}

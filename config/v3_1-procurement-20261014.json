@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-14",
+  "currency": "PLN",
+  "tax_basis": "Net line estimates; add23%VAT. Public displayed unit prices are rounded; checkout may differ.",
+  "status": "Public primary-source snapshots; no live basket, reservation or order",
+  "parts": [
+    {"MPN":"AO3415A", "code":"AO3415A", "stock_snapshot":7572, "MOQ":5, "multiple":1, "net_tiers":[[5,0.61],[25,0.35],[100,0.33]], "required":40, "planned_buy":40, "source":"https://www.tme.eu/pl/details/ao3415a/tranzystory-z-kanalem-p-smd/alpha-omega-semiconductor/"},
+    {"MPN":"DMN2056U-7", "code":"DMN2056U-7", "stock_snapshot":11652, "MOQ":1, "multiple":1, "net_tiers":[[1,1.27],[10,0.79],[25,0.64],[50,0.56],[100,0.49]], "required":40, "planned_buy":40, "optional_spares":{"quantity":50,"extra_net_estimate":2.4}, "source":"https://www.tme.eu/pl/katalog/tranzystory-z-kanalem-typu-n_100309/p%2Cdiodes-incorporated_584/", "note":"Exact DMN2056U-7 row in primary Polish category. Its individual Polish page remains inaccessible; English product confirms exact device. Older10+price is not the appropriate40piece tier."},
+    {"MPN":"0805S8F1001T5E", "code":"SMD0805-1K-1%", "stock_snapshot":23110, "MOQ":100, "multiple":100, "net_tiers":[[100,0.06],[1000,0.01]], "required":90, "planned_buy":100, "optional_bulk":{"quantity":1000,"extra_net_estimate":4.0,"note":"Rounded snapshot only; verify exact tier totals before selecting bulk."}, "source":"https://www.tme.eu/pl/details/smd0805-1k-1%25/rezystory-smd/royalohm/0805s8f1001t5e/", "note":"Unregistered user1k resistors may remove this purchase after exact value/package/tolerance identification. Do not count them now."},
+    {"MPN":"530470310", "code":"MX-53047-0310", "stock_snapshot":2345, "MOQ":1, "multiple":1, "net_tiers":[[1,0.69],[10,0.60]], "required":5, "planned_buy":5, "conditional_buy_after_receipt_of_uncommitted_spare":4, "source":"https://www.tme.eu/pl/details/mx-53047-0310/zlacza-sygnalowe-raster-1-25mm/molex/53047-0310/", "note":"Incoming6headers:5reservedv4.1 and1pendinguncommitted. No receipt/reassignment credited. Current public quote differs from placed order historical price."}
+  ],
+  "delivery":{"InPost_locker_gross":19.56,"standard_courier_gross":17.10,"source":"https://www.tme.eu/pl/how-to-buy/7428/Sposob-i-koszty-transportu/","note":"Small domestic parcel, no COD. Combining with other useful items may amortize delivery; cannot append to a placed order by assumption."},
+  "excluded_costs":["PCB fabrication and delivery","paid assembly/stencil/setup","print material and failed prints","wire/fasteners not yet counted physically","tools/consumables","separate futureESP12F/powerhead"],
+  "fabrication_comparison":{"four_layers":"Selected baseline; quote actual40.64x49.27mm,1.6mm,ordinaryPTHandtenting,HALSnPb prototype package.","two_layers":"No separate compliant route/quote established; do not claim cheaper.","special_processes":"No castellated/edgeplating,VIP,filling,capping or blind/buried vias.","assembly":"Userstock/handassembly baseline. PaidSMT requires quote for777SMTplacements plus5THTheaders; do not infer price from BOM alone."}
+}

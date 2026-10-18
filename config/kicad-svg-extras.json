@@ -1,0 +1,7 @@
+{
+  "repository": "https://github.com/adamws/kicad-svg-extras.git",
+  "commit": "2104304bcda48fd1a9c7610f4b13232b071fba37",
+  "license": "MIT",
+  "purpose": "Read-only local per-net SVGs and interactive routing-review reports",
+  "execution": "System Python with bundled KiCad pcbnew; no runtime pip dependencies"
+}

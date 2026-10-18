@@ -1,0 +1,22 @@
+{
+  "name": "Adagio for Strings",
+  "title": "ADAGIO FOR STRINGS",
+  "artist": "TIESTO",
+  "audio": "../../build/media/youtube-2EaE0_gQLw0/2EaE0_gQLw0.flac",
+  "intro_seconds": 10,
+  "style": "strings",
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "cues": [
+    {
+      "at": 0,
+      "duration": 6,
+      "text": "TIESTO"
+    },
+    {
+      "at": 6,
+      "duration": 7,
+      "text": "ADAGIO FOR STRINGS"
+    }
+  ]
+}

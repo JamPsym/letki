@@ -1,0 +1,82 @@
+{
+  "milestone_id": "v3_2-main-20261017",
+  "revision": "v3.2",
+  "status": "USER_ACCEPTED_MAIN_CAD_VERSION",
+  "accepted_on": "2026-10-17",
+  "recorded_UTC": "2026-10-17T17:51:43.253604+00:00",
+  "accepted_by": "User: Thats nice. I accept that as a main version.",
+  "canonical_project": "hw/ledkiv3.2/ledkiv3_2.kicad_pro",
+  "frozen_snapshot": "archive/hw/ledkiv3.2-main-milestone-20261017",
+  "snapshot_manifest": "archive/hw/ledkiv3.2-main-milestone-20261017/snapshot-manifest.json",
+  "previous_milestone": {
+    "id": "v3_2-routed-20261017",
+    "snapshot": "archive/hw/ledkiv3.2-routed-milestone-20261017",
+    "pcb_sha256": "95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2"
+  },
+  "cad_sha256": {
+    "ledkiv3_2.kicad_pcb": "1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22",
+    "ledkiv3_2.kicad_sch": "1080c04a06bc6d71fc69999fe1ddb904598b3392941479f71ad9bdc30d3c458c",
+    "ledkiv3_2.kicad_pro": "d71e069e7598e0c38f5aa2c7236197357719e5e0d32eb609a76eca029293a3f5",
+    "ledkiv3_2.kicad_dru": "a994d71f10027d2363993b680580f9a3dc65743c5ed8c6ef670f943506935179",
+    "in1-exceptions.json": "25d4a9e3e2d78c7afbfa028db15faba16f7d8f99d10e78f6a010f89d9492809c"
+  },
+  "counts": {
+    "footprints": 159,
+    "track_segments": 1490,
+    "ordinary_tented_vias": 299,
+    "zones": 7
+  },
+  "validation": {
+    "DRC_errors": 0,
+    "DRC_warnings": 1,
+    "opens": 0,
+    "parity": 0,
+    "ignored": 0,
+    "independently_connected_nets": 76,
+    "existing_warning": {
+      "description": "Track has unconnected end",
+      "items": [
+        {
+          "description": "Track [/ADDR0] on B.Cu, length 2.0000 mm",
+          "pos": {
+            "x": 29.275,
+            "y": 16.8625
+          },
+          "uuid": "3328184b-a334-45f0-92d4-3efce52064bf"
+        }
+      ],
+      "severity": "warning",
+      "type": "track_dangling"
+    },
+    "ERC": {
+      "findings": 0,
+      "basis": "Inherited: schematic, project rules and local libraries are byte-identical to the checked earlier milestone; no schematic change or new ERC run",
+      "evidence": "evidence/inherited-erc.json"
+    },
+    "scope": "Current-board native DRC/refill/parity and independent all-net copper checks; unchanged authored CAD context and fixed placement/padstack/power audit. Earlier circuit/manufacturing assessments retain their original scope."
+  },
+  "evidence": {
+    "native": "evidence/promoted-check/",
+    "aggregate_audit": "evidence/final-audit.json",
+    "first_cleanup": "evidence/simplification-applied.json",
+    "fresh_routing": "evidence/reroute-applied.json"
+  },
+  "comparison": {
+    "url": "https://psym.pl/zobaczadas/v3.2-comparison/",
+    "manifest": "evidence/svg-comparison-manifest.json"
+  },
+  "fabrication_exports": {
+    "status": "HISTORICAL_NOT_REGENERATED",
+    "existing_path": "hw/ledkiv3.2/exports/prototype/",
+    "source_milestone": "v3_2-routed-20261017",
+    "source_pcb_sha256": "95e637adfd28457655d82f0a1dd962e2be7f0e28f83b4336a712ecc885cd78f2"
+  },
+  "physical_qualification": "PENDING",
+  "firmware_custom_loader": "Not implemented or flashed",
+  "main_project_policy": "Continue edits in hw/ledkiv3.2; preserve both frozen milestones and the unrouted checkpoint. Do not restore old CAD over later user changes or route without task authorization.",
+  "unrouted_checkpoint": "archive/hw/ledkiv3.2-unrouted-20261017",
+  "git_commit_created": false,
+  "orders_placed": false,
+  "hardware_accessed": false,
+  "cad_bytes_changed": false
+}

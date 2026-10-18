@@ -1,0 +1,113 @@
+LETKI V3.2 — ORDERED BOARDS AND NEXT WORK, 2026-10-17
+
+RESERVATION UPDATE, 2026-10-17
+The user subsequently authorized reservations for5v4.1+5v3.1+15v3.2.
+config/board-reservations.json links the canonical shared reservation record.
+Existing v4.1 holds are reused; new exact shelf and conditional pending-Ali
+holds are recorded. The stock worksheet below predates these reservations.
+Five resistor types remain unallocated/unpurchased:320x1k0603,480x10k0603,
+160x33R1%0805,70x1k0805,15x47k0805. No receipt/consumption/new order;
+candidate MOSFET/LED substitutions still need qualification. See the latest
+inventory section in docs/current-state.md for the full accounting scope.
+
+Purchase status
+User confirmed ordering fifteen bare PCBs, split5+10, from the prepared JLCONE
+cart. Y10 is five boards; Y11 is ten. Both use the checked r2 Gerber ZIP:
+c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df.
+The last checkout preview was USD10 boards +1.50 shipping +6.14 duties/taxes
+=17.64. Actual paid amount, order number, invoice, supplier engineering status,
+dispatch and delivery are unverified. Do not record the estimate as the paid
+amount. No agent order/payment. No physical receipt or stock credit.
+Canonical record: config/purchase/v3_2-jlc-order-20261017.json.
+
+Parts already ordered
+The Electronics repository records an AliExpress purchase confirmed by user:
+50CH32V006E8R6/QSOP24,200AO3414,200AO3415,2000orange0805LEDs.
+Source: /home/pies/electronics/purchases/aliexpress/2026-10-17-confirmed-purchase.json.
+All await receipt; candidate LED is labelled LIGHTHONG GH-C170KFKT-08T.
+Do not duplicate those purchases from earlier potential-cart lists.
+
+Full assembly demand is now15v3.2 plus the separately ordered5v3.1.
+This requires15V006 and160MOSFETs of each polarity: ordered quantities would
+leave35MCUs and40of each MOSFET after receipt and qualification.
+AO3415 is a candidate replacement for AO3415A, and AO3414 for DMN2056U-7;
+they are not automatic exact-MPN credits. Check markings, pin map, channel,
+low-voltage drive and actual switching before adopting an assembly overlay.
+The LED's exact ratings/pulse suitability are still unqualified. Do not borrow
+ratings from XL-2012UOC or similarly named C170 parts. Verify polarity, Vf,
+brightness and safe drive limits for the actual received part.
+
+Resistors still to buy or identify in owned stock
+User deferred the TME resistor order about3weeks. Five proposed1000-piece
+lines remain a purchase plan, not an order. Full combined20-tile floors:
+  1k /0603: 320
+  10k/0603: 480
+  33ohm/0805/1%, at least125mW: 160
+  1k /0805: 70
+  47k/0805: 15
+Refresh the TME cart, MPNs, price tiers, MOQ and shipping when buying. Its old
+six-line guest cart included a comparison LED: omit that duplicate LED line
+unless a later qualification result warrants another choice. The already placed
+TME35700057 order and v4.1 allocations are separate and unchanged.
+Finalize a per-reference assembly substitution overlay for the selected TME
+resistor MPNs, preserving33ohm1% for the current LED-current design. Current
+CAD/checked exports retain their original exact MPNs and hashes.
+
+Stock and quantities
+config/purchase/v3_2-assembly-requirements-20261017.csv and .json compare
+a five-v3.2 pilot, all fifteen v3.2 and the combined20-tile build against a
+fresh shared inventory report. Multi-unit U1 is counted once. No stock is
+reserved or consumed by these worksheets. Existing v3 hard holds and the
+separate v4.1 plan are preserved. Estimated stock remains an estimate.
+
+The original exact LED demand is960 for v3.2,1280 including five v3.1.
+Only360XL-2012UOC are free after existing holds: exact-stock shortfall920.
+The2000ordered candidates cover quantity conditionally, without becoming
+on-hand or qualified XL-2012UOC stock. Other documented logic, decoupling
+and bias parts cover their combined requirements, subject to physical counts.
+
+Fifteen v3.2 need2177SMT parts: one147-part pull-up tile plus fourteen145-part
+ordinary tiles. Fit exactly one R11/R12 pair per connected I2C bus. The combined
+worksheet assumes separate v3.1/v3.2 buses, hence two pairs total; a single
+compatible joined bus needs only one pair. Optional SWIO headers are not
+required for the bare-pad method. Do not buy twenty connectors automatically.
+The checked export's assembly BOM remains the original five-board snapshot;
+use the new quantity worksheet for the larger batch and the same assembly maps.
+
+Next work, in order
+1. Before arrival, prepare the V006 application port and a small bring-up image.
+   The current V003/v3.1 binaries are incompatible. Use the reviewed V006E8R6
+   pin/remap contract: preserve SWIO/reset, keep PA6 high-impedance because
+   it shares physical pin17 with PA1, and hold LED_BLANK high through startup.
+   Establish bounded row scan/PWM and address changes before unblanking.
+   Develop host-side protocol/build checks without flashing a v3.2 board.
+   The user will handle initial SWIO connection/programming manually.
+   Later updates are intended over Wi-Fi -> ESP-12F -> I2C -> tile loaders.
+   This is a maintenance feature alongside the main attachment functions;
+   it does not impose an updater-first development sequence. The proposed
+   loader study is docs/v3_2-network-update.txt; no implementation or physical
+   result yet. Retain local SWIO/reset recovery access.
+2. On receipt, record actual PCB and component counts/markings separately.
+   Inspect all four NPTH mounting holes, open edge/SWIO PTHs, silk and nearby
+   vias against the ordered files and documented default-process limits.
+   Supplier production-file review and physical receipt are separate evidence.
+3. Assemble one tile using hw/ledkiv3.2/ASSEMBLY.txt and the chosen overlay.
+   Inspect pin1/polarity/shorts. Use external current-limited regulated3.3V
+   within the design3.135–3.465V range. Measure blank-at-reset, rail/idle current,
+   reset/SWIO access, then sparse LEDs and bounded brightness. Log current,
+   waveform/ghosting and temperature before filling the array. Actual v3.2
+   programming/power tests need their own scoped session; v3 authorization
+   does not extend automatically to this new revision.
+4. Build a2x2 group first: verify W-to-E USART1, S-to-N USART2 and shared I2C,
+   addressing, frame orientation, recovery and startup with one pull-up pair.
+   Power off before changing wire staples. Two directed UARTs are not four
+   bidirectional neighbor ports. Test a real display frame across both axes.
+5. Expand to3x5 only after the above passes. Size power injection/distribution
+   from measured per-tile current and seam voltage drop; fifteen boards are
+   not qualified as a chain powered through a programmer. Nominal footprint
+   is148.8x248mm before gaps/fixtures; pixel array24x40. New diffuser/carrier
+   mechanics must match49.6mm boards and6.2mm pixels; older models do not fit.
+
+This update records the user's purchase and a preparation plan. It does not
+implement firmware, qualify a component lot, reserve stock, alter CAD, send
+supplier messages or make another purchase.

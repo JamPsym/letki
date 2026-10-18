@@ -1,0 +1,3431 @@
+{
+  "scope": "Exact reviewed In1 copper in the completed v3.1 prototype tile. Native connectivity and independent power-return geometry checks are mandatory; this does not qualify current/temperature.",
+  "allowed_nets": [
+    "/BUTT1",
+    "/BUTT2",
+    "/K1",
+    "/K3",
+    "/K4",
+    "/K6",
+    "/K7",
+    "/L1",
+    "/L2",
+    "/ROW5_CTRL",
+    "/SCL",
+    "/SDA",
+    "/URX_EDGE",
+    "/UTX",
+    "VCC"
+  ],
+  "allowed_tracks": [
+    {
+      "uuid": "e7ebf351-96c2-45c4-86c6-8f2767ed0634",
+      "net": "VCC",
+      "start_mm": [
+        30.9,
+        10.8
+      ],
+      "end_mm": [
+        30.8,
+        10.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "258bc4f8-f7ac-4752-8130-e852eebc35d9",
+      "net": "VCC",
+      "start_mm": [
+        31.0,
+        10.9
+      ],
+      "end_mm": [
+        30.9,
+        10.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "e1e76d21-41e7-4111-8cea-525250ebfe3d",
+      "net": "VCC",
+      "start_mm": [
+        31.2,
+        10.9
+      ],
+      "end_mm": [
+        31.0,
+        10.9
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "870c0f68-1463-493c-8984-d40a9e6c6683",
+      "net": "VCC",
+      "start_mm": [
+        31.3,
+        10.8
+      ],
+      "end_mm": [
+        31.2,
+        10.9
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "113c526f-a222-48d6-8883-b3816a2dd0b1",
+      "net": "VCC",
+      "start_mm": [
+        33.8,
+        10.8
+      ],
+      "end_mm": [
+        31.3,
+        10.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "a8475293-f6e2-421e-95da-32229156ab43",
+      "net": "VCC",
+      "start_mm": [
+        30.8,
+        10.8
+      ],
+      "end_mm": [
+        30.3,
+        10.3
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "1ab4fc21-441f-42cc-a173-edc6771ce549",
+      "net": "VCC",
+      "start_mm": [
+        35.0,
+        10.3
+      ],
+      "end_mm": [
+        33.8,
+        10.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "15ab7515-137e-4d2d-86c2-8380500916c2",
+      "net": "/L1",
+      "start_mm": [
+        3.2,
+        19.4
+      ],
+      "end_mm": [
+        3.4,
+        19.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "1ce49b5b-0cd7-45da-ab28-1676895655a1",
+      "net": "/L1",
+      "start_mm": [
+        3.2,
+        19.8
+      ],
+      "end_mm": [
+        3.2,
+        19.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "23f4bafe-41b1-4c83-bbdc-9308dc9b66b2",
+      "net": "/L1",
+      "start_mm": [
+        2.8,
+        20.4
+      ],
+      "end_mm": [
+        3.0,
+        20.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4850449f-1f79-4381-acfe-44f3f4a2db56",
+      "net": "/L1",
+      "start_mm": [
+        3.0,
+        20.0
+      ],
+      "end_mm": [
+        3.2,
+        19.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "53dfa552-5b2c-4bdf-abb7-eca9ea3293f4",
+      "net": "/L1",
+      "start_mm": [
+        3.4,
+        19.0
+      ],
+      "end_mm": [
+        3.6,
+        18.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "7230bef8-42cf-4da6-b5f0-c6dadbc0e154",
+      "net": "/L1",
+      "start_mm": [
+        3.5,
+        43.18
+      ],
+      "end_mm": [
+        2.6,
+        40.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "7465921a-ea83-4d4d-85df-0dec86f293fe",
+      "net": "/L1",
+      "start_mm": [
+        3.0,
+        20.2
+      ],
+      "end_mm": [
+        3.0,
+        20.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "8929f495-376b-4af6-9bc9-896d73f810b7",
+      "net": "/L1",
+      "start_mm": [
+        3.6,
+        18.8
+      ],
+      "end_mm": [
+        3.6,
+        18.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "8a285026-d1bf-4720-a9eb-859c5dd277e0",
+      "net": "/L1",
+      "start_mm": [
+        3.4,
+        19.2
+      ],
+      "end_mm": [
+        3.4,
+        19.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "8d1e6d6b-3319-40ae-914b-49edf6fddb41",
+      "net": "/L1",
+      "start_mm": [
+        3.6,
+        18.6
+      ],
+      "end_mm": [
+        3.8,
+        18.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "90582d62-5583-448c-b1ca-f49bf9363382",
+      "net": "/L1",
+      "start_mm": [
+        2.8,
+        20.6
+      ],
+      "end_mm": [
+        2.8,
+        20.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "9b730010-be69-46ef-b39c-59cf402df095",
+      "net": "/L1",
+      "start_mm": [
+        3.8,
+        18.4
+      ],
+      "end_mm": [
+        4.8,
+        16.1
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "cf941ebf-17fa-43f6-9b2e-85fe6a6c3dc9",
+      "net": "/L1",
+      "start_mm": [
+        2.6,
+        20.8
+      ],
+      "end_mm": [
+        2.8,
+        20.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e6b8066c-888f-4812-995e-c26ffdaac554",
+      "net": "/L1",
+      "start_mm": [
+        2.6,
+        40.8
+      ],
+      "end_mm": [
+        2.6,
+        20.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "28468302-a439-45f8-8613-63aabd6a27b2",
+      "net": "/L2",
+      "start_mm": [
+        7.0,
+        38.1
+      ],
+      "end_mm": [
+        6.2,
+        36.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "2b6b0c6c-82ac-4b81-8d5c-d3f64ec98bd3",
+      "net": "/L2",
+      "start_mm": [
+        5.8,
+        27.4
+      ],
+      "end_mm": [
+        5.8,
+        24.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "47a254ef-f6b6-4b78-9faf-507a4305b917",
+      "net": "/L2",
+      "start_mm": [
+        6.0,
+        34.6
+      ],
+      "end_mm": [
+        6.0,
+        27.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4cb4c214-ea2c-4858-85d2-621b1bd466f8",
+      "net": "/L2",
+      "start_mm": [
+        5.6,
+        23.8
+      ],
+      "end_mm": [
+        5.6,
+        23.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4f623cb6-171b-49f1-b9d2-7f83a9e67ed3",
+      "net": "/L2",
+      "start_mm": [
+        6.0,
+        27.6
+      ],
+      "end_mm": [
+        5.8,
+        27.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "70e1fccb-6f01-4de7-9411-e18da9a3b43a",
+      "net": "/L2",
+      "start_mm": [
+        6.4,
+        35.8
+      ],
+      "end_mm": [
+        6.4,
+        35.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "a6b08f46-25d2-428a-a87c-b6df22c265a0",
+      "net": "/L2",
+      "start_mm": [
+        6.4,
+        35.0
+      ],
+      "end_mm": [
+        6.0,
+        34.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "bb3bcb98-299f-45de-b9ff-603307b7b1ef",
+      "net": "/L2",
+      "start_mm": [
+        5.8,
+        24.0
+      ],
+      "end_mm": [
+        5.6,
+        23.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "ca2ffb88-07f1-4771-b262-b9b71b5aab83",
+      "net": "/L2",
+      "start_mm": [
+        5.6,
+        23.6
+      ],
+      "end_mm": [
+        4.4,
+        21.1
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "d9fca2a9-77b7-457d-8ef9-c51cf1fc1eb2",
+      "net": "/L2",
+      "start_mm": [
+        6.2,
+        36.0
+      ],
+      "end_mm": [
+        6.4,
+        35.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "f74b7a59-2e0a-40df-ac22-4af14a9ffc0f",
+      "net": "/L2",
+      "start_mm": [
+        6.2,
+        36.8
+      ],
+      "end_mm": [
+        6.2,
+        36.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0dee9575-b799-46b7-8d4a-1e0ae6f61f78",
+      "net": "VCC",
+      "start_mm": [
+        16.2,
+        3.2
+      ],
+      "end_mm": [
+        16.6,
+        3.6
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "10211aae-12a3-464b-a7f6-6109af365289",
+      "net": "VCC",
+      "start_mm": [
+        16.6,
+        3.6
+      ],
+      "end_mm": [
+        16.8,
+        3.6
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "1ce6126e-9d25-49d5-ba2f-c9fa450a96a0",
+      "net": "VCC",
+      "start_mm": [
+        15.0,
+        4.2
+      ],
+      "end_mm": [
+        14.2,
+        3.4
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "2282306c-54de-4c3b-9587-5f9a5a68e8c6",
+      "net": "VCC",
+      "start_mm": [
+        16.8,
+        3.6
+      ],
+      "end_mm": [
+        17.0,
+        3.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "2f44fc63-5397-43d2-8669-ea707fd1c178",
+      "net": "VCC",
+      "start_mm": [
+        13.2,
+        14.8
+      ],
+      "end_mm": [
+        12.8,
+        14.4
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "4b4c5528-7d64-49d2-9c92-23c129084574",
+      "net": "VCC",
+      "start_mm": [
+        13.6,
+        14.8
+      ],
+      "end_mm": [
+        13.2,
+        14.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "4b79cd77-db26-4f2d-b8ad-ed3a8b683bab",
+      "net": "VCC",
+      "start_mm": [
+        13.8,
+        14.6
+      ],
+      "end_mm": [
+        13.6,
+        14.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "5aa7e77e-68d1-4986-9c17-9a7c7337fb30",
+      "net": "VCC",
+      "start_mm": [
+        16.8,
+        13.5
+      ],
+      "end_mm": [
+        14.4,
+        14.6
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "5f52fa72-458d-4868-bd09-8c746b91be8c",
+      "net": "VCC",
+      "start_mm": [
+        28.35,
+        13.9
+      ],
+      "end_mm": [
+        29.6,
+        11.6
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "67948fc6-e07a-45bd-85ba-280f2dad700d",
+      "net": "VCC",
+      "start_mm": [
+        17.4,
+        4.0
+      ],
+      "end_mm": [
+        17.6,
+        4.0
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "685a2689-6f8a-48b7-9e55-b808bfb4b1f1",
+      "net": "VCC",
+      "start_mm": [
+        11.8,
+        21.75
+      ],
+      "end_mm": [
+        13.0,
+        21.2
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "6de8cf24-a5c2-4a4b-9384-aeea08f7f409",
+      "net": "VCC",
+      "start_mm": [
+        15.2,
+        5.4
+      ],
+      "end_mm": [
+        15.2,
+        5.0
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "7330a4ba-4f02-44a9-acf0-8a86b1d2a574",
+      "net": "VCC",
+      "start_mm": [
+        18.2,
+        8.4
+      ],
+      "end_mm": [
+        15.2,
+        5.4
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "73f0cf0c-e021-4a84-89bf-7bf85e9baf7d",
+      "net": "VCC",
+      "start_mm": [
+        17.2,
+        3.8
+      ],
+      "end_mm": [
+        17.4,
+        4.0
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "76b23b4c-7100-4bc7-b7fc-413d8c03bf12",
+      "net": "VCC",
+      "start_mm": [
+        13.8,
+        20.4
+      ],
+      "end_mm": [
+        15.0,
+        19.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "76baf943-ef0b-411f-ad25-e2826dd0033c",
+      "net": "VCC",
+      "start_mm": [
+        14.4,
+        14.6
+      ],
+      "end_mm": [
+        13.8,
+        14.6
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "76c3a413-9e31-4be1-a0eb-30198d6652d0",
+      "net": "VCC",
+      "start_mm": [
+        14.2,
+        3.0
+      ],
+      "end_mm": [
+        14.8,
+        2.4
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "80031e76-c233-4382-9b74-7b61fa248799",
+      "net": "VCC",
+      "start_mm": [
+        20.1,
+        10.9
+      ],
+      "end_mm": [
+        18.2,
+        8.4
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "8036f244-b0c9-4e36-abd8-187c0972148a",
+      "net": "VCC",
+      "start_mm": [
+        14.8,
+        2.4
+      ],
+      "end_mm": [
+        15.2,
+        2.4
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "8a6f30b1-7e4a-483e-9998-0283c3981ddd",
+      "net": "VCC",
+      "start_mm": [
+        14.2,
+        3.4
+      ],
+      "end_mm": [
+        14.2,
+        3.0
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "9b0bae2d-6167-424c-8697-c2110d4d3865",
+      "net": "VCC",
+      "start_mm": [
+        27.4,
+        12.8
+      ],
+      "end_mm": [
+        25.0,
+        11.5
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "9ec91f3c-5114-4f5b-ab05-89ef4447567a",
+      "net": "VCC",
+      "start_mm": [
+        12.8,
+        14.4
+      ],
+      "end_mm": [
+        12.5,
+        13.5
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "a65633a6-5eb0-464a-91fc-8a626f703448",
+      "net": "VCC",
+      "start_mm": [
+        17.6,
+        4.0
+      ],
+      "end_mm": [
+        22.8,
+        9.2
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "b0883b14-72e9-4657-bfd2-0521adaa4d7c",
+      "net": "VCC",
+      "start_mm": [
+        16.0,
+        3.2
+      ],
+      "end_mm": [
+        16.2,
+        3.2
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "c24aea7e-16cf-407d-9128-05a4dcb4f9ea",
+      "net": "VCC",
+      "start_mm": [
+        22.8,
+        9.2
+      ],
+      "end_mm": [
+        25.0,
+        11.5
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "c5eddb27-5537-499b-b147-4584ed70a2ae",
+      "net": "VCC",
+      "start_mm": [
+        13.0,
+        21.2
+      ],
+      "end_mm": [
+        13.8,
+        20.4
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "c92d84dc-08fb-4f1d-857c-7d4f72f368de",
+      "net": "VCC",
+      "start_mm": [
+        29.6,
+        11.6
+      ],
+      "end_mm": [
+        30.3,
+        10.3
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "cad8223a-992f-4971-ab53-4282c4d23685",
+      "net": "VCC",
+      "start_mm": [
+        15.2,
+        5.0
+      ],
+      "end_mm": [
+        15.0,
+        4.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "d5a8dfeb-3d5a-4bbb-9251-9b0f0232b192",
+      "net": "VCC",
+      "start_mm": [
+        15.0,
+        4.8
+      ],
+      "end_mm": [
+        15.0,
+        4.2
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "d6459606-4568-489b-a942-9b476920797c",
+      "net": "VCC",
+      "start_mm": [
+        28.35,
+        13.9
+      ],
+      "end_mm": [
+        27.4,
+        12.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "dbe96ddc-002a-479e-9835-f77e3303f9ac",
+      "net": "VCC",
+      "start_mm": [
+        15.2,
+        2.4
+      ],
+      "end_mm": [
+        16.0,
+        3.2
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "e59c81a9-76fb-41cd-8e3d-403c2ff29723",
+      "net": "VCC",
+      "start_mm": [
+        17.0,
+        3.8
+      ],
+      "end_mm": [
+        17.2,
+        3.8
+      ],
+      "width_mm": 0.3
+    },
+    {
+      "uuid": "135959d6-ade4-45a5-98b3-56118a441cf5",
+      "net": "/K4",
+      "start_mm": [
+        14.2,
+        30.4
+      ],
+      "end_mm": [
+        14.0,
+        30.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "15780d36-abce-46d0-8d4d-c9084b2cac00",
+      "net": "/K4",
+      "start_mm": [
+        13.4,
+        28.8
+      ],
+      "end_mm": [
+        12.4,
+        26.5
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "167d113e-9d01-4f6e-aa92-5aa20920717e",
+      "net": "/K4",
+      "start_mm": [
+        26.4,
+        15.8
+      ],
+      "end_mm": [
+        27.9,
+        16.1
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "2b72bad6-08ea-4746-a470-8c833646b977",
+      "net": "/K4",
+      "start_mm": [
+        12.4,
+        26.5
+      ],
+      "end_mm": [
+        14.8,
+        24.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "2d164b93-a2b0-4b07-a700-fbcce0e54cf0",
+      "net": "/K4",
+      "start_mm": [
+        14.0,
+        30.2
+      ],
+      "end_mm": [
+        14.0,
+        29.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "313013e8-e576-4a49-90f7-4993249dd348",
+      "net": "/K4",
+      "start_mm": [
+        19.4,
+        37.1
+      ],
+      "end_mm": [
+        18.4,
+        34.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "3193e363-a2e9-4ff8-8cec-48166c7e4b8f",
+      "net": "/K4",
+      "start_mm": [
+        24.8,
+        15.8
+      ],
+      "end_mm": [
+        26.4,
+        15.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "410a7b81-17b7-44f7-88ff-a6a3d316aa2a",
+      "net": "/K4",
+      "start_mm": [
+        13.6,
+        29.0
+      ],
+      "end_mm": [
+        13.4,
+        28.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "44c8bce5-ff24-411f-94e7-0332d0da9529",
+      "net": "/K4",
+      "start_mm": [
+        13.8,
+        29.6
+      ],
+      "end_mm": [
+        13.8,
+        29.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "58f6de65-4a2d-49d9-80d2-27f4ff17fb49",
+      "net": "/K4",
+      "start_mm": [
+        14.0,
+        29.8
+      ],
+      "end_mm": [
+        13.8,
+        29.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "5b17e416-0825-47f6-8b7b-9bf6b001e2d0",
+      "net": "/K4",
+      "start_mm": [
+        13.6,
+        29.2
+      ],
+      "end_mm": [
+        13.6,
+        29.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "a2109376-3d7e-42d9-916b-8276e62daf73",
+      "net": "/K4",
+      "start_mm": [
+        21.4,
+        17.8
+      ],
+      "end_mm": [
+        22.8,
+        17.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "c87d012d-c7ce-4398-8686-28f005a220fd",
+      "net": "/K4",
+      "start_mm": [
+        14.8,
+        24.4
+      ],
+      "end_mm": [
+        21.4,
+        17.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e1dc53a6-fcec-4b64-a2da-080ec4292216",
+      "net": "/K4",
+      "start_mm": [
+        14.2,
+        30.6
+      ],
+      "end_mm": [
+        14.2,
+        30.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e428239e-efa4-48ca-86ef-c8f174769fb9",
+      "net": "/K4",
+      "start_mm": [
+        18.4,
+        34.8
+      ],
+      "end_mm": [
+        14.2,
+        30.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "f1c9e108-2b00-4e56-8229-48b1855b3a8d",
+      "net": "/K4",
+      "start_mm": [
+        22.8,
+        17.8
+      ],
+      "end_mm": [
+        24.8,
+        15.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "fb2613ce-bcff-4191-9418-c8114948edec",
+      "net": "/K4",
+      "start_mm": [
+        13.8,
+        29.4
+      ],
+      "end_mm": [
+        13.6,
+        29.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0c489b64-d54a-4603-8d5d-21afd719c0e4",
+      "net": "/K1",
+      "start_mm": [
+        11.85,
+        25.2
+      ],
+      "end_mm": [
+        8.95,
+        28.1
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "1e54c1bb-a8f2-421f-a350-3c4d9fb41e70",
+      "net": "/K1",
+      "start_mm": [
+        8.95,
+        37.1
+      ],
+      "end_mm": [
+        6.9,
+        39.1
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "932e0a00-c050-4b3d-ad16-53812a4d1e09",
+      "net": "/K1",
+      "start_mm": [
+        8.95,
+        28.1
+      ],
+      "end_mm": [
+        8.95,
+        37.1
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e13f0fd7-399f-4b22-8f40-d93a374eba1a",
+      "net": "/K1",
+      "start_mm": [
+        11.85,
+        23.3
+      ],
+      "end_mm": [
+        11.85,
+        25.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "ef6f22e9-650c-4f76-b255-3b0adf6651a7",
+      "net": "/K1",
+      "start_mm": [
+        12.95,
+        22.2
+      ],
+      "end_mm": [
+        11.85,
+        23.3
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0f6b7f41-08ae-40a9-8009-f7ab5d4b14e3",
+      "net": "/K6",
+      "start_mm": [
+        9.25,
+        39.85
+      ],
+      "end_mm": [
+        13.35,
+        35.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "66b80d7d-a6c3-4f37-8119-a3e75c3c61ad",
+      "net": "/K6",
+      "start_mm": [
+        13.35,
+        35.75
+      ],
+      "end_mm": [
+        13.35,
+        30.35
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "92b8c1d0-90e0-4897-8ce0-23d1f5e03497",
+      "net": "/K6",
+      "start_mm": [
+        33.15,
+        21.9
+      ],
+      "end_mm": [
+        34.05,
+        22.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "a89a327c-1d98-4f0c-832f-eb717d2ecbe3",
+      "net": "/K6",
+      "start_mm": [
+        13.35,
+        30.35
+      ],
+      "end_mm": [
+        12.0,
+        29.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "b551fea1-2e9f-4009-816a-b8d6bf2c2cf7",
+      "net": "/K6",
+      "start_mm": [
+        9.25,
+        42.5
+      ],
+      "end_mm": [
+        9.25,
+        39.85
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "bacfcb3c-e545-45c8-ae6c-090aef642ced",
+      "net": "/K6",
+      "start_mm": [
+        34.05,
+        22.8
+      ],
+      "end_mm": [
+        34.05,
+        26.5
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "fd8cd56c-0703-4ae4-b9f3-f917f8f4a323",
+      "net": "/K6",
+      "start_mm": [
+        34.05,
+        26.5
+      ],
+      "end_mm": [
+        33.3,
+        27.25
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0088354b-8d24-4316-b43f-724df74baa5a",
+      "net": "/UTX",
+      "start_mm": [
+        34.9,
+        41.5
+      ],
+      "end_mm": [
+        32.4,
+        40.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "0ea32fb4-fd3e-43fa-a249-c62c526470d2",
+      "net": "/UTX",
+      "start_mm": [
+        21.0,
+        33.0
+      ],
+      "end_mm": [
+        20.0,
+        33.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "0ef37762-4be0-45af-bc47-44e0810a8b27",
+      "net": "/UTX",
+      "start_mm": [
+        17.6,
+        30.6
+      ],
+      "end_mm": [
+        15.1,
+        29.1
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "47b89d02-a993-441e-8d01-f0ca08a32d2a",
+      "net": "/UTX",
+      "start_mm": [
+        32.4,
+        40.4
+      ],
+      "end_mm": [
+        29.4,
+        37.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "5ab275c9-34e4-4964-a042-e14cb6612982",
+      "net": "/UTX",
+      "start_mm": [
+        20.0,
+        33.0
+      ],
+      "end_mm": [
+        17.6,
+        30.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "6968b34d-80d0-406b-a79d-6b5cb90b7549",
+      "net": "/UTX",
+      "start_mm": [
+        25.0,
+        37.0
+      ],
+      "end_mm": [
+        21.0,
+        33.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "80cb61ed-dc8b-4095-a6b7-20f749ddb52c",
+      "net": "/UTX",
+      "start_mm": [
+        29.4,
+        37.4
+      ],
+      "end_mm": [
+        28.0,
+        37.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "c379fde0-2bb3-4fbd-9959-6e0d1f56aba6",
+      "net": "/UTX",
+      "start_mm": [
+        28.0,
+        37.4
+      ],
+      "end_mm": [
+        27.6,
+        37.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "d5edb01d-15d8-41a7-a027-49d211783c0c",
+      "net": "/UTX",
+      "start_mm": [
+        27.6,
+        37.0
+      ],
+      "end_mm": [
+        25.0,
+        37.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "03b59456-d117-495d-9df2-b444c10d1f86",
+      "net": "/K3",
+      "start_mm": [
+        10.6,
+        20.8
+      ],
+      "end_mm": [
+        10.0,
+        21.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0c3dfaf5-a2c6-414a-ad7e-53d68084b3d5",
+      "net": "/K3",
+      "start_mm": [
+        14.8,
+        17.8
+      ],
+      "end_mm": [
+        11.8,
+        20.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "12ea2da5-3f60-499a-b111-f8f596243092",
+      "net": "/K3",
+      "start_mm": [
+        8.6,
+        23.4
+      ],
+      "end_mm": [
+        8.6,
+        23.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "146a36b3-8321-4401-b232-2f1b1f10a879",
+      "net": "/K3",
+      "start_mm": [
+        19.1,
+        13.4
+      ],
+      "end_mm": [
+        19.2,
+        14.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "1bb9904b-c45b-4330-8d2a-ab5fe6ab4c93",
+      "net": "/K3",
+      "start_mm": [
+        8.6,
+        23.8
+      ],
+      "end_mm": [
+        8.2,
+        24.25
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "1c311d97-235d-4aab-840a-1ef670d30f9c",
+      "net": "/K3",
+      "start_mm": [
+        10.0,
+        21.4
+      ],
+      "end_mm": [
+        10.0,
+        22.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "2892ddbc-a638-4ceb-aed9-8b420ca60ab7",
+      "net": "/K3",
+      "start_mm": [
+        11.8,
+        20.8
+      ],
+      "end_mm": [
+        10.6,
+        20.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "7d03b174-fe79-4384-bc1a-da9555b24c24",
+      "net": "/K3",
+      "start_mm": [
+        15.6,
+        17.8
+      ],
+      "end_mm": [
+        14.8,
+        17.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "8d322c68-3fd2-4e7f-88f5-7b23eb52460d",
+      "net": "/K3",
+      "start_mm": [
+        10.0,
+        22.0
+      ],
+      "end_mm": [
+        8.6,
+        23.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "911e31b8-8ca3-423e-942a-6210ed230f08",
+      "net": "/K3",
+      "start_mm": [
+        8.2,
+        24.25
+      ],
+      "end_mm": [
+        7.4,
+        24.25
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "d5af3291-9616-42e4-b82c-442333d3cbdf",
+      "net": "/K3",
+      "start_mm": [
+        19.2,
+        14.2
+      ],
+      "end_mm": [
+        15.6,
+        17.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0139b41f-7ff3-417f-9267-5817bb3da0f5",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        10.6,
+        4.5
+      ],
+      "end_mm": [
+        10.5,
+        4.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "03c2335a-7c8d-42f1-a3ec-038e4396b689",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        11.4,
+        5.4
+      ],
+      "end_mm": [
+        10.6,
+        4.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "2899e0d9-91c2-4440-be05-39c3979ee920",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        10.6,
+        4.6
+      ],
+      "end_mm": [
+        10.6,
+        4.5
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "35010d93-336a-4653-9656-e4636aa1c30f",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        11.5,
+        6.6
+      ],
+      "end_mm": [
+        11.5,
+        6.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "96143820-bb57-4cb1-b069-20f56375f082",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        10.5,
+        4.4
+      ],
+      "end_mm": [
+        10.0,
+        3.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "a15870a6-d730-4b43-8435-62743a1bdbf3",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        11.6,
+        6.7
+      ],
+      "end_mm": [
+        11.5,
+        6.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "a6247137-0eaa-46d2-83ac-087fb7bbcdd1",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        11.5,
+        6.4
+      ],
+      "end_mm": [
+        11.4,
+        6.3
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "f425ef57-29af-4c86-82af-20eaaa0f0e94",
+      "net": "/URX_EDGE",
+      "start_mm": [
+        11.4,
+        6.3
+      ],
+      "end_mm": [
+        11.4,
+        5.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "003d82bb-9a2f-4011-b283-0d616b8081e0",
+      "net": "/SDA",
+      "start_mm": [
+        33.05,
+        38.2
+      ],
+      "end_mm": [
+        33.15,
+        38.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "01b44279-2e5c-411f-9d2c-24c5f46072b0",
+      "net": "/SDA",
+      "start_mm": [
+        28.4,
+        15.8
+      ],
+      "end_mm": [
+        28.4,
+        15.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "04d45382-4b81-4900-baed-eae610322f94",
+      "net": "/SDA",
+      "start_mm": [
+        26.2,
+        20.2
+      ],
+      "end_mm": [
+        26.2,
+        19.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "0cfbd3e2-3bbd-4c9a-9736-d34a3ac64995",
+      "net": "/SDA",
+      "start_mm": [
+        28.0,
+        17.4
+      ],
+      "end_mm": [
+        28.2,
+        17.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "0f1d2aeb-81a2-4c89-a7ac-38578857e8ff",
+      "net": "/SDA",
+      "start_mm": [
+        22.0,
+        15.4
+      ],
+      "end_mm": [
+        19.4,
+        12.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "14569588-e38c-4ef2-b36f-038406aa8103",
+      "net": "/SDA",
+      "start_mm": [
+        28.2,
+        16.8
+      ],
+      "end_mm": [
+        28.4,
+        16.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "17198781-08ab-4735-86b9-11a51796b4a3",
+      "net": "/SDA",
+      "start_mm": [
+        33.75,
+        38.75
+      ],
+      "end_mm": [
+        33.8,
+        38.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "2531c018-f364-41ba-8e63-89cf6257d18b",
+      "net": "/SDA",
+      "start_mm": [
+        28.0,
+        34.75
+      ],
+      "end_mm": [
+        29.7,
+        36.45
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "2a5c53b7-e5d2-40ae-a10a-a4985cb052fe",
+      "net": "/SDA",
+      "start_mm": [
+        33.35,
+        38.4
+      ],
+      "end_mm": [
+        33.4,
+        38.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "2dd735a2-4ee8-4fdd-bc46-a2f9105546ae",
+      "net": "/SDA",
+      "start_mm": [
+        7.2,
+        12.6
+      ],
+      "end_mm": [
+        7.0,
+        12.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "2ea89aec-6c3f-4022-b67f-3ccd38c02703",
+      "net": "/SDA",
+      "start_mm": [
+        25.6,
+        20.8
+      ],
+      "end_mm": [
+        26.2,
+        20.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "30f4ce8f-4535-4377-9dbf-1ee1a867c6f1",
+      "net": "/SDA",
+      "start_mm": [
+        28.0,
+        15.4
+      ],
+      "end_mm": [
+        22.0,
+        15.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "31d3fedc-f81c-46ed-b1b3-12bd1a9d0a3d",
+      "net": "/SDA",
+      "start_mm": [
+        25.4,
+        21.2
+      ],
+      "end_mm": [
+        25.6,
+        21.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "33a835f5-9f39-42d5-a9d1-e835bf951d44",
+      "net": "/SDA",
+      "start_mm": [
+        24.25,
+        23.6
+      ],
+      "end_mm": [
+        25.4,
+        21.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "3600eb7a-9cb4-4f62-a503-eaffe12aa082",
+      "net": "/SDA",
+      "start_mm": [
+        6.8,
+        12.8
+      ],
+      "end_mm": [
+        6.6,
+        12.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "49cf92ca-a38c-4324-ac60-8bd915927d01",
+      "net": "/SDA",
+      "start_mm": [
+        29.9,
+        36.7
+      ],
+      "end_mm": [
+        30.05,
+        36.7
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "49e37bfd-4f83-4dbe-93c4-60b99220332e",
+      "net": "/SDA",
+      "start_mm": [
+        33.15,
+        38.2
+      ],
+      "end_mm": [
+        33.35,
+        38.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4f7ac559-97cb-4731-80c3-d1ab5a185810",
+      "net": "/SDA",
+      "start_mm": [
+        28.2,
+        15.6
+      ],
+      "end_mm": [
+        28.0,
+        15.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "567ff546-26b0-43a9-8766-f0e0c6d919af",
+      "net": "/SDA",
+      "start_mm": [
+        28.4,
+        16.4
+      ],
+      "end_mm": [
+        28.6,
+        16.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "586f38ab-4547-4c29-b5e7-436b931a3003",
+      "net": "/SDA",
+      "start_mm": [
+        19.4,
+        12.8
+      ],
+      "end_mm": [
+        7.4,
+        12.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "58e3f95a-b7f3-4d76-ac14-113dad00e588",
+      "net": "/SDA",
+      "start_mm": [
+        3.6,
+        15.8
+      ],
+      "end_mm": [
+        1.27,
+        17.78
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "5965424a-706d-46cb-ad14-edc868ba6a59",
+      "net": "/SDA",
+      "start_mm": [
+        32.1,
+        37.3
+      ],
+      "end_mm": [
+        32.35,
+        37.55
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "6e65630a-0c93-4d19-acb0-5474f808a07a",
+      "net": "/SDA",
+      "start_mm": [
+        27.75,
+        34.75
+      ],
+      "end_mm": [
+        28.0,
+        34.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "6f93080b-0a50-4093-8454-540888f1a636",
+      "net": "/SDA",
+      "start_mm": [
+        6.6,
+        12.8
+      ],
+      "end_mm": [
+        3.6,
+        15.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "71cce4f6-a767-45df-af94-f6ee35980fd4",
+      "net": "/SDA",
+      "start_mm": [
+        30.35,
+        36.75
+      ],
+      "end_mm": [
+        30.9,
+        37.3
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "7320ae35-4fc2-4e52-a734-e07c3c3eb59a",
+      "net": "/SDA",
+      "start_mm": [
+        26.7,
+        33.5
+      ],
+      "end_mm": [
+        26.7,
+        33.7
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "74241e68-4f0c-49cf-be9b-b2f71a3c1e0b",
+      "net": "/SDA",
+      "start_mm": [
+        25.15,
+        32.45
+      ],
+      "end_mm": [
+        25.65,
+        32.45
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "751f8ab8-ff2b-4fb0-8f2a-56e0b9ec07dd",
+      "net": "/SDA",
+      "start_mm": [
+        28.2,
+        17.2
+      ],
+      "end_mm": [
+        28.2,
+        16.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "75f9e29a-b5a4-46be-8bf3-0965a801109a",
+      "net": "/SDA",
+      "start_mm": [
+        25.05,
+        32.35
+      ],
+      "end_mm": [
+        25.15,
+        32.45
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "881cd87a-de54-45d1-9285-0d8af9a9b583",
+      "net": "/SDA",
+      "start_mm": [
+        29.7,
+        36.45
+      ],
+      "end_mm": [
+        29.7,
+        36.5
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "8aceba9f-5dac-4a80-a8b3-b5171eab18d5",
+      "net": "/SDA",
+      "start_mm": [
+        7.4,
+        12.8
+      ],
+      "end_mm": [
+        7.2,
+        12.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "8c4a6bad-884b-4e4c-828e-22e75b308658",
+      "net": "/SDA",
+      "start_mm": [
+        32.35,
+        37.55
+      ],
+      "end_mm": [
+        32.4,
+        37.55
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "92906a38-486d-4577-90b2-c8dd83d8ed95",
+      "net": "/SDA",
+      "start_mm": [
+        28.6,
+        16.2
+      ],
+      "end_mm": [
+        28.6,
+        16.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "975457ea-5701-4d68-a440-ea2d4d5855e8",
+      "net": "/SDA",
+      "start_mm": [
+        25.65,
+        32.45
+      ],
+      "end_mm": [
+        26.7,
+        33.5
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "9bd3b072-a91b-4996-8147-04103670e672",
+      "net": "/SDA",
+      "start_mm": [
+        30.1,
+        36.75
+      ],
+      "end_mm": [
+        30.35,
+        36.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "9d633c61-909f-4bb3-9c57-3932096b32f2",
+      "net": "/SDA",
+      "start_mm": [
+        33.4,
+        38.4
+      ],
+      "end_mm": [
+        33.75,
+        38.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "affc639f-de51-497a-b6fd-8f71531d8fb2",
+      "net": "/SDA",
+      "start_mm": [
+        30.05,
+        36.7
+      ],
+      "end_mm": [
+        30.1,
+        36.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "b50f106e-1886-4daa-8474-eac3020c72bf",
+      "net": "/SDA",
+      "start_mm": [
+        29.7,
+        36.5
+      ],
+      "end_mm": [
+        29.9,
+        36.7
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "b89513cc-6abd-47da-b31c-953f46bf2baa",
+      "net": "/SDA",
+      "start_mm": [
+        30.9,
+        37.3
+      ],
+      "end_mm": [
+        32.1,
+        37.3
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "bba5b442-a06a-48db-8385-0745e373ccd2",
+      "net": "/SDA",
+      "start_mm": [
+        25.6,
+        21.0
+      ],
+      "end_mm": [
+        25.6,
+        20.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "bed3db9b-d22d-41ad-b6b6-b8cb43c9647e",
+      "net": "/SDA",
+      "start_mm": [
+        32.4,
+        37.55
+      ],
+      "end_mm": [
+        33.05,
+        38.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "c2d32c64-bfdd-4fee-946c-5e7053118796",
+      "net": "/SDA",
+      "start_mm": [
+        28.0,
+        17.6
+      ],
+      "end_mm": [
+        28.0,
+        17.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "c98de17e-01a5-45ca-918e-df154f9c1a13",
+      "net": "/SDA",
+      "start_mm": [
+        28.6,
+        16.0
+      ],
+      "end_mm": [
+        28.4,
+        15.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "dd8cbb7b-4088-43d8-b0ae-d8a976faa788",
+      "net": "/SDA",
+      "start_mm": [
+        28.4,
+        15.6
+      ],
+      "end_mm": [
+        28.2,
+        15.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "e37554d3-9336-4f9d-9e0f-032e68c12223",
+      "net": "/SDA",
+      "start_mm": [
+        7.0,
+        12.6
+      ],
+      "end_mm": [
+        6.8,
+        12.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "e3fd6cf6-b051-45ee-bce2-98e1283d36ec",
+      "net": "/SDA",
+      "start_mm": [
+        26.7,
+        33.7
+      ],
+      "end_mm": [
+        27.75,
+        34.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "efaec857-519b-4db8-9b92-8f6075ea7ba4",
+      "net": "/SDA",
+      "start_mm": [
+        28.4,
+        16.6
+      ],
+      "end_mm": [
+        28.4,
+        16.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "f0bbf03f-00a8-4059-926b-9704373292c6",
+      "net": "/SDA",
+      "start_mm": [
+        26.2,
+        19.4
+      ],
+      "end_mm": [
+        28.0,
+        17.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "008f9ac3-a80e-409f-aaf9-c28611d8f960",
+      "net": "/SCL",
+      "start_mm": [
+        37.8,
+        7.7
+      ],
+      "end_mm": [
+        37.05,
+        6.95
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0c2ae133-b82b-4553-87fe-2ea9cb911010",
+      "net": "/SCL",
+      "start_mm": [
+        5.4,
+        12.8
+      ],
+      "end_mm": [
+        4.25,
+        13.95
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "0f10082f-5b65-4126-bfb3-251bb70ce988",
+      "net": "/SCL",
+      "start_mm": [
+        32.4,
+        28.2
+      ],
+      "end_mm": [
+        30.05,
+        29.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "16737e3a-3832-4b7b-ae85-844977048a2b",
+      "net": "/SCL",
+      "start_mm": [
+        32.6,
+        28.0
+      ],
+      "end_mm": [
+        32.4,
+        28.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "1b8336b3-8afa-4ac1-8782-93f4d40821f6",
+      "net": "/SCL",
+      "start_mm": [
+        36.0,
+        26.4
+      ],
+      "end_mm": [
+        35.8,
+        26.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "21b7c924-a87e-43b4-ba6f-de1418216566",
+      "net": "/SCL",
+      "start_mm": [
+        39.37,
+        22.86
+      ],
+      "end_mm": [
+        37.4,
+        25.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "31532585-b922-4015-83ee-1c8fbf12665b",
+      "net": "/SCL",
+      "start_mm": [
+        37.4,
+        25.2
+      ],
+      "end_mm": [
+        36.2,
+        26.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "49a56b83-ec02-4554-81d6-ed7e58a18afa",
+      "net": "/SCL",
+      "start_mm": [
+        39.35,
+        22.25
+      ],
+      "end_mm": [
+        37.8,
+        20.7
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4d0678ec-79d4-40ea-93dd-37f1680be9ac",
+      "net": "/SCL",
+      "start_mm": [
+        34.8,
+        27.0
+      ],
+      "end_mm": [
+        34.6,
+        27.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "4ed75f77-d0e2-462f-877b-946d94ec8946",
+      "net": "/SCL",
+      "start_mm": [
+        34.6,
+        27.2
+      ],
+      "end_mm": [
+        34.4,
+        27.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "5d16cc10-21e0-4d11-ad60-ea7c23fe4933",
+      "net": "/SCL",
+      "start_mm": [
+        36.2,
+        26.4
+      ],
+      "end_mm": [
+        36.0,
+        26.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "5dcfcbb3-2e5f-48fb-8117-091ab5d5c11b",
+      "net": "/SCL",
+      "start_mm": [
+        33.6,
+        28.0
+      ],
+      "end_mm": [
+        32.6,
+        28.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "5ed633ea-7058-42f7-bd55-5e850dc77e08",
+      "net": "/SCL",
+      "start_mm": [
+        5.4,
+        11.45
+      ],
+      "end_mm": [
+        5.4,
+        12.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "73666b27-a720-419c-9d9d-b81bea6bdd81",
+      "net": "/SCL",
+      "start_mm": [
+        10.05,
+        6.8
+      ],
+      "end_mm": [
+        5.4,
+        11.45
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "7e0d2560-e644-4c20-a379-221866ee634d",
+      "net": "/SCL",
+      "start_mm": [
+        35.0,
+        27.0
+      ],
+      "end_mm": [
+        34.8,
+        27.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "8d109348-845f-4112-9f08-c64012c5d860",
+      "net": "/SCL",
+      "start_mm": [
+        35.4,
+        26.8
+      ],
+      "end_mm": [
+        35.2,
+        26.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "8f5a211c-7352-4389-960d-f612b17fed84",
+      "net": "/SCL",
+      "start_mm": [
+        35.6,
+        26.6
+      ],
+      "end_mm": [
+        35.4,
+        26.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "bcd88ae5-d813-4558-bbec-807e408b8c62",
+      "net": "/SCL",
+      "start_mm": [
+        37.8,
+        20.7
+      ],
+      "end_mm": [
+        37.8,
+        7.7
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "dd3b9001-aad7-4f35-af04-482c21668031",
+      "net": "/SCL",
+      "start_mm": [
+        34.4,
+        27.2
+      ],
+      "end_mm": [
+        33.6,
+        28.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "e7c20251-0842-43a0-b994-a6319e8b391c",
+      "net": "/SCL",
+      "start_mm": [
+        35.2,
+        26.8
+      ],
+      "end_mm": [
+        35.0,
+        27.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "f41e57ab-d6a1-4e37-8a09-a4fada784189",
+      "net": "/SCL",
+      "start_mm": [
+        35.8,
+        26.6
+      ],
+      "end_mm": [
+        35.6,
+        26.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "0e4884cc-7fc9-4c07-9ce0-356e44140b06",
+      "net": "/ROW5_CTRL",
+      "start_mm": [
+        19.2,
+        30.4
+      ],
+      "end_mm": [
+        19.2,
+        31.3
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "37c322a1-560d-49be-9a62-b92f5993c144",
+      "net": "/ROW5_CTRL",
+      "start_mm": [
+        18.75,
+        29.25
+      ],
+      "end_mm": [
+        19.2,
+        30.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "437ce1dd-f4d0-4427-9282-9161b898340a",
+      "net": "/ROW5_CTRL",
+      "start_mm": [
+        19.2,
+        31.3
+      ],
+      "end_mm": [
+        20.2,
+        32.35
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "1302e001-f0db-4f02-a84f-c21b2c509c53",
+      "net": "/K7",
+      "start_mm": [
+        30.0,
+        17.2
+      ],
+      "end_mm": [
+        30.0,
+        17.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "1ac19a07-31d3-4fdc-9a7b-25cd7697947a",
+      "net": "/K7",
+      "start_mm": [
+        31.4,
+        20.2
+      ],
+      "end_mm": [
+        31.4,
+        20.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "1ad6200f-c2ea-48db-bebd-24e8df9506e7",
+      "net": "/K7",
+      "start_mm": [
+        31.0,
+        19.4
+      ],
+      "end_mm": [
+        31.0,
+        19.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "1d301f7c-b6e7-41b2-85d9-b76f7d51664e",
+      "net": "/K7",
+      "start_mm": [
+        31.2,
+        19.8
+      ],
+      "end_mm": [
+        31.2,
+        20.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "20b57521-ef11-4f12-a90c-d13c01121e9a",
+      "net": "/K7",
+      "start_mm": [
+        25.8,
+        13.2
+      ],
+      "end_mm": [
+        26.8,
+        13.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "23e8a155-1541-4efc-8671-4a4d69913dc2",
+      "net": "/K7",
+      "start_mm": [
+        15.0,
+        3.2
+      ],
+      "end_mm": [
+        17.4,
+        4.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "3bfcc595-c783-42f2-bdfc-cecca38d1781",
+      "net": "/K7",
+      "start_mm": [
+        30.8,
+        19.2
+      ],
+      "end_mm": [
+        31.0,
+        19.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4435d998-3cc1-409b-8882-8355b6093141",
+      "net": "/K7",
+      "start_mm": [
+        27.6,
+        14.0
+      ],
+      "end_mm": [
+        27.8,
+        14.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "47ce0d76-eb05-46e4-b766-6c7b8850edf2",
+      "net": "/K7",
+      "start_mm": [
+        31.6,
+        20.6
+      ],
+      "end_mm": [
+        31.6,
+        21.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "48f9a7af-7412-4b07-b5ea-da9767402fdb",
+      "net": "/K7",
+      "start_mm": [
+        26.8,
+        13.2
+      ],
+      "end_mm": [
+        27.0,
+        13.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4de1719c-ba3b-4237-af27-4ebfc95b7b37",
+      "net": "/K7",
+      "start_mm": [
+        29.2,
+        16.0
+      ],
+      "end_mm": [
+        29.6,
+        16.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "4f088137-d624-4396-96bb-569c7d59e56a",
+      "net": "/K7",
+      "start_mm": [
+        27.0,
+        13.4
+      ],
+      "end_mm": [
+        27.2,
+        13.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "577a28e5-71dd-4d47-8e6e-b820658b699b",
+      "net": "/K7",
+      "start_mm": [
+        31.8,
+        21.2
+      ],
+      "end_mm": [
+        32.85,
+        23.55
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "5c442109-b306-4dc9-ab52-f18e517da2ff",
+      "net": "/K7",
+      "start_mm": [
+        30.6,
+        18.4
+      ],
+      "end_mm": [
+        30.6,
+        18.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "5fce644d-976f-4075-9205-8fee9632ef89",
+      "net": "/K7",
+      "start_mm": [
+        30.6,
+        18.8
+      ],
+      "end_mm": [
+        30.8,
+        19.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "634b49d3-1c0e-4ebb-9266-f1f3c34cc080",
+      "net": "/K7",
+      "start_mm": [
+        30.4,
+        18.2
+      ],
+      "end_mm": [
+        30.6,
+        18.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "6d4dfd3d-f5ba-4d13-a6f8-eda43802c9ec",
+      "net": "/K7",
+      "start_mm": [
+        24.4,
+        11.8
+      ],
+      "end_mm": [
+        25.8,
+        13.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "7a36b05f-81c4-4100-86fa-073efb50de28",
+      "net": "/K7",
+      "start_mm": [
+        17.4,
+        4.6
+      ],
+      "end_mm": [
+        24.4,
+        11.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "7ac3100e-9bcc-4f7a-8bab-5e50588e0715",
+      "net": "/K7",
+      "start_mm": [
+        31.0,
+        19.6
+      ],
+      "end_mm": [
+        31.2,
+        19.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "94e51993-1bcc-4c8f-90dd-fe65a255e6e6",
+      "net": "/K7",
+      "start_mm": [
+        27.6,
+        13.8
+      ],
+      "end_mm": [
+        27.6,
+        14.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "9bbc394c-b8d8-42dd-9aa9-95a68fc62523",
+      "net": "/K7",
+      "start_mm": [
+        27.8,
+        14.4
+      ],
+      "end_mm": [
+        29.2,
+        15.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "9cbbd120-7b49-4319-a5d9-17cb32335055",
+      "net": "/K7",
+      "start_mm": [
+        30.0,
+        17.4
+      ],
+      "end_mm": [
+        30.2,
+        17.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "a38093b1-22b8-4069-a3b9-2e48c3156d32",
+      "net": "/K7",
+      "start_mm": [
+        29.6,
+        16.6
+      ],
+      "end_mm": [
+        29.8,
+        16.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "a8d72ea9-3769-4f17-8a46-1580ea487f67",
+      "net": "/K7",
+      "start_mm": [
+        27.2,
+        13.4
+      ],
+      "end_mm": [
+        27.6,
+        13.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "a9cf9b21-6be3-4945-ab99-57fc00bf3b01",
+      "net": "/K7",
+      "start_mm": [
+        31.6,
+        21.0
+      ],
+      "end_mm": [
+        31.8,
+        21.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "bd191e98-456f-4b92-aa77-71997b006bc4",
+      "net": "/K7",
+      "start_mm": [
+        29.2,
+        15.8
+      ],
+      "end_mm": [
+        29.2,
+        16.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "c40498bd-a9a9-48b4-91e9-753a1f7ded04",
+      "net": "/K7",
+      "start_mm": [
+        31.2,
+        20.0
+      ],
+      "end_mm": [
+        31.4,
+        20.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "d6b936fd-22de-40c9-be8f-92f91a82fafb",
+      "net": "/K7",
+      "start_mm": [
+        27.8,
+        14.2
+      ],
+      "end_mm": [
+        27.8,
+        14.4
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "dccb7da3-782e-419b-b919-2393a7ddb1e9",
+      "net": "/K7",
+      "start_mm": [
+        29.8,
+        16.8
+      ],
+      "end_mm": [
+        29.8,
+        17.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e0e3d628-2b1f-4877-ab4e-74ead1846633",
+      "net": "/K7",
+      "start_mm": [
+        30.8,
+        19.0
+      ],
+      "end_mm": [
+        30.8,
+        19.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e3fefd16-6c36-4564-9df7-087c75742d79",
+      "net": "/K7",
+      "start_mm": [
+        30.2,
+        17.8
+      ],
+      "end_mm": [
+        30.4,
+        18.0
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e899dab5-6674-4631-95cd-67000d6476d4",
+      "net": "/K7",
+      "start_mm": [
+        31.4,
+        20.4
+      ],
+      "end_mm": [
+        31.6,
+        20.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e9f7d47a-49e3-416c-a6f5-b52e7ac3a7d7",
+      "net": "/K7",
+      "start_mm": [
+        30.2,
+        17.6
+      ],
+      "end_mm": [
+        30.2,
+        17.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "ed17ab20-d943-4827-ae63-2d5db4b790eb",
+      "net": "/K7",
+      "start_mm": [
+        30.4,
+        18.0
+      ],
+      "end_mm": [
+        30.4,
+        18.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "f3220dc6-fc22-454b-bf05-b15f4ca68a49",
+      "net": "/K7",
+      "start_mm": [
+        24.4,
+        11.6
+      ],
+      "end_mm": [
+        24.4,
+        11.8
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "f5b6fd40-8a81-440f-87b2-ce58d4efcef3",
+      "net": "/K7",
+      "start_mm": [
+        29.8,
+        17.0
+      ],
+      "end_mm": [
+        30.0,
+        17.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "faf2209c-4427-4c5f-b59f-b497374fe409",
+      "net": "/K7",
+      "start_mm": [
+        29.6,
+        16.4
+      ],
+      "end_mm": [
+        29.6,
+        16.6
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "09cc3a4f-b31e-477e-a770-a4b7d82853c6",
+      "net": "/BUTT1",
+      "start_mm": [
+        34.4,
+        38.4
+      ],
+      "end_mm": [
+        34.4,
+        40.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "0a48fc0b-f636-4b90-baf8-2a077ac6fae5",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.4,
+        42.0
+      ],
+      "end_mm": [
+        35.2,
+        42.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "107223d0-bba3-420f-9a9b-ebc9add7aff5",
+      "net": "/BUTT1",
+      "start_mm": [
+        21.2,
+        24.8
+      ],
+      "end_mm": [
+        31.8,
+        35.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "1e9bc24f-4383-40c4-82fa-b3144f55c2c9",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.2,
+        42.0
+      ],
+      "end_mm": [
+        35.0,
+        42.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "40de326f-77a3-4ca4-a992-2a7f3f9fdb64",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.6,
+        41.4
+      ],
+      "end_mm": [
+        35.6,
+        41.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "53dc2e71-187f-41ca-aa24-525fe272c386",
+      "net": "/BUTT1",
+      "start_mm": [
+        34.4,
+        40.0
+      ],
+      "end_mm": [
+        35.4,
+        41.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "5bdcdb44-515a-4528-8b56-76fd8629bedb",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.6,
+        41.6
+      ],
+      "end_mm": [
+        35.4,
+        41.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "5d920310-a58a-4380-bc0e-705e46230c50",
+      "net": "/BUTT1",
+      "start_mm": [
+        27.8,
+        42.2
+      ],
+      "end_mm": [
+        27.6,
+        42.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "7124b366-cd94-495b-83d2-3f0aec4b868a",
+      "net": "/BUTT1",
+      "start_mm": [
+        27.6,
+        42.4
+      ],
+      "end_mm": [
+        27.4,
+        42.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "809b8aee-73ba-4939-8790-c7d5f7c0fd37",
+      "net": "/BUTT1",
+      "start_mm": [
+        31.8,
+        35.8
+      ],
+      "end_mm": [
+        34.4,
+        38.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "a8fee9b0-a16e-4079-b6d9-40943e571ba9",
+      "net": "/BUTT1",
+      "start_mm": [
+        19.3,
+        24.2
+      ],
+      "end_mm": [
+        21.2,
+        24.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "cb701e4c-2b3e-450c-925c-10737b51c553",
+      "net": "/BUTT1",
+      "start_mm": [
+        27.4,
+        42.4
+      ],
+      "end_mm": [
+        27.2,
+        42.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "cf89749a-71df-408c-aca6-1ed6b8834b68",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.4,
+        41.2
+      ],
+      "end_mm": [
+        35.6,
+        41.4
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "dc49c409-a2e1-4cf2-9af5-d513f0a6e60a",
+      "net": "/BUTT1",
+      "start_mm": [
+        13.4,
+        42.6
+      ],
+      "end_mm": [
+        11.0,
+        41.7
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "e7875d92-cba0-4f76-805b-bc4f47b8c5e3",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.4,
+        41.8
+      ],
+      "end_mm": [
+        35.4,
+        42.0
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "e92570f2-30f5-42ed-acf3-4583bb6ebfc7",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.4,
+        41.0
+      ],
+      "end_mm": [
+        35.4,
+        41.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "f2d362d6-86a4-4e7c-ad48-90e5dce332e2",
+      "net": "/BUTT1",
+      "start_mm": [
+        31.8,
+        35.4
+      ],
+      "end_mm": [
+        31.8,
+        35.8
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "f49d44f8-68e1-4a6a-8b6b-0a671bbbcfec",
+      "net": "/BUTT1",
+      "start_mm": [
+        35.0,
+        42.2
+      ],
+      "end_mm": [
+        27.8,
+        42.2
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "ff7420cb-37ce-45c3-a091-dd2c886085f3",
+      "net": "/BUTT1",
+      "start_mm": [
+        27.2,
+        42.6
+      ],
+      "end_mm": [
+        13.4,
+        42.6
+      ],
+      "width_mm": 0.15
+    },
+    {
+      "uuid": "16868d2a-988d-47a4-aad0-3f40cf3858bf",
+      "net": "/BUTT2",
+      "start_mm": [
+        20.6,
+        29.2
+      ],
+      "end_mm": [
+        22.6,
+        31.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "5c3ea280-b724-485c-a3e4-2cf328498239",
+      "net": "/BUTT2",
+      "start_mm": [
+        19.3,
+        27.85
+      ],
+      "end_mm": [
+        19.45,
+        27.85
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "62769aba-a5e1-4244-bd83-44e75d544860",
+      "net": "/BUTT2",
+      "start_mm": [
+        20.6,
+        28.85
+      ],
+      "end_mm": [
+        20.6,
+        29.2
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "ae454095-446c-4de3-b928-351f5ce37749",
+      "net": "/BUTT2",
+      "start_mm": [
+        15.1,
+        26.45
+      ],
+      "end_mm": [
+        16.35,
+        27.7
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "be8685f0-1ecb-45f7-aedc-5faa145a8b12",
+      "net": "/BUTT2",
+      "start_mm": [
+        17.45,
+        27.7
+      ],
+      "end_mm": [
+        17.5,
+        27.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "c011bfcd-1b86-4a0e-b3ad-7bb5b0271ef1",
+      "net": "/BUTT2",
+      "start_mm": [
+        17.5,
+        27.75
+      ],
+      "end_mm": [
+        19.2,
+        27.75
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "c2a569ea-cfa8-40cf-a1f2-f622a11f7e39",
+      "net": "/BUTT2",
+      "start_mm": [
+        19.55,
+        27.95
+      ],
+      "end_mm": [
+        19.7,
+        27.95
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "d61cfc92-3624-4d6c-b11b-f8e4fc2cbe8e",
+      "net": "/BUTT2",
+      "start_mm": [
+        19.2,
+        27.75
+      ],
+      "end_mm": [
+        19.3,
+        27.85
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e2a9888e-0411-408f-82d9-6382c56bbeb8",
+      "net": "/BUTT2",
+      "start_mm": [
+        16.35,
+        27.7
+      ],
+      "end_mm": [
+        17.45,
+        27.7
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e62a6bc5-587c-46e0-9836-61545e286d52",
+      "net": "/BUTT2",
+      "start_mm": [
+        19.7,
+        27.95
+      ],
+      "end_mm": [
+        20.6,
+        28.85
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "e7854286-0644-45db-85da-d50b13c0c071",
+      "net": "/BUTT2",
+      "start_mm": [
+        19.45,
+        27.85
+      ],
+      "end_mm": [
+        19.55,
+        27.95
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "f45330a6-807a-43b3-a4f9-1038e4c88fac",
+      "net": "/BUTT2",
+      "start_mm": [
+        22.6,
+        31.2
+      ],
+      "end_mm": [
+        22.6,
+        33.1
+      ],
+      "width_mm": 0.2
+    },
+    {
+      "uuid": "f510c494-98bf-420b-b28a-5a57c4c35abf",
+      "net": "/BUTT2",
+      "start_mm": [
+        22.6,
+        33.1
+      ],
+      "end_mm": [
+        24.85,
+        35.35
+      ],
+      "width_mm": 0.2
+    }
+  ],
+  "max_total_length_mm": 500,
+  "minimum_GND_area_mm2": 1400,
+  "require_single_GND_polygon": true
+}

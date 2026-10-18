@@ -1,0 +1,79 @@
+{
+  "status": "PURCHASED_USER_CONFIRMED_AWAITING_DELIVERY",
+  "observed_at": "2026-10-17T12:19:41.407181+00:00",
+  "supplier": "JLCPCB via JLCONE 1.0.72",
+  "revision": "v3.1",
+  "cart_item": "ledkiv3_1-gerbers_Y9",
+  "prototype_id": "Y9-10656422A",
+  "quantity": 5,
+  "outline_mm": [
+    40.64,
+    49.27
+  ],
+  "layers": 4,
+  "thickness_mm": 1.6,
+  "finish": "HASL(with lead)",
+  "copper_oz": [
+    1,
+    0.5,
+    0.5,
+    1
+  ],
+  "mask": "Green",
+  "silkscreen": "White",
+  "via_covering": "Default Plugged (soldermask ink)",
+  "production_file_confirmation": false,
+  "production_file_confirmation_optional_fee_usd": 1.05,
+  "pcb_remark": "",
+  "paid_extras": false,
+  "shipping": {
+    "method": "Global Standard Direct Line",
+    "business_days": [
+      12,
+      18
+    ],
+    "usd": 1.5
+  },
+  "totals_usd": {
+    "PCB": 2,
+    "shipping": 1.5,
+    "customs_duties_and_taxes": 4.3,
+    "grand_total": 7.8
+  },
+  "submit_option": "Review Before Payment",
+  "order_submitted": true,
+  "payment_made": true,
+  "gerber_sha256": "1f1c133e1a40860b497abe350180ccc719554b6b5e34a9b47158393fbfe837d9",
+  "pcb_sha256": "803db5887b970f85937dc4378c422b3fa6cc18b6e7a23571c9567cdb836355e2",
+  "source_context_files_verified_unchanged": 26,
+  "native_checks": "Accepted 2026-10-15 package ERC/DRC/opens/parity/ignored0; exact CAD context and Gerber unchanged; current independent core/power/manufacturing checks PASS",
+  "physical_qualification": "PENDING",
+  "process_scope": "Purchase/payment confirmed by user. Manufacturer engineering approval, production status and final production files have not been independently observed. Prepared checkout used default Plugged, blank PCB remark and Review Before Payment. No special manufacturing instruction was transmitted by the agent.",
+  "evidence_directory": "build/purchase-v3_1/20261017",
+  "user_decision": "User confirmed purchase of the prepared v3.1 PCB batch and requested recording it.",
+  "status_history": [
+    {
+      "status": "CART_LEFT_PREPARED_AT_USER_REQUEST",
+      "observed_at": "2026-10-17T12:19:41.407181+00:00",
+      "decision": "Leave prepared cart; do not submit for review or payment"
+    },
+    {
+      "status": "PURCHASED_USER_CONFIRMED_AWAITING_DELIVERY",
+      "recorded_at": "2026-10-17T12:22:59.476137+00:00",
+      "evidence": "User: kupiona możesz zapisać"
+    }
+  ],
+  "purchase_confirmation": {
+    "source": "direct_user_report",
+    "message": "kupiona możesz zapisać",
+    "reported_date": "2026-10-17",
+    "recorded_at_UTC": "2026-10-17T12:22:59.476137+00:00",
+    "supplier_order_number": null,
+    "invoice_observed": false,
+    "final_paid_amount_independently_verified": false,
+    "pricing_basis": "Last observed checkout was USD7.80; no invoice or new payment receipt was inspected."
+  },
+  "delivery_status": "AWAITING_DELIVERY",
+  "physical_receipt_confirmed": false,
+  "shelf_stock_credited": false
+}

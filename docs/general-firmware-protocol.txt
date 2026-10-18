@@ -1,0 +1,168 @@
+Letki general protocol v1 — candidate, 2026-10-17
+User-requested Astra review is required before hardware flashing.
+
+FRAMING AND ROUTING
+
+Every UART frame is COBS(encoded decoded-packet) followed by 0x00.
+Maximum decoded size 58 bytes; maximum wire size 60 including delimiter.
+Header (8 bytes):
+  0 version=1
+  1 operation; response is operation|0x80
+  2 addressed node ID (commissioned roles 0..4 initially)
+  3..4 session u16 LE, nonzero
+  5..6 request ID u16 LE, independent sequence for each node
+  7 payload length (0..48)
+Payload follows. Final two bytes are CRC16 LE over header+payload.
+CRC-16/CCITT-FALSE: poly 0x1021, init 0xffff, no reflection, xorout 0.
+Check value for ASCII 123456789 is 0x29b1.
+Golden frame: node3, HELLO, session0x1234, request0x5678, payload00ff:
+  09010103341278560204ff3c9900
+(This vector tests framing; HELLO with nonempty payload returns INVALID.)
+
+Responses contain status first, followed by operation-specific data:
+  0 OK, 1 INVALID, 2 BUSY, 3 SPACE, 4 CRC, 5 ORDER, 6 UNSUPPORTED,
+  7 IO, 8 SESSION, 9 CONFLICT.
+A valid request not addressed to this node is forwarded unchanged. Responses are
+also forwarded. The destination replaces a request with exactly one response.
+An unconsumed request arriving back at the PC means the destination is missing.
+Malformed frames are discarded, never forwarded/executed; timeout is a host retry.
+RX INVALID/GAP flags poison the entire packet. Overrun or >250 ms partial-frame
+inter-byte gap discards until the next delimiter. Device emits no unframed UART logs.
+
+One outstanding request per node. A duplicate session/request with the same request
+CRC returns the cached response without executing again. Same ID/different CRC is
+CONFLICT; stale IDs (modulo half-range comparison) are ORDER. New HELLO session resets
+the duplicate cache, preserving active playback/objects. Request IDs and frame
+identifiers wrap modulo 65536; host never has more than a bounded window outstanding.
+Flash-maintenance commands require one outstanding request globally.
+
+OPERATIONS (all numeric payload fields little-endian)
+
+ 1 HELLO, 2 STATUS: empty request. Response data 47 bytes after status:
+   0 version; 1 node ID; 2 configured tile count; 3 frame slot count
+   4..5 program RAM capacity with current slots; 6..7 active program length
+   8..9 safe flash program capacity; 10..11 maximum flash program capacity
+   12..15 device clock ms; 16..19 show position ms
+   20 flags: bit0 paused, bit1 raw-frame hold/display mode
+   21 active storage (0 RAM, 1 flash A/B, 2 flash capacity)
+   22 queue count; 23 flags: bit0 uploading, bit1 scheduled segment switch
+   24..25 scan-presented raw generation; 26..27 desired raw generation
+   28..31 late-frame counter (>20 ms late at synthesis)
+   32 global brightness 0..100; 33 flash-maintenance flag
+   34..41 HELLO: UUID first two words, each word big-endian, matching probe label
+            STATUS: UART errors u32 + dropped TX replies u32
+   42..43 unused program/staging RAM; 44..45 total arena; 46 free frame slots
+   Queue stride=(total arena - current program capacity)/slot count if slots>0.
+   RAM and flash capacities are independent. Do not hardcode native flash sizes.
+ 3 TIME: empty. Data: device clock u32, show position u32, clock age u16.
+   Age=65535 unavailable/regressed; head age=0. Clock synchronization uncertainty
+   must account for UART chain asymmetry; round trip midpoint is an estimate.
+ 4 BEGIN: storage:u8, replacement:u8, program length:u16, program CRC16:u16.
+   Storage 0 RAM, 1 safe flash A/B, 2 capacity flash. Replacement 0 preserve,
+   1 stop/discard current. Capacity flash requires replacement=1.
+   RAM preserve stages after old RAM data while the old program can keep playing.
+   RAM replacement releases it. Flash stops/blanks refresh while loading, with
+   page buffer/recovery space reserved. BEGIN fails before an allocation overrun.
+ 5 WRITE: offset:u16 + 1..46 bytes. Strictly sequential; retry cached by ID.
+ 6 COMMIT: empty or RAM-only activation device-time:u32. Requires exact uploaded
+   length, CRC and semantic validation. Empty publishes new program paused at 0.
+   Scheduled RAM commit retains the old program until deadline and then starts
+   the new program at position0, using the program's loop flag. No next staging
+   credit until this switch happens. Flash manifests publish validity last.
+ 7 ABORT: empty. Discard staging/scheduled switch, exit maintenance, preserve the
+   previously valid object where selected replacement policy retained it.
+ 8 PLAY: device-start-time:u32, show-position:u32, loop:u8 (0/1).
+   Cancels queued raw frames. Future start holds current output until due.
+ 9 PAUSE: empty. Hold show position, cancel queued raw frames and pending RAM
+   switches/uploads, and exit maintenance. The retained valid object can be resumed.
+10 SEEK: show-position:u32. Preserve paused/running choice; cancel queued frames.
+11 FLUSH: empty. Drop pending raw frames; preserve current visible frame.
+12 BRIGHTNESS: percent:u8 (0..100). Applies existing gamma/global scaling.
+13 FRAME_BEGIN: generation:u16, presentation-device-time:u32, format:u8,
+   optional initial pixel bytes (up to remaining packet capacity).
+   Format0 MONO1=8 bytes; format1 GRAY4=32; format2 LEVEL8=64 per tile.
+   Deadline must be within +/-60000 ms. Queue is chronological; unfinished
+   previous frame must be committed before beginning another. Does not display.
+14 FRAME_DATA: generation:u16, byte-offset:u8, pixel bytes (1..45).
+15 FRAME_COMMIT: generation:u16. Exact byte count and LEVEL8 bounds required.
+   Marks frame ready; does not acknowledge optical visibility. At its deadline
+   core generates levels and actual scan-buffer swap updates PRESENTED generation.
+16 QUEUE: slot-count:u8, optional format:u8. Without format, LEVEL8 stride80.
+   MONO1/GRAY4/LEVEL8 strides 24/48/80, count0..16 within arena limits. Requires
+   empty queue and paused program, and space for existing RAM program.
+17 READ: offset:u16,count:u8 (0..47). Read active compiled program bytes, not
+   framebuffer or physical LED output. Range must fit active program.
+18 BAUD_PREPARE: rate-in-100-baud-units:u16; 1152/2304/4608/9216.
+   Schedules switch one second after receipt, waiting for full TX drain.
+19 BAUD_CONFIRM: empty. Must arrive at new baud within two seconds. Confirmed
+   high baud has a ten-second idle lease, renewed by addressed same-session
+   packets. Timeout/reset returns to 115200. Driver close negotiates 115200.
+
+No arbitrary register, flash address, option-byte, separate chip erase, programmer
+power or machine-code execution command exists. Future opcodes return UNSUPPORTED.
+
+PIXELS
+
+Canonical row-major index y*8+x, top-left origin. MONO1 stores eight consecutive
+pixels per byte, first pixel in bit0. GRAY4 stores even index in low nibble, odd
+in high nibble; nibble intensity is floor(n*100/15). LEVEL8 has one byte/pixel,
+0..100 inclusive. Global brightness and gamma map these perceptual levels to PWM.
+Native driver buffers are column-major, so app converts at publication and restores
+the canonical held frame afterward. Brightness palette is fixed in v1; arbitrary
+requested levels can use LEVEL8. No RGB pixels on the single-color hardware.
+
+LGS1 PROGRAM OBJECT
+
+Header16: magic LGS1; total bytes:u16; track count:u8 (0..16); flags:u8 (bit0 loop);
+show duration:u32 (1..0x7fffffff ms); reserved:u32 zero.
+Tracks follow, 32 bytes each. Bitmap assets are referenced by offsets within the
+same object, at/after the end of all track records; assets can be shared/deduplicated.
+Track offsets:
+ 0 op (1 fill, 2 bitmap); 1 format0/1/2 as above; 2 motion flags; 3 reserved0
+ 4 start:u32; 8 duration:u32; 12 motion period:u32 (0..60000)
+16 asset offset:u16; 18 width:u16 (bitmap1..4096); 20 height:u8 (bitmap1..255)
+21 reserved0; 22 x0:i16; 24 y0:i16; 26 x1:i16; 28 y1:i16
+30 starting intensity:u8; 31 ending intensity:u8 (both0..100)
+Motion flags: 1 linear clamped, 2 triangle repeated, 4 repeat-x bitmap sampling.
+Linear and triangle together invalid; moving tracks require nonzero period.
+Timeline evaluation uses absolute position. Linear fraction clamps at its period;
+triangle traverses forward/back once per period. Coordinates/intensity interpolate
+with deterministic integer arithmetic. Show looping is independent. Track interval
+is [start,start+duration); all intervals fit show duration, without overflow.
+Fill writes the whole local tile. Bitmap samples at global strip x=tileID*8+x,
+clips against y0..7, and overlays nonzero pixels, preserving transparent zeros.
+All source offsets/dimensions, source LEVEL8 values, flags and opcodes validate
+before commit. Asset size is width*height bits/nibbles/bytes, rounded up.
+
+PERSISTENT MANIFEST
+
+Native linker symbols bound all data operations: __content_start is image load end
+aligned up to64; __content_end=0x08004000. Standard application image does not include
+show content. Build outputs report actual bytes; code cannot overwrite itself.
+A/B stride=floor(poolBytes/128)*64, each slot has a 64-byte manifest followed by
+its program. Capacity mode uses the whole pool with one 64-byte manifest.
+Manifest: LGF1; generation:u32; program bytes:u16; program CRC16:u16;
+storage:u8; bytes13..15 left0xff; CRC16(first16 bytes):u16; remainder0xff.
+Data pages write/verify first, manifest last. Boot validates header, bounds, data
+CRC and program semantics and chooses newest valid generation. A/B retains the
+previous complete show through interrupted replacement. Capacity replacement can
+lose it and boot idle, explicitly trading retention for space. It cannot erase
+outside content bounds. Erase/program operations are 64-byte fast-page sequences.
+CRC is error detection, not cryptographic authentication; physical link is trusted.
+
+
+Raw streaming clock recovery (R3 implementation)
+
+Standalone PLAY and loaded-audio require fresh shared I2C clock beacons.
+Raw streaming maps per-node UART TIME timestamps directly, collecting three
+minimum-RTT observations without waiting for beacon freshness. Clock age stays
+visible. Frame retries use250ms and periodic TIME retries100ms. Cached TIME
+replies retain their original timestamps, so one observation is insufficient.
+A significant modulo32-bit clock-offset jump flushes the queue before new
+frames are scheduled; the player then reanchors future uploads. Frames already
+queued before the next clock check can still be affected. This is recovery,
+not an atomic cross-board clock switch or global rollback guarantee.
+
+The head now times out idle BUSY as well as active transactions. Peripheral
+reset cannot repair a physically held-low SDA/SCL line; diagnostics remain
+necessary. No GPIO bus-clear pulses or option/power changes are performed.

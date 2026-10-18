@@ -1,0 +1,255 @@
+{
+  "name": "My Cyganie — stepping together",
+  "title": "MY CYGANIE",
+  "artist": "DON VASYL",
+  "audio": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.flac",
+  "video": "../../build/media/youtube-ql_OD7tU68c/ql_OD7tU68c.video.mp4",
+  "video_target": "PC only",
+  "intro_seconds": 8,
+  "gain": 0.7,
+  "visual_offset_ms": 0,
+  "transition_seconds": 0.32,
+  "style": "dance-steps",
+  "cues": [
+    {
+      "at": 0,
+      "duration": 12,
+      "effect": "dance-steps",
+      "label": "First footsteps",
+      "level": 0.8,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 12,
+      "duration": 12,
+      "effect": "dance-accordion",
+      "label": "Bellows breathe",
+      "level": 0.85,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 24,
+      "duration": 12.799999999999997,
+      "effect": "dance-weave",
+      "label": "Crossed threads",
+      "level": 0.85,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 36.8,
+      "duration": 18.400000000000006,
+      "effect": "dance-clap",
+      "label": "The answer",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "bass"
+    },
+    {
+      "at": 38.28,
+      "duration": 1.6,
+      "text": "ORE ORE",
+      "mode": "center"
+    },
+    {
+      "at": 55.2,
+      "duration": 18.39999999999999,
+      "effect": "dance-steps",
+      "label": "Step together",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "bass"
+    },
+    {
+      "at": 73.6,
+      "duration": 18.200000000000003,
+      "effect": "dance-accordion",
+      "label": "Another breath",
+      "level": 0.85,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 91.8,
+      "duration": 18.400000000000006,
+      "effect": "dance-weave",
+      "label": "Over and under",
+      "level": 0.9,
+      "speed": 1,
+      "variant": 1,
+      "clock": "grid"
+    },
+    {
+      "at": 110.2,
+      "duration": 18.39999999999999,
+      "effect": "dance-clap",
+      "label": "Answer returns",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "bass"
+    },
+    {
+      "at": 128.6,
+      "duration": 18.30000000000001,
+      "effect": "dance-steps",
+      "label": "Across the floor",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "bass"
+    },
+    {
+      "at": 129.88,
+      "duration": 1.6,
+      "text": "ORE ORE",
+      "mode": "center"
+    },
+    {
+      "at": 146.9,
+      "duration": 18.299999999999983,
+      "effect": "dance-accordion",
+      "label": "Open the folds",
+      "level": 0.9,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 165.2,
+      "duration": 18.30000000000001,
+      "effect": "dance-weave",
+      "label": "Threads gather",
+      "level": 0.95,
+      "speed": 1,
+      "variant": 0,
+      "clock": "grid"
+    },
+    {
+      "at": 183.5,
+      "duration": 16.30000000000001,
+      "effect": "dance-steps",
+      "label": "Changing feet",
+      "level": 1,
+      "speed": 1,
+      "variant": 0,
+      "clock": "bass"
+    },
+    {
+      "at": 199.8,
+      "duration": 18.299999999999983,
+      "effect": "dance-clap",
+      "label": "Together",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "bass"
+    },
+    {
+      "at": 218.1,
+      "duration": 18.30000000000001,
+      "effect": "dance-weave",
+      "label": "Quick weave",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "bass"
+    },
+    {
+      "at": 234.18,
+      "duration": 1.6,
+      "text": "ORE ORE",
+      "mode": "center"
+    },
+    {
+      "at": 236.4,
+      "duration": 18.299999999999983,
+      "effect": "dance-steps",
+      "label": "Final steps",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "bass"
+    },
+    {
+      "at": 254.7,
+      "duration": 17.30000000000001,
+      "effect": "dance-clap",
+      "label": "Last answer",
+      "level": 1,
+      "speed": 1,
+      "variant": 1,
+      "clock": "bass"
+    },
+    {
+      "at": 272,
+      "duration": 4,
+      "effect": "dance-accordion",
+      "label": "Closing folds",
+      "level": 0.65,
+      "speed": 1,
+      "variant": 0,
+      "clock": "bass"
+    },
+    {
+      "at": 276,
+      "duration": 2.337596371882114,
+      "effect": "dance-accordion",
+      "label": "Blackout",
+      "level": 0,
+      "speed": 1,
+      "variant": 0,
+      "clock": "bass"
+    }
+  ],
+  "recording": {
+    "sha256": "0a7d3c2bcc1f7bef969a9873c14c3fef51db9b14a5e695dfc8d054bd07c623d8",
+    "duration_seconds": 278.3375963718821
+  },
+  "authoring": {
+    "version": 2,
+    "scope": "Complete recording; four original whole-canvas dance forms",
+    "basis": "Local FFT attack events for accents; editorial sections; measured rhythmic regimes for motion timing. Refrain words retain earlier approximate alignment.",
+    "video_on_leds": false,
+    "geometry": "Independent dance renderer; no original PWM showcase geometry",
+    "timing": "Verse grids fitted to local spectral-flux pulses, not verified bar downbeats. Ambiguous refrains/finale follow detected bass attacks directly."
+  },
+  "rhythm": {
+    "bpm": 160,
+    "offset": 0.07,
+    "anchors": [
+      {
+        "at": 0.07,
+        "beat": 0
+      },
+      {
+        "at": 36.07,
+        "beat": 96
+      },
+      {
+        "at": 74.26,
+        "beat": 198
+      },
+      {
+        "at": 110.26,
+        "beat": 294
+      },
+      {
+        "at": 148.18,
+        "beat": 395
+      },
+      {
+        "at": 182.68,
+        "beat": 487
+      }
+    ]
+  }
+}

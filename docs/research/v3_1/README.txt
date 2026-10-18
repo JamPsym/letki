@@ -1,0 +1,1 @@
+Historical session planning and chronological handoff records. Earlier status paragraphs are superseded by docs/v3_1-handoff.txt and the active hw/ledkiv3.1/README.md. Do not use these notes as a current purchase or fabrication release. Raw evidence remains in build/sessions/v3.1-design/.

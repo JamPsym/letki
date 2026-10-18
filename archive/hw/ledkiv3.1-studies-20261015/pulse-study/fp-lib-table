@@ -1,0 +1,9 @@
+(fp_lib_table
+	(lib
+		(name "LetkiStudy")
+		(type "KiCad")
+		(uri "${KIPRJMOD}/LetkiStudy.pretty")
+		(options "")
+		(descr "Inherited switch lands; physical suffix audit pending")
+	)
+)

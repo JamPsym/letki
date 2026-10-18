@@ -1,0 +1,306 @@
+V3 current-test flash completed by the assembly/testing session on 2026-10-14.
+Board: second v3, UUID d7-6e-ab-cd-41-3a-bd-ff.
+Image: your build/v3-current-demo/letki.bin; 5240 bytes.
+SHA256: 042b5de78f28db03d02f02ba9768acc552b9705980ae95242a5d0fcfe65ece30.
+Two matching full-flash backups; all image bytes verified; option bytes preserved.
+SWIO startup/status/blank/R1 restore passed. Final selection R1/S1 bottom-left
+pixel, brightness 100, nominal scan duty 10%.
+Actual current, supply, waveform and visual observation remain pending.
+Evidence: /home/pies/letki/build/board-readback/current-demo-20261014/summary.json.
+Do not infer measured current from host tests or the successful flash.
+
+User-reported measurements: 0.067 V across R1 and 3.312 V supply (interpreted
+in requested order), UNI-T UT61B DC voltage. Using nominal R1=51 ohm gives
+1.31 mA average and estimated 13.1 mA during nominal 10%-duty pulses.
+Actual resistance and waveform were not measured; mean-reading assumption
+remains. This tests a single pixel, not a full-column load. Earlier mV-range
+disagreement is unresolved. Evidence: /home/pies/letki/build/board-readback/current-demo-20261014/user-current-measurement.json
+
+Full-column follow-up (2026-10-14): user explicitly requested full-column mode
+after the decoder limits were discussed and reported having tested it before.
+The testing session built an isolated app in build/hardware/v3-current-column/;
+design-session sources were not modified. Second v3 UUID
+d7-6e-ab-cd-41-3a-bd-ff: two matching full backups, all 5428 image bytes match
+readback, all option bytes unchanged, no programmer power commands. Actual
+command-path host checks and SWIO startup/status/blank/full-column restore passed.
+Final firmware selection: full S1 column, 8 pixels, brightness 100, nominal
+10% per-pixel scan duty. c selects full column, 0 blanks, 1..8 selects one row.
+No new current or supply readings yet; this flash does not qualify the load.
+Evidence: /home/pies/letki/build/board-readback/current-column-20261014/summary.json.
+For total column current, measure each R1..R8 branch drop and sum V/R; do not
+interpret one resistor reading as total current or assume all branches equal.
+
+User-reported FULL-COLUMN readings: R1 drop 0.020 V; supply 3.309 V.
+User confirms power from WCH-LinkE 3.3 V. Nominal R1=51 ohm gives
+0.392 mA mean / 3.92 mA estimated pulse current in R1 only, assuming valid
+meter averaging and nominal 10% timing. Total column current remains unknown;
+R2-R8 measurements pending. Single-pixel R1 was 0.067 V at supply 3.312 V.
+R1 current fell about 70% while supply changed -3 mV. This is consistent
+with decoder output voltage increasing under load, but that voltage has not
+been measured. Do not infer identical branch currents or electrical qualification.
+Evidence: /home/pies/letki/build/board-readback/current-column-20261014/user-current-measurement.json.
+
+Completed full-column readings: user reports ALL R1-R8 at 0.020 V.
+With nominal 51 ohm rows, sum of mean branch currents is 3.137 mA;
+at nominal 10% scan duty estimated combined pulse current is 31.37 mA.
+Assumptions/uncertainties remain: meter mean response, resistance tolerance,
+rounding/resolution and unmeasured timing/waveform. TI SN74HC138 Rev G
+per-output absolute maximum is 25 mA; estimated result exceeds it and does
+not qualify the existing direct-drive circuit. This is useful rework evidence
+for limiting instantaneous aggregate column current, not only PWM average.
+The test display was blanked via SWIO 0, acknowledged CURRENT blank.
+Firmware reset/reopening SWIO restarts its full-column default.
+Evidence: /home/pies/letki/build/board-readback/current-column-20261014/user-current-measurement.json
+and swio-measurement-end.log; no further flash/option/power changes.
+
+### Two-board UART-chain setup: left board flashed (2026-10-14)
+
+User reports the edge bridge assembled and both boards connected to WCH-LinkE
+3V3/GND with LinkE TX/RX for the PC chain; left board connected to SWIO.
+Host USB serial is /dev/serial/by-id/usb-wch.cn_WCH-Link_02858F0687B7-if01
+(current /dev/ttyACM0). UART initialized to 115200 8N1 before flashing; original
+tty settings saved in build/board-readback/uart-chain-20261014/tty-original.pkl
+for restoration after the chain test. No other port reader was found.
+Left UUID d7-73-ab-cd-41-3f-bd-ff: two matching 16KiB backups, all 10136
+UART-chain image bytes matched readback, option bytes preserved, no programmer
+power commands. SWIO startup and initial zero diagnostics passed. Build/host
+tests passed. Image SHA256 4b805c9b432766bb231e833b73fc7d17c398d1f9079c053c73f776992821f547.
+Evidence: build/board-readback/uart-chain-20261014/left/summary.json.
+Right board not yet flashed with this image; end-to-end test still pending.
+Next: user moves only SWIO signal to right board; verify second UUID, preserve
+its firmware twice and option bytes, flash the same frozen image, then run
+20 checked PC packets expecting two hops. Actual rail/baud/waveforms not measured
+during this step. Earlier current measurements used the second board.
+
+## Physical two-board UART-chain result (2026-10-14)
+
+Both assembled v3 boards passed the complete PC TX -> left RX -> left TX ->
+right RX -> right TX -> PC RX chain using the same 10136-byte image.
+Left UUID: `d7-73-ab-cd-41-3f-bd-ff`; right UUID: `d7-6e-ab-cd-41-3a-bd-ff`.
+Each board had two matching 16 KiB backups and complete image readback
+verification; option bytes and programmer power settings were preserved.
+User confirmed existing WCH-LinkE 3V3/GND power through the soldered bridge
+and the LinkE TX/RX connection. The host serial device is
+`/dev/serial/by-id/usb-wch.cn_WCH-Link_02858F0687B7-if01` (`/dev/ttyACM0`).
+
+At configured 115200 8N1, all 20 distinct checked requests returned with two
+hops, matching random tokens/counters and valid CRCs. Every accumulated
+diagnostic count was zero. Right SWIO, held open during UART traffic, confirmed
+`CHAIN position=2 counter=46665 ok=20 bad=0 drop=0 uart=0 txdrop=0`.
+The original pre-initialization host tty settings were restored and verified.
+Both boards retain UART-chain firmware; last accepted counter is 46665.
+Matrix appearance was not independently inspected. Actual rail/baud/waveforms
+and runtime stack high-water were not measured in this run. This confirms
+physical two-board UART transport; two-board I2C remains untested, and it does
+not qualify v4 buffers or resolve the measured v3 decoder-loading limitation.
+
+Evidence: `build/board-readback/uart-chain-20261014/live-result.json`,
+`uart-traffic.log`, `right/swio-live-test.log`, both board summaries/backups
+and readbacks. Image SHA256:
+`4b805c9b432766bb231e833b73fc7d17c398d1f9079c053c73f776992821f547`.
+
+I2C preparation follow-up (2026-10-14): user confirms R11/R12 fitted on the
+left/original v3. One 4.7k pair is sufficient for the shared two-board bus.
+Shared inventory records two C26022 consumed and two matching holds released;
+remaining hold is 8 (right pair plus three future pairs), free balance 990.
+The separate v4.1 plan and all other lots remain unchanged. Evidence:
+build/inventory/left-v3-i2c-20261014/summary.json. Controller/target images
+rebuilt successfully; they have not been flashed. Both boards retain UART-chain
+firmware. I2C roles remain left/original controller, right/second target 0x32.
+
+I2C right/receiver flash (2026-10-14): right UUID d7-6e-ab-cd-41-3a-bd-ff
+now runs target-role interface firmware at 7-bit address 0x32. Two matching
+full UART-chain backups preserved; all 12396 target image bytes match readback;
+option bytes unchanged and no programmer power commands. SWIO banner and
+explicit status verify mode=target, ok=0 fail=0 counter=0 uart_errors=0
+tx_dropped=0 auto=0. Initial combined SWIO banner/status exceeds its 127-byte
+queue capacity; initial status was dropped, so the test requested status after
+the banner drained. Failed wait and successful explicit status logs retained.
+Evidence: build/board-readback/i2c-two-v3-20261014/right/summary.json, swio.log
+and swio-status.log. Left remains UART-chain; physical I2C not tested yet.
+Next: user moves only SWIO signal to left, then controller flash and live test.
+Standing firmware-update/test permission now covers both identified v3 boards.
+
+## Physical two-board I2C result (2026-10-14)
+
+The existing two assembled v3 boards passed 20 consecutive physical I2C
+exchanges with matching requested counters and `reason=reply CRC`, configured
+for 100 kHz. Left/original UUID `d7-73-ab-cd-41-3f-bd-ff` is controller
+(12412-byte image); right/second UUID `d7-6e-ab-cd-41-3a-bd-ff` is target
+at 7-bit address 0x32 (12396-byte image). Both images matched readback after
+two matching full-flash backups per board; all option bytes preserved and
+no programmer power commands. User confirmed existing WCH-LinkE 3V3/GND
+power through the soldered edge bridge and one nominal 4.7k R11/R12 pair
+fitted on the left board. UART TX/RX wires remained connected but commands
+and acceptance evidence used SWIO; no host serial port was opened in this run.
+
+Controller final checked status: ok=20, fail=0, counter=46665, uart_errors=0,
+tx_dropped=0, auto=0. Then `auto on` was acknowledged; the controller now
+increments from 46666 once per second. Right target startup/status previously
+verified clean; its final UART/drop diagnostics were not separately read.
+Visual counter agreement, actual frequency/waveforms/rail/current and runtime
+stack remain unmeasured in this run. This establishes v3 physical I2C packet
+transport, not v4/v4.1 logic/power/buffer or production qualification.
+
+Evidence: `build/board-readback/i2c-two-v3-20261014/live-result.json`,
+`controller-swio.log`, `commands.json`, setup/source hashes and each board's
+identity/backups/readback/options/summary. Final firmware remains I2C controller
+and target, with automatic counting on. This supersedes older pending-I2C
+status paragraphs. No CAD or purchases changed during this test.
+
+## Two-board ping-pong demo (2026-10-14)
+
+User wanted a visual indication of board communication. Separate
+`firmware/pingpong-demo/` forms one 16x8 bouncing-ball scene. Left advances
+a phase only after matching I2C reply CRC; right renders received phases only.
+Corner indicators derive from successful exchanges; failures or 1.5s without
+valid transport freeze the last ball and light the corner steadily. Pause
+continues communicated held phases. Uses unchanged active binary/PWM display
+driver and shared interface-demo I2C/protocol sources; no UART initialization.
+Build: `make pingpong-demos -j4`; default v3 text unchanged. Preview:
+`build/preview/pingpong.gif`; host tests, all variants and clangd passed.
+Left/right images are 10988/10448 bytes; RAM including 256-byte stack is
+672/664 bytes; conservative foreground+both ISR stack sum 240 bytes, runtime
+high-water unmeasured. Evidence: `build/pingpong-validation.json`.
+
+Left/original board was flashed/readback verified after two matching backups
+and unchanged option bytes/power. It passed 20 consecutive CRC-confirmed phase
+updates against the existing right interface-demo target, plus pause (continued
+exchanges with held phase) and resume. Last checked status:
+`PONG role=left phase=21 ok=24 bad=0 link=1 paused=0 ms=100`.
+Right/second board was then identified, flashed and readback verified after
+two matching full backups; option bytes and programmer power were preserved.
+With both final demo images running, right received 32 consecutive CRC-validated
+phases, covering a full horizontal round trip, with zero receiver failures:
+`PONG role=right phase=151 ok=32 bad=0 link=1 paused=0 ms=100`.
+Both boards are left running at 100 ms/step. Optical seam quality, physical
+link-loss behaviour and runtime stack high-water remain unmeasured. Evidence:
+`build/board-readback/pingpong-20261014/left-live-result.json`,
+`right-live-result.json` and each board's `summary.json`.
+
+
+## Native C strip renderer (2026-10-14)
+
+`make renderer-run BOARDS=5` launches a native Wayland/Cairo window with
+configurable horizontal 8x8 tiles and a local Unix-socket agent interface.
+Keyboard presets cover 1-5; dynamic storage/geometry support 1-256 tiles within
+the existing 15-bit phase field. Real firmware pong geometry and packet CRC
+code are compiled into the host app; original two-board firmware API is retained.
+Agent commands expose deterministic stepping/time, per-link loss/corruption,
+JSON pixel/state inspection, external validated phases/packets, raw arbitrary
+frames and PNG snapshots. See `host/renderer/README.md`.
+
+Full native-process integration tests passed for complete 1-5 trajectories,
+seams/wrap, CRC damage/rejection, lost-link timeout/recovery, pause with traffic,
+external/raw frames, invalid input preservation, 256-board allocation, client
+CLI, PNGs and stalled/duplicate clients. Address/undefined sanitizer checks
+passed (third-party global font-cache leak scanning disabled). Existing firmware
+host tests, all variants and clangd pong checks passed. Hyprland confirmed a
+native window (xwayland false); targeted 1/5 and Space input were verified with
+socket state readback. Evidence: `build/renderer/`.
+
+Generalized firmware builds are 11324 bytes left / 10776 right; RAM including
+256-byte stack remains 672/664. Conservative stack sum stays 240: I2C recovery
+foreground 204 plus 36 ISR bytes; generalized render/callback paths are smaller.
+These new images were NOT flashed. Physical boards retain the previously verified
+10988/10448-byte images frozen in `build/board-readback/pingpong-20261014/`.
+No programmer, power, option bytes, hardware CAD or inventory changed in this task.
+Host simulation does not qualify actual multi-board I2C discovery/electrical or
+optical behavior; its configurable linear acknowledgement chain is a test model.
+
+
+## Standard two-board text candidate and preview (2026-10-14)
+
+User requested two standard images with a different moving-text default,
+UART control and a native display demonstration before flashing. Candidate
+`firmware/strip-text/` builds with `make strip-text-images` (roles left/right,
+-Os); existing single-board v3 and diagnostic builds remain available.
+Default compact Polish text is LETKI DZIAŁA, bounce with endpoint holds,
+75ms/column and brightness 100; UART `m scroll` selects continuous leftward
+scrolling, `m bounce` restores bounce. UART text/speed/brightness/pause/resume/
+reset/arm/ping/status and eight-/sixteen-column host-frame commands are supported.
+
+Left handles PC UART commands and sends the right tile's actual pixels and
+brightness over separate 14-byte CRC-8/sequence I2C frames (target 0x32,
+configured 100kHz, existing left pull-up pair). Left animation commits after
+reply-CRC confirmation; failed exchanges retry without advancement. Newer
+commands win over older in-flight snapshots. Right renders received pixels only
+and transparently relays left UART replies to the PC using the existing
+PC TX -> left RX -> left TX -> right RX -> right TX -> PC RX arrangement.
+Right boot/status logs stay on SWIO. Active PWM/gamma/scan pin map is reused.
+
+The native C renderer now shares this exact scene/font/UTF-8/command/packet code.
+`make renderer-text` opens a two-board demonstration; socket `demo text` and
+`uart COMMAND` support direct agent tests. The tour showed bounce then scroll
+and returned to bounce. Full-cycle native recordings are in
+build/strip-text-preview/bounce.gif and scroll.gif. These are host demonstrations,
+not physical UART/I2C/optical validation of the new images.
+
+Frozen images and source hashes: build/strip-text-prepared/manifest.json.
+Left image 12320 bytes, RAM 1932 including 256-byte stack (116 spare);
+right image 6652 bytes, RAM 992 including stack. Conservative head stack bound
+244 bytes: assessed foreground 196 plus retained older O0 equivalent IRQ budget
+48; the current Os fast IRQ software paths report zero stack and were inspected
+in disassembly. Right conservative bound 176. Runtime high-water is unmeasured.
+Host scene and both real app roles, actual frame driver with register mocks,
+all native socket tests, address/undefined sanitizers and clangd passed. All
+variants passed a serial retry after a temporary assembler segfault in an
+unchanged archived ADC source; the failed log was retained.
+
+No board has been flashed during this task. Current physical images remain the
+preceding verified ping-pong 10988/10448-byte images. Programming helpers and
+frozen binaries are prepared but NOT EXECUTED in
+build/board-readback/strip-text-20261014/{left,right}/. When proceeding after
+preview, program/identify/back up/verify right first, then left; preserve option
+bytes and programmer power. Read firmware/strip-text/README.md for controls,
+wiring, limitations and follow-up. No CAD, inventory or procurement changed.
+
+
+## Standard text right receiver flashed (2026-10-14)
+
+At the user's explicit request, right UUID d7-6e-ab-cd-41-3a-bd-ff was
+programmed with the frozen 6652-byte standard text receiver. All bytes matched
+readback, two full 16KiB backups matched, option bytes were unchanged and no
+programmer power commands were issued. SWIO verified the correct receiver
+startup and status: seq=0 ok=0 fail=0 link=0 uart_errors=0 tx_dropped=0.
+This is receiver startup validation, not a passed two-image transport test.
+Left remains the prior ping-pong image; the right needs matching 14-byte frames
+from the new head before it can display text. Old diagnostic requests may be
+rejected. Evidence: build/board-readback/strip-text-20261014/right/summary.json,
+right/swio-live.log and right-live-result.json. Prepared manifest is now
+RIGHT_FLASHED_LEFT_PENDING. Next is moving only SWIO to the left for the
+matching head image; existing power/GND and UART/I2C wiring stay in place.
+
+
+## Standard text pair programmed and tested (2026-10-14)
+
+Left/original d7-73-ab-cd-41-3f-bd-ff was identified and flashed with the frozen
+12320-byte standard text head. All bytes matched readback after two matching
+full 16KiB backups; option bytes and programmer power were unchanged. Right
+retains its previously verified 6652-byte receiver. Both now run standard text.
+
+Physical UART passed 20 exact random-token replies through the right's transparent
+relay, with zero head receive-error/drop counters under fast 10ms scrolling.
+Mode changes, pause/resume, speed, brightness 25/100, Polish UTF-8, 64-character
+input, rejected 65-character/invalid UTF-8/invalid speed/brightness, legacy eight-
+column frames and full sixteen-column frames passed. The head's real RAM snapshot
+showed 1839 successful new 14-byte I2C frame CRC acknowledgements and zero I2C
+failures; scene and committed revisions matched. Read-only debug snapshots briefly
+halted the head and then resumed it. A subsequent UART check confirmed uptime
+advanced 610ms across a 600ms host wait, with zero UART errors/drops. This checks
+software clock progress, not waveform timing or oscillator calibration.
+
+The initial adapter opening missed the boot banner; the first subsequent status
+was an invalid line, then status replied cleanly with hardware UART counters zero.
+Failed startup logs were preserved; no reset/counter clearing was used to obtain
+the passing full test. Host uart_text.py now recognizes mode/full-strip-frame
+acknowledgements and both legacy/new help formats; live m scroll/m bounce/help/
+status and seven host serial tests passed. Final state is LETKI DZIAŁA, bounce,
+75ms/column, unpaused, brightness 100, host-frame mode off; SWIO remains on left.
+
+Evidence: build/board-readback/strip-text-20261014/summary.json, per-board backups/
+readbacks/options, pair-live-result.json, UART traffic/raw log, head counter/scene
+snapshots and post-ram-clock.json. Prepared manifest is BOTH_FLASHED_PAIR_TESTED.
+Right final cumulative diagnostics, optical rendering, rail/current/waveforms and
+runtime stack high-water were not independently measured. No CAD/stock/purchases
+changed. Earlier left-pending statements are superseded.

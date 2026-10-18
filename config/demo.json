@@ -1,0 +1,23 @@
+{
+  "language": "pl",
+  "model": "v3",
+  "seed": 42,
+  "gain": 0.65,
+  "pause_seconds": 0.1,
+  "scroll_step_ms": 30,
+  "speech_delay_pixels": 0,
+  "phrases": [
+    {
+      "speech": "Zobacz.",
+      "display": "ZOBACZ"
+    },
+    {
+      "speech": "Adaś.",
+      "display": "ADAŚ"
+    },
+    {
+      "speech": "Działa!",
+      "display": "DZIAŁA"
+    }
+  ]
+}

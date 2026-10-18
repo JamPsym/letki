@@ -1,0 +1,10 @@
+{
+  "status": "APPLIED",
+  "board": "/home/pies/letki/hw/ledkiv3.2/ledkiv3_2.kicad_pcb",
+  "before_sha256": "6e72990bc13697443a09864d8e19a62106493768c9ece0b727232963abb5cfca",
+  "after_sha256": "70af623a6e69eb830eca177dc6771266e6e5e16c430598d21abbd5e2ea685435",
+  "accepted_chains": 68,
+  "backup": "/home/pies/letki/build/hardware/v3_2-trace-cleanup-checked-20261017/source-before-apply.kicad_pcb",
+  "removed_segments": 460,
+  "added_segments": 204
+}

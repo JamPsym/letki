@@ -1,0 +1,67 @@
+{
+  "checked_date": "2026-10-12",
+  "status": "Proposed procurement alternatives; native CAD and uploaded manufacturing ZIP unchanged; user cart not edited",
+  "availability_note": "Public TME snapshots are cached; user live basket stock and delivery date take precedence.",
+  "changes": [
+    {
+      "references": [
+        "R30",
+        "R31"
+      ],
+      "original": "0603SAF5101T5E",
+      "alternative": "RC0603FR-075K1L",
+      "tme_symbol": "RC0603FR-075K1L",
+      "quantity": 100,
+      "compatibility": "5.1kohm 1%, 0603, 0.1W; same footprint/value; no PCB change",
+      "snapshot_stock": 14142,
+      "snapshot_age": "2 weeks",
+      "tme_url": "https://www.tme.eu/en/details/rc0603fr-075k1l/smd-resistors/yageo/",
+      "manufacturer_spec_url": "https://yageogroup.com/component-documentation/download/specsheet/RC0603FR-075K1L"
+    },
+    {
+      "references": [
+        "U5"
+      ],
+      "original": "TPS2553DBVR",
+      "alternative": "AP22653W6-7",
+      "tme_symbol": "AP22653W6-7",
+      "quantity": 2,
+      "snapshot_stock": 2298,
+      "snapshot_age": "1 month",
+      "snapshot_unit_net_pln": 1.29,
+      "compatibility": "Pins1 IN,2 GND,3 active-high EN,4 FAULT,5 ILIM,6 OUT match PCB. Retain R32 33k 1%, C10 100n. Recommended supply3.0-5.5V fits regulated5V charger. Constant-current version, not AP22653A latch-off. Output discharge and short-circuit foldback differ; qualify startup/fault operation.",
+      "footprint_review": "Native SOT-23-6_LetkiFab six pads pitch0.95mm, pad size1.325x0.6 at x+/-1.1375mm. Package SOT26 Type A1 body2.9x1.6mm overall2.8mm lead span, maximum leadwidth0.5mm; existing copper covers leads. Native package model is not exact AP22653 geometry.",
+      "limit_typ_mA": 758.0734975399948,
+      "limit_fit_min_max_mA_initial1percent": [
+        667.8448896267803,
+        852.5816944164233
+      ],
+      "limit_fit_min_max_mA_total3percent": [
+        653.914650209374,
+        870.711401552469
+      ],
+      "limit_note": "Manufacturer best-fit equations, not a measured or production-qualified bound at33k. Peak/fault behavior and thermal dissipation remain physical tests.",
+      "tme_url": "https://www.tme.eu/pl/details/ap22653w6-7/power-switches-uklady-scalone/diodes-incorporated/",
+      "datasheet_url": "https://www.diodes.com/datasheet/download/AP22652_AP22653_AP22652A_AP22653A.pdf",
+      "datasheet_revision": "DS41186 Rev.5-2 March2026, p1 pinmap,p4/5 ratings,p10 fit,p14/15 package/lands"
+    }
+  ],
+  "price_comparison": {
+    "user_TME_about_pln": 200,
+    "user_TME_net_or_gross_unknown": true,
+    "historical_LCSC_cart_parts_usd": 37.61,
+    "historical_LCSC_cart_shipping_usd": 14.1,
+    "historical_LCSC_cart_total_usd": 51.71,
+    "nbp_reference_usd_pln": 3.9211,
+    "converted_LCSC_pln": 202.760081,
+    "converted_LCSC_plus23percentVAT_scenario_pln": 249.39489963000003,
+    "caveats": [
+      "Historical LCSC original v4 basket had different parts and user-added stock quantities; not same BOM/quantities.",
+      "LCSC recorded cart estimate did not confirm included VAT; conditional VAT scenario only.",
+      "TME shipping and total VAT inclusion are unverified.",
+      "Bank/card exchange rate differs from NBP."
+    ],
+    "exchange_source": "https://nbp.pl/statystyka-i-sprawozdawczosc/kursy/tabela-a/"
+  },
+  "preserved_gerber_sha256": "31de94b8df6cec8883f9bfa811c942c091c43b7e7b3588ef1af4935bc057a927"
+}

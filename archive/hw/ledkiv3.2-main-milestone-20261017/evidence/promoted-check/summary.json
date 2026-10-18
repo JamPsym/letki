@@ -1,0 +1,46 @@
+{
+  "status": "PASS",
+  "board_sha256": "1eff241854ad1150e82d46467debfce957d2cee92d66f088e6502791e266cd22",
+  "source_unchanged": true,
+  "connected_nets": 76,
+  "native_counts": {
+    "violations": 1,
+    "unconnected_items": 0,
+    "schematic_parity": 0,
+    "ignored_checks": 0
+  },
+  "commands": [
+    {
+      "name": "drc",
+      "command": [
+        "kicad-cli",
+        "pcb",
+        "drc",
+        "--format",
+        "json",
+        "--severity-all",
+        "--schematic-parity",
+        "--refill-zones",
+        "--output",
+        "/home/pies/letki/build/hardware/v3_2-point-reroute-checked-20261017/promoted-check/drc.json",
+        "/home/pies/letki/hw/ledkiv3.2/ledkiv3_2.kicad_pcb"
+      ],
+      "seconds": 2.3847392150200903,
+      "returncode": 0
+    },
+    {
+      "name": "physical",
+      "command": [
+        "/home/pies/letki/.tools/kicad-routing-env/bin/python",
+        "/home/pies/letki/scripts/check_v3_2_copper.py",
+        "--board",
+        "/home/pies/letki/hw/ledkiv3.2/ledkiv3_2.kicad_pcb",
+        "--all-nets",
+        "--output",
+        "/home/pies/letki/build/hardware/v3_2-point-reroute-checked-20261017/promoted-check/physical.json"
+      ],
+      "seconds": 2.021904775989242,
+      "returncode": 0
+    }
+  ]
+}

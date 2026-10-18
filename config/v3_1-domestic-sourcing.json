@@ -1,0 +1,71 @@
+{
+  "recorded_on": "2026-10-14",
+  "latest_research_file": "config/v3_1-supplier-research-20261014.json",
+  "latest_preferred_design_candidates": "AO3415A PMOS plus DMN2056U-7 NMOS from TME; original AO3401A/AO3400A offers below remain sourcing alternatives, not CAD selections",
+  "status": "Availability research only; candidates not selected into CAD",
+  "user_direction": {
+    "transistors_per_tile": 16,
+    "topology_to_develop": "Eight PMOS column sources plus eight NMOS row sinks",
+    "retained_ICs": ["CH32V003F4P6", "SN74HC138PWR"],
+    "additional_ICs": 0,
+    "purchasing_preference": "Find Polish availability; combine the eventual purchase with other items if possible. No batch size or delivered-cost quote requested."
+  },
+  "supplier": "Firma Piekarz, Warszawa, Poland",
+  "availability_basis": "Supplier product pages retrieved on recorded_on; displayed stock can change and related-product counters disagree. Record in-stock status without treating a count as reserved stock.",
+  "candidates": [
+    {
+      "role": "PMOS column source",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "MPN": "AO3401A",
+      "package": "SOT-23, G1/S2/D3",
+      "quantity_per_tile": 8,
+      "listed_in_stock": true,
+      "minimum_purchase": 10,
+      "purchase_multiple": 5,
+      "unit_price_PLN_net_at_10": 0.74,
+      "url": "https://www.piekarz.pl/33394-tranzystor-alpha-omega-semiconductor-ao3401a/",
+      "datasheet_url": "https://www.aosmd.com/sites/default/files/res/datasheets/AO3401A.pdf",
+      "selection_pending": "Rds(on) specified at -2.5 V. Existing Study A 1k/10k gate network does not establish -2.5 V at the minimum rail with assumed decoder VOL. Recalculate the network and verify loaded HC138 output/settling; not a blind CJ2305 substitution."
+    },
+    {
+      "role": "NMOS row sink",
+      "manufacturer": "Alpha & Omega Semiconductor",
+      "MPN": "AO3400A",
+      "package": "SOT-23, G1/S2/D3",
+      "quantity_per_tile": 8,
+      "listed_in_stock": true,
+      "minimum_purchase": 10,
+      "purchase_multiple": 5,
+      "unit_price_PLN_net_at_10": 0.55,
+      "url": "https://www.piekarz.pl/39715-tranzystor-alpha-omega-semiconductor-ao3400a/",
+      "datasheet_url": "https://www.aosmd.com/sites/default/files/res/datasheets/AO3400A.pdf",
+      "selection_pending": "Rds(on) specified at +2.5 V. Conservative CH32V003 loaded VOH of 2.3 V does not establish that drive, especially with a gate series resistor and pull-down. Resolve drive margin or prefer a part rated at 1.8 V; threshold voltage alone is insufficient."
+    }
+  ],
+  "allegro_followup": {
+    "seller": "Conteo_pro",
+    "status": "Both exact AO part numbers listed, seller identifies AOS; gate-drive selection remains pending as above",
+    "offers": [
+      {"MPN": "AO3400A", "url": "https://allegro.pl/oferta/ao3400a-tranzystor-n-mosfet-30v-4-7a-1-4w-sot23-8545971906", "offer_id": "8545971906", "unit_price_PLN_displayed": 1.99, "listed_in_stock": true},
+      {"MPN": "AO3401A", "url": "https://allegro.pl/oferta/ao3401a-tranzystor-p-mosfet-30v-4a-1-4w-sot23-11928559755", "offer_id": "11928559755", "unit_price_PLN_displayed": 2.69, "stock_displayed_on_direct_offer": 3, "limitation": "Insufficient for eight column sources from this offer alone at the last retrieval; an earlier catalogue view showed 15. Recheck exact offer rather than assuming catalogue stock."}
+    ],
+    "delivery": "Smart badge displayed; no free-delivery promise or checkout quote. No seller contact."
+  },
+  "rafig_followup": {
+    "user_preference": "Nearby Wroclaw shop requested by user",
+    "name": "Rafig ELEKTRONIKA, ELEKTRYKA, NARZEDZIA",
+    "address": "ul. Olbinska 4, Wroclaw",
+    "phone": "+48 71 372 29 04",
+    "contact_url": "https://rafig.pl/webpage/kontakt-rafig-wroclaw.html",
+    "catalogue_url": "https://rafig.pl/category/elementy-elektroniczne-tranzystory",
+    "collection": "Website says personal collection only, no shipping",
+    "availability_result": "AO3400/AO3401, DMN2300U and IRLML small MOSFET availability not confirmed online. Transistor category lists only IRFZ44N and TIP35C; search also finds an IRF520 module. Absence from this small online catalogue does not prove absence from the physical shop.",
+    "contacted": false
+  },
+  "other_research": [
+    "TME listed AO3401A in stock but AO3400A with zero stock; Piekarz provides the clearer same-shop availability pair.",
+    "Allegro offers were checked. An AO3400A catalogue result selected a ZXM61N02FTA offer, so that result was not credited as exact AO3400A availability. An IRLML6402 offer lacked confirmed manufacturer identity.",
+    "Maritex DMN2300U-7 and DMP2305U-7 appeared in distributor aggregators. Primary supplier stock could not be verified, so they are not counted as confirmed availability. These remain leads for 1.8 V-rated alternatives."
+  ],
+  "scope": "No order, cart, seller message, delivery promise, inventory mutation, CAD change or hardware operation. The eight-PMOS Study A remains the checked reference; sixteen-transistor circuit and firmware are not yet implemented."
+}

@@ -1,0 +1,104 @@
+{
+  "scope": "Static compiler/disassembly assessment, not runtime high-water, analog current or physical timing verification",
+  "pulse": {
+    "method": "Compiler static frames plus explicit indirect callback path; division-helper disassembly checked as stack-free. Retains existing WCH fast-IRQ ABI.",
+    "foreground_path": [
+      {
+        "main": 52
+      },
+      {
+        "swio_poll": 20
+      },
+      {
+        "command": 16
+      },
+      {
+        "status": 12
+      },
+      {
+        "decimal": 32
+      }
+    ],
+    "foreground_bytes": 132,
+    "conservative_all_ISR_path_sum": [
+      {
+        "SysTick_Handler": 0
+      },
+      {
+        "display_tick": 12
+      },
+      {
+        "blank_rows": 0
+      },
+      {
+        "USART1_IRQHandler": 0
+      },
+      {
+        "TIM2_IRQHandler": 0
+      },
+      {
+        "display_unblank": 0
+      }
+    ],
+    "active_total_bytes": 144,
+    "startup_pre_scan_IRQ_path": [
+      {
+        "main": 52
+      },
+      {
+        "uart_init": 40
+      },
+      {
+        "USART_Init": 36
+      },
+      {
+        "RCC_GetClocksFreq": 12
+      }
+    ],
+    "startup_bytes": 140,
+    "stack_reservation_bytes": 256,
+    "runtime_high_water_measured": false,
+    "assembly_review": [
+      "__udivsi3 and __umodsi3 do not move sp; __riscv_save_0 stores 12 bytes already included in GCC function totals."
+    ],
+    "limits": "Static call-path assessment, not measured runtime interrupt timing or stack high-water.",
+    "updated": "2026-10-14",
+    "image_flash_section_bytes": 9780,
+    "RAM_including_256_stack_bytes": 1760,
+    "change": "hw UART profile branch and dark boot. Fresh STACK_USAGE=1 rebuild retains main52,command16,status12,decimal32,display_tick12; longest assessed paths unchanged."
+  },
+  "interface": {
+    "stack_reservation_bytes": 384,
+    "largest_assessed_path": [
+      {
+        "main": 20
+      },
+      {
+        "swio_poll": 20
+      },
+      {
+        "swio_receive": 12
+      },
+      {
+        "feed_with_inlined_command": 16
+      },
+      {
+        "bus_init": 40
+      },
+      {
+        "I2C_Init": 40
+      },
+      {
+        "RCC_GetClocksFreq": 12
+      }
+    ],
+    "active_path_total_bytes": 160,
+    "SysTick_Handler_plus_display_tick_bytes": 0,
+    "runtime_high_water_measured": false,
+    "notes": [
+      "UART callbacks are shorter than SWIO callbacks; bus error reinitialization is within this bound.",
+      "GCC -Os .su plus linked disassembly; __riscv_save frames included, __udivsi3 stack-free.",
+      "SDK retains 384-byte stack and WCH fast interrupt ABI."
+    ]
+  }
+}

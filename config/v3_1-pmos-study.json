@@ -1,0 +1,37 @@
+{
+  "revision": "v3.1 PMOS Study A",
+  "recorded_on": "2026-10-14",
+  "status": "Schematic and isolated firmware study; no PCB, purchase or physical qualification",
+  "constraints": {"retained_ICs": ["CH32V003F4P6", "SN74HC138PWR"], "additional_ICs": 0},
+  "supply_V": {"nominal": 3.3, "minimum": 3.135, "maximum": 3.465, "regulation": "External; no onboard regulator"},
+  "new_parts": [
+    {"references": "Q1-Q8", "quantity_per_tile": 8, "MPN": "CJ2305", "manufacturer": "JSCJ", "package": "SOT-23 G1/S2/D3", "LCSC": "C8549", "on_hand_confirmed": 0,
+     "quote": {"currency": "USD", "MOQ": 10, "multiple": 10, "stock_page_snapshot": 319180, "unit_at_10": 0.0422, "unit_at_100": 0.0347, "url": "https://www.lcsc.com/product-detail/C8549.html"},
+     "datasheet": {"url": "https://datasheet.lcsc.com/datasheet/pdf/0d2be3a8b74744bc825762ee6b25df9d.pdf?productCode=C8549", "provenance": "Manufacturer-authored PDF hosted by distributor", "revision": "F, Apr 2015; not claimed latest", "Rds_max_ohm_at_Vgs_minus1p8V_25C": 0.09, "Vgs_abs_max_V": 8}},
+    {"references": "R1-R8", "quantity_per_tile": 8, "MPN": "RC0805FR-07680RL", "manufacturer": "Yageo", "value": "680 ohm 1% 0.125W", "package": "0805", "LCSC": "C114549", "stock_status": "Unregistered user resistors not identified; no stock credit",
+     "quote": {"currency": "USD", "MOQ": 100, "multiple": 100, "stock_page_snapshot": 756000, "unit_at_100": 0.0061, "unit_at_1000": 0.0048, "url": "https://www.lcsc.com/product-detail/C114549.html"},
+     "datasheet_url": "https://www.yageogroup.com/component-documentation/download/specsheet/RC0805FR-07680RL"},
+    {"references": "R15-R22", "quantity_per_tile": 8, "MPN": "RC0805FR-071KL", "manufacturer": "Yageo", "value": "1k 1% 0.125W", "package": "0805", "LCSC": "C95781", "stock_status": "Unregistered user resistors not identified; no stock credit",
+     "quote": {"currency": "USD", "MOQ": 100, "multiple": 100, "stock_page_snapshot": 3048200, "unit_at_100": 0.0037, "unit_at_1000": 0.0030, "url": "https://www.lcsc.com/product-detail/C95781.html"},
+     "datasheet_url": "https://www.yageogroup.com/component-documentation/download/specsheet/RC0805FR-071KL"}
+  ],
+  "additional_reused_passives": [
+    {"references": "R23-R38", "quantity_per_tile": 16, "MPN": "RC0805FR-0710KL", "value": "10k 1%", "package": "0805", "LCSC": "C84376", "source": "Canonical shelf availability, without reservation changes"},
+    {"references": "R39-R41", "quantity_per_tile": 3, "MPN": "0805W8J0472T5E", "value": "4.7k 5%", "package": "0805", "LCSC": "C26022", "source": "Canonical shelf availability, without reservation changes"}
+  ],
+  "illustrative_incremental_cost_USD": {
+    "consumed_new_parts_per_tile_at_small_quantity_tiers": 0.416,
+    "minimum_cash_1_tile": {"MOSFETs_buy": 10, "680R_buy": 100, "1k_buy": 100, "total": 1.402},
+    "minimum_cash_5_tiles": {"MOSFETs_buy": 40, "680R_buy": 100, "1k_buy": 100, "total": 2.668},
+    "scope": "New parts only; not complete BOM or delivered cost. Excludes stock value, PCB, process options, assembly, mechanical parts, shipping and tax. Batch size not selected; no order/cart action. Quotes need checkout refresh."
+  },
+  "decisions": [
+    "Reverse all 64 LEDs: column anodes, row cathodes; positions/pin assignments retained conceptually.",
+    "PMOS gates driven by HC138 through 1k series; 10k gate-source pulls.",
+    "MCU sinks each row through 680 ohm; 10k pull-up on MCU side blanks during reset.",
+    "PC5/PC6/PC7 addresses use open drain and 4.7k pull-ups to avoid loaded VOH ambiguity.",
+    "Separate active-low PWM firmware; never flash it onto original v3 wiring.",
+    "3.3V HC138 drive/transition behavior, MOSFET settling, MCU total current and brightness require physical verification.",
+    "No CAD source promotion to parent seed, no shared inventory updates, no hardware operations."
+  ]
+}

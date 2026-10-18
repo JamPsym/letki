@@ -1,0 +1,120 @@
+(footprint "EdgeBridgeLeft_1x07_Wire08mm"
+	(version 20241229)
+	(generator pcbnew)
+	(layer "F.Cu")
+	(descr "Rear surface contacts with inward wire PTHs; PCB-only, no purchased connector")
+	(attr through_hole exclude_from_bom exclude_from_pos_files board_only)
+	(property "Reference" "REF**"
+		(at 0 -2 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 0.8 0.8)
+			)
+		)
+	)
+	(property "Value" "EdgeBridgeLeft_1x07_Wire08mm"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(effects
+			(font
+				(size 0.8 0.8)
+			)
+			(hide yes)
+		)
+	)
+	(pad "1" smd rect
+		(at 0 0.0)
+		(size 1.6 1.4)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "2" smd rect
+		(at 0 -2.54)
+		(size 1.6 1.4)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "3" smd rect
+		(at 0 -5.08)
+		(size 1.6 1.4)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "4" smd rect
+		(at 0 -7.62)
+		(size 1.6 1.4)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "5" smd rect
+		(at 0 -10.16)
+		(size 1.6 1.4)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "6" smd rect
+		(at 0 -12.7)
+		(size 1.6 1.4)
+		(layers "F.Cu" "F.Mask")
+	)
+	(pad "7" smd rect
+		(at 0 -15.24)
+		(size 1.6 1.4)
+		(layers "F.Cu" "F.Mask")
+	)
+	(fp_rect
+		(start -1.05 -16.19)
+		(end 1.05 0.95)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+	)
+	(pad "1" thru_hole circle
+		(at 2.375 2.125)
+		(size 1.3 1.3)
+		(drill .8)
+		(layers "*.Cu" "*.Mask")
+		(zone_connect 0)
+	)
+	(pad "2" thru_hole circle
+		(at 2.45 -2.94)
+		(size 1.3 1.3)
+		(drill .8)
+		(layers "*.Cu" "*.Mask")
+		(zone_connect 0)
+	)
+	(pad "3" thru_hole circle
+		(at 0.55 -4.48)
+		(size 1.3 1.3)
+		(drill .8)
+		(layers "*.Cu" "*.Mask")
+		(zone_connect 0)
+	)
+	(pad "4" thru_hole circle
+		(at 2.35 -8.27)
+		(size 1.3 1.3)
+		(drill .8)
+		(layers "*.Cu" "*.Mask")
+		(zone_connect 0)
+	)
+	(pad "5" thru_hole circle
+		(at 0.55 -9.61)
+		(size 1.3 1.3)
+		(drill .8)
+		(layers "*.Cu" "*.Mask")
+		(zone_connect 0)
+	)
+	(pad "6" thru_hole circle
+		(at 1.975 -13.125)
+		(size 1.3 1.3)
+		(drill .8)
+		(layers "*.Cu" "*.Mask")
+		(zone_connect 0)
+	)
+	(pad "7" thru_hole circle
+		(at 0.55 -14.59)
+		(size 1.3 1.3)
+		(drill .8)
+		(layers "*.Cu" "*.Mask")
+		(zone_connect 0)
+	)
+)

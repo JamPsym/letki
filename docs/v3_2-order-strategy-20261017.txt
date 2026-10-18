@@ -1,0 +1,50 @@
+V3.2 bare-PCB order strategy — 17 October 2026
+
+User selected 5 + 10 boards and requested leaving the cart for manual payment.
+Both items use the same checked fabrication-20261017-r2 Gerber ZIP,
+SHA256 c25f94e4ac97441caf86c49dc6ff55ba31d15a033d6fac6600037cd6acc220df.
+Four layers, 49.6mm square, 1.6mm, green/white, leaded HASL and the accepted
+JLCONE defaults are retained. No paid special process was added.
+
+Saved cart:
+  ledkiv3_2-gerbers_Y10 / Y10-10656422A: 5 boards, USD2.00
+  ledkiv3_2-gerbers_Y11 / Y11-10656422A: 10 boards, USD8.00
+  Merchandise USD10.00; Global Standard Direct Line USD1.50.
+  Cart weight 0.26kg; delivery estimate 12–18 business days.
+  Cart subtotal USD11.50 before checkout charges.
+
+The PRE_CAL checkout preview retained USD1.50 shipping and added USD6.14
+under “Customs duties & taxes”, displaying USD17.64 Grand Total.
+JLCONE Exclusive Discount displayed “--”; no speculative later discount is
+included. Continue/Submit Order/payment were not clicked. The user's later
+address/payment choices can change the final amount.
+
+Single-batch PCB-only quotes for the exact uploaded design:
+  5: USD2.00; 10: USD8.00; 15: USD29.60; 20: USD31.10; 25: USD32.60.
+The USD25 engineering fee first appears at 15 boards.
+
+5+5+5 was tested in the actual cart: USD2+8+8, not USD2+2+2.
+Its combined weight was 0.27kg and shipping still USD1.50, for USD19.50
+before checkout charges. The temporary third item Y12 was removed.
+5+10 is cheaper and remains saved as requested. The original Y10 was preserved.
+
+The live shipping tooltip says three uses per month, one remaining this month,
+valid until 2026-12-31. This is the shipping promotion, not evidence of a
+three-per-month limit on USD2 PCB batches. The live cart applies the USD2
+price to only one five-board item. No order was submitted or offer consumed.
+
+Confidence is appropriate for prototype boards: current CAD/ERC/DRC/net checks
+are clean, but V006 firmware and physical electrical/network/mechanical tests
+remain pending. Fifteen tiles support a 3x5 array of 24x40 pixels. Assemble and
+test one tile, then a 2x2 group, before populating all fifteen. The existing
+checked assembly BOM/stock snapshot covers five boards; this cart change does
+not reserve components or create a fifteen-board assembly package.
+
+Canonical structured record: config/purchase/v3_2-quantity-strategy-20261017.json
+Sanitized UI evidence: build/purchase-v3_2/quantity-strategy-20261017/
+No CAD, firmware, stock, paid order or supplier message changes.
+
+Subsequent user confirmation: the user reported the5+10batch ordered and
+requested updating Electronics. See config/purchase/v3_2-jlc-order-20261017.json
+and docs/v3_2-order-and-bringup.txt. The preview above is retained as historical
+pricing evidence, not a verified paid amount. Receipt remains pending.

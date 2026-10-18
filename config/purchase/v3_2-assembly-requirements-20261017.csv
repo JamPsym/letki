@@ -1,0 +1,16 @@
+MPN_baseline,package_land_pattern,value,v3_2_pilot_5,v3_2_all_15,v3_1_5,combined_20,free_after_existing_holds,exact_stock_shortfall_combined,Ali_order_pending_quantity,pending_identity_or_substitution
+0603SAF1001T5E,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,1k 1%,80,240,80,320,0,320,0,
+0603SAF1002T5E,R_0603_1608Metric_Pad0.98x0.95mm_HandSolder,10k,120,360,120,480,0,480,0,
+0805S8F1001T5E,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,1k,20,60,10,70,0,70,0,
+0805S8F330JT5E,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,33R 1%,40,120,40,160,0,160,0,
+0805S8F4702T5E,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,47k,5,15,0,15,0,15,0,
+0805W8J0472T5E,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,4.7k,17,47,17,64,990,0,0,
+AO3415A,SOT-23,AO3415A,40,120,40,160,0,160,200,"AO3415 candidate, not exact AO3415A credit; lot and circuit substitution review pending"
+C0805B104K500NT,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,100n,15,45,10,55,230,0,0,
+CH32V003F4P6,TSSOP-20_4.4x6.5mm_P0.65mm,CH32V003F4P6,0,0,5,5,38,0,0,
+CH32V006E8R6,QSOP-24_3.9x8.7mm_P0.635mm,CH32V006E8R6,5,15,0,15,0,15,50,Exact advertised MCU/package; receipt/identity/readout pending
+CL21A106KAYNNNE,C_0805_2012Metric_Pad1.18x1.45mm_HandSolder,10 uF,5,15,5,20,195,0,0,
+DMN2056U-7,SOT-23,DMN2056U-7,40,120,40,160,0,160,200,"AO3414 candidate, not exact DMN2056U-7 credit; lot and circuit substitution review pending"
+RC0805FR-0710KL,R_0805_2012Metric_Pad1.20x1.40mm_HandSolder,10k,15,45,5,50,980,0,0,
+SN74HC138PWR,TSSOP-16_4.4x5mm_P0.65mm,SN74HC138PWR,5,15,5,20,43,0,0,
+XL-2012UOC,LED_0805_2012Metric_LetkiFab,XL-2012UOC,320,960,320,1280,360,920,2000,LIGHTHONG GH-C170KFKT-08T candidate; exact ratings and pulse suitability unqualified

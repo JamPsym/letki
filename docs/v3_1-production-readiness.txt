@@ -1,0 +1,69 @@
+V3.1 PRODUCTION READINESS AUDIT — 2026-10-16 (Europe/Warsaw)
+
+Verdict
+The accepted 33R v3.1 CAD passes the current design checks and is suitable
+as a prototype fabrication candidate. It is not a production-qualified design.
+Before placing a prototype order, resolve the actual fabricator process and
+preview. Before assembly, correct the stale checklist references below.
+A repeatable production release additionally requires physical qualification.
+
+Identity and fresh verification
+Canonical project: hw/ledkiv3.1/ledkiv3_1.kicad_pro.
+PCB SHA256: 803db5887b970f85937dc4378c422b3fa6cc18b6e7a23571c9567cdb836355e2
+All five baseline CAD/rule/exception hashes still match before/after this audit.
+Fresh native ERC/DRC with zone refill, schematic parity and all severities:
+0 violations, 0 open connections, 0 parity findings and 0 ignored checks.
+Independent circuit/pad audit: PASS, 350 electrical pads, 146 footprints.
+Independent actual multilayer connectivity: GND and VCC each form one network.
+Manufacturing audit: PASS, 131 ordinary tented vias, 77 rear labels and 413
+reviewed power/column tracks; existing via/SMT and M2 copper guards pass.
+Pulse and all three LED-off interface firmware variants build. Scoped v3.1
+host tests pass. All four binary hashes match the frozen package.
+All 97 files listed in the package artifact manifest match their hashes;
+all four frozen baseline artifact hashes also match. Existing nominal one/
+four-tile mechanics evidence was reviewed, not regenerated in this audit.
+
+Prototype-order gate
+The CAD/package specifies ordinary tented 0.6/0.3mm vias. The project records
+still leave the fabricator Tented/Plugged decision and preview unconfirmed.
+JLCPCB's current documentation distinguishes tenting from ink plugging and
+states a 0.35mm restriction near soldermask openings for ink plugging. The
+project's 0.36mm via-centre-to-SMT-pad guard is not a certification of that
+separate plugging process. Do not assume selecting Plugged is equivalent to
+this package's tented intent. Confirm the actual CAM treatment and preserve
+solderable component/contact holes. No fabrication upload/order was performed.
+Sources checked during audit:
+https://jlcpcb.com/help/article/pcb-via-covering (updated 2026-09-09)
+https://jlcpcb.com/capabilities/pcb-capabilities/
+
+Assembly-document discrepancies
+The current docs/v3_1-assembly-test.txt correctly specifies single 33R row
+resistors, rear-mounted R4 and removed JP1/JP2. However the active qualification
+CSV, also included in the frozen handoff, retains obsolete instructions:
+- Q01: both 68R resistors per row; current design has one 33R/1% resistor.
+- Q06: parallel row resistance; current design uses a single resistor.
+- Q11: front R4 closed optical pocket; current R4 is on the rear.
+- Q13: warning identifies old 34R hardware; current profile is 33R.
+- Q15: front R4 pocket, JP2 and buttons; those features are removed.
+Correct the current template and provide a clearly versioned assembly addendum
+or new checked handoff before use. Preserve the accepted frozen snapshot.
+The old procurement config also quotes 777 SMT placements; current five-tile
+population is 697 SMT plus five headers. Refresh the current sourcing and
+cost worksheet before buying; price/stock checks were outside this audit.
+
+Production qualification gates
+All 15 qualification rows remain PENDING. In particular, measure actual LED
+peak/overshoot, current pulse duration/duty including transistor turn-off tails,
+reset/debug behavior, loaded rail at each tile and thermal behavior. Qualify
+UART/I2C, soldered chain contacts, optical isolation and mechanical fit.
+Use the matching v3_1-pulse or LED-off interface images and first-provisioning
+R49-open/R38-fitted procedure. Original v3 firmware is incompatible with this
+new LED polarity and drive circuit. The successful original-v3 board tests do
+not close these v3.1 measurements. Five-tile message/frame control remains a
+separate firmware integration task; the pulse image is currently per-tile.
+
+Audit scope
+No CAD, firmware source, qualification result, inventory or frozen package was
+changed. No physical hardware was accessed. This audit records open gates;
+it does not claim measured current/thermal/timing or fabricator acceptance.
+Evidence directory: build/hardware/v3_1-production-audit-20261015T234411Z

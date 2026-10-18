@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Letki v3.2 routing comparison: the first robot version and the current board, with synchronized net highlighting and zoom.">
+  <title>Letki v3.2 — first robot version / now</title>
+  <link rel="stylesheet" href="style.css?v=20261017">
+  <script src="app.js?v=20261017" defer></script>
+</head>
+<body>
+  <header><a href="../">← Letki work index</a><span>v3.2 / routing study</span><a href="../viewer.html">Earlier v3.1 comparison ↗</a></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">Same board. A closer look at the traces.</p><h1>First robot version.<br>Now.</h1></div><p class="description">The accepted robot-routed snapshot beside the current board, after manual edits and two trace-cleanup passes. Select a net to follow the same connection in both.</p></div>
+    <div class="summary" id="summary"><span>Loading snapshot details…</span></div>
+    <div class="toolbar" aria-label="Comparison controls">
+      <label>Layer<select id="layer"><option value="front">Front · F.Cu</option><option value="back">Rear · B.Cu</option><option value="inner1">Inner 1 · In1.Cu</option><option value="inner2">Inner 2 · In2.Cu</option></select></label>
+      <label>Highlight net<select id="net"><option value="">All nets</option></select></label>
+      <label>View<select id="mode"><option value="side">Side by side</option><option value="wipe">Wipe comparison</option></select></label>
+      <label>Zoom<input id="zoom" type="range" min="1" max="6" step="0.25" value="1"><output id="zoom-value">1×</output></label>
+      <label class="check" id="mirror-label" hidden><input id="mirror" type="checkbox" checked> Mirror rear</label>
+      <button type="button" id="reset">Reset view</button>
+    </div>
+    <p class="hint" id="hint">Click copper to select a net. Zoom, then drag to pan; both views stay aligned.</p>
+    <div class="wipe-controls" id="wipe-controls" hidden><label for="split">First robot version / now</label><input id="split" type="range" min="0" max="100" value="50" aria-label="Comparison divider"></div>
+    <div class="comparison" id="comparison" data-mode="side" data-ready="false" aria-busy="true">
+      <section class="pane" id="robot-pane" aria-label="First robot version"><div class="pane-heading"><h2>01 / First robot version</h2><span class="layer-stat" id="robot-stat"></span></div><div class="viewport" id="robot-viewport" tabindex="0" aria-label="First robot version PCB; scroll or drag to pan"><div class="surface" id="robot-svg"></div></div></section>
+      <section class="pane" id="now-pane" aria-label="Current board"><div class="pane-heading"><h2>02 / Now</h2><span class="layer-stat" id="now-stat"></span></div><div class="viewport" id="now-viewport" tabindex="0" aria-label="Current PCB; scroll or drag to pan"><div class="surface" id="now-svg"></div></div></section>
+    </div>
+    <p id="status" role="status" aria-live="polite">Loading copper…</p>
+    <div class="below"><p>Both views use the same board coordinates and scale. Inner layers remain in the front view. GND is green; VCC is orange. The previews include saved copper fills.</p><p><a id="robot-download" href="#">First robot SVG ↗</a><a id="now-download" href="#">Current SVG ↗</a><a href="manifest.json">Snapshot details ↗</a></p></div>
+    <details><summary>What changed, and what was checked?</summary><div class="details-grid"><div><h3>From the saved robot route to today</h3><p id="change-note"></p><p>The two cleanup passes retained 68 simplified connections and then 50 freshly routed connections. The fresh pass searched with pours excluded, then refilled and checked the zones. It removed 97 bends, adding 5.69 mm across the 50 affected paths.</p><p>This is a comparison of saved states. It includes the manual work between them.</p></div><div><h3>CAD checks</h3><p>The first snapshot had zero native DRC, open-connection and schematic-parity findings. The current snapshot has no opens or parity findings and retains one existing dangling-track warning on /ADDR0. All 76 nets pass the independent connectivity check.</p><p><a href="robot-drc.json">First robot DRC ↗</a> · <a href="now-drc.json">Current DRC ↗</a></p><p>CAD previews do not establish physical or EMC performance.</p></div></div></details>
+    <noscript><p>Interactive comparison needs JavaScript. Open the <a href="robot/front.svg">first robot front SVG</a> and <a href="now/front.svg">current front SVG</a>.</p></noscript>
+  </main>
+  <footer><span>Letki v3.2 · 17 October 2026</span><span>SVGs from KiCad SVG Extras · <a href="https://github.com/adamws/kicad-svg-extras">MIT</a></span><a href="../">Back to work index ↗</a></footer>
+</body>
+</html>

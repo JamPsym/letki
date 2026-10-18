@@ -1,0 +1,10 @@
+{
+  "name": "Letki \u2014 original six-scene PWM demo",
+  "audio": "../../build/pwm-show/audio/score.wav",
+  "title": "LETKI",
+  "artist": "LIGHT AND SOUND",
+  "intro_seconds": 0,
+  "style": "pwm",
+  "gain": 0.8,
+  "cues": []
+}

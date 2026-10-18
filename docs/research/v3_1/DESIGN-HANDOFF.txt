@@ -1,0 +1,589 @@
+LETKI v3.1 REWORK — PLANNING HANDOFF, 2026-10-14
+
+Current status: five tiles and a separate owned-ESP/custom-buck head accepted;
+preferred brightness direction is separate pulsed-current Study C, checked in
+schematic/firmware models. Read the final "FIVE TILES / PULSED CURRENT" entry.
+PCB/contact/mechanical integration and physical qualification remain pending.
+The comparison below records the initial investigation, not the current circuit.
+This file records this isolated session's decisions for explicit review by the
+assembly/testing session. It does not synchronize or authorize physical work.
+
+USER CONSTRAINTS
+
+Retain BOTH v3 ICs: CH32V003F4P6 and TI SN74HC138PWR. Add no new ICs.
+Consider all v4 features, rather than choosing a feature subset in advance.
+Start with stocked parts only. Latest clarification allows discussion of other
+necessary parts; the user also has unregistered resistors. Their values, sizes
+and counts are pending. This does not lift the two-IC limit or authorize buying.
+Minimize total cost, including assembly and PCB process, while meeting ratings.
+Keep four layers as the planning baseline; fewer layers are not assumed cheaper.
+PCB fabrication is a future separate decision; no order is prepared here.
+
+EXISTING SEED, VERIFIED FROM SCHEMATIC NETLIST AND PCB
+
+hw/ledkiv3.1/ledkiv3_1.kicad_sch and matching PCB/project are unchanged copies
+of the archived ground-repaired design. The former revision will not be produced.
+Four copper layers; rectangular outline 40.64 x 44.45 mm, from
+(29.836,58.466) to (70.476,102.916) mm in the current PCB coordinate system.
+64 LEDs, eight GPIO row sources, eight active-low decoder column sinks.
+U1 is TSSOP20, U2 TSSOP16, both 0.65 mm pitch. No regulator, separate matrix
+driver, UART buffer or USB power circuit is present.
+
+R1-R8 remain unspecified "R" in the schematic. LEDs remain generic "LED".
+The physical v3's reported 51/68-ohm choices are assembly history, not an
+electrically qualified or reproducible specification for this new revision.
+C1/C3 are 100 nF IC bypasses; C2/C5 are 100 nF button-network capacitors;
+C4 is 10 uF bulk. R9/R10/R13/R14 are 10k; R11/R12 are 4.7k I2C pulls.
+Switches use the old Library:SW_tactile_TS-1089S footprint, unavailable through
+a project-local library table. Recover/verify local libraries before layout ECOs.
+
+Address A0/A1/A2: PC7/PC6/PC5, U1 pins 17/16/15 -> U2 pins 1/2/3.
+Rows top-to-bottom D8-D1: PD7, PC0, PD3, PD4, PC4, PC3, PA1, PD2.
+S1-S8 cathodes: U2 pins 15,14,13,12,11,10,9,7, left-to-right.
+SWIO PD1/U1.18 -> J2.2; J2.1 VCC, J2.3 GND.
+I2C SDA PC1/U1.11 -> both J1.3/J3.3; SCL PC2/U1.12 -> J1.4/J3.4.
+Right J1.5 is TX PD5/U1.2; left J3.5 is RX PD6/U1.3.
+Both side connectors: pins 1/2 VCC, 6/7 GND, seven positions at 2.54 mm pitch.
+The repaired GND link is retained; future ground pours require fresh audits.
+
+FEATURE COMPARISON AND PROPOSED DISPOSITION
+
+Feature                     Existing seed / proposed v3.1 / additions or limits
+
+MCU and decoder             Keep both exact stocked ICs and current pin map.
+LED current drive           Direct GPIO/HC138 retained. v4 HCT238, HCT244 and
+                            MOSFET architecture cannot be copied under this
+                            constraint. Determine passive current limiting first.
+PWM/text/frames              Existing v3 capabilities need no additional ICs.
+                            Preserve scan blanking, gamma and foreground I/O.
+                            No new hardware validation is implied.
+Directional UART chain      Already wired TX-right/RX-left. Preserve it; use
+                            prepared chain firmware as a reference. No additional
+                            buffer IC. Establish supply/adapter compatibility,
+                            optional stock series/idle resistors, powered-chain
+                            envelope and measured timing before qualification.
+Shared I2C                  Add selectable pull-up population or solder bridges;
+                            fit one pair per chain rather than every tile.
+                            Stock 4.7k first option; parallel pairs can approach
+                            v4's 2.2k if bus capacitance demands it. Check sink
+                            current, rise time and voltage before selection.
+Symmetric wire contacts     Candidate feature: ordinary PTH wire joints, equal
+                            left/right spans, no purchased connector. Assess
+                            seven 5.08mm positions between LED rows against the
+                            current outline, copper and optical grid. Do not
+                            assume v4 pin numbering is v3-compatible.
+Power distribution/GND      Retain four layers; redesign return paths and chain
+                            feeds deliberately. Select widths from actual load
+                            and copper specification, not by copying v4.
+3.3V logic + 5V LED rail     No stocked regulator or level interface is recorded.
+                            Exclude onboard split-rail implementation for now.
+                            Assess one externally regulated common rail instead.
+USB-C power head            No on-hand USB-C connector recorded; incoming v4.1
+                            parts are pending and committed. A passive 5V input
+                            could be discussed, but adds connector/CC parts and
+                            needs a supply/fault plan without v4 limiter IC.
+                            Leave out of the initial stocked-parts proposal.
+SWIO access                 Preserve bare solder/probe pads and clear labels.
+                            No stocked PicoBlade is available. Any later socket
+                            requires an explicit parts decision and fit review.
+Buttons                     Retain stocked TS-1089S-02526 and 0805 RC networks
+                            once exact land/pin identity is established. Do not
+                            inherit ALPS minimum-load rules for the XUNPU part.
+Mounting/optics              Candidate M2 NPTH holes, removable printed grid/face/
+                            carrier, subject to clearance and assembly review.
+                            Preserve user's existing FCStd model unchanged as
+                            reference. Wire joints need opaque solder hoods if
+                            they intersect separator walls. Physical fit pending.
+Assembly/test access         Candidate rear passive labels, consistent contact
+                            legends, polarity marks and copper test pads; no
+                            purchased testpoint parts needed.
+UART bootloader             Separate firmware study, no new IC; not an existing
+                            capability. Assess flash budget and recovery first.
+
+STOCK AND REQUIRED ADDITIONS
+
+Exact part/package/availability comparison: docs/v3_1-stock-review.csv.
+Read-only canonical inventory snapshot and hashes:
+build/hardware/v3_1-planning/inventory-availability.json
+build/hardware/v3_1-planning/inventory-source-hashes.json
+
+Conservative shelf MCU balance 46; v3 hard hold 3; v4.1 plan 5; free 38.
+LED balance 872; v3 hold 192; v4.1 plan 320; free 360.
+HC138 free 43; selected small switches free 40. Other available exact lots:
+10k 980; 4.7k 990; 51 ohm 960; 68 ohm 968; 100nF 230; 10uF 195.
+All are estimated receipt-derived balances, not a physical stocktake.
+Current incoming TME order contributes zero confirmed on-hand stock.
+The two v3 IC types and current shelf LEDs support at most five complete new
+64-LED tiles from uncommitted recorded stock (LED-limited, 40 LEDs remaining).
+This is arithmetic only: no batch size selected, reservation or consumption made.
+Unregistered resistors remain separate and uncredited until identified.
+
+No new IC is proposed. No new purchased component is presently required by the
+passive/current-limited core proposal. Additional resistor quantities/values,
+wire, supply access and mechanical hardware remain to be specified. Wire and
+fastener availability is not established by the electronics ledger. An optional
+USB/socket feature cannot be called stock-only based on a pending v4.1 order.
+
+ELECTRICAL QUESTIONS THAT DETERMINE THE CIRCUIT
+
+1. Limit the SUM of eight LED currents through the selected HC138 output.
+   TI specifies VOL at 4mA with VCC=4.5V (0.33V maximum across the SN74
+   operating-temperature range). Its 25mA per-output / 50mA supply-ground
+   absolute limits are stress ratings, not operating targets. PWM average
+   current does not justify exceeding instantaneous output limits.
+   The decoder datasheet has no equivalent loaded 3.3V test row; do not
+   interpolate one into a guaranteed specification.
+
+2. Compare two passive architectures while retaining matrix polarity/pins:
+   A. Per-row resistance: more consistent pixel current. Example stock-only
+      series combination 10k 1% + 4.7k 5% on each row gives minimum initial
+      resistance 14365 ohm. At an assumed 5.25V maximum supply, even zero LED
+      and driver drops bound a fully lit column to 8*5.25/14365 = 2.924mA.
+      This needs 16 row resistors total (8 additional lands), with a much
+      smaller normal LED current and potentially inadequate brightness.
+   B. Per-column resistance: add one stock 4.7k 5% between each decoder output
+      and cathode bus; retain stock row resistors. Minimum initial 4465 ohm
+      bounds total selected-column current to 5.25/4465 = 1.176mA, ignoring
+      other drops. Current per pixel falls as more rows light. Assess that
+      visible pattern dependence before choosing this smaller resistor set.
+   These are preliminary upper bounds under an ASSUMED supply ceiling, not
+   selected populations or guaranteed optical outputs. Add TCR/drift and
+   resistor ratings; check inactive-column levels, leakage and LED reverse
+   voltage. Use identified extra resistor values to improve the tradeoff.
+
+3. Choose external common-rail voltage and tolerance before claiming logic
+   margins. WCH v1.3 permits 2.7-5.5V without ADC; its output table separates
+   TTL and CMOS port cases, with CMOS VOH only 2.3V in the eight-pin 8mA test.
+   HC138 VIH is 3.15V at VCC=4.5V. Establish applicable port/load guarantees
+   for PC5/PC6/PC7; a light-load expectation or working v3 alone is insufficient.
+   3.3V reduces LED headroom and has sparse HC138 loaded-output data; 5V
+   increases interface-level requirements. Neither supply is selected yet.
+
+4. Direct UART and I2C track the chosen common rail. Do not assume the
+   existing 3.3V adapter is valid at 5V or claim hot-plug/unpowered tolerance.
+   Stock resistors may limit/damp current but do not recreate v4's buffered
+   interfaces or a general level shifter. SWIO reference/power must be reviewed.
+
+5. Decide acceptable brightness with low selected-column current. At the
+   existing 100us blank per 500us column slot, each pixel's maximum duty is
+   about 10%, before gamma dimming. XL-2012UOC's 20mA forward-voltage data
+   does not guarantee its behavior at sub-mA currents. Ask the testing session
+   for current/voltage/optical evidence after an independently authorized test.
+
+6. Size a complete chain from measured load, voltage drop, bus capacitance
+   and adapter timing. Physical two-board I2C/UART remain pending in the copied
+   records. No board, serial port or programmer was accessed by this session.
+
+READ-ONLY BASELINE CHECKS AND SOURCE PRESERVATION
+
+Official KiCad checks ran on an isolated complete context with zones refilled,
+all severities requested and schematic parity enabled. Evidence:
+build/hardware/v3_1-planning-baseline/workflow.json and raw JSON/logs.
+ERC: three library warnings (two missing switch footprint-library links, one
+MCU symbol-library issue); four inherited ignored checks remain visible.
+DRC: 188 findings: 14 copper-edge, 6 silk-overlap, 14 silk-over-copper,
+88 library-footprint mismatch, 2 library-footprint issues, 8 silk-edge,
+56 isolated-copper. Zero unconnected items.
+Parity: 95 findings: 3 duplicate footprints, 88 field mismatches, 4 extra
+footprints. Seven inherited ignored PCB checks remain visible.
+Both official checks exit 5; the workflow also rejects unexplained ignored
+checks. This is a recorded failing baseline, not a clean candidate.
+No supplementary router check or physical test was run.
+All 56 CAD/project/schematic/FCStd files listed in SESSION-BASELINE.json match
+their baseline hashes. Evidence: build/hardware/v3_1-planning/preservation.json.
+
+REFERENCE BASIS
+
+START-HERE.txt; AGENTS.md session ownership; README.md; docs/arch-setup.md;
+docs/current-state.md; docs/v4-design.md; docs/v4_1-design.md; seed netlist at
+build/hardware/v3_1-planning/netlist.xml; canonical live inventory.
+TI HC138 Rev G was also checked at the manufacturer URL during planning:
+https://www.ti.com/lit/ds/symlink/sn74hc138.pdf
+Local immutable TI HC138, WCH v1.3, XINGLIGHT LED and XUNPU switch-series
+documents come from /home/pies/.local/share/electronics/datasheets/catalog.json.
+Do not claim those are the newest revisions or a series drawing proves an exact
+suffix. V4.1's USB edge has a documented unresolved 0.575mm deviation; do not
+copy its connector placement as a validated template.
+The seed README's statement that active firmware lacks UART is historical;
+current firmware/docs supersede it.
+
+NEXT DECISIONS / PROPOSED HANDOFF
+
+Identify extra resistor values/sizes/counts; choose a passive current-limit
+approach, supply/interface envelope and brightness target. Agree the contact
+and mechanical feature list. Only then edit the candidate CAD, specify exact
+parts/values, resolve inherited library/parity/rule issues and run complete
+ERC/DRC/parity plus independent circuit and geometry checks.
+No original-project edits, inventory mutations, orders, source promotion,
+commits, firmware changes or hardware operations occurred in this planning pass.
+
+LATER USER REQUEST: CURRENT-MEASUREMENT TEST FLASH
+
+The user subsequently requested "ok, flash test program". A separate
+v3-current-demo image is prepared locally: firmware/current-demo/README.txt.
+It starts with one fixed bottom-left LED (R1/S1), with the unchanged active
+scan driver and nominal 10% pixel duty. No full-column pattern is included.
+Default v3 firmware and all CAD remain unchanged; Makefile adds the variant.
+Pattern tests, make test, make all-variants and clangd check pass. The image
+uses 5240 bytes of code/data sections and 600 bytes of RAM sections including
+the retained stack. Exact binary length/hash and check state are recorded in
+build/current-demo/summary.json. Actual current/duty/optics remain unmeasured.
+
+The attempted programmer identity command was rejected by automatic approval
+review BEFORE execution. Reason: this session's AGENTS.md explicitly forbids
+probe access and restarts; the generic flash request was not accepted as an
+override of that scoped ownership rule. Initial sandbox USB enumeration also
+could not initialize libusb. No successful device access, backup, flash,
+option-byte change or programmer-power change occurred. Explicit override of
+session ownership and confirmation that the other session has released the
+probe are needed before retrying. Do not bypass the rejection indirectly.
+If access is approved: identify the connected board, preserve two matching
+full flash backups, preserve option bytes, flash/readback the exact checked
+image and leave the fixed R1/S1 pattern running for the user's measurement.
+
+ASSEMBLY SESSION RESULT RECEIVED — 2026-10-14
+
+ASSEMBLY-HANDOFF.txt now records that the assembly/testing session flashed the
+exact checked 5240-byte image on the second v3, UUID d7-6e-ab-cd-41-3a-bd-ff.
+Image SHA256 matches this session's build. That session retained two matching
+full-flash backups, verified all image bytes and preserved option bytes/power.
+Startup/status/blank/R1 restore passed. This supersedes the image's earlier
+unflashed status; this design session itself still performed no hardware work.
+
+User-reported UNI-T UT61B DC readings: 0.067V across R1 and 3.312V supply,
+interpreted in the requested order. For nominal 51 ohm: mean row current
+0.067/51 = 1.314mA; estimated lit-pulse current at nominal 10% duty = 13.14mA.
+Both estimates depend on the meter representing the mean; actual resistance
+and pulse waveform/duty were not measured. An earlier disagreement between
+mV/V ranges remains unresolved. Treat the pulse value as an estimate.
+
+This is SINGLE-pixel loading. It does not qualify eight simultaneous pixels,
+and 8*13.14mA is not a measured/predicted full-column current: GPIO/decoder
+voltage drops and LED current change with loading. The resistor/supply/logic
+questions above remain open; no v3.1 current-limit population is selected.
+Do not use reduced average LED current to establish instantaneous drive margin.
+Physical brightness under a proposed lower-current design is still untested.
+
+External evidence (read-only):
+/home/pies/letki/build/board-readback/current-demo-20261014/summary.json
+/home/pies/letki/build/board-readback/current-demo-20261014/user-current-measurement.json
+/home/pies/letki/build/board-readback/current-demo-20261014/swio.log
+
+TRANSISTOR DIRECTION SELECTED BY USER — 2026-10-14
+
+Latest user instruction: "lets try the transistors way". No additional ICs.
+The testing-session handoff now also includes full S1-column measurements:
+all eight 51-ohm row drops reported 0.020V at 3.309V supply. Estimated combined
+pulse current is 31.37mA at nominal 10% duty, above HC138's 25mA per-output
+absolute ceiling. Meter/timing/resistance assumptions still apply. The testing
+session last blanked the board; its full-column test returns on reset. This
+design session did not access the board. Detailed external evidence:
+/home/pies/letki/build/board-readback/current-column-20261014/user-current-measurement.json
+
+Prepared separate Study A: hw/ledkiv3.1/transistor-study/ledkiv3_1_pmos.kicad_sch.
+Exactly two retained v3 ICs, eight CJ2305 PMOS column sources, reversed LEDs,
+MCU row sinks through 680 ohm. Additional 1k gate series, 10k gate/row pulls
+and open-drain addresses with 4.7k pulls. External common 3.3V +/-5% only.
+Existing parent seed schematic/PCB, active v3 driver, archives and models remain
+unchanged. This study has NO PCB and is not a manufacturing handoff.
+
+Firmware candidate: make VARIANT=v3_1-pmos; uses a separate active-low driver.
+NOT COMPATIBLE WITH ORIGINAL V3 WIRING. Do not flash it on either v3 board.
+It preserves gamma, scan/PWM rates and pin assignments while blanking HIGH,
+inverting main PWM outputs and changing address outputs to open drain.
+Official schematic ERC has zero findings and no ignored checks/exclusions.
+Independent audit checks every LED/source/gate/row path, exact transistor pins,
+two-IC limit and retained interfaces. Real-driver host GPIO tests, all firmware
+variants and clangd pass. Schematic PDF was visually inspected. No physical
+operation, purchase, stock mutation or original-project promotion occurred.
+
+Docs: docs/v3_1-transistor-study.txt and firmware/v3_1-pmos/README.txt.
+Exact parts/quotes: config/v3_1-pmos-study.json. Build/circuit/ERC/PDF/check
+evidence: build/hardware/v3_1-transistor-study/. The 680-ohm/10k model bounds
+one sink pad to 5.61mA; a provisional VSS subtotal is 69.88mA with assumed
+20mA core/5mA other-I/O allowances. These are engineering budgets, not
+qualification. TI has no loaded 3.3V HC138 table row: gate low level, settling,
+address edges, MCU total current, low-current brightness and ghosting need real
+checks. Single-tile/pull-up assumptions do not qualify a complete chain.
+
+Eight PMOS is the first parts-count candidate. It still uses MCU row current,
+so 51-ohm resistors cannot simply be retained. Nominal 680-ohm illustration
+is about 1.62mA pulse, potentially dimmer than the measured old full-column
+3.92mA/LED. Eight further row sink transistors could raise the current envelope
+without adding ICs; that optional 16-transistor design is not implemented.
+PNP sources or 16-device polarity-preserving column circuits remain alternatives,
+not claimed worse in delivered cost. Part-only incremental small-tier estimate
+is $0.416 consumed/tile; MOQ cash for one/five tiles $1.402/$2.668, before all
+PCB/assembly/mechanical/delivery/tax costs and stock value. This is not an order.
+Transistors and 680-ohm/1k resistors are not confirmed on hand. Existing free
+10k/4.7k stock is available, with all v3/v4.1 allocations still intact.
+
+SIXTEEN-TRANSISTOR DIRECTION / POLISH AVAILABILITY — 2026-10-14
+
+User accepts eight additional row transistors, retaining the same two v3 ICs.
+Develop eight PMOS column sources plus eight NMOS row sinks. The checked
+eight-PMOS Study A remains a reference; the sixteen-device circuit, resistor
+values and corresponding driver are not yet implemented or qualified.
+
+User asks only to establish availability now. An eventual purchase may be
+combined with other items; do not assume a board count or a separate shipment.
+Piekarz lists AOS AO3401A (P) and AO3400A (N), both SOT-23 G1/S2/D3, in
+stock. Net PLN prices at 10+ are 0.74 and 0.55 respectively; both minimum
+10, multiples of 5. Exact links and selection limits are recorded in
+config/v3_1-domestic-sourcing.json. These are sourcing candidates, not selected
+substitutions: their on-resistance guarantees start at |Vgs|=2.5V, requiring
+a resolved gate-drive budget. Prefer a verified 1.8V-rated row device if the
+MCU minimum output cannot guarantee this. Allegro was checked but ambiguous
+manufacturer/catalogue substitutions were not treated as exact-part matches.
+No delivery price or duty estimate is needed for this availability step.
+No purchases, inventory reservations, CAD or firmware changes occurred.
+
+ALLEGRO / LOCAL RAFIG FOLLOW-UP — 2026-10-14
+
+User also requests nearby Rafig (Olbinska 4, Wroclaw). Its website confirms
+personal collection only. The online transistor category lists only IRFZ44N
+and TIP35C; target small MOSFET stock could not be confirmed. Do not equate
+an incomplete online catalogue with absence from the physical shop. Official
+contact: 71 372 29 04; no contact was made on the user's behalf.
+
+Allegro seller Conteo_pro lists AO3400A at 1.99 PLN and AO3401A at 2.69 PLN
+per piece; exact offer URLs saved in config/v3_1-domestic-sourcing.json.
+The direct P-MOSFET offer now shows only three pieces, insufficient for a
+tile alone. Prices are displayed consumer prices, distinct from Piekarz net
+prices above. Smart badge does not establish unconditional free delivery.
+All electrical-selection limits above remain. No purchase or CAD change.
+
+BROADER SUPPLIER / LOCKER RESEARCH — 2026-10-14
+
+User asks for Mouser, TME, AVT and other shops, prioritizing delivery cost and
+parcel lockers. User explicitly retains Piekarz after noticing its InPost.
+Complete dated snapshots, primary links, unresolved quotes and example totals:
+config/v3_1-supplier-research-20261014.json (13 suppliers considered).
+
+Preferred next-design pair: AOS AO3415A PMOS and Diodes DMN2056U-7 NMOS,
+eight each. TME lists both in stock: AO3415A 0.61 PLN net / 0.75 displayed
+gross at 5+, DMN2056U 0.79 net / 0.97 displayed gross at 10+. The N individual
+Polish URL could not be fetched; price is from the primary Polish category,
+stock cross-checked against TME's English individual product page. Exact
+counts differ between dated locale snapshots and are not reservations.
+Manufacturer documents specify Rds max 65mohm at -1.8V for AO3415A and
+85mohm at +1.5V for DMN2056U. This is a stronger component pair for the
+provisional gate-drive budget than the earlier 2.5V AO340x candidates.
+Full circuit/pin/footprint/current/reset/timing/PWM and physical checks remain.
+Study A and its firmware are unchanged; sixteen-transistor Study B still needs
+implementation. Do not describe component screening as a released design.
+
+InPost gross PLN: Piekarz 16.00; TME 19.56; AVT 12.90; Kamami 13.90;
+Botland from 13.99. Cheaper other lockers/points: AVT Pocztex 7.49 promotion
+through 2026-11-30, ORLEN 9.50; Kamami GLS 8.90, Botland GLS from 8.99.
+Mouser confirms most qualifying orders over 300 PLN ship free; a primary
+below-threshold tariff and InPost were not confirmed. DigiKey: 80 below 300,
+free from 300 except marketplace; use its stated UPS/FedEx DDP terms when
+comparing delivered cost. Micros adds a small-order handling fee to delivery.
+No preferred exact pair was established at AVT/Kamami/Botland/Rafig; this does
+not prove physical-shop absence. Unverified Maritex aggregator leads remain
+uncredited. No seller contact occurred.
+
+Illustration only, 10 P + 10 N, not a board-batch choice or complete BOM:
+Piekarz old AO340x pair about 31.87 PLN with InPost, gate-drive caveat retained;
+TME preferred AO3415A/DMN2056U pair about 36.78 PLN with InPost. Gross values
+estimated from net line totals, allowing checkout rounding. The roughly 4.91
+PLN difference buys the preferred low-voltage component specifications.
+Future combined baskets can change the best delivery choice. Existing placed
+orders and shared reservations were preserved. Incoming DMG2302UK is a
+different part, not confirmed on hand and not a 1.5V-rated DMN2056U substitute.
+Only sourcing records changed; no cart, order, inventory, CAD or hardware action.
+
+SELECTED TME PAIR / STUDY B — 2026-10-14
+
+User selected proceeding with eight AO3415A P-MOSFETs and eight DMN2056U-7
+N-MOSFETs. Exactly the original CH32V003F4P6 and SN74HC138PWR remain;
+no new IC. This supersedes the earlier eight-PMOS preferred direction.
+The general supplier/delivery research was copied to the electronics repo:
+/home/pies/electronics/notes/sourcing/2026-10-14-pl-suppliers.txt and .json.
+Its discussion log has a pointer; existing content was preserved. No order.
+
+New native schematic: hw/ledkiv3.1/tme-study/ledkiv3_1_tme.kicad_sch.
+Current path: 3.3V -> AO3415A column -> LED -> 220R row -> DMN2056U -> GND.
+All LEDs reverse relative to v3. Both ICs now drive control networks only.
+R1-R8=220R 1%; sixteen gate series=1k; gate pulls=10k; eight additional
+10k cathode bias resistors keep inactive rows from floating. Address pulls
+remain 4.7k 5%, with open-drain MCU addresses. Common externally regulated
+3.3V +/-5% only. No direct 5V/USB, regulator or interface buffer IC added.
+Eight 220R and sixteen 1k parts are unconfirmed user stock/new parts;
+additional twenty-four 10k and three 4.7k match recorded shelf parts.
+No shared reservation, consumption, pending-order or incoming-stock update.
+
+At nominal 3.3V / Vf=2.1V, 220R illustrates 5.45mA pulse / 0.545mA average
+per pixel at 10% duty. With 3% resistor allowance and 3.465V, the zero-drop
+branch bound is 16.24mA. This uses the LED's 20mA continuous ceiling at 25C,
+not its 80mA/0.1ms pulse allowance. Current/temperature/optics need real checks.
+Gate budget supports conservative low-Vgs Rds ratings: AO3415A 65mohm at
+-1.8V, DMN2056U 85mohm at +1.5V, both at 25C. HC138 loaded VOL at 3.3V
+remains conditional, not guaranteed by a missing table row. Its total current
+absolute ceiling is 50mA. Model budgets and all limits are in the circuit report.
+
+Firmware: make VARIANT=v3_1-mosfet, separate local display.c with LOW gate
+blanking, active-HIGH PWM and OD addresses. Do NOT use it on original v3
+or Study A. No board access or flash occurred. Gamma/10kHz PWM/100us blank/
+250Hz frames and the active app are retained. An 83ns minimum gamma pulse
+may be suppressed by the 1k/gate network: scope/optical checks remain.
+Build sections: 15,840 flash bytes, 1,764 RAM bytes including 256-byte stack;
+no new call path, but runtime stack high-water has not been measured.
+
+Checks: official full-severity ERC zero findings, ignored checks or exclusions;
+independent exact-part/pin/net/current-path audit; real-driver GPIO tests;
+make test; make all-variants -j4; clangd zero errors; PDF visually inspected.
+The 612 protected seed/reference/archive/v3 files and v3 binary are unchanged.
+Study B has NO PCB: no DRC/parity/manufacturing clearance is claimed. Original
+seed violations remain. No CAD or firmware promotion to the main project.
+
+Short notes: docs/v3_1-tme-study.txt. Exact parts: config/v3_1-tme-study.json.
+Review PDF, manufacturer PDFs/hashes, ERC/netlist, budget and build/check logs:
+build/hardware/v3_1-tme-study/. Earlier Study A is preserved as a reference.
+Next integration: symmetric PTH contacts, head-only I2C pulls, rear labels,
+power/GND layout, M2 holes and removable optics, then routing and fresh checks.
+No fabrication release before resolving the electrical/physical limits.
+
+PWM GHOSTING BASELINE CLARIFICATION — 2026-10-14
+
+User correctly notes that the v3 PWM ghosting was eliminated in firmware.
+Reviewed active display.c against the original project's current copy: identical.
+blank_rows() forces GPIO LOW before decoder changes; TIM2 update after nominal
+100us calls display_unblank(), restoring PWM only on lit rows. The visual fix
+was user-confirmed previously. Study B retains this exact sequence, changing
+only the address GPIO mode functionally. Treat v3 ghosting as resolved.
+Remaining Study B checks concern new MOSFET gate/drain settling within the
+existing blank and low-end optical PWM response, not a missing software fix.
+R50-R57 bias new cathode nodes; they are not a repair for the old firmware bug.
+No firmware or CAD change was needed for this clarification.
+
+DEPLOYMENT POWER / ESP8266 DISCUSSION — 2026-10-14
+
+User asks to confirm power routing, transistor bypass of HC138 loading,
+deployment USB-C/regulation and ESP8266 management over the edge UART chain.
+Wide VCC feeds and continuous GND are planned layout work, not implemented
+Study B PCB changes: the candidate still has no PCB. LED current bypasses
+the decoder through MOSFETs; resistors limit LED and gate currents.
+
+Current circuit requires externally regulated common 3.3V +/-5%. It must not
+be connected directly to USB 5V with its selected 220R/current/gate budget.
+USB-C deployment therefore needs a 5V-to-3.3V power stage and proper USB-C
+CC/current handling. An external power/controller head is a proposal that
+can leave each LED tile with its original two ICs. A regulator on the tile
+would be an additional IC. No exception to the user's limit is assumed,
+no regulator/connector is selected, and the current schematic is unchanged.
+Size supply and power routing after deciding tile count; include ESP Wi-Fi
+transients. Espressif recommends >=500mA supply capability for ESP8266 alone,
+not a 500mA constant load. LDO dissipation is (5-3.3)*I; a whole-chain power
+stage may favor a buck converter, subject to load and total-cost comparison.
+
+New evidence from the original project, read-only:
+/home/pies/letki/build/board-readback/uart-chain-20261014/live-result.json
+reports PASS, two boards, 20/20 packets, hops=2 and zero diagnostics. The
+updated /home/pies/letki/docs/uart-chain.md records identity/readback and test
+limits. This supersedes this snapshot's older "two-board UART untested" text
+for the v3 transport only; it does not qualify the new MOSFET candidate or ESP.
+
+ESP8266 can be the 3.3V UART request source in place of the PC:
+ESP TX -> first tile RX -> forwarded through each TX/RX -> last TX -> ESP RX.
+All nodes share GND. Return to ESP comes from the LAST tile; no tied TX outputs.
+The existing diagnostic chain verifies CRC/hops/counters; full multi-tile text,
+brightness/frame management and ESP firmware remain to integrate. Existing
+single-board text commands are a separate app/protocol, not automatically
+forwarded. Keep protocol framing robust against ESP's UART startup output.
+Management does not imply that a CH32 UART/OTA firmware updater exists; retain
+SWIO access for programming and recovery.
+
+Other planned items: symmetric ordinary PTH wire contacts, head-only optional
+I2C pulls, rear labels/test access, M2 holes/removable optics, reversed-LED
+polarity marks, resistor identification, tile-count/power-drop budget and final
+ERC/DRC/parity plus physical checks. V3 software ghosting remains resolved.
+
+Primary references checked:
+https://documentation.espressif.com/esp8266_hardware_design_guidelines_en.html
+https://www.st.com/resource/en/application_note/dm00536349.pdf
+No board access, firmware/CAD edit, reservation, order or source promotion.
+
+FIVE TILES / PULSED CURRENT — 2026-10-14
+
+User confirms UART/I2C validation and fixes deployment at five tiles. User owns
+an ESP8266 and generic Chinese buck modules for initial trials; exact ESP
+footprint and module capacity remain unknown. Final head should have a properly
+designed USB-C-to-3.3V buck. Two original ICs remain on each LED tile.
+Original-project UART/I2C reports now both record physical two-v3 PASS: 20
+packets/replies each. Read-only evidence paths are in config/v3_1-system.json.
+No second-session hardware or shared inventory was accessed for mutation here.
+
+Initial five-tile pass raised row current with 100R (Study B2), preserving the
+checked 220R context/reports in build/hardware/v3_1-five-tiles/before-220R/.
+User then correctly challenged using only the 20mA continuous LED ceiling.
+Manufacturer permits 80mA ONLY for <=100us and <=10% duty, at 25C. Old
+full-brightness 400us scan does not qualify. Do not simply reduce resistance
+while retaining that repetitive driver.
+
+New preferred development direction: Study C, isolated complete KiCad context
+hw/ledkiv3.1/pulse-study/ledkiv3_1_pulse.kicad_sch. Same retained MCU/HC138,
+8 AO3415A + 8 DMN2056U-7. R1-R8 and R58-R65 form two stocked 68R 1%
+parallel per row = 34R. 3.3V/Vf=2.1V illustrates ~35.3mA pulse / 2.82mA
+mean pixel, not measured optical output. The engineering Vf>=1.6V at 20mA
+floor plus monotone IV bounds healthy-row operating current below ~56.6mA
+under the rail/resistor model; temperature/actual lot still need qualification.
+80mA is a stress ceiling, not an operating target. No higher-current physical
+test has been performed. Stock-resistor pulse/thermal behavior also remains.
+
+make VARIANT=v3_1-pulse builds separate driver/main with -Os, same WCH ABI,
+startup/linker and 256-byte stack. SysTick is 8kHz (eight ticks/ms), 1kHz
+frames. PWM2/OPM timers have nominal 110us windows and <=80us gate pulses:
+30us initial blank, counter rollover to zero ends the pulse and stops it
+without the next ISR. GPIO LOW before column changes preserves the previous
+anti-ghosting principle. Timer-unblank IRQ is unused. All other application
+interfaces remain foreground/nonblocking. Gate tails, actual scan latency,
+clock/LED waveform width/duty, reset and low-end PWM need bench checks.
+This image is NOT for either original v3 board or for the earlier Study A.
+Never drive the 34R circuit with v3_1-mosfet/repetitive firmware.
+
+Head target is now 3.3V/3A continuous class with >=3.5A transient envelope,
+superseding the initial 2A head estimate. Budget: ~1.17A nominal full matrix +
+logic/ESP; conservative 60mA pulse and ESP-capacity budget ~2.23A mean / 3.37A
+coincident gate transient. These are sums, not measured guaranteed consumption.
+Power both strip ends from the SAME head to reduce voltage drop. Preliminary
+2mm/35um-equivalent loop model gives ~59mV hot copper drop plus a 40mV wire/
+contact allowance. Actual planes/feed wires/geometry need auditing after layout.
+Proper USB-C CC/source-current/inrush handling, input/output capacitor derating,
+magnetics saturation, loop/layout/thermal/transient behavior remain head work.
+AP63300-family is a reference only; not a finalized or fully sourced head BOM.
+PL direct TME pages show zero despite positive category/locale snapshots for
+some Diodes bucks. Do not count those inconsistent listings as confirmed stock.
+
+80 stocked 68R serve five tiles without new row-resistor purchases; 40 extra
+placements compared with one resistor per row. Five tiles need 320 LEDs,
+five MCU/decoder pairs, 40 new P and 40 new N MOSFETs, 80 gate-series 1k,
+120 additional 10k and 15 address 4.7k. Free shelf estimates support five tiles,
+leaving 40 uncommitted LEDs after this forecast. No ledger hold/consumption or
+order was made; the assembly session retains shared-accounting ownership.
+
+Study C full-severity ERC zero findings/ignored/exclusions; exact pin/net/MPN
+check passes. Real-driver pulse model covers every channel/brightness, scan
+latches and OFF without subsequent IRQs. make test and all-variants pass;
+clangd driver/main zero errors. Native PDF inspected. Firmware sections are
+9,728 flash / 1,756 RAM bytes including stack. Compiler/static call-path stack
+assessment is separate from unmeasured runtime high-water. No study PCB yet;
+DRC/parity/manufacturing clearance cannot be claimed. No flash, probe/power,
+order, shared ledger mutation, commit or main-project source promotion.
+
+Current concise plan: docs/v3_1-five-tile-plan.txt.
+Parameters: config/v3_1-system.json. Evidence: build/hardware/v3_1-five-tiles/.
+Next layout/interfaces/mechanics: symmetric contacts, continuous GND/power,
+head-only optional I2C pulls, rear labels/SWIO, M2/removable optics; ESP head,
+five-tile text protocol and physical current/timing qualification still remain.
+
+2026-10-15 — full v3.1 tile prototype handoff completed
+Authoritative source: hw/ledkiv3.1/integrated/. Checked package at
+exports/prototype/ with zeroERC/DRC/opens/parity/ignored, matched pulse and
+LED-OFF communication firmware, current-pose1/4tile mechanics, BOM/stock
+forecast, assembly/provisioning guide and15PENDINGphysical qualification rows.
+PCB SHA8ed06d4da822652605ac51a19c34048dfd4aa7a7d353fba810f5046fec4d8269.
+69CADtechnique trials and shared workflow updates published in~/electronics.
+ESP-12F/head and physical verification remain user-deferred. No orders,
+hardware/flash/options/power, inventory writes, commits or pushes here.
